@@ -78,6 +78,14 @@
       "x": 4560,
       "y": 1100
     },
+    "FontSizeSwitch.dc.html": {
+      "h": 260,
+      "is_interactive": true,
+      "title": "Komponenta – Velikost písma (prezentace)",
+      "w": 300,
+      "x": 4560,
+      "y": 2440
+    },
     "Gdpr.dc.html": {
       "expand": "fill",
       "h": 1500,
@@ -284,7 +292,8 @@
     "Breadcrumb.dc.html",
     "CookieModal.dc.html",
     "PromoModal.dc.html",
-    "Porovnani.dc.html"
+    "Porovnani.dc.html",
+    "FontSizeSwitch.dc.html"
   ],
   "pages": [],
   "title": "Midas.cz"

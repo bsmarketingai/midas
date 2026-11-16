@@ -33,7 +33,7 @@
   --flag-discount: #ffc107; --flag-discount-fg:#1e1e1e;
   --flag-akce: #c2410c; --flag-novinka: #03a9f4; --flag-doporucujeme: #1f6fa8; --flag-vyprodej: #3867d6;
   /* konzistenční vrstva (00a část B) */
-  --radius-base: 4px; --radius-xs: 2px; --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px;
+  --radius-base: 4px; --radius-xs: 2px; --radius-sm: 4px; --radius-md: 6px; --radius-lg: 8px; --radius-pill: 999px;
   --btn-radius: var(--radius-sm); --card-radius: var(--radius-md);
   --btn-h-sm: 32px; --btn-h-md: 44px; --btn-h-lg: 56px;
   --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
@@ -1207,10 +1207,10 @@ main[hidden]{display:none!important}
 /* ---- Filtr: pravý drawer (≤ 999 px) + chipy aktivních filtrů ---- */
 .fOverlay{display:none}
 .activeFilters:empty{display:none}
-.activeFilters .afClear{height:32px;padding:0 10px}
-.btnDanger{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 10px;border:1px solid #e5a3a3!important;border-radius:var(--radius-sm);background:#fff;color:#b00000!important;font-weight:600;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
-.btnDanger svg{width:15px;height:15px;flex:none}
-.btnDanger:hover{background:#fdecea;border-color:#cc0000!important;color:#a00000!important}
+.activeFilters .btnDanger,.fChips .btnDanger{height:32px;padding:0 12px;border-radius:var(--radius-pill);font:500 13px/1 Roboto,system-ui,sans-serif}
+.btnDanger,.button.btnDanger{display:inline-flex;align-items:center;gap:6px;height:32px;padding:0 12px;border:1px solid #e5a3a3;border-radius:var(--radius-pill);background:#fff;color:#b00000;font-weight:500;white-space:nowrap;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s}
+.btnDanger svg{width:14px;height:14px;flex:none}
+.button.btnDanger:hover,.btnDanger:hover{background:#fdecea;border-color:#cc0000;color:#a00000}
 .btnDanger:focus-visible{outline:2px solid #cc0000;outline-offset:2px}
 .fChips{display:none}
 /* ---- Cenový filtr: dvojitý posuvník ---- */
@@ -1255,7 +1255,7 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
 .subMoreBtn{display:none}
 #iconSprite{position:absolute}
 #ChildCategories{margin-top:var(--space-6);width:100%;max-width:none}
-.afClear.btnDanger:hover{background:#b00000;color:#fff;border-color:#b00000}
+
 @media (max-width:549px){#childCats{margin-bottom:var(--space-3)}#childCats:not(.all) > li:nth-child(n+7){display:none}.subMoreBtn{display:inline-flex !important}}
 .subMoreBtn{align-items:center;gap:6px;margin:0 0 var(--space-6);padding:8px 0;border:0;background:none;font:inherit;font-weight:600;color:var(--primary-d);cursor:pointer}
 .subMoreBtn:hover{text-decoration:underline;text-underline-offset:3px}.subMoreBtn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
@@ -1370,7 +1370,7 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
           
           <button class="button -icon -sm filterClose" type="button" aria-label="Zavřít filtr" onClick="{{ fl.close }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
         </div>
-        <div class="activeFilters fChips" aria-label="Aktivní filtry"><sc-for list="{{ fl.chips }}" as="c" hint-placeholder-count="1"><dc-import name="FilterChip" label="{{ c.label }}" on-remove="{{ c.remove }}" hint-size="110px,32px"></dc-import></sc-for><button class="button -text -sm filterReset btnDanger" type="button" onClick="{{ fl.clear }}" style="border-radius: 999px"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>Zrušit vše</button></div>
+        <div class="activeFilters fChips" aria-label="Aktivní filtry"><sc-for list="{{ fl.chips }}" as="c" hint-placeholder-count="1"><dc-import name="FilterChip" label="{{ c.label }}" on-remove="{{ c.remove }}" hint-size="110px,32px"></dc-import></sc-for><button class="button -text -sm filterReset btnDanger" type="button" onClick="{{ fl.clear }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg>Zrušit vše</button></div>
 
         <section class="fSection open">
           <button class="button toggle" type="button" aria-expanded="true" onClick="{{ fsec }}">Cena<svg class="icon chev" aria-hidden="true"><use href="#i-caret-down"></use></svg></button>
@@ -1622,7 +1622,7 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
   <div class="bd"><div class="msg">Dobrý den, jsem váš nákupní asistent. Pomohu s výběrem produktů, odpovím na dotazy a zjistím stav objednávky.</div><div class="msg me">Potřebuji KG koleno 110 pro venkovní kanalizaci.</div><div class="msg">Doporučuji <b>KG koleno DN 110 – 45°</b> (35,8 Kč s DPH, skladem &gt; 100 ks). Chcete ho přidat do košíku?</div></div>
   <div class="in"><input class="input" id="aiInput" type="text" placeholder="Napište dotaz…" aria-label="Dotaz pro asistenta"><button class="button -main -icon" type="button" aria-label="Odeslat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"></path></svg></button></div>
 </div></sc-if><canvas class="rb-spark" ref="{{ sparkRef }}" aria-hidden="true"></canvas></div>
-</x-dc>
+<dc-import name="FontSizeSwitch" hint-size="200px,48px"></dc-import></x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 3485}}'>
 const HERO = [];
 const TABS = [];

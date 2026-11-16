@@ -404,7 +404,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 </div>
 <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="lgOverlay" onMouseDown="{{ overlayDown }}" onKeyDown="{{ overlayKey }}"><div class="lgBox" role="dialog" aria-modal="true" aria-label="Přihlášení"><dc-import name="LoginPopup" on-close="{{ closeLogin }}" hint-size="320px,420px"></dc-import></div></div></sc-if>
 </div>
-</x-dc>
+<dc-import name="FontSizeSwitch" hint-size="200px,48px"></dc-import></x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2000}}'>
 
 const CK = (() => {

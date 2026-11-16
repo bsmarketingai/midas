@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Velikost písma (prezentace)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.fsw{--fsw-primary:#3a7a27;--fsw-primary-10:#eff8eb;--fsw-line:#e1e1e1;--fsw-text:rgba(30,30,30,.9);--fsw-muted:rgba(30,30,30,.68);--fsw-radius:8px;--fsw-pill:999px;--fsw-shadow:0 12px 32px rgba(24,36,18,.18),0 2px 6px rgba(24,36,18,.08);position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:1050;font:400 14px/1.4 Roboto,system-ui,sans-serif;color:var(--fsw-text)}
+.fsw *{box-sizing:border-box}
+.fswBtn{display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 16px 0 12px;border:1px solid var(--fsw-line);border-radius:var(--fsw-pill);background:#fff;color:var(--fsw-text);font:500 14px/1 Roboto,system-ui,sans-serif;box-shadow:var(--fsw-shadow);cursor:pointer;transition:border-color .15s,background-color .15s}
+.fswBtn:hover{border-color:var(--fsw-primary);background:var(--fsw-primary-10)}
+.fswBtn:focus-visible,.fswOpt:focus-visible{outline:2px solid var(--fsw-primary);outline-offset:2px}
+.fswBtn .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--fsw-primary);color:#fff}
+.fswBtn .ic svg{width:20px;height:20px}
+.fswBtn .val{color:var(--fsw-muted);font-weight:400}
+.fswMenu{position:absolute;left:0;bottom:calc(100% + 8px);width:260px;padding:8px;border:1px solid var(--fsw-line);border-radius:var(--fsw-radius);background:#fff;box-shadow:var(--fsw-shadow)}
+.fswH{margin:4px 8px 8px;font-size:13px;font-weight:500;color:var(--fsw-muted)}
+.fswOpt{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:8px;border:0;border-radius:6px;background:transparent;color:var(--fsw-text);font:inherit;text-align:left;cursor:pointer}
+.fswOpt:hover{background:var(--fsw-primary-10)}
+.fswOpt .smp{flex:0 0 32px;display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--fsw-line);border-radius:6px;font-weight:700;line-height:1}
+.fswOpt .smp.s{font-size:13px}
+.fswOpt .smp.l{font-size:17px}
+.fswOpt .t{flex:1}
+.fswOpt .t b{display:block;font-weight:500}
+.fswOpt .t small{display:block;font-size:12px;color:var(--fsw-muted)}
+.fswOpt .ok{width:18px;height:18px;color:var(--fsw-primary);opacity:0}
+.fswOpt[aria-checked="true"]{background:var(--fsw-primary-10)}
+.fswOpt[aria-checked="true"] .smp{border-color:var(--fsw-primary);color:var(--fsw-primary)}
+.fswOpt[aria-checked="true"] .ok{opacity:1}
+@media (max-width:549px){.fswBtn .lbl{display:none}.fswBtn{padding:0 12px 0 8px}}
+@media (prefers-reduced-motion:reduce){.fswBtn{transition:none}}
+</style>
+</helmet>
+<div class="fsw" data-fsw="" onKeyDown="{{ key }}" ref="{{ rootRef }}">
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+<div class="fswMenu" id="fswMenu" role="radiogroup" aria-label="Velikost písma">
+<p class="fswH">Velikost písma na celém webu</p>
+<button class="fswOpt" type="button" role="radio" aria-checked="{{ stdOn }}" onClick="{{ setStd }}"><span class="smp s" aria-hidden="true">A</span><span class="t"><b>Standardní</b><small>Velikost podle návrhu</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
+<button class="fswOpt" type="button" role="radio" aria-checked="{{ bigOn }}" onClick="{{ setBig }}"><span class="smp l" aria-hidden="true">A</span><span class="t"><b>Velké</b><small>Všechny texty o stupeň větší</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
+</div>
+</sc-if>
+<button class="fswBtn" type="button" aria-haspopup="true" aria-expanded="{{ openStr }}" aria-controls="fswMenu" onClick="{{ toggle }}"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M87.24,52.59a8,8,0,0,0-14.48,0l-64,136a8,8,0,1,0,14.48,6.81L39.9,160h80.2l16.66,35.4a8,8,0,1,0,14.48-6.81ZM47.43,144,80,74.79,112.57,144ZM200,96c-12.76,0-22.73,3.47-29.63,10.32a8,8,0,0,0,11.26,11.36c3.8-3.77,10-5.68,18.37-5.68,13.23,0,24,9,24,20v3.22A42.76,42.76,0,0,0,200,128c-22.06,0-40,16.15-40,36s17.94,36,40,36a42.73,42.73,0,0,0,24-7.25,8,8,0,0,0,16-.75V132C240,112.15,222.06,96,200,96Zm0,88c-13.23,0-24-9-24-20s10.77-20,24-20,24,9,24,20S213.23,184,200,184Z"></path></svg></span><span class="lbl">Písmo:</span><span class="val">{{ curLabel }}</span></button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":300,"height":260}}'>
+/* Prezentační přepínač velikosti písma. Režim "Velké" zvětší každý text o jeden stupeň
+   (×1,125, zaokrouhleno na celé px; 13→15, 15→17, 16→18, 32→36) a drží to i pro obsah,
+   který se dorenderuje později. Volba se pamatuje napříč stránkami (localStorage). */
+const KEY = 'midasFontSizeV1';
+const STEP = 1.125;
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let big = false;
+    try { big = localStorage.getItem(KEY) === 'big'; } catch (e) {}
+    this.state = { open: false, big };
+    this.rootRef = el => { this.rootEl = el; };
+    this.onDoc = e => { if (this.state.open && this.rootEl && !this.rootEl.contains(e.target)) this.setState({ open: false }); };
+    this.onResize = () => { clearTimeout(this.rt); this.rt = setTimeout(() => { if (this.state.big) { this.restore(document.body); this.scale(document.body); } }, 200); };
+  }
+  componentDidMount() {
+    document.addEventListener('pointerdown', this.onDoc);
+    window.addEventListener('resize', this.onResize);
+    this.mo = new MutationObserver(list => {
+      if (!this.state.big) return;
+      const set = new Set();
+      for (const m of list) {
+        if (m.type === 'childList') m.addedNodes.forEach(n => { if (n.nodeType === 1) set.add(n); });
+        else if (m.type === 'attributes' && m.target.nodeType === 1) { this.restore(m.target); set.add(m.target); }
+      }
+      set.forEach(n => this.scale(n));
+    });
+    this.mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
+    if (this.state.big) setTimeout(() => this.scale(document.body), 300);
+  }
+  componentWillUnmount() {
+    document.removeEventListener('pointerdown', this.onDoc);
+    window.removeEventListener('resize', this.onResize);
+    if (this.mo) this.mo.disconnect();
+    clearTimeout(this.rt);
+    this.restore(document.body);
+  }
+  els(root) {
+    const out = [];
+    if (root.nodeType !== 1) return out;
+    if (!root.closest('[data-fsw]')) out.push(root);
+    root.querySelectorAll('*').forEach(el => { if (!el.closest('[data-fsw]')) out.push(el); });
+    return out.filter(el => !/^(SCRIPT|STYLE|LINK|META|HEAD|TITLE|SVG|PATH|CANVAS)$/i.test(el.tagName) && !(el instanceof SVGElement));
+  }
+  scale(root) {
+    const list = this.els(root).filter(el => !el.hasAttribute('data-fs'));
+    if (!list.length) return;
+    const inList = new Set(list);
+    // 1) všechno přečíst před zápisem (původní velikosti), 2) dopočítat originály podle rodiče, 3) zapsat
+    const info = new Map();
+    list.forEach(el => { const cs = getComputedStyle(el); info.set(el, { fs: parseFloat(cs.fontSize), lh: cs.lineHeight }); });
+    const outer = new Map();
+    list.forEach(el => {
+      const p = el.parentElement;
+      if (p && !inList.has(p) && p.hasAttribute('data-fs') && !outer.has(p)) { const cs = getComputedStyle(p); outer.set(p, { fs: parseFloat(cs.fontSize), lh: cs.lineHeight }); }
+    });
+    list.forEach(el => {
+      const me = info.get(el), p = el.parentElement;
+      let ofs = me.fs, olh = me.lh;
+      if (p && inList.has(p)) {
+        const pi = info.get(p);
+        if (me.fs === pi.fs) ofs = pi.ofs;
+        if (me.lh === pi.lh) olh = pi.olh;
+      } else if (p && outer.has(p)) {
+        const po = outer.get(p);
+        if (me.fs === po.fs) ofs = parseFloat(p.getAttribute('data-fs'));
+        if (me.lh === po.lh) olh = p.getAttribute('data-lh');
+      }
+      me.ofs = ofs; me.olh = olh;
+    });
+    list.forEach(el => {
+      const me = info.get(el);
+      if (!me.ofs) return;
+      el.setAttribute('data-fs', String(me.ofs));
+      el.setAttribute('data-lh', me.olh || 'normal');
+      el.style.setProperty('font-size', Math.round(me.ofs * STEP) + 'px');
+      if (me.olh && me.olh !== 'normal') el.style.setProperty('line-height', (parseFloat(me.olh) * STEP).toFixed(2) + 'px');
+    });
+  }
+  restore(root) {
+    if (root.nodeType !== 1) return;
+    const list = root.matches('[data-fs]') ? [root] : [];
+    root.querySelectorAll('[data-fs]').forEach(el => list.push(el));
+    list.forEach(el => { el.style.removeProperty('font-size'); el.style.removeProperty('line-height'); el.removeAttribute('data-fs'); el.removeAttribute('data-lh'); });
+  }
+  apply(big) {
+    try { localStorage.setItem(KEY, big ? 'big' : 'std'); } catch (e) {}
+    this.restore(document.body);
+    if (big) this.scale(document.body);
+    this.setState({ big, open: false });
+  }
+  renderVals() {
+    const s = this.state;
+    return {
+      open: s.open, openStr: String(s.open), rootRef: this.rootRef,
+      curLabel: s.big ? 'Velké' : 'Standardní',
+      stdOn: String(!s.big), bigOn: String(s.big),
+      toggle: () => this.setState({ open: !s.open }),
+      setStd: () => this.apply(false),
+      setBig: () => this.apply(true),
+      key: e => { if (e.key === 'Escape' && s.open) { e.stopPropagation(); this.setState({ open: false }); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
