@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midas.cz – changelog finálních úprav</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+:root{--primary:#3a7a27;--line:#e1e1e1;--text:#1e1e1e;--muted:#5c5c5c;--radius-lg:8px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px}
+*{box-sizing:border-box}
+body{margin:0;font:400 16px/1.55 Roboto,system-ui,sans-serif;color:var(--text);background:#fff}
+main{max-width:1000px;margin:0 auto;padding:var(--space-7) var(--space-5)}
+h1{margin:0 0 var(--space-2);font-size:32px;line-height:1.2}
+.lead{margin:0 0 var(--space-6);color:var(--muted)}
+a{color:var(--primary)}
+article{padding:var(--space-6) 0;border-top:1px solid var(--line)}
+h2{margin:0 0 var(--space-2);font-size:22px;line-height:1.3}
+time{display:block;margin-bottom:var(--space-3);font-size:14px;color:var(--muted)}
+p{margin:0 0 var(--space-3)}
+ul{margin:0 0 var(--space-3);padding-left:var(--space-5)}
+.files{font-size:14px;color:var(--muted)}
+.files code{font-size:13px}
+figure{margin:var(--space-4) 0 0}
+figure img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:var(--radius-lg)}
+figcaption{margin-top:var(--space-2);font-size:14px;color:var(--muted)}
+</style>
+</head>
+<body>
+<main>
+<h1>Changelog finálních úprav</h1>
+<p class="lead">Přehled synchronizací prototypu z Claude Design do repozitáře. Nejnovější nahoře. <a href="index.html">Zpět na přehled stránek</a></p>
+
+<article id="sync-2026-11-16a">
+<h2>Úvodní synchronizace celého prototypu</h2>
+<time datetime="2026-11-16">16. 11. 2026 · sync-2026-11-16a</time>
+<p>Do repozitáře je poprvé přenesen kompletní prototyp Midas.cz ve stavu z artefaktu: homepage s tmavým hero sliderem (na mobilu akordeon s čísly 1–4), výpis kategorie se stránkováním a rozbalením podkategorií na mobilu, detail produktu s tlačítkem Porovnat, nová stránka Porovnání produktů, průchod košíkem, informační stránky z patičky a komponenty včetně cookie lišty a akčního modalu.</p>
+<ul>
+<li>Obrázky jsou v <code>_blob/</code> s příponou a odkazují se relativně, takže stránky fungují na GitHub Pages.</li>
+<li>Runtime <code>support.js</code> (stejný jako u Ekokozy) načítá React z unpkg.</li>
+<li>Nový rozcestník <code>index.html</code> se všemi obrazovkami podle plátna.</li>
+<li>Prázdný <code>.nojekyll</code>, aby GitHub Pages zveřejnil i složku <code>_blob/</code>.</li>
+</ul>
+<p class="files"><strong>Soubory:</strong> <code>Main.dc.html</code>, <code>Kategorie.dc.html</code>, <code>Detail.dc.html</code>, <code>Porovnani.dc.html</code>, <code>Kosik.dc.html</code>, <code>Udaje.dc.html</code>, <code>Kontrola.dc.html</code>, <code>Dekujeme.dc.html</code>, <code>Onas.dc.html</code>, <code>Kontakt.dc.html</code>, <code>ObchodniPodminky.dc.html</code>, <code>Reklamace.dc.html</code>, <code>Doprava.dc.html</code>, <code>Certifikaty.dc.html</code>, <code>Navody.dc.html</code>, <code>Gdpr.dc.html</code>, <code>Kariera.dc.html</code>, <code>LoginPopup.dc.html</code>, <code>CartPopup.dc.html</code>, <code>Footer.dc.html</code>, <code>FilterChip.dc.html</code>, <code>Breadcrumb.dc.html</code>, <code>CookieModal.dc.html</code>, <code>PromoModal.dc.html</code>, <code>canvas.json</code>, <code>support.js</code>, <code>index.html</code>, <code>.nojekyll</code>, <code>_blob/</code> (122 obrázků)</p>
+<figure>
+<img src="changelog-img/2026-11-16a-homepage.png" alt="Homepage s tmavým hero sliderem, červeně orámovaný hero" loading="lazy">
+<figcaption>Homepage – hero slider po synchronizaci.</figcaption>
+</figure>
+</article>
+</main>
+</body>
+</html>

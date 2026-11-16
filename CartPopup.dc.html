@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Košík</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.cp{position:relative;box-sizing:border-box;width:360px;max-width:100%;display:flex;flex-direction:column;gap:16px;padding:20px 20px 16px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 15px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
+.cp *{box-sizing:border-box}
+.cpHead{display:flex;align-items:baseline;gap:8px;padding-right:40px}
+.cpTitle{margin:0;font-size:18px;font-weight:700;line-height:1.3}
+.cpCount{font-size:13px;color:rgba(30,30,30,.68)}
+.cpClose{position:absolute;top:8px;right:8px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.9);cursor:pointer}
+.cpClose:hover{background:#f2f2f2}
+.cpClose:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
+.cpClose svg{width:18px;height:18px}
+.cpList{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;max-height:288px;overflow:auto}
+.cpItem{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee}
+.cpItem:first-child{border-top:0;padding-top:0}
+.cpItem img{width:52px;height:52px;object-fit:contain;border:1px solid #e9e9e9;border-radius:4px;background:#fff}
+.cpN{display:flex;flex-direction:column;gap:2px;min-width:0}
+.cpName{font-size:14px;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cpQ{font-size:13px;color:rgba(30,30,30,.68)}
+.cpP{font-size:15px;font-weight:700;white-space:nowrap}
+.cpSum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:12px;border-top:1px solid #e1e1e1}
+.cpSum span{font-size:14px}
+.cpSum small{display:block;font-size:12px;color:rgba(30,30,30,.68)}
+.cpSum b{font-size:22px;font-weight:700;white-space:nowrap}
+.cpActions{display:flex;flex-direction:column;gap:4px}
+.cpBtn{display:flex;align-items:center;justify-content:center;height:48px;padding:0 20px;font:600 16px/1 Roboto,system-ui,sans-serif;color:#fff;background:#cc0000;border-radius:6px;text-decoration:none}
+.cpBtn:hover{background:#a80000;color:#fff}
+.cpBtn:focus-visible{outline:2px solid #1e1e1e;outline-offset:2px}
+.cpLink{height:40px;padding:0 12px;font:500 14px/1 Roboto,system-ui,sans-serif;color:#3a7a27;background:transparent;border:0;border-radius:6px;cursor:pointer}
+.cpLink:hover{text-decoration:underline;text-underline-offset:3px}
+.cpLink:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
+.cpFree{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px solid #cfe9c4;border-radius:6px;background:#e9f6e3;font-size:13px;line-height:1.4}
+.cpFree b{font-weight:700}
+.cpFree.done b{color:#3a7a27}
+.cpBar{position:relative;display:block;height:6px;border-radius:999px;background:#d3e8c9;overflow:hidden}
+.cpBar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:#3a7a27;transition:width .5s cubic-bezier(.2,.7,.2,1)}
+@media (prefers-reduced-motion:reduce){.cpBar i{transition:none}}
+.cpEmpty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 8px 4px;text-align:center}
+.cpEmpty svg{width:40px;height:40px;color:#9aa39a}
+.cpEmpty b{font-size:15px;font-weight:600}
+.cpEmpty p{margin:0;font-size:14px;color:rgba(30,30,30,.68)}
+</style>
+</helmet>
+<div class="cp" role="dialog" aria-labelledby="cpTitle" onKeyDown="{{ key }}">
+<div class="cpHead"><h2 class="cpTitle" id="cpTitle">Nákupní košík</h2><span class="cpCount">{{ countLabel }}</span></div>
+<button class="cpClose" type="button" aria-label="Zavřít košík" onClick="{{ close }}" ref="{{ closeRef }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+<sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+<div class="cpEmpty"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><b>Košík je zatím prázdný</b><p>Zboží přidáte tlačítkem Koupit u produktu nebo přes Rychlou objednávku podle kódu.</p></div>
+<button class="cpLink" type="button" onClick="{{ close }}">Pokračovat v nákupu</button>
+</sc-if>
+<sc-if value="{{ hasItems }}" hint-placeholder-val="{{ true }}">
+<ul class="cpList">
+<sc-for list="{{ lines }}" as="l" hint-placeholder-count="2"><li class="cpItem"><img src="{{ l.img }}" alt=""><div class="cpN"><span class="cpName">{{ l.name }}</span><span class="cpQ">{{ l.qty }}</span></div><b class="cpP">{{ l.price }}</b></li></sc-for>
+</ul>
+<div class="cpSum"><span>Celkem s DPH<small>{{ noVat }} bez DPH</small></span><b>{{ total }}</b></div>
+<div class="cpFree {{ freeCls }}"><span>{{ freeLead }}<b>{{ freeAmount }}</b>{{ freeTail }}</span><span class="cpBar" role="progressbar" aria-label="Nákup do dopravy zdarma" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="{{ freeNow }}"><i style="width: {{ freePct }}"></i></span></div>
+<div class="cpActions"><a class="cpBtn" href="Kosik.dc.html">Přejít do košíku</a><button class="cpLink" type="button" onClick="{{ close }}">Pokračovat v nákupu</button></div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"lines":{"editor":null},"onClose":{"editor":null},"$preview":{"width":360,"height":440}}'>
+const DEMO = [
+  { name: 'KG koleno DN 110 - 45°', img: '_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg', q: 4, unit: 35.8 },
+  { name: 'KG trubka DN 110 × 3,2 mm – 1 m, SN 4', img: '_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg', q: 6, unit: 98.5 },
+  { name: 'Obrácená redukce DN 125/110 PP', img: '_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg', q: 1, unit: 318 }
+];
+class Component extends DCLogic {
+  constructor(props) { super(props); this.closeRef = el => { this.closeEl = el; }; }
+  componentDidMount() { if (this.props.onClose && this.closeEl) this.closeEl.focus(); }
+  fmt(n) { return n.toLocaleString('cs-CZ', { maximumFractionDigits: 1 }) + ' Kč'; }
+  renderVals() {
+    const raw = Array.isArray(this.props.lines) ? this.props.lines : DEMO;
+    const lines = raw.map(l => ({ name: l.name, img: l.img, qty: l.q + ' ks × ' + this.fmt(l.unit), price: this.fmt(l.q * l.unit) }));
+    const sum = raw.reduce((t, l) => t + l.q * l.unit, 0);
+    const n = raw.reduce((t, l) => t + l.q, 0);
+    const close = () => { if (this.props.onClose) this.props.onClose(); };
+    return {
+      lines, empty: !raw.length, hasItems: raw.length > 0,
+      countLabel: n ? n + ' ks' : '',
+      total: this.fmt(sum), noVat: this.fmt(Math.round(sum / 1.21 * 10) / 10),
+      freeCls: sum >= 3000 ? 'done' : '', freeLead: sum >= 3000 ? '' : 'Nakupte ještě za ', freeAmount: sum >= 3000 ? 'Dopravu máte zdarma.' : this.fmt(Math.round((3000 - sum) * 10) / 10), freeTail: sum >= 3000 ? '' : ' a dopravu máte zdarma.', freePct: Math.max(3, Math.min(100, Math.round(sum / 30))) + '%', freeNow: String(Math.round(Math.min(sum, 3000))),
+      closeRef: this.closeRef, close,
+      key: e => { if (e.key === 'Escape') { e.stopPropagation(); close(); } }
+    };
+  }
+}
+</script>
+</body>
+</html>

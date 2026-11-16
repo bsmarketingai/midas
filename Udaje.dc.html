@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midas.cz – Kontaktní údaje</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+/* ===== Objednávka BSSHOP (P0) – tokeny Midas ===== */
+:root{
+  --primary-color:#3a7a27; --primary:#65bc47; --primary-10:#eff8eb; --primary-5:#f6fbf3; --text-on-primary-color:#fff;
+  --btn-main-bg:#cc0000; --btn-main-bg-h:#a80000; --btn-main-fg:#fff;
+  --text-color:rgba(30,30,30,.9); --text-weaker-color:rgba(30,30,30,.68);
+  --link-color:#3a7a27; --bg-color:#f4f5f4; --bg-content-color:#fff;
+  --neutral-panel-color:#f6f7f7; --neutral-separator-color:#e6e8e5; --input-border:#a9b0ad;
+  --green-color:#0a7d24; --orange-color:#b45309; --red-color:#c81e1e;
+  --error-color:#c81e1e; --success-color:#0a7d24; --info-color:#1f6fa8; --warning-color:#b45309;
+  --radius-base:4px; --radius-xs:2px; --radius-sm:4px; --radius-md:6px; --radius-lg:8px; --radius-pill:999px;
+  --btn-radius-base:var(--radius-sm); --input-radius:var(--radius-sm); --card-radius:var(--radius-lg);
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --gutter:12px; --content-max:1560px; --card-pad:var(--space-4);
+  --card-shadow:0 1px 2px rgba(20,30,15,.06),0 0 0 1px rgba(20,30,15,.07);
+  --font-body:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fw-heading:700; --fw-price:700;
+  --fs-h1:28px; --fs-h2:22px; --fs-h3:18px; --fs-body:15px; --fs-body-sm:13px; --fs-label:14px; --fs-caption:12px; --fs-price-md:20px; --fs-price-sm:15px;
+  --btn-h-sm:32px; --btn-h-md:44px; --btn-h-lg:56px; --field-h-sm:32px; --field-h-md:44px;
+  --check-size:20px; --check-color:#3a7a27;
+  --focus-ring:0 0 0 2px #fff,0 0 0 4px #3a7a27;
+}
+@media (min-width:420px){:root{--gutter:16px}}
+@media (min-width:820px){:root{--gutter:24px;--card-pad:var(--space-5);--fs-h1:32px;--fs-h2:24px;--fs-h3:20px}}
+@media (min-width:1150px){:root{--gutter:32px;--fs-h1:40px;--fs-h2:28px;--fs-h3:20px;--fs-body:16px;--fs-body-sm:14px;--fs-price-md:22px;--fs-price-sm:16px}}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg-color);color:var(--text-color);font:400 var(--fs-body)/1.5 var(--font-body);-webkit-font-smoothing:antialiased}
+a{color:var(--link-color)}
+button,input,select,textarea{font:inherit;color:inherit}
+.ic{width:20px;height:20px;flex:none}
+.dpLogo{flex:none;display:block;width:65px;height:40px;border:1px solid #dfe3e0;border-radius:var(--radius-sm);background:#fff;overflow:hidden}
+.dpLogo .dpSvg{display:block;width:100%;height:100%}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.container{width:100%;max-width:calc(var(--content-max) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+.narrow{max-width:calc(960px + 2*var(--gutter))}
+.t-weak{color:var(--text-weaker-color)}
+.t-sm{font-size:var(--fs-body-sm)}
+.t-price-sm{font-size:var(--fs-price-sm);font-weight:var(--fw-price);font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-price-md{font-size:var(--fs-price-md);font-weight:var(--fw-price);font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-free{color:var(--success-color);font-weight:600}
+
+/* HeaderView .inBasket – uzavřený checkout */
+#Header.inBasket{background:#fff;border-bottom:1px solid var(--neutral-separator-color)}
+#Header.inBasket .hIn{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+#Header.inBasket .logo img{display:block;height:44px;width:auto}
+#Header.inBasket .hRight{display:flex;align-items:center;gap:24px;font-size:14px}
+#Header.inBasket .hPhone{display:flex;align-items:center;gap:8px;color:var(--text-color);text-decoration:none}
+#Header.inBasket .hPhone b{display:block;font-size:15px}
+#Header.inBasket .hPhone small{display:block;color:var(--text-weaker-color);font-size:12px}
+#Header.inBasket .hPhone .ic{color:var(--primary-color)}
+@media (max-width:549px){#Header.inBasket .hIn{min-height:60px}#Header.inBasket .logo img{height:34px}#Header.inBasket .hPhone span{display:none}#Header.inBasket .hPhone{width:44px;height:44px;justify-content:center;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-pill)}}
+
+/* OrderNavigatorView */
+#OrderNavigator{margin:var(--space-5) auto var(--space-5);max-width:745px}
+#OrderNavigator .steps{display:flex;align-items:flex-start}
+#OrderNavigator .step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none;width:130px;text-align:center;text-decoration:none;color:var(--text-weaker-color)}
+#OrderNavigator .number{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:2px solid #b7bdb9;background:#fff;font-weight:700;font-size:16px;color:var(--text-weaker-color)}
+#OrderNavigator .name{font-size:var(--fs-label);line-height:1.3}
+#OrderNavigator .stepSeparator{position:relative;flex:1;height:3px;border-radius:2px;background:#d4d8d5;margin-top:19px;min-width:24px;overflow:hidden}
+#OrderNavigator .stepSeparator span{position:absolute;inset:0;background:var(--primary-color);transform:scaleX(0);transform-origin:left center}
+#OrderNavigator .stepSeparator.done span{transform:scaleX(1)}
+/* animace propojení kroků (vstup na krok + odchod na další) */
+@keyframes navFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes navPop{0%{transform:scale(.6);opacity:.4}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
+@keyframes navRing{0%{box-shadow:0 0 0 0 rgba(58,122,39,.45)}100%{box-shadow:0 0 0 12px rgba(58,122,39,0)}}
+@keyframes navDraw{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+#OrderNavigator .stepSeparator.enter span{animation:navFill .6s cubic-bezier(.65,0,.35,1) .15s both}
+#OrderNavigator .step.just .number .ic{animation:navPop .45s cubic-bezier(.34,1.56,.64,1) .05s both}
+#OrderNavigator .step.active .number{animation:navPop .5s cubic-bezier(.34,1.56,.64,1) .7s both,navRing .9s ease-out 1.1s 1}
+#OrderNavigator .step.active .name{animation:reveal .35s ease-out .8s both}
+#OrderNavigator.leaving .stepSeparator.next span{animation:navFill .45s cubic-bezier(.65,0,.35,1) both}
+#OrderNavigator.leaving .step.upcoming .number{transition:background-color .2s .35s,border-color .2s .35s,color .2s .35s,transform .25s .35s;background:var(--primary-color);border-color:var(--primary-color);color:#fff;transform:scale(1.08)}
+#OrderNavigator.leaving .step.upcoming .name{transition:color .2s .35s;color:var(--primary-color);font-weight:700}
+@media (prefers-reduced-motion:reduce){#OrderNavigator *{animation:none!important;transition:none!important}}
+#OrderNavigator .active .number{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+#OrderNavigator .active .name{color:var(--primary-color);font-weight:700}
+#OrderNavigator .done .number{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+#OrderNavigator .done .number .ic{width:20px;height:20px;stroke-width:2.6}
+#OrderNavigator a.done .name{color:var(--link-color);text-decoration:underline;text-underline-offset:3px}
+#OrderNavigator a.done:hover .number{box-shadow:0 0 0 4px var(--primary-10)}
+#OrderNavigator a:focus-visible{outline:none}
+#OrderNavigator a:focus-visible .number{box-shadow:var(--focus-ring)}
+#OrderNavigator .mobileName{display:none;text-align:center;margin-top:10px;font-size:var(--fs-label)}
+@media (max-width:549px){
+  #OrderNavigator{margin:var(--space-4) auto}
+  #OrderNavigator .step{width:auto}
+  #OrderNavigator .step .name{display:none}
+  #OrderNavigator .number{width:32px;height:32px;font-size:14px}
+  #OrderNavigator .stepSeparator{margin-top:15px}
+  #OrderNavigator .steps{padding:0 12%}
+  #OrderNavigator .mobileName{display:block}
+}
+
+/* Karty */
+.card{background:var(--bg-content-color);border-radius:var(--card-radius);box-shadow:var(--card-shadow);padding:var(--card-pad);position:relative}
+.cards{display:flex;flex-direction:column;gap:var(--space-4)}
+.cardHead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;margin:0 0 var(--space-4)}
+.cardTitle{margin:0;font-size:var(--fs-h3);font-weight:var(--fw-heading);line-height:1.25;display:flex;align-items:center;gap:10px}
+.cardTitle .cnt{font-weight:400;color:var(--text-weaker-color);font-size:.85em}
+.cardTitle .ic{color:var(--primary-color)}
+h3.sub{margin:0 0 var(--space-3);font-size:var(--fs-label);font-weight:700;color:var(--text-weaker-color)}
+.busy::after{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.55);z-index:3}
+.busy::before{content:"";position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border:3px solid var(--primary-10);border-top-color:var(--primary-color);border-radius:50%;animation:spin .7s linear infinite;z-index:4}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Tlačítka */
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--btn-h-md);padding:0 18px;border-radius:var(--btn-radius-base);border:1px solid transparent;font-weight:500;font-size:15px;line-height:1;text-decoration:none;cursor:pointer;white-space:nowrap;background:none;transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s}
+.button:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:14px}
+.button.-lg{height:var(--btn-h-lg);padding:0 24px;font-size:17px;font-weight:700}
+.button.-block{width:100%}
+.button.-main{background:var(--btn-main-bg);color:var(--btn-main-fg)}
+.button.-main:hover{background:var(--btn-main-bg-h);color:#fff}
+.button.-primary{background:var(--primary-color);color:#fff}
+.button.-primary:hover{background:#2e6320;color:#fff}
+.button.-secondary{border-color:#a9b0ad;color:var(--text-color);background:#fff}
+.button.-secondary:hover{border-color:var(--text-color);color:var(--text-color)}
+.button.-text{height:auto;padding:6px 4px;color:var(--link-color);font-weight:500}
+.button.-text:hover{text-decoration:underline;text-underline-offset:3px;color:var(--link-color)}
+.button.-icon{width:var(--btn-h-md);padding:0}
+.button.-icon.-sm{width:var(--btn-h-sm)}
+.button[disabled],.button.-disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
+.button .lbl{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1.1}
+.button .sub{font-size:12px;font-weight:400;opacity:.9}
+.button.-loading{position:relative;color:transparent!important;pointer-events:none}
+.button.-loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+.button.-secondary.-loading::after,.button.-text.-loading::after{border-color:var(--primary-10);border-top-color:var(--primary-color)}
+
+/* Pole */
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field>label,.field .lab{font-size:var(--fs-label);font-weight:500}
+.field .req{color:var(--error-color)}
+.field .opt{color:var(--text-weaker-color);font-weight:400}
+.input{height:var(--field-h-md);width:100%;padding:0 12px;border:1px solid var(--input-border);border-radius:var(--input-radius);background:#fff;font-size:16px;transition:border-color .15s,box-shadow .15s}
+textarea.input{height:auto;min-height:88px;padding:10px 12px;resize:vertical}
+select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
+.input:hover{border-color:#6f7773}
+.input:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 3px rgba(58,122,39,.18)}
+.field.is-error .input{border-color:var(--error-color);box-shadow:0 0 0 1px var(--error-color)}
+.field.is-ok .input{border-color:var(--success-color)}
+.field__hint{font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+.field__error{margin:0;display:flex;gap:6px;align-items:flex-start;font-size:var(--fs-body-sm);color:var(--error-color);font-weight:500}
+.field__error .ic{width:16px;height:16px;margin-top:1px}
+.input-group{display:flex}
+.input-group .input{border-top-right-radius:0;border-bottom-right-radius:0;min-width:0}
+.input-group .button{border-top-left-radius:0;border-bottom-left-radius:0;height:var(--field-h-md)}
+.inWrap{position:relative}
+.inWrap .okIc{position:absolute;right:12px;top:50%;margin-top:-10px;color:var(--success-color)}
+.inWrap .spin{position:absolute;right:12px;top:50%;width:18px;height:18px;margin-top:-9px;border:2px solid var(--primary-10);border-top-color:var(--primary-color);border-radius:50%;animation:spin .7s linear infinite}
+.prefix{display:flex}
+.prefix span{display:flex;align-items:center;padding:0 12px;border:1px solid var(--input-border);border-right:0;border-radius:var(--input-radius) 0 0 var(--input-radius);background:var(--neutral-panel-color);font-size:15px}
+.prefix input.input{border-radius:0 var(--input-radius) var(--input-radius) 0;min-width:0}
+.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:var(--fs-body);line-height:1.45;padding:4px 0}
+.check input{appearance:none;flex:none;width:var(--check-size);height:var(--check-size);margin:1px 0 0;border:2px solid #7d8581;border-radius:var(--radius-sm);background:#fff center/14px no-repeat;cursor:pointer;transition:background-color .15s,border-color .15s}
+.check input:checked{background-color:var(--check-color);border-color:var(--check-color);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E")}
+.check input:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.check.is-error input{border-color:var(--error-color)}
+.radio{appearance:none;flex:none;width:var(--check-size);height:var(--check-size);margin:0;border:2px solid #7d8581;border-radius:50%;background:#fff;cursor:pointer}
+.radio:checked{border-color:var(--check-color);border-width:6px}
+.radio:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4) var(--space-5)}
+.form-grid .-span2{grid-column:1/-1}
+@media (min-width:820px){.form-grid{grid-template-columns:1fr 1fr}}
+.reveal{animation:reveal .22s ease-out}
+@keyframes reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Notice */
+.notice{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:var(--radius-lg);border:1px solid;font-size:var(--fs-body-sm);line-height:1.5}
+.notice .ic{margin-top:1px}
+.notice b{font-weight:700}
+.notice.-success{background:#f1f9f3;border-color:#b5dcbf}
+.notice.-success>.ic{color:var(--success-color)}
+.notice.-info{background:#f2f7fb;border-color:#bcd4e8}
+.notice.-info>.ic{color:var(--info-color)}
+.notice.-warning{background:#fdf7ec;border-color:#ebd2a4}
+.notice.-warning>.ic{color:var(--warning-color)}
+.notice.-error{background:#fdf2f2;border-color:#efc2c2}
+.notice.-error>.ic{color:var(--error-color)}
+.box{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;padding:14px var(--card-pad);border-radius:var(--card-radius);border:1px solid #cfd6d1;background:#fff}
+.notice.-inline{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;font-size:var(--fs-body-sm);font-weight:500}
+.notice.-inline::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.notice.-inline.-success{color:var(--success-color)}
+.notice.-inline.-warning{color:var(--warning-color)}
+.notice.-inline.-error{color:var(--error-color)}
+.notice.-inline.-noDot::before{display:none}
+
+/* OrderActionPanelRwdView .floating – fixní dole přes celou šířku */
+#OrderActionPanelHorizontal{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid #cfd6d1;box-shadow:0 -8px 24px rgba(20,30,15,.08)}
+#OrderActionPanelHorizontal .oapIn{display:flex;align-items:center;gap:var(--space-5);min-height:88px;padding-top:12px;padding-bottom:12px}
+#OrderActionPanelHorizontal .prices{margin-left:auto;display:flex;align-items:stretch;font-variant-numeric:tabular-nums}
+#OrderActionPanelHorizontal .price{display:flex;flex-direction:column;justify-content:flex-start;gap:2px;padding:0 24px;text-align:left}
+#OrderActionPanelHorizontal .price+.price{border-left:1px solid #dfe3e0}
+#OrderActionPanelHorizontal .price:last-child{padding-right:0}
+#OrderActionPanelHorizontal .caption{font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal .value{white-space:nowrap}
+#OrderActionPanelHorizontal .deliveryPayment .value{font-size:var(--fs-body);font-weight:600;color:var(--text-color)}
+#OrderActionPanelHorizontal .total .value{font-size:var(--fs-price-md);font-weight:700;line-height:1.2}
+#OrderActionPanelHorizontal .noVat{display:none;font-size:12px;color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal .nextStep{margin-left:24px}
+#OrderActionPanelHorizontal ._latestDelivery{display:flex;align-items:center;gap:6px;font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal ._latestDelivery .ic{width:16px;height:16px}
+#OrderActionPanelHorizontal .nextStep{min-width:260px}
+#Master.hasBar{padding-bottom:88px}
+.backMobile{display:none}
+@media (max-width:999px){#OrderActionPanelHorizontal ._lateDeliveryWrap{display:none}}
+.smL{display:none}
+@media (max-width:819px){
+  #OrderActionPanelHorizontal .oapIn{min-height:0;flex-wrap:wrap;gap:8px 10px;padding-top:8px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  #OrderActionPanelHorizontal .prices{order:-1;width:100%;margin:0;display:block}
+  #OrderActionPanelHorizontal .deliveryPayment{display:none}
+  #OrderActionPanelHorizontal .total{padding:0;display:grid;grid-template-columns:1fr auto;grid-template-areas:"cap val" "nv val";align-items:center;column-gap:12px;text-align:left}
+  #OrderActionPanelHorizontal .total .caption{grid-area:cap;font-size:13px;line-height:1.2;color:var(--text-color);font-weight:500}
+  #OrderActionPanelHorizontal .total .noVat{display:block;grid-area:nv;text-align:left;line-height:1.2}
+  #OrderActionPanelHorizontal .total .value{grid-area:val;text-align:right;font-size:20px;line-height:1}
+  #OrderActionPanelHorizontal .backToShop,#OrderActionPanelHorizontal .previousStep{height:48px;padding:0 14px;flex:none}
+  #OrderActionPanelHorizontal .lgL{display:none}
+  #OrderActionPanelHorizontal .smL{display:inline}
+  #OrderActionPanelHorizontal .nextStep{margin-left:0;min-width:0;flex:1;height:48px;padding:0 14px;font-size:16px}
+  #OrderActionPanelHorizontal .nextStep .sub{display:none}
+  #Master.hasBar{padding-bottom:124px}
+}
+.backMobile{display:none!important}
+/* zúžená patička */
+#Footer.inBasket{margin-top:var(--space-5);background:none;border:0;font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#Footer.inBasket .fIn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:4px;padding-bottom:var(--space-7)}
+#Footer.inBasket nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+#Footer.inBasket a{color:var(--text-weaker-color)}
+#Footer.inBasket a:hover{color:var(--text-color)}
+#Footer.inBasket .fContact{display:flex;flex-wrap:wrap;gap:4px 16px}
+#Footer.inBasket .fContact a{color:var(--text-color);font-weight:500;text-decoration:none}
+
+/* toasty – vpravo nahoře */
+.toastStack{position:fixed;top:16px;right:16px;z-index:90;display:flex;flex-direction:column;gap:8px;width:min(380px,calc(100vw - 32px))}
+.toast{display:flex;align-items:flex-start;gap:10px;padding:12px 12px 12px 14px;border-radius:var(--radius-lg);background:#fff;border:1px solid #cfd6d1;box-shadow:0 12px 32px rgba(20,30,15,.16);font-size:14px;line-height:1.45;animation:toastIn .25s ease-out}
+@keyframes toastIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.toast>.ic{margin-top:1px}
+.toast.-success>.ic{color:var(--success-color)}
+.toast.-error{background:#fdecec;border-color:#eba9a9;color:#8a1212;box-shadow:0 12px 32px rgba(140,20,20,.18)}
+.toast.-error>.ic{color:#c81e1e}
+.toast.-error .tBody b{color:#a51616}
+.toast.-error li::marker{color:#c81e1e}
+.toast.-error li button{color:#a51616}
+.toast.-error li button:hover{color:#7a0e0e}
+.toast.-error .tClose{color:#a51616}
+.toast.-error .tClose:hover{background:#f8d6d6}
+.toast .tBody{flex:1;min-width:0}
+.toast .tBody b{display:block;margin-bottom:2px}
+.toast ul{margin:4px 0 0;padding-left:16px}
+.toast li{margin:2px 0}
+.toast li button,.toast .tAct{display:inline;padding:0;border:0;background:none;color:var(--link-color);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-size:inherit;text-align:left}
+.toast .tClose{flex:none;width:32px;height:32px;margin:-6px -6px 0 0;display:grid;place-items:center;border:0;border-radius:var(--radius-sm);background:none;color:var(--text-weaker-color);cursor:pointer}
+.toast .tClose:hover{background:var(--neutral-panel-color)}
+.toast .tClose .ic{width:16px;height:16px}
+.protoNote{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:var(--space-4) 0 0;padding:10px 14px;border:1px dashed #9aa39e;border-radius:var(--radius-md);font-size:13px;color:var(--text-weaker-color);background:rgba(255,255,255,.6)}
+.protoNote b{color:var(--text-color)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px}
+.seg button{height:32px;padding:0 12px;border:1px solid #c5cbc7;border-radius:var(--radius-pill);background:#fff;font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+
+.lgCols{display:grid;grid-template-columns:1fr 1fr}
+.lgCols>div{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-right:var(--space-6);min-width:0}
+.lgCols>div+div{padding:0 0 0 var(--space-6);border-left:1px solid var(--neutral-separator-color)}
+.lgCols p{margin:0}
+.h3{margin:0;font-size:17px;font-weight:700}
+@media (max-width:819px){.lgCols{grid-template-columns:1fr;gap:20px}.lgCols>div{padding:0}.lgCols>div+div{padding:20px 0 0;border-left:0;border-top:1px solid var(--neutral-separator-color)}}
+.dlvInfo{margin:0 0 var(--space-5);flex-wrap:nowrap;align-items:flex-start;background:#f8faf8}
+.dlvInfo>.ic{width:20px;height:20px;color:var(--primary-color);margin-top:1px}
+.pwRow{align-self:stretch;display:grid;grid-template-columns:1fr;gap:var(--space-4);margin:4px 0 0 30px;padding:var(--space-4);border-radius:var(--radius-md);background:var(--neutral-panel-color)}
+@media (min-width:1150px){.pwRow{grid-template-columns:1fr 1fr}}
+@media (max-width:419px){.pwRow{margin-left:0}}
+.pwEye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:var(--radius-sm);background:none;color:var(--text-weaker-color);cursor:pointer}
+.pwEye:hover{background:var(--neutral-panel-color)}
+.zipRow{display:grid;grid-template-columns:120px 1fr;gap:var(--space-4)}
+.prefix select.prefSel{width:96px;flex:none;border-radius:var(--input-radius) 0 0 var(--input-radius);border-right:0;background-color:var(--neutral-panel-color);padding-right:30px;background-position:right 8px center}
+.prefix select.prefSel:focus{position:relative;z-index:1;border-right:1px solid var(--primary-color)}
+.billGrid{display:grid;grid-template-columns:1fr;gap:var(--space-5)}
+.fgCol{display:flex;flex-direction:column;gap:var(--space-4);min-width:0}
+.fgCol>.sub{margin:0}
+@media (min-width:820px){.billGrid{grid-template-columns:1fr 1fr;gap:var(--space-7)}}
+@media (min-width:820px){.subForm.form-grid{column-gap:var(--space-7)}}
+.dateField{max-width:280px}
+.streetField .inWrap{position:relative}
+.smartform{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:30;list-style:none;margin:0;padding:4px;background:#fff;border-radius:var(--radius-sm);box-shadow:0 10px 30px rgba(0,0,0,.14),0 0 0 1px rgba(0,0,0,.06)}
+.smartform button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:8px 10px;border:0;border-radius:var(--radius-sm);background:none;text-align:left;cursor:pointer;font-size:15px}
+.smartform button:hover,.smartform button:focus-visible{background:var(--neutral-panel-color);outline:none}
+.smartform button .ic{width:18px;height:18px;color:var(--text-weaker-color)}
+.smFoot{padding:6px 10px 4px;font-size:11px;color:var(--text-weaker-color);text-align:right}
+.sect{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--neutral-separator-color)}
+.sect+.sect{margin-top:var(--space-4)}
+.subForm{margin-top:var(--space-4);padding:var(--space-4);border-radius:var(--radius-md);background:var(--neutral-panel-color)}
+.icoRow{display:flex;gap:8px}
+.icoRow .input{min-width:0}
+.icoRow .button{flex:none}
+@media (max-width:419px){.icoRow{flex-direction:column}.icoRow .button{width:100%}}
+.vatField .lab{line-height:1}
+@media (max-width:819px){.vatField .lab{display:none}}
+.consents{display:flex;flex-direction:column;gap:8px}
+.consents p{margin:4px 0 0}
+.lgOverlay{position:fixed;inset:0;z-index:80;display:grid;place-items:center;padding:16px;background:rgba(20,25,18,.45);animation:reveal .18s ease-out}
+.lgBox{width:320px;max-width:100%}
+</style>
+</helmet>
+<div id="Master" class="MasterView bs-view OrderState hasBar">
+<header id="Header" class="HeaderView v1a v1 bs-view inBasket"><div class="container hIn">
+<div id="Logo" class="LogoView v1a v1 bs-view logo"><a href="Main.dc.html" title="Zpět na úvodní stránku obchodu"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – výroba kanalizačních systémů"></a></div>
+<div class="hRight"><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
+</div></header>
+<main class="orderMain" id="Content"><div class="container">
+<h1 class="sr-only">Kontaktní údaje</h1>
+<nav id="OrderNavigator" class="OrderNavigatorView v2a v2 bs-view steps3 { navCls }" aria-label="Kroky objednávky"><div class="steps"><a class="step step0 done just" href="Kosik.dc.html"><span class="number"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg><span class="sr-only">Hotovo: </span></span><span class="name">Nákupní košík</span></a><div class="stepSeparator done enter"><span></span></div><div class="step step1 active" aria-current="step"><span class="number">2</span><span class="name">Kontaktní údaje</span></div><div class="stepSeparator next"><span></span></div><div class="step step2 inactive upcoming"><span class="number">3</span><span class="name">Kontrola údajů</span></div></div><p class="mobileName">Krok 2 ze 3 · <b>Kontaktní údaje</b></p></nav>
+<div id="OrderMaster" class="OrderMasterView v1a bs-view step1 cards">
+
+
+<section class="card loginCard" aria-labelledby="lgTitle">
+<div class="cardHead"><h2 class="cardTitle" id="lgTitle">Přihlášení a registrace</h2></div>
+<div class="lgCols">
+<div id="OrderUserForm" class="OrderFormView v3a bs-view">
+<h3 class="h3">Jsem nový zákazník</h3>
+<p class="t-weak t-sm">Objednávku dokončíte i bez registrace.</p>
+<label class="check"><input type="checkbox" name="createNewAccount" checked="{{ account }}" onChange="{{ toggleAccount }}"><span>Vytvořit si účet <span class="t-weak">– příště nemusíte nic vyplňovat a uvidíte historii objednávek</span></span></label>
+<sc-if value="{{ account }}" hint-placeholder-val="{{ false }}"><div class="pwRow reveal">
+<div class="field {{ fs.pw1.cls }}"><label for="f_pw1">Heslo<span class="req">*</span></label><div class="inWrap"><input class="input" id="f_pw1" type="{{ pwType }}" autocomplete="new-password" value="{{ fs.pw1.v }}" onChange="{{ fs.pw1.ch }}" aria-describedby="e_pw1"><button class="pwEye" type="button" aria-label="{{ pwLabel }}" onClick="{{ togglePw }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M247.31,124.76c-.35-.79-8.82-19.58-27.65-38.41C194.57,61.26,162.88,48,128,48S61.43,61.26,36.34,86.35C17.51,105.18,9,124,8.69,124.76a8,8,0,0,0,0,6.5c.35.79,8.82,19.57,27.65,38.4C61.43,194.74,93.12,208,128,208s66.57-13.26,91.66-38.34c18.83-18.83,27.3-37.61,27.65-38.4A8,8,0,0,0,247.31,124.76ZM128,192c-30.78,0-57.67-11.19-79.93-33.25A133.47,133.47,0,0,1,25,128,133.33,133.33,0,0,1,48.07,97.25C70.33,75.19,97.22,64,128,64s57.67,11.19,79.93,33.25A133.46,133.46,0,0,1,231.05,128C223.84,141.46,192.43,192,128,192Zm0-112a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"></path></svg></button></div><span class="field__hint">Alespoň 8 znaků. Přihlašovat se budete e-mailem z fakturačních údajů.</span><sc-if value="{{ fs.pw1.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_pw1"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.pw1.msg }}</p></sc-if></div>
+<div class="field {{ fs.pw2.cls }}"><label for="f_pw2">Heslo znovu<span class="req">*</span></label><input class="input" id="f_pw2" type="{{ pwType }}" autocomplete="new-password" value="{{ fs.pw2.v }}" onChange="{{ fs.pw2.ch }}" aria-describedby="e_pw2"><sc-if value="{{ fs.pw2.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_pw2"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.pw2.msg }}</p></sc-if></div>
+</div></sc-if>
+</div>
+<div id="OrderLogin" class="LoginView v3a bs-view">
+<h3 class="h3">Mám zde svůj účet</h3>
+<p class="t-weak t-sm">Po přihlášení vám údaje vyplníme.</p>
+<button class="button -primary" type="button" onClick="{{ openLogin }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>Přihlásit se</button>
+</div>
+</div>
+</section>
+
+<section class="card" id="OrderBillingForm1" aria-labelledby="bfTitle">
+<div class="cardHead"><h2 class="cardTitle" id="bfTitle">Fakturační údaje</h2><span class="t-sm t-weak"><span class="req">*</span> povinné údaje</span></div>
+<div class="box dlvInfo"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg><span>Doprava <b>{{ dlvName }}</b>. {{ dlvText }} <a href="Kosik.dc.html">Změnit dopravu</a></span></div>
+<div class="billGrid">
+<div class="fgCol"><h3 class="sub">Kontakt</h3><div class="field {{ fs.first.cls }}"><label for="f_first">Jméno<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_first" name="first" type="text" autocomplete="given-name" value="{{ fs.first.v }}" onChange="{{ fs.first.ch }}" aria-invalid="{{ fs.first.inv }}" aria-describedby="e_first"><sc-if value="{{ fs.first.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_first"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.first.msg }}</p></sc-if></div><div class="field {{ fs.last.cls }}"><label for="f_last">Příjmení<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_last" name="last" type="text" autocomplete="family-name" value="{{ fs.last.v }}" onChange="{{ fs.last.ch }}" aria-invalid="{{ fs.last.inv }}" aria-describedby="e_last"><sc-if value="{{ fs.last.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_last"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.last.msg }}</p></sc-if></div><div class="field {{ fs.email.cls }}"><label for="f_email">E-mail<span class="req" aria-hidden="true">*</span></label><div class="inWrap"><input class="input" id="f_email" name="email" type="email" autocomplete="email" placeholder="jmeno@domena.cz" value="{{ fs.email.v }}" onChange="{{ fs.email.ch }}" aria-invalid="{{ fs.email.inv }}" aria-describedby="e_email"><sc-if value="{{ fs.email.ok }}" hint-placeholder-val="{{ false }}"><svg class="ic okIc" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></sc-if></div><span class="field__hint">Pošleme sem potvrzení objednávky a platební údaje.</span><sc-if value="{{ fs.email.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_email"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.email.msg }}</p></sc-if></div><div class="field {{ fs.phone.cls }}"><label for="f_phone">Telefon<span class="req" aria-hidden="true">*</span></label><div class="prefix"><select class="input prefSel" aria-label="Předvolba" value="{{ fs.phonePre.v }}" onChange="{{ fs.phonePre.ch }}"><option value="+420">+420</option><option value="+421">+421</option></select><input class="input" id="f_phone" name="phone" type="tel" autocomplete="tel-national" inputmode="tel" placeholder="777 123 456" value="{{ fs.phone.v }}" onChange="{{ fs.phone.ch }}" aria-invalid="{{ fs.phone.inv }}" aria-describedby="e_phone"></div><span class="field__hint">Pro SMS od dopravce.</span><sc-if value="{{ fs.phone.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_phone"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.phone.msg }}</p></sc-if></div></div>
+<div class="fgCol"><h3 class="sub">Adresa</h3>
+
+<div class="field streetField {{ fs.street.cls }}"><label for="f_street">Ulice a číslo popisné<span class="req">*</span></label>
+<div class="inWrap"><input class="input" id="f_street" type="text" autocomplete="street-address" role="combobox" aria-expanded="{{ sm.open }}" aria-controls="smList" aria-autocomplete="list" value="{{ fs.street.v }}" onChange="{{ fs.street.ch }}" onBlur="{{ sm.blur }}" aria-describedby="e_street" placeholder="Začněte psát, např. Husova">
+<sc-if value="{{ sm.open }}" hint-placeholder-val="{{ false }}"><ul class="smartform" id="smList" role="listbox"><sc-for list="{{ sm.items }}" as="a" hint-placeholder-count="3"><li role="option"><button type="button" onMouseDown="{{ a.pick }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg><span><b>{{ a.street }}</b> <span class="t-weak">{{ a.zip }} {{ a.city }}</span></span></button></li></sc-for><li class="smFoot">Našeptávač adres Smartform</li></ul></sc-if></div>
+<sc-if value="{{ fs.street.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_street"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.street.msg }}</p></sc-if></div>
+<div class="field {{ fs.city.cls }}"><label for="f_city">Město<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_city" name="city" type="text" autocomplete="address-level2" value="{{ fs.city.v }}" onChange="{{ fs.city.ch }}" aria-invalid="{{ fs.city.inv }}" aria-describedby="e_city"><sc-if value="{{ fs.city.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_city"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.city.msg }}</p></sc-if></div><div class="zipRow"><div class="field {{ fs.zip.cls }}"><label for="f_zip">PSČ<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_zip" name="zip" type="text" autocomplete="postal-code" inputmode="numeric" placeholder="560 02" value="{{ fs.zip.v }}" onChange="{{ fs.zip.ch }}" aria-invalid="{{ fs.zip.inv }}" aria-describedby="e_zip"><sc-if value="{{ fs.zip.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_zip"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.zip.msg }}</p></sc-if></div><div class="field"><label for="f_country">Země</label><select class="input" id="f_country" autocomplete="country"><option>Česko</option></select></div></div>
+</div>
+</div>
+
+<div class="sect">
+<label class="check"><input type="checkbox" name="companyOrder" checked="{{ company }}" onChange="{{ toggleCompany }}"><span>Nakupuji na firmu</span></label>
+<sc-if value="{{ company }}" hint-placeholder-val="{{ false }}"><div id="OrderCompanyForm" class="OrderFormView v4b bs-view form-grid subForm reveal">
+<div class="field {{ fs.ico.cls }}"><label for="f_ico">IČ<span class="req">*</span></label><div class="icoRow"><input class="input" id="f_ico" inputmode="numeric" autocomplete="off" value="{{ fs.ico.v }}" onChange="{{ fs.ico.ch }}" aria-describedby="e_ico" placeholder="12345678"><button class="button -secondary {{ aresCls }}" type="button" onClick="{{ ares }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path></svg>Načíst z ARESu</button></div>
+<sc-if value="{{ aresOk }}" hint-placeholder-val="{{ false }}"><span class="notice -inline -success">Údaje jsme doplnili z ARES</span></sc-if>
+<sc-if value="{{ fs.ico.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_ico"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.ico.msg }}</p></sc-if></div>
+<div class="field {{ fs.company.cls }}"><label for="f_company">Společnost<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_company" name="company" type="text" autocomplete="organization" value="{{ fs.company.v }}" onChange="{{ fs.company.ch }}" aria-invalid="{{ fs.company.inv }}" aria-describedby="e_company"><sc-if value="{{ fs.company.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_company"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.company.msg }}</p></sc-if></div><div class="field {{ fs.dic.cls }}"><label for="f_dic">DIČ <span class="opt">(nepovinné)</span></label><input class="input" id="f_dic" name="dic" type="text" placeholder="CZ12345678" value="{{ fs.dic.v }}" onChange="{{ fs.dic.ch }}" aria-invalid="{{ fs.dic.inv }}" aria-describedby="e_dic"><sc-if value="{{ fs.dic.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dic"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dic.msg }}</p></sc-if></div>
+<div class="field vatField"><span class="lab" aria-hidden="true">&nbsp;</span><label class="check"><input type="checkbox" name="vatPayer" checked="{{ vat }}" onChange="{{ toggleVat }}"><span>Jsem plátce DPH</span></label></div>
+</div></sc-if>
+</div>
+
+<div class="sect">
+<label class="check"><input type="checkbox" checked="{{ other }}" onChange="{{ toggleOther }}"><span>Doručit na jinou adresu</span></label>
+<sc-if value="{{ other }}" hint-placeholder-val="{{ false }}"><div id="OrderDeliveryForm1" class="OrderFormView bs-view form-grid subForm reveal"><!-- NEOVĚŘENO: instance dodací adresy -->
+<div class="field {{ fs.dName.cls }}"><label for="f_dName">Jméno a příjmení<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_dName" name="dName" type="text" autocomplete="shipping name" value="{{ fs.dName.v }}" onChange="{{ fs.dName.ch }}" aria-invalid="{{ fs.dName.inv }}" aria-describedby="e_dName"><sc-if value="{{ fs.dName.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dName"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dName.msg }}</p></sc-if></div><div class="field {{ fs.dCompany.cls }}"><label for="f_dCompany">Firma <span class="opt">(nepovinné)</span></label><input class="input" id="f_dCompany" name="dCompany" type="text" autocomplete="shipping organization" value="{{ fs.dCompany.v }}" onChange="{{ fs.dCompany.ch }}" aria-invalid="{{ fs.dCompany.inv }}" aria-describedby="e_dCompany"><sc-if value="{{ fs.dCompany.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dCompany"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dCompany.msg }}</p></sc-if></div><div class="field -span2 {{ fs.dStreet.cls }}"><label for="f_dStreet">Ulice a číslo popisné<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_dStreet" name="dStreet" type="text" autocomplete="shipping street-address" value="{{ fs.dStreet.v }}" onChange="{{ fs.dStreet.ch }}" aria-invalid="{{ fs.dStreet.inv }}" aria-describedby="e_dStreet"><sc-if value="{{ fs.dStreet.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dStreet"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dStreet.msg }}</p></sc-if></div><div class="field {{ fs.dCity.cls }}"><label for="f_dCity">Město<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_dCity" name="dCity" type="text" autocomplete="shipping address-level2" value="{{ fs.dCity.v }}" onChange="{{ fs.dCity.ch }}" aria-invalid="{{ fs.dCity.inv }}" aria-describedby="e_dCity"><sc-if value="{{ fs.dCity.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dCity"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dCity.msg }}</p></sc-if></div><div class="field {{ fs.dZip.cls }}"><label for="f_dZip">PSČ<span class="req" aria-hidden="true">*</span></label><input class="input" id="f_dZip" name="dZip" type="text" autocomplete="shipping postal-code" inputmode="numeric" value="{{ fs.dZip.v }}" onChange="{{ fs.dZip.ch }}" aria-invalid="{{ fs.dZip.inv }}" aria-describedby="e_dZip"><sc-if value="{{ fs.dZip.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dZip"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dZip.msg }}</p></sc-if></div><div class="field {{ fs.dPhone.cls }}"><label for="f_dPhone">Telefon pro dopravce <span class="opt">(nepovinné)</span></label><div class="prefix"><select class="input prefSel" aria-label="Předvolba" value="{{ fs.dPhonePre.v }}" onChange="{{ fs.dPhonePre.ch }}"><option value="+420">+420</option><option value="+421">+421</option></select><input class="input" id="f_dPhone" name="dPhone" type="tel" autocomplete="shipping tel-national" value="{{ fs.dPhone.v }}" onChange="{{ fs.dPhone.ch }}" aria-invalid="{{ fs.dPhone.inv }}" aria-describedby="e_dPhone"></div><sc-if value="{{ fs.dPhone.err }}" hint-placeholder-val="{{ false }}"><p class="field__error" id="e_dPhone"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>{{ fs.dPhone.msg }}</p></sc-if></div>
+</div></sc-if>
+</div>
+
+
+<div class="field sect"><label for="f_note">Poznámka k objednávce <span class="opt">(nepovinné)</span></label><textarea class="input xta_note" id="f_note" rows="3" placeholder="Např. volejte prosím před doručením" value="{{ fs.note.v }}" onChange="{{ fs.note.ch }}"></textarea></div>
+</section>
+
+<section id="OrderAdditionalDetails1" class="OrderFormView v5a bs-view card consents" aria-label="Souhlasy">
+<label class="check"><input type="checkbox" name="subscribeToNewsletter" checked="{{ news }}" onChange="{{ toggleNews }}"><span>Chci dostávat e-mailem novinky a akce Midas (zhruba jednou měsíčně, odhlásit se můžete kdykoli).</span></label>
+<!-- NEOVĚŘENO: používá Midas program Heureka Ověřeno zákazníky? -->
+<label class="check"><input type="checkbox" name="disallowZboziSurvey" checked="{{ zbozi }}" onChange="{{ toggleZbozi }}"><span>Nesouhlasím s předáním údajů o objednávce Zboží.cz za účelem nezávislého hodnocení nákupu.</span></label>
+<label class="check"><input type="checkbox" name="disallowHeurekaSurvey" checked="{{ heureka }}" onChange="{{ toggleHeureka }}"><span>Nesouhlasím se zasláním dotazníku spokojenosti v rámci programu Ověřeno zákazníky.</span></label>
+<p class="t-sm t-weak">Osobní údaje zpracujeme pro vyřízení objednávky. <a href="Gdpr.dc.html">Jak zpracováváme osobní údaje</a></p>
+</section>
+
+
+
+<a class="button -text backMobile" href="Kosik.dc.html"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg>Zpět do košíku</a>
+<div id="OrderActionPanelHorizontal" class="OrderActionPanelRwdView OrderActionPanelViewBase v1a v1 bs-view floating"><div class="container oapIn"><a class="button -secondary previousStep" href="Kosik.dc.html" aria-label="Zpět"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg><span class="lgL">Zpět</span><span class="smL">Zpět</span></a><div class="prices"><span class="price deliveryPayment noVatCol"><span class="caption">Celkem bez DPH</span><span class="value t-price-sm">{{ noVat }}</span></span><span class="price total"><span class="caption">Celkem s DPH</span><span class="value">{{ totalLabel }}</span><span class="noVat">{{ noVat }} bez DPH</span></span></div><a class="button -main -lg nextStep xta_nextStep" href="Kontrola.dc.html" onClick="{{ next }}"><span class="lbl">Pokračovat<span class="sub">ke kontrole údajů</span></span><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></div>
+</div>
+</div></main>
+<footer id="Footer" class="FooterView bs-view inBasket"><div class="container fIn">
+<div class="fContact"><span>Midas International spol. s r.o.</span><a href="tel:+420739162221">+420 739 162 221</a><a href="mailto:e-objednavky@midas.cz">e-objednavky@midas.cz</a></div>
+<nav aria-label="Právní informace"><a href="ObchodniPodminky.dc.html">Obchodní podmínky</a><a href="Reklamace.dc.html">Reklamace a vrácení</a><a href="Doprava.dc.html">Doprava a platba</a><a href="Gdpr.dc.html">Ochrana osobních údajů</a><a href="Kontakt.dc.html">Kontakty</a></nav>
+</div></footer><div class="toastStack" aria-live="polite">
+<sc-if value="{{ tErr }}" hint-placeholder-val="{{ false }}"><div class="toast -error" role="alert"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg><div class="tBody"><b>{{ tErrTitle }}</b><ul><sc-for list="{{ errs }}" as="e" hint-placeholder-count="2"><li><button type="button" onClick="{{ e.go }}">{{ e.text }}</button></li></sc-for></ul></div><button class="tClose" type="button" aria-label="Zavřít upozornění" onClick="{{ closeErr }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
+<sc-if value="{{ tOk }}" hint-placeholder-val="{{ false }}"><div class="toast -success" role="status"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg><div class="tBody">{{ tOkText }}<sc-if value="{{ tUndo }}" hint-placeholder-val="{{ false }}"> <button class="tAct" type="button" onClick="{{ undo }}">Vrátit zpět</button></sc-if></div><button class="tClose" type="button" aria-label="Zavřít" onClick="{{ closeOk }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
+</div>
+<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="lgOverlay" onMouseDown="{{ overlayDown }}" onKeyDown="{{ overlayKey }}"><div class="lgBox" role="dialog" aria-modal="true" aria-label="Přihlášení"><dc-import name="LoginPopup" on-close="{{ closeLogin }}" hint-size="320px,420px"></dc-import></div></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2000}}'>
+
+const CK = (() => {
+  const KEY = 'midasCheckoutV1';
+  const ITEMS = [
+    { id: 'kol', name: 'KG koleno DN 110 - 45°', code: '1104', img: '_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg', unit: 35.8, q: 4, stock: 120 },
+    { id: 'trb', name: 'KG trubka DN 110 × 3,2 mm – 1 m, SN 4', code: '2110', img: '_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg', unit: 98.5, q: 6, stock: 48 },
+    { id: 'red', name: 'Obrácená redukce DN 125/110 PP', code: '6057', img: '_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg', unit: 318, q: 1, stock: 3 }
+  ];
+  const FREE = 3000;
+  const DEL = {
+    personal: { name: 'Osobní odběr – Semanín 173', short: 'osobní odběr Semanín', p: 0, eta: '' },
+    dpd: { name: 'DPD – doručení na adresu', short: 'DPD na adresu', p: 99, free: true, eta: 'Doručíme ve čtvrtek 19. 11.' },
+    pickup: { name: 'DPD Pickup – výdejní místo', short: 'DPD Pickup', p: 79, free: true, eta: 'Na výdejním místě ve čtvrtek 19. 11.' },
+    pallet: { name: 'Rozvoz vozem Midas', short: 'rozvoz vozem Midas', p: 590, eta: 'Termín rozvozu potvrdíme telefonicky' }
+  };
+  const PAY = {
+    advance: { name: 'Převodem předem', short: 'převodem předem', p: 0, note: 'Platební údaje a QR kód pošleme e-mailem' },
+    cod: { name: 'Dobírka', short: 'dobírka', p: 39, note: 'Zaplatíte hotově nebo kartou při převzetí' },
+    shop: { name: 'Hotově nebo kartou na prodejně', short: 'na prodejně', p: 0, note: 'Platíte při vyzvednutí v Semaníně' }
+  };
+  const PLACES = [
+    { name: 'Trafika U Nádraží', addr: 'Nádražní 1220, 560 02 Česká Třebová', type: 'shop', sun: false, st: 'open', hours: 'Po–Pá 6:00–18:00, So 7:00–12:00', x: 46, y: 47 },
+    { name: 'DPD Pickup Box – Albert', addr: 'Dr. E. Beneše 2050, 560 02 Česká Třebová', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 51, y: 52 },
+    { name: 'Papírnictví Kopecký', addr: 'Hýblova 515, 560 02 Česká Třebová', type: 'shop', sun: false, st: 'soon', hours: 'Po–Pá 8:00–17:00', x: 43, y: 55 },
+    { name: 'AlzaBox Česká Třebová – Svitavská', addr: 'Svitavská 1446, 560 02 Česká Třebová', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 55, y: 44 },
+    { name: 'Květinářství Lilie', addr: 'Staré náměstí 21, 560 02 Česká Třebová', type: 'shop', sun: true, st: 'closed', hours: 'Po–Ne 9:00–17:00', x: 48, y: 41 },
+    { name: 'DPD Pickup Box – Penny', addr: 'Lochmanova 1300, 562 01 Ústí nad Orlicí', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 22, y: 30 },
+    { name: 'Drogerie Jana', addr: 'Pražská 12, 568 02 Svitavy', type: 'shop', sun: false, st: 'open', hours: 'Po–Pá 8:00–18:00, So 8:00–11:30', x: 78, y: 70 },
+    { name: 'Pekárna U Mlýna', addr: 'Smetanovo náměstí 70, 570 01 Litomyšl', type: 'shop', sun: false, st: 'soon', hours: 'Po–So 6:00–16:00', x: 64, y: 18 }
+  ];
+  const DEMO = { items: ITEMS.map(i => ({ id: i.id, q: i.q })), del: 'dpd', pay: 'advance', place: -1, cpCode: '',
+    contact: { first: 'Jan', last: 'Novák', email: 'jan.novak@example.cz', pre: '+420', phone: '777 123 456', street: 'Husova 12', city: 'Česká Třebová', zip: '560 02', note: '' } };
+  const load = () => { try { const v = JSON.parse(window.localStorage.getItem(KEY) || 'null'); return v && typeof v === 'object' ? v : null; } catch (e) { return null; } };
+  const save = patch => { try { const cur = load() || {}; window.localStorage.setItem(KEY, JSON.stringify({ ...cur, ...patch })); } catch (e) {} };
+  const fmt = n => { n = Math.round(n * 100) / 100; return (Number.isInteger(n) ? n.toLocaleString('cs-CZ') : n.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + ' Kč'; };
+  const items = st => (st.items || DEMO.items).map(x => { const b = ITEMS.find(i => i.id === x.id); return b ? { ...b, q: x.q } : null; }).filter(Boolean);
+  const calc = st => {
+    const its = items(st), goods = its.reduce((t, i) => t + i.q * i.unit, 0);
+    const disc = st.cpCode ? Math.round(goods * 0.1 * 100) / 100 : 0, base = goods - disc, free = base >= FREE;
+    const dPrice = k => (DEL[k] && DEL[k].free && free) ? 0 : (DEL[k] ? DEL[k].p : 0);
+    const dp = st.del ? dPrice(st.del) : 0, pp = st.pay ? PAY[st.pay].p : 0, total = base + dp + pp;
+    return { its, goods, disc, base, free, dPrice, dp, pp, total, noVat: Math.round(total / 1.21 * 100) / 100, vat: Math.round((total - total / 1.21) * 100) / 100, count: its.reduce((t, i) => t + i.q, 0) };
+  };
+  const state = () => { const s = load(); return s ? { ...DEMO, ...s, contact: { ...(s.contact || DEMO.contact) } } : { ...DEMO, contact: { ...DEMO.contact }, demo: true }; };
+  return { KEY, ITEMS, FREE, DEL, PAY, PLACES, DEMO, load, save, fmt, items, calc, state };
+})();
+
+
+const ADDR = [
+  ['Husova 12', 'Česká Třebová', '560 02'], ['Husova 120', 'Česká Třebová', '560 02'], ['Hýblova 1031', 'Česká Třebová', '560 02'],
+  ['Semanín 173', 'Semanín', '560 02'], ['Svitavská 1446', 'Česká Třebová', '560 02'], ['Husova 1260', 'Svitavy', '568 02'],
+  ['Nádražní 1220', 'Česká Třebová', '560 02'], ['Na Lánech 594', 'Ústí nad Orlicí', '562 01']
+];
+const LABEL = { first: 'Jméno', last: 'Příjmení', email: 'E-mail', phone: 'Telefon', street: 'Ulice a číslo popisné', city: 'Město', zip: 'PSČ',
+  ico: 'IČ', company: 'Společnost', pw1: 'Heslo', pw2: 'Heslo znovu', dName: 'Jméno a příjmení (dodací adresa)', dStreet: 'Ulice (dodací adresa)', dCity: 'Město (dodací adresa)', dZip: 'PSČ (dodací adresa)' };
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const st = CK.load() || {};
+    const c = st.contact || {};
+    this.store = st;
+    this.state = { v: { ...(c.v || {}) }, account: !!c.account, company: !!c.company, other: !!c.other, news: !!c.news, heureka: !!c.heureka, zbozi: !!c.zbozi, vat: !!c.vat, errOpen: false,
+      showPw: false, tried: false, loginOpen: false, smOpen: false, smPicked: false, aresLoad: false, aresOk: false, aresErr: '' };
+  }
+
+  navGo(e, valid) {
+    if (this.goNow) { this.goNow = false; return true; }
+    if (!valid) return false;
+    let reduce = false; try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (x) {}
+    if (reduce) return true;
+    e.preventDefault(); const a = e.currentTarget; const href = a && a.getAttribute('href');
+    this.setState({ navCls: 'leaving' });
+    clearTimeout(this.navT);
+    this.navT = setTimeout(() => { this.goNow = true; if (a && a.isConnected) a.click(); else { const b = document.querySelector('a[href="' + href + '"].nextStep'); if (b) b.click(); } }, 520);
+    return true;
+  }
+
+  componentWillUnmount() { clearTimeout(this.navT); clearTimeout(this.aT); clearTimeout(this.sT); clearTimeout(this.svT); }
+  persist(patch) {
+    const m = { ...this.state, ...(patch || {}) };
+    const v = { ...m.v }; delete v.pw1; delete v.pw2;
+    clearTimeout(this.svT);
+    this.svT = setTimeout(() => CK.save({ contact: { v, account: m.account, company: m.company, other: m.other, news: m.news, heureka: m.heureka, zbozi: m.zbozi, vat: m.vat } }), 150);
+  }
+  up(patch) { this.setState(patch); this.persist(patch); }
+  set(k, val) { const v = { ...this.state.v, [k]: val }; const st = { v }; if (k === 'street') { st.smOpen = String(val).trim().length >= 2; st.smPicked = false; } if (k === 'ico') { st.aresErr = ''; st.aresOk = false; } this.up(st); }
+  check() {
+    const s = this.state, v = s.v, e = {}; const t = k => String(v[k] || '').trim();
+    const MSG = { first: 'Vyplňte jméno', last: 'Vyplňte příjmení', street: 'Vyplňte ulici a číslo popisné', city: 'Vyplňte město', company: 'Vyplňte název společnosti', dName: 'Vyplňte jméno a příjmení', dStreet: 'Vyplňte ulici a číslo popisné', dCity: 'Vyplňte město' };
+    ['first', 'last'].forEach(k => { if (!t(k)) e[k] = MSG[k]; });
+    if (!t('email')) e.email = 'Vyplňte e-mail'; else if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(t('email'))) e.email = 'Zadejte e-mail ve tvaru jmeno@domena.cz';
+    const ph = t('phone').replace(/\s/g, ''); if (!ph) e.phone = 'Vyplňte telefon'; else if (!/^\d{9}$/.test(ph)) e.phone = 'Telefon má 9 číslic, např. 777 123 456';
+    if (s.account) { if (t('pw1').length < 8) e.pw1 = 'Heslo musí mít alespoň 8 znaků'; if (t('pw2') !== t('pw1')) e.pw2 = 'Hesla se neshodují'; }
+    ['street', 'city'].forEach(k => { if (!t(k)) e[k] = MSG[k]; });
+    const z = t('zip').replace(/\s/g, ''); if (!z) e.zip = 'Vyplňte PSČ'; else if (!/^\d{5}$/.test(z)) e.zip = 'PSČ má 5 číslic';
+    if (s.company) { if (!/^\d{8}$/.test(t('ico'))) e.ico = 'IČ má 8 číslic'; if (!t('company')) e.company = MSG.company; }
+    if (s.other) { ['dName', 'dStreet', 'dCity'].forEach(k => { if (!t(k)) e[k] = MSG[k]; }); if (!/^\d{5}$/.test(t('dZip').replace(/\s/g, ''))) e.dZip = 'PSČ má 5 číslic'; }
+    return e;
+  }
+  go(k) { const el = document.getElementById('f_' + k); if (!el) return; el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => el.focus({ preventScroll: true }), 350); }
+  ares() {
+    const ico = String(this.state.v.ico || '').trim();
+    if (!/^\d{8}$/.test(ico)) { this.setState({ aresErr: 'IČ má 8 číslic' }); return; }
+    this.setState({ aresLoad: true, aresErr: '', aresOk: false });
+    clearTimeout(this.aT);
+    this.aT = setTimeout(() => {
+      if (ico === '00000000') { this.setState({ aresLoad: false, aresErr: 'IČ jsme v ARES nenašli. Vyplňte údaje ručně.' }); return; }
+      const midas = ico === '49680731';
+      const v = { ...this.state.v, company: midas ? 'Midas International, spol. s r.o.' : 'Stavebniny Novák s.r.o.', dic: 'CZ' + ico,
+        street: midas ? 'Semanín 171' : (this.state.v.street || 'Husova 12'), city: midas ? 'Semanín' : (this.state.v.city || 'Česká Třebová'), zip: '560 02' };
+      this.setState({ aresLoad: false, aresOk: true, smOpen: false }); this.up({ vat: true, v });
+    }, 900);
+  }
+  renderVals() {
+    const s = this.state, e = s.tried ? this.check() : {};
+    if (s.aresErr) e.ico = s.aresErr;
+    const fs = {};
+    const keys = ['first', 'last', 'email', 'phone', 'phonePre', 'street', 'city', 'zip', 'pw1', 'pw2', 'ico', 'company', 'dic', 'dName', 'dCompany', 'dStreet', 'dCity', 'dZip', 'dPhone', 'dPhonePre', 'note'];
+    const emailOk = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(String(s.v.email || '').trim());
+    keys.forEach(k => { fs[k] = { v: s.v[k] || (k.endsWith('Pre') ? '+420' : ''), err: !!e[k], msg: e[k] || '', inv: e[k] ? 'true' : 'false', cls: e[k] ? 'is-error' : (k === 'email' && emailOk ? 'is-ok' : ''), ok: k === 'email' && emailOk && !e[k], ch: ev => this.set(k, ev.target.value) }; });
+    const q = String(s.v.street || '').trim().toLowerCase();
+    const sm = ADDR.filter(a => (a[0] + ' ' + a[1]).toLowerCase().includes(q)).slice(0, 4);
+    const errList = Object.keys(e).map(k => ({ text: e[k] + (k.charAt(0) === 'd' && k !== 'dic' ? ' (dodací adresa)' : ''), go: () => this.go(k) }));
+    const tog = k => () => this.up({ [k]: !this.state[k] });
+    const st = CK.state(), c = CK.calc(st), del = st.del || 'dpd';
+    const DT = { personal: 'Zboží si vyzvednete na prodejně v Semaníně, adresu potřebujeme pro fakturu.', dpd: 'Zboží doručíme na fakturační adresu, pokud nezvolíte jinou.', pickup: 'Zboží vyzvednete na zvoleném výdejním místě, adresu potřebujeme pro fakturu.', pallet: 'Zboží přivezeme na fakturační adresu, pokud nezvolíte jinou. Termín potvrdíme telefonicky.' };
+    return {
+      fs, account: s.account, company: s.company, other: s.other, news: s.news, heureka: s.heureka, zbozi: s.zbozi, vat: s.vat,
+      toggleAccount: tog('account'), toggleCompany: tog('company'), toggleOther: tog('other'), toggleNews: tog('news'), toggleHeureka: tog('heureka'), toggleZbozi: tog('zbozi'), toggleVat: tog('vat'),
+      dlvName: CK.DEL[del].name + (del === 'pickup' && st.place >= 0 ? ' (' + CK.PLACES[st.place].name.replace('DPD Pickup – ', '') + ')' : ''), dlvText: DT[del],
+      dpLabel: c.dp + c.pp ? CK.fmt(c.dp + c.pp) : 'Zdarma', totalLabel: CK.fmt(c.total), noVat: CK.fmt(c.noVat),
+      tErr: s.errOpen && errList.length > 0, tErrTitle: 'Doplňte prosím údaje:', closeErr: () => this.setState({ errOpen: false }), tOk: false, tOkText: '', tUndo: false, undo: () => {}, closeOk: () => {},
+      pwType: s.showPw ? 'text' : 'password', pwLabel: s.showPw ? 'Skrýt heslo' : 'Zobrazit heslo', togglePw: tog('showPw'),
+      sm: { open: s.smOpen && !s.smPicked && sm.length > 0, items: sm.map(a => ({ street: a[0], city: a[1], zip: a[2], pick: ev => { ev.preventDefault(); this.setState({ smOpen: false, smPicked: true }); this.up({ v: { ...this.state.v, street: a[0], city: a[1], zip: a[2] } }); } })),
+        blur: () => { clearTimeout(this.sT); this.sT = setTimeout(() => this.setState({ smOpen: false }), 150); } },
+      ares: () => this.ares(), aresCls: s.aresLoad ? '-loading' : '', aresOk: s.aresOk,
+      errs: errList.length > 6 ? errList.slice(0, 5).concat([{ text: 'a další ' + (errList.length - 5) + ' – jsou označené ve formuláři', go: () => this.go(Object.keys(e)[5]) }]) : errList,
+      navCls: s.navCls || '',
+      next: ev => { if (this.goNow) { this.goNow = false; return; } const er = this.check(); if (Object.keys(er).length) { ev.preventDefault(); this.setState({ tried: true, errOpen: true }); const first = Object.keys(er)[0]; setTimeout(() => this.go(first), 30); return; } this.navGo(ev, true); },
+      loginOpen: s.loginOpen, openLogin: () => this.setState({ loginOpen: true }), closeLogin: () => this.setState({ loginOpen: false }),
+      overlayDown: ev => { if (ev.target === ev.currentTarget) this.setState({ loginOpen: false }); },
+      overlayKey: ev => { if (ev.key === 'Escape') { ev.stopPropagation(); this.setState({ loginOpen: false }); } }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

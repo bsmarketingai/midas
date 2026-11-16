@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midas.cz – Děkujeme za objednávku</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+/* ===== Objednávka BSSHOP (P0) – tokeny Midas ===== */
+:root{
+  --primary-color:#3a7a27; --primary:#65bc47; --primary-10:#eff8eb; --primary-5:#f6fbf3; --text-on-primary-color:#fff;
+  --btn-main-bg:#cc0000; --btn-main-bg-h:#a80000; --btn-main-fg:#fff;
+  --text-color:rgba(30,30,30,.9); --text-weaker-color:rgba(30,30,30,.68);
+  --link-color:#3a7a27; --bg-color:#f4f5f4; --bg-content-color:#fff;
+  --neutral-panel-color:#f6f7f7; --neutral-separator-color:#e6e8e5; --input-border:#a9b0ad;
+  --green-color:#0a7d24; --orange-color:#b45309; --red-color:#c81e1e;
+  --error-color:#c81e1e; --success-color:#0a7d24; --info-color:#1f6fa8; --warning-color:#b45309;
+  --radius-base:4px; --radius-xs:2px; --radius-sm:4px; --radius-md:6px; --radius-lg:8px; --radius-pill:999px;
+  --btn-radius-base:var(--radius-sm); --input-radius:var(--radius-sm); --card-radius:var(--radius-lg);
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px; --space-6:32px; --space-7:48px; --space-8:64px;
+  --gutter:12px; --content-max:1560px; --card-pad:var(--space-4);
+  --card-shadow:0 1px 2px rgba(20,30,15,.06),0 0 0 1px rgba(20,30,15,.07);
+  --font-body:"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fw-heading:700; --fw-price:700;
+  --fs-h1:28px; --fs-h2:22px; --fs-h3:18px; --fs-body:15px; --fs-body-sm:13px; --fs-label:14px; --fs-caption:12px; --fs-price-md:20px; --fs-price-sm:15px;
+  --btn-h-sm:32px; --btn-h-md:44px; --btn-h-lg:56px; --field-h-sm:32px; --field-h-md:44px;
+  --check-size:20px; --check-color:#3a7a27;
+  --focus-ring:0 0 0 2px #fff,0 0 0 4px #3a7a27;
+}
+@media (min-width:420px){:root{--gutter:16px}}
+@media (min-width:820px){:root{--gutter:24px;--card-pad:var(--space-5);--fs-h1:32px;--fs-h2:24px;--fs-h3:20px}}
+@media (min-width:1150px){:root{--gutter:32px;--fs-h1:40px;--fs-h2:28px;--fs-h3:20px;--fs-body:16px;--fs-body-sm:14px;--fs-price-md:22px;--fs-price-sm:16px}}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg-color);color:var(--text-color);font:400 var(--fs-body)/1.5 var(--font-body);-webkit-font-smoothing:antialiased}
+a{color:var(--link-color)}
+button,input,select,textarea{font:inherit;color:inherit}
+.ic{width:20px;height:20px;flex:none}
+.dpLogo{flex:none;display:block;width:65px;height:40px;border:1px solid #dfe3e0;border-radius:var(--radius-sm);background:#fff;overflow:hidden}
+.dpLogo .dpSvg{display:block;width:100%;height:100%}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.container{width:100%;max-width:calc(var(--content-max) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+.narrow{max-width:calc(960px + 2*var(--gutter))}
+.t-weak{color:var(--text-weaker-color)}
+.t-sm{font-size:var(--fs-body-sm)}
+.t-price-sm{font-size:var(--fs-price-sm);font-weight:var(--fw-price);font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-price-md{font-size:var(--fs-price-md);font-weight:var(--fw-price);font-variant-numeric:tabular-nums;white-space:nowrap}
+.t-free{color:var(--success-color);font-weight:600}
+
+/* HeaderView .inBasket – uzavřený checkout */
+#Header.inBasket{background:#fff;border-bottom:1px solid var(--neutral-separator-color)}
+#Header.inBasket .hIn{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+#Header.inBasket .logo img{display:block;height:44px;width:auto}
+#Header.inBasket .hRight{display:flex;align-items:center;gap:24px;font-size:14px}
+#Header.inBasket .hPhone{display:flex;align-items:center;gap:8px;color:var(--text-color);text-decoration:none}
+#Header.inBasket .hPhone b{display:block;font-size:15px}
+#Header.inBasket .hPhone small{display:block;color:var(--text-weaker-color);font-size:12px}
+#Header.inBasket .hPhone .ic{color:var(--primary-color)}
+@media (max-width:549px){#Header.inBasket .hIn{min-height:60px}#Header.inBasket .logo img{height:34px}#Header.inBasket .hPhone span{display:none}#Header.inBasket .hPhone{width:44px;height:44px;justify-content:center;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-pill)}}
+
+/* OrderNavigatorView */
+#OrderNavigator{margin:var(--space-5) auto var(--space-5);max-width:745px}
+#OrderNavigator .steps{display:flex;align-items:flex-start}
+#OrderNavigator .step{display:flex;flex-direction:column;align-items:center;gap:8px;flex:none;width:130px;text-align:center;text-decoration:none;color:var(--text-weaker-color)}
+#OrderNavigator .number{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:2px solid #b7bdb9;background:#fff;font-weight:700;font-size:16px;color:var(--text-weaker-color)}
+#OrderNavigator .name{font-size:var(--fs-label);line-height:1.3}
+#OrderNavigator .stepSeparator{position:relative;flex:1;height:3px;border-radius:2px;background:#d4d8d5;margin-top:19px;min-width:24px;overflow:hidden}
+#OrderNavigator .stepSeparator span{position:absolute;inset:0;background:var(--primary-color);transform:scaleX(0);transform-origin:left center}
+#OrderNavigator .stepSeparator.done span{transform:scaleX(1)}
+/* animace propojení kroků (vstup na krok + odchod na další) */
+@keyframes navFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes navPop{0%{transform:scale(.6);opacity:.4}60%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}
+@keyframes navRing{0%{box-shadow:0 0 0 0 rgba(58,122,39,.45)}100%{box-shadow:0 0 0 12px rgba(58,122,39,0)}}
+@keyframes navDraw{from{stroke-dashoffset:24}to{stroke-dashoffset:0}}
+#OrderNavigator .stepSeparator.enter span{animation:navFill .6s cubic-bezier(.65,0,.35,1) .15s both}
+#OrderNavigator .step.just .number .ic{animation:navPop .45s cubic-bezier(.34,1.56,.64,1) .05s both}
+#OrderNavigator .step.active .number{animation:navPop .5s cubic-bezier(.34,1.56,.64,1) .7s both,navRing .9s ease-out 1.1s 1}
+#OrderNavigator .step.active .name{animation:reveal .35s ease-out .8s both}
+#OrderNavigator.leaving .stepSeparator.next span{animation:navFill .45s cubic-bezier(.65,0,.35,1) both}
+#OrderNavigator.leaving .step.upcoming .number{transition:background-color .2s .35s,border-color .2s .35s,color .2s .35s,transform .25s .35s;background:var(--primary-color);border-color:var(--primary-color);color:#fff;transform:scale(1.08)}
+#OrderNavigator.leaving .step.upcoming .name{transition:color .2s .35s;color:var(--primary-color);font-weight:700}
+@media (prefers-reduced-motion:reduce){#OrderNavigator *{animation:none!important;transition:none!important}}
+#OrderNavigator .active .number{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+#OrderNavigator .active .name{color:var(--primary-color);font-weight:700}
+#OrderNavigator .done .number{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+#OrderNavigator .done .number .ic{width:20px;height:20px;stroke-width:2.6}
+#OrderNavigator a.done .name{color:var(--link-color);text-decoration:underline;text-underline-offset:3px}
+#OrderNavigator a.done:hover .number{box-shadow:0 0 0 4px var(--primary-10)}
+#OrderNavigator a:focus-visible{outline:none}
+#OrderNavigator a:focus-visible .number{box-shadow:var(--focus-ring)}
+#OrderNavigator .mobileName{display:none;text-align:center;margin-top:10px;font-size:var(--fs-label)}
+@media (max-width:549px){
+  #OrderNavigator{margin:var(--space-4) auto}
+  #OrderNavigator .step{width:auto}
+  #OrderNavigator .step .name{display:none}
+  #OrderNavigator .number{width:32px;height:32px;font-size:14px}
+  #OrderNavigator .stepSeparator{margin-top:15px}
+  #OrderNavigator .steps{padding:0 12%}
+  #OrderNavigator .mobileName{display:block}
+}
+
+/* Karty */
+.card{background:var(--bg-content-color);border-radius:var(--card-radius);box-shadow:var(--card-shadow);padding:var(--card-pad);position:relative}
+.cards{display:flex;flex-direction:column;gap:var(--space-4)}
+.cardHead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;margin:0 0 var(--space-4)}
+.cardTitle{margin:0;font-size:var(--fs-h3);font-weight:var(--fw-heading);line-height:1.25;display:flex;align-items:center;gap:10px}
+.cardTitle .cnt{font-weight:400;color:var(--text-weaker-color);font-size:.85em}
+.cardTitle .ic{color:var(--primary-color)}
+h3.sub{margin:0 0 var(--space-3);font-size:var(--fs-label);font-weight:700;color:var(--text-weaker-color)}
+.busy::after{content:"";position:absolute;inset:0;border-radius:inherit;background:rgba(255,255,255,.55);z-index:3}
+.busy::before{content:"";position:absolute;left:50%;top:50%;width:28px;height:28px;margin:-14px 0 0 -14px;border:3px solid var(--primary-10);border-top-color:var(--primary-color);border-radius:50%;animation:spin .7s linear infinite;z-index:4}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Tlačítka */
+.button{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--btn-h-md);padding:0 18px;border-radius:var(--btn-radius-base);border:1px solid transparent;font-weight:500;font-size:15px;line-height:1;text-decoration:none;cursor:pointer;white-space:nowrap;background:none;transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s}
+.button:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:14px}
+.button.-lg{height:var(--btn-h-lg);padding:0 24px;font-size:17px;font-weight:700}
+.button.-block{width:100%}
+.button.-main{background:var(--btn-main-bg);color:var(--btn-main-fg)}
+.button.-main:hover{background:var(--btn-main-bg-h);color:#fff}
+.button.-primary{background:var(--primary-color);color:#fff}
+.button.-primary:hover{background:#2e6320;color:#fff}
+.button.-secondary{border-color:#a9b0ad;color:var(--text-color);background:#fff}
+.button.-secondary:hover{border-color:var(--text-color);color:var(--text-color)}
+.button.-text{height:auto;padding:6px 4px;color:var(--link-color);font-weight:500}
+.button.-text:hover{text-decoration:underline;text-underline-offset:3px;color:var(--link-color)}
+.button.-icon{width:var(--btn-h-md);padding:0}
+.button.-icon.-sm{width:var(--btn-h-sm)}
+.button[disabled],.button.-disabled{opacity:.45;cursor:not-allowed;pointer-events:none}
+.button .lbl{display:flex;flex-direction:column;align-items:flex-start;gap:3px;line-height:1.1}
+.button .sub{font-size:12px;font-weight:400;opacity:.9}
+.button.-loading{position:relative;color:transparent!important;pointer-events:none}
+.button.-loading::after{content:"";position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite}
+.button.-secondary.-loading::after,.button.-text.-loading::after{border-color:var(--primary-10);border-top-color:var(--primary-color)}
+
+/* Pole */
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field>label,.field .lab{font-size:var(--fs-label);font-weight:500}
+.field .req{color:var(--error-color)}
+.field .opt{color:var(--text-weaker-color);font-weight:400}
+.input{height:var(--field-h-md);width:100%;padding:0 12px;border:1px solid var(--input-border);border-radius:var(--input-radius);background:#fff;font-size:16px;transition:border-color .15s,box-shadow .15s}
+textarea.input{height:auto;min-height:88px;padding:10px 12px;resize:vertical}
+select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;background-size:16px;padding-right:36px}
+.input:hover{border-color:#6f7773}
+.input:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 3px rgba(58,122,39,.18)}
+.field.is-error .input{border-color:var(--error-color);box-shadow:0 0 0 1px var(--error-color)}
+.field.is-ok .input{border-color:var(--success-color)}
+.field__hint{font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+.field__error{margin:0;display:flex;gap:6px;align-items:flex-start;font-size:var(--fs-body-sm);color:var(--error-color);font-weight:500}
+.field__error .ic{width:16px;height:16px;margin-top:1px}
+.input-group{display:flex}
+.input-group .input{border-top-right-radius:0;border-bottom-right-radius:0;min-width:0}
+.input-group .button{border-top-left-radius:0;border-bottom-left-radius:0;height:var(--field-h-md)}
+.inWrap{position:relative}
+.inWrap .okIc{position:absolute;right:12px;top:50%;margin-top:-10px;color:var(--success-color)}
+.inWrap .spin{position:absolute;right:12px;top:50%;width:18px;height:18px;margin-top:-9px;border:2px solid var(--primary-10);border-top-color:var(--primary-color);border-radius:50%;animation:spin .7s linear infinite}
+.prefix{display:flex}
+.prefix span{display:flex;align-items:center;padding:0 12px;border:1px solid var(--input-border);border-right:0;border-radius:var(--input-radius) 0 0 var(--input-radius);background:var(--neutral-panel-color);font-size:15px}
+.prefix input.input{border-radius:0 var(--input-radius) var(--input-radius) 0;min-width:0}
+.check{display:flex;gap:10px;align-items:flex-start;cursor:pointer;font-size:var(--fs-body);line-height:1.45;padding:4px 0}
+.check input{appearance:none;flex:none;width:var(--check-size);height:var(--check-size);margin:1px 0 0;border:2px solid #7d8581;border-radius:var(--radius-sm);background:#fff center/14px no-repeat;cursor:pointer;transition:background-color .15s,border-color .15s}
+.check input:checked{background-color:var(--check-color);border-color:var(--check-color);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E")}
+.check input:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.check.is-error input{border-color:var(--error-color)}
+.radio{appearance:none;flex:none;width:var(--check-size);height:var(--check-size);margin:0;border:2px solid #7d8581;border-radius:50%;background:#fff;cursor:pointer}
+.radio:checked{border-color:var(--check-color);border-width:6px}
+.radio:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:var(--space-4) var(--space-5)}
+.form-grid .-span2{grid-column:1/-1}
+@media (min-width:820px){.form-grid{grid-template-columns:1fr 1fr}}
+.reveal{animation:reveal .22s ease-out}
+@keyframes reveal{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Notice */
+.notice{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:var(--radius-lg);border:1px solid;font-size:var(--fs-body-sm);line-height:1.5}
+.notice .ic{margin-top:1px}
+.notice b{font-weight:700}
+.notice.-success{background:#f1f9f3;border-color:#b5dcbf}
+.notice.-success>.ic{color:var(--success-color)}
+.notice.-info{background:#f2f7fb;border-color:#bcd4e8}
+.notice.-info>.ic{color:var(--info-color)}
+.notice.-warning{background:#fdf7ec;border-color:#ebd2a4}
+.notice.-warning>.ic{color:var(--warning-color)}
+.notice.-error{background:#fdf2f2;border-color:#efc2c2}
+.notice.-error>.ic{color:var(--error-color)}
+.box{display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;padding:14px var(--card-pad);border-radius:var(--card-radius);border:1px solid #cfd6d1;background:#fff}
+.notice.-inline{display:inline-flex;align-items:center;gap:6px;padding:0;border:0;background:none;font-size:var(--fs-body-sm);font-weight:500}
+.notice.-inline::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;flex:none}
+.notice.-inline.-success{color:var(--success-color)}
+.notice.-inline.-warning{color:var(--warning-color)}
+.notice.-inline.-error{color:var(--error-color)}
+.notice.-inline.-noDot::before{display:none}
+
+/* OrderActionPanelRwdView .floating – fixní dole přes celou šířku */
+#OrderActionPanelHorizontal{position:fixed;left:0;right:0;bottom:0;z-index:40;background:#fff;border-top:1px solid #cfd6d1;box-shadow:0 -8px 24px rgba(20,30,15,.08)}
+#OrderActionPanelHorizontal .oapIn{display:flex;align-items:center;gap:var(--space-5);min-height:88px;padding-top:12px;padding-bottom:12px}
+#OrderActionPanelHorizontal .prices{margin-left:auto;display:flex;align-items:stretch;font-variant-numeric:tabular-nums}
+#OrderActionPanelHorizontal .price{display:flex;flex-direction:column;justify-content:flex-start;gap:2px;padding:0 24px;text-align:left}
+#OrderActionPanelHorizontal .price+.price{border-left:1px solid #dfe3e0}
+#OrderActionPanelHorizontal .price:last-child{padding-right:0}
+#OrderActionPanelHorizontal .caption{font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal .value{white-space:nowrap}
+#OrderActionPanelHorizontal .deliveryPayment .value{font-size:var(--fs-body);font-weight:600;color:var(--text-color)}
+#OrderActionPanelHorizontal .total .value{font-size:var(--fs-price-md);font-weight:700;line-height:1.2}
+#OrderActionPanelHorizontal .noVat{display:none;font-size:12px;color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal .nextStep{margin-left:24px}
+#OrderActionPanelHorizontal ._latestDelivery{display:flex;align-items:center;gap:6px;font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#OrderActionPanelHorizontal ._latestDelivery .ic{width:16px;height:16px}
+#OrderActionPanelHorizontal .nextStep{min-width:260px}
+#Master.hasBar{padding-bottom:88px}
+.backMobile{display:none}
+@media (max-width:999px){#OrderActionPanelHorizontal ._lateDeliveryWrap{display:none}}
+.smL{display:none}
+@media (max-width:819px){
+  #OrderActionPanelHorizontal .oapIn{min-height:0;flex-wrap:wrap;gap:8px 10px;padding-top:8px;padding-bottom:calc(10px + env(safe-area-inset-bottom))}
+  #OrderActionPanelHorizontal .prices{order:-1;width:100%;margin:0;display:block}
+  #OrderActionPanelHorizontal .deliveryPayment{display:none}
+  #OrderActionPanelHorizontal .total{padding:0;display:grid;grid-template-columns:1fr auto;grid-template-areas:"cap val" "nv val";align-items:center;column-gap:12px;text-align:left}
+  #OrderActionPanelHorizontal .total .caption{grid-area:cap;font-size:13px;line-height:1.2;color:var(--text-color);font-weight:500}
+  #OrderActionPanelHorizontal .total .noVat{display:block;grid-area:nv;text-align:left;line-height:1.2}
+  #OrderActionPanelHorizontal .total .value{grid-area:val;text-align:right;font-size:20px;line-height:1}
+  #OrderActionPanelHorizontal .backToShop,#OrderActionPanelHorizontal .previousStep{height:48px;padding:0 14px;flex:none}
+  #OrderActionPanelHorizontal .lgL{display:none}
+  #OrderActionPanelHorizontal .smL{display:inline}
+  #OrderActionPanelHorizontal .nextStep{margin-left:0;min-width:0;flex:1;height:48px;padding:0 14px;font-size:16px}
+  #OrderActionPanelHorizontal .nextStep .sub{display:none}
+  #Master.hasBar{padding-bottom:124px}
+}
+.backMobile{display:none!important}
+/* zúžená patička */
+#Footer.inBasket{margin-top:var(--space-5);background:none;border:0;font-size:var(--fs-body-sm);color:var(--text-weaker-color)}
+#Footer.inBasket .fIn{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:4px;padding-bottom:var(--space-7)}
+#Footer.inBasket nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+#Footer.inBasket a{color:var(--text-weaker-color)}
+#Footer.inBasket a:hover{color:var(--text-color)}
+#Footer.inBasket .fContact{display:flex;flex-wrap:wrap;gap:4px 16px}
+#Footer.inBasket .fContact a{color:var(--text-color);font-weight:500;text-decoration:none}
+
+/* toasty – vpravo nahoře */
+.toastStack{position:fixed;top:16px;right:16px;z-index:90;display:flex;flex-direction:column;gap:8px;width:min(380px,calc(100vw - 32px))}
+.toast{display:flex;align-items:flex-start;gap:10px;padding:12px 12px 12px 14px;border-radius:var(--radius-lg);background:#fff;border:1px solid #cfd6d1;box-shadow:0 12px 32px rgba(20,30,15,.16);font-size:14px;line-height:1.45;animation:toastIn .25s ease-out}
+@keyframes toastIn{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.toast>.ic{margin-top:1px}
+.toast.-success>.ic{color:var(--success-color)}
+.toast.-error{background:#fdecec;border-color:#eba9a9;color:#8a1212;box-shadow:0 12px 32px rgba(140,20,20,.18)}
+.toast.-error>.ic{color:#c81e1e}
+.toast.-error .tBody b{color:#a51616}
+.toast.-error li::marker{color:#c81e1e}
+.toast.-error li button{color:#a51616}
+.toast.-error li button:hover{color:#7a0e0e}
+.toast.-error .tClose{color:#a51616}
+.toast.-error .tClose:hover{background:#f8d6d6}
+.toast .tBody{flex:1;min-width:0}
+.toast .tBody b{display:block;margin-bottom:2px}
+.toast ul{margin:4px 0 0;padding-left:16px}
+.toast li{margin:2px 0}
+.toast li button,.toast .tAct{display:inline;padding:0;border:0;background:none;color:var(--link-color);font-weight:600;text-decoration:underline;text-underline-offset:2px;cursor:pointer;font-size:inherit;text-align:left}
+.toast .tClose{flex:none;width:32px;height:32px;margin:-6px -6px 0 0;display:grid;place-items:center;border:0;border-radius:var(--radius-sm);background:none;color:var(--text-weaker-color);cursor:pointer}
+.toast .tClose:hover{background:var(--neutral-panel-color)}
+.toast .tClose .ic{width:16px;height:16px}
+.protoNote{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:var(--space-4) 0 0;padding:10px 14px;border:1px dashed #9aa39e;border-radius:var(--radius-md);font-size:13px;color:var(--text-weaker-color);background:rgba(255,255,255,.6)}
+.protoNote b{color:var(--text-color)}
+.seg{display:inline-flex;flex-wrap:wrap;gap:6px}
+.seg button{height:32px;padding:0 12px;border:1px solid #c5cbc7;border-radius:var(--radius-pill);background:#fff;font-size:13px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--primary-color);border-color:var(--primary-color);color:#fff}
+
+.finGrid{display:grid;grid-template-columns:1fr;gap:var(--space-4);align-items:start}
+.finCol{display:flex;flex-direction:column;gap:var(--space-4);min-width:0}
+@media (min-width:1150px){.finGrid{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr)}}
+.finished{padding-top:var(--space-2)}
+.confirm{text-align:center;padding:var(--space-6) 0 var(--space-2);display:flex;flex-direction:column;align-items:center;gap:6px}
+.okIc{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--success-color);color:#fff;margin-bottom:8px;animation:pop .4s cubic-bezier(.2,1.4,.4,1)}
+.okIc .ic{width:34px;height:34px;stroke-width:2.6}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.confirm h1{margin:0;font-size:var(--fs-h1);line-height:1.2;font-weight:700}
+.confirm p{margin:0}
+.orderNo{display:flex;align-items:center;gap:4px;font-size:var(--fs-price-md)}
+.orderNo b{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.t-strong{color:var(--text-color)}
+.cpBtn{color:var(--text-weaker-color);width:36px;height:36px}
+.cpBtn:hover{color:var(--primary-color);background:var(--primary-10)}
+.cpBtn .ic{width:18px;height:18px}
+.payGrid{display:grid;grid-template-columns:1fr auto;gap:var(--space-5);align-items:start;margin-bottom:var(--space-4)}
+.pList{margin:0;display:flex;flex-direction:column}
+.pRow{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:12px;min-height:44px;border-bottom:1px solid var(--neutral-separator-color)}
+.pRow dt{color:var(--text-weaker-color);font-size:var(--fs-body-sm)}
+.pRow dd{margin:0;display:flex;align-items:center;gap:4px}
+.pVal{font-weight:700;font-variant-numeric:tabular-nums}
+.qr{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px;width:184px}
+.qrSvg{display:block;width:184px;height:184px;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-md);padding:8px;background:#fff}
+.qr figcaption{font-size:12px;color:var(--text-weaker-color);text-align:center}
+@media (max-width:549px){.payGrid{grid-template-columns:1fr}.qr{width:100%}.pRow{grid-template-columns:120px 1fr}}
+.payNote{font-size:var(--fs-body)}
+.payNote>.ic{width:22px;height:22px}
+.timeline{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;counter-reset:t}
+.timeline li{position:relative;display:flex;flex-direction:column;gap:2px;padding-top:44px}
+.timeline .dot{position:absolute;top:0;left:0;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:2px solid #b7bdb9;background:#fff;font-weight:700;font-size:14px;color:var(--text-weaker-color)}
+.timeline li:not(:last-child)::after{content:"";position:absolute;top:15px;left:40px;right:8px;height:2px;background:#d4d8d5}
+.timeline .done .dot{background:var(--success-color);border-color:var(--success-color);color:#fff}
+.timeline .done .dot .ic{width:18px;height:18px;stroke-width:2.6}
+.timeline b{font-weight:600;line-height:1.3}
+@media (max-width:549px){.timeline{grid-template-columns:1fr;gap:16px}.timeline li{padding:4px 0 0 48px;min-height:32px}.timeline li:not(:last-child)::after{top:36px;bottom:-14px;left:15px;right:auto;width:2px;height:auto}}
+.mini{list-style:none;margin:0;padding:0}
+.mini li{display:grid;grid-template-columns:48px minmax(0,1fr) auto 96px;gap:12px;align-items:center;padding:8px 0;border-top:1px solid var(--neutral-separator-color);font-size:var(--fs-body-sm)}
+.mini li:first-child{border-top:0}
+.mini img{width:48px;height:48px;object-fit:contain;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-xs);background:#fff}
+.mini b{text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:549px){.mini li{grid-template-columns:40px minmax(0,1fr) auto}.mini img{width:40px;height:40px}.mini li .t-weak{display:none}}
+.recap{margin:8px 0 0;padding-top:12px;border-top:1px solid var(--neutral-separator-color);display:flex;flex-direction:column;gap:6px;font-variant-numeric:tabular-nums}
+.recap div{display:flex;justify-content:space-between;gap:24px}
+.recap dt{color:var(--text-weaker-color)}
+.recap dd{margin:0;font-weight:500}
+.recap .rTotal{padding-top:8px;align-items:baseline}
+.recap .rTotal dt{color:var(--text-color);font-weight:700}
+.recap .rTotal dd{font-size:var(--fs-price-md);font-weight:700}
+.recap .rVat{font-size:var(--fs-body-sm)}
+.recap .rVat dd{font-weight:400;color:var(--text-weaker-color)}
+.acct p{margin:0 0 12px}
+.acRow{display:flex;gap:12px;align-items:flex-start}
+.acRow .field{flex:1;max-width:320px}
+.acRow .button{margin-top:26px}
+@media (max-width:549px){.acRow{flex-direction:column;align-items:stretch}.acRow .field{max-width:none}.acRow .button{margin:0}}
+.finActions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 20px;margin-top:var(--space-2)}
+.finActions .ic{width:18px;height:18px}
+@media (max-width:549px){.finActions .-secondary{width:100%}}
+@media print{.protoNote,#Header .hRight,.finActions,.acct,#Footer{display:none}}
+</style>
+</helmet>
+<div id="Master" class="MasterView bs-view OrderFinishedState">
+<header id="Header" class="HeaderView v1a v1 bs-view inBasket"><div class="container hIn">
+<div id="Logo" class="LogoView v1a v1 bs-view logo"><a href="Main.dc.html" title="Zpět na úvodní stránku obchodu"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – výroba kanalizačních systémů"></a></div>
+<div class="hRight"><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
+</div></header>
+<main class="orderMain finished" id="Content"><div class="container">
+<!-- NEOVĚŘENO: komponenta děkovné stránky v BSSHOP není zachycena; TemplateView #OrderFinished je pracovní název -->
+<div class="protoNote"><b>Prototyp – varianta platby:</b><span class="seg" role="group" aria-label="Varianta platby">
+<button type="button" aria-pressed="{{ v.advance }}" onClick="{{ set.advance }}">Převodem předem</button>
+<button type="button" aria-pressed="{{ v.cod }}" onClick="{{ set.cod }}">Dobírka</button>
+<button type="button" aria-pressed="{{ v.shop }}" onClick="{{ set.shop }}">Na prodejně</button></span></div>
+
+<div id="OrderFinished" class="TemplateView bs-view cards">
+<section class="confirm" aria-labelledby="okTitle">
+<span class="okIc"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+<h1 id="okTitle">Děkujeme, objednávku jsme přijali</h1>
+<p class="orderNo">Číslo objednávky <b>2026104512</b><button class="button -text -icon -sm cpBtn" type="button" aria-label="Zkopírovat číslo objednávky" onClick="{{ copy.no }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg></button></p>
+<p class="t-weak">Potvrzení jsme poslali na <b class="t-strong">{{ email }}</b>.</p>
+</section>
+<div class="finGrid"><div class="finCol">
+<sc-if value="{{ v.advance }}" hint-placeholder-val="{{ true }}"><section class="card payCard" aria-labelledby="payT">
+<div class="cardHead"><h2 class="cardTitle" id="payT"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M24,104H48v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16H208V104h24a8,8,0,0,0,4.19-14.81l-104-64a8,8,0,0,0-8.38,0l-104,64A8,8,0,0,0,24,104Zm40,0H96v64H64Zm80,0v64H112V104Zm48,64H160V104h32ZM128,41.39,203.74,88H52.26ZM248,208a8,8,0,0,1-8,8H16a8,8,0,0,1,0-16H240A8,8,0,0,1,248,208Z"></path></svg>Zaplaťte převodem</h2></div>
+<div class="payGrid">
+<dl class="pList"><div class="pRow"><dt>Číslo účtu</dt><dd><span class="pVal">1387887076/2700</span><button class="button -text -icon -sm cpBtn" type="button" aria-label="Zkopírovat: Číslo účtu" onClick="{{ copy.acc }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg></button></dd></div><div class="pRow"><dt>Variabilní symbol</dt><dd><span class="pVal">2026104512</span><button class="button -text -icon -sm cpBtn" type="button" aria-label="Zkopírovat: Variabilní symbol" onClick="{{ copy.vs }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg></button></dd></div><div class="pRow"><dt>Částka</dt><dd><span class="pVal">{{ total }}</span><button class="button -text -icon -sm cpBtn" type="button" aria-label="Zkopírovat: Částka" onClick="{{ copy.amt }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg></button></dd></div><div class="pRow"><dt>IBAN</dt><dd><span class="pVal t-sm">CZ90 2700 0000 0013 8788 7076</span></dd></div></dl>
+<figure class="qr"><svg class="qrSvg" viewBox="{{ qr.vb }}" shape-rendering="crispEdges" role="img" aria-label="QR platba na {{ total }}"><rect x="-2" y="-2" width="{{ qr.size }}" height="{{ qr.size }}" fill="#fff"></rect><path fill="#1e1e1e" d="{{ qr.d }}"></path></svg><figcaption>Naskenujte QR kód v bankovní aplikaci</figcaption></figure>
+</div>
+<div class="notice -info"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg><span>Zboží odešleme hned po připsání platby na účet, obvykle do 1 pracovního dne. Platební údaje najdete i v potvrzovacím e-mailu.</span></div>
+</section></sc-if>
+<sc-if value="{{ v.cod }}" hint-placeholder-val="{{ false }}"><div class="notice -info payNote"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,88a40,40,0,1,0,40,40A40,40,0,0,0,128,88Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,152ZM240,56H16a8,8,0,0,0-8,8V192a8,8,0,0,0,8,8H240a8,8,0,0,0,8-8V64A8,8,0,0,0,240,56ZM193.65,184H62.35A56.78,56.78,0,0,0,24,145.65v-35.3A56.78,56.78,0,0,0,62.35,72h131.3A56.78,56.78,0,0,0,232,110.35v35.3A56.78,56.78,0,0,0,193.65,184ZM232,93.37A40.81,40.81,0,0,1,210.63,72H232ZM45.37,72A40.81,40.81,0,0,1,24,93.37V72ZM24,162.63A40.81,40.81,0,0,1,45.37,184H24ZM210.63,184A40.81,40.81,0,0,1,232,162.63V184Z"></path></svg><span><b>Zaplatíte {{ total }} při převzetí</b> od řidiče DPD, hotově nebo kartou.</span></div></sc-if>
+<sc-if value="{{ v.shop }}" hint-placeholder-val="{{ false }}"><div class="notice -info payNote"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"></path></svg><span><b>Zaplatíte {{ total }} při vyzvednutí</b> na prodejně Midas, Semanín 173, 560 02 Česká Třebová – hotově nebo kartou. Výdej zboží Po–Čt 8:00–15:30, Pá 8:00–15:00.</span></div></sc-if>
+
+<section class="card" aria-labelledby="nextT">
+<div class="cardHead"><h2 class="cardTitle" id="nextT">Co bude dál</h2></div>
+<ol class="timeline">
+<li class="done"><span class="dot"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></span><b>Objednávka přijata</b><span class="t-sm t-weak">Dnes 16. 11.</span></li>
+<li><span class="dot">2</span><b>{{ step2 }}</b><span class="t-sm t-weak">{{ step2s }}</span></li>
+<li><span class="dot">3</span><b>{{ step3 }}</b><span class="t-sm t-weak">{{ step3s }}</span></li>
+</ol>
+</section>
+
+</div><div class="finCol">
+<section class="card" aria-labelledby="sumT">
+<div class="cardHead"><h2 class="cardTitle" id="sumT">Shrnutí objednávky</h2></div>
+<ul class="mini"><sc-for list="{{ rows }}" as="r" hint-placeholder-count="3"><li><img src="{{ r.img }}" alt=""><span>{{ r.name }}</span><span class="t-weak">{{ r.q }} ks</span><b>{{ r.total }}</b></li></sc-for></ul>
+<dl class="recap">
+<sc-if value="{{ hasDisc }}" hint-placeholder-val="{{ false }}"><div><dt>Sleva {{ cpCode }}</dt><dd class="t-free">{{ disc }}</dd></div></sc-if><div><dt>Doprava · {{ delName }}</dt><dd>{{ delPrice }}</dd></div>
+<div><dt>Platba · {{ payName }}</dt><dd>{{ payPrice }}</dd></div>
+<div class="rTotal"><dt>Celkem s DPH</dt><dd>{{ total }}</dd></div>
+<div class="rVat"><dt>Celkem bez DPH</dt><dd>{{ noVat }}</dd></div>
+</dl>
+</section>
+
+<section class="card acct" aria-labelledby="acT">
+<sc-if value="{{ acc.form }}" hint-placeholder-val="{{ true }}">
+<div class="cardHead"><h2 class="cardTitle" id="acT"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>Uložte si údaje pro příští nákup</h2></div>
+<p class="t-weak">Stačí zvolit heslo, e-mail už známe. V účtu uvidíte stav objednávky a faktury.</p>
+<div class="acRow"><div class="field {{ acc.cls }}"><label for="acPw">Heslo</label><input class="input" id="acPw" type="password" autocomplete="new-password" value="{{ acc.v }}" onChange="{{ acc.ch }}" aria-describedby="acHint"><span class="field__hint" id="acHint">Alespoň 8 znaků</span><sc-if value="{{ acc.err }}" hint-placeholder-val="{{ false }}"><p class="field__error"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg>Heslo musí mít alespoň 8 znaků</p></sc-if></div><button class="button -primary {{ acc.load }}" type="button" onClick="{{ acc.create }}">Vytvořit účet</button></div>
+</sc-if>
+<sc-if value="{{ acc.done }}" hint-placeholder-val="{{ false }}"><div class="notice -success"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></svg><span><b>Účet je založený.</b> Přihlásíte se e-mailem {{ email }}. Objednávku najdete v Můj účet › Objednávky.</span></div></sc-if>
+</section>
+
+</div></div>
+<div class="finActions"><a class="button -secondary" href="Main.dc.html">Pokračovat v nákupu</a><button class="button -text" type="button" onClick="{{ print }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M214.67,72H200V40a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8V72H41.33C27.36,72,16,82.77,16,96v80a8,8,0,0,0,8,8H56v32a8,8,0,0,0,8,8H192a8,8,0,0,0,8-8V184h32a8,8,0,0,0,8-8V96C240,82.77,228.64,72,214.67,72ZM72,48H184V72H72ZM184,208H72V160H184Zm40-40H200V152a8,8,0,0,0-8-8H64a8,8,0,0,0-8,8v16H32V96c0-4.41,4.19-8,9.33-8H214.67c5.14,0,9.33,3.59,9.33,8Zm-24-52a12,12,0,1,1-12-12A12,12,0,0,1,200,116Z"></path></svg>Vytisknout objednávku</button><a class="button -text" href="Kontakt.dc.html"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg>Kontakt na obchod</a></div>
+</div>
+</div></main>
+<footer id="Footer" class="FooterView bs-view inBasket"><div class="container fIn">
+<div class="fContact"><span>Midas International spol. s r.o.</span><a href="tel:+420739162221">+420 739 162 221</a><a href="mailto:e-objednavky@midas.cz">e-objednavky@midas.cz</a></div>
+<nav aria-label="Právní informace"><a href="ObchodniPodminky.dc.html">Obchodní podmínky</a><a href="Reklamace.dc.html">Reklamace a vrácení</a><a href="Doprava.dc.html">Doprava a platba</a><a href="Gdpr.dc.html">Ochrana osobních údajů</a><a href="Kontakt.dc.html">Kontakty</a></nav>
+</div></footer>
+<div class="toastStack" aria-live="polite">
+<sc-if value="{{ tErr }}" hint-placeholder-val="{{ false }}"><div class="toast -error" role="alert"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg><div class="tBody"><b>{{ tErrTitle }}</b><ul><sc-for list="{{ errs }}" as="e" hint-placeholder-count="2"><li><button type="button" onClick="{{ e.go }}">{{ e.text }}</button></li></sc-for></ul></div><button class="tClose" type="button" aria-label="Zavřít upozornění" onClick="{{ closeErr }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
+<sc-if value="{{ tOk }}" hint-placeholder-val="{{ false }}"><div class="toast -success" role="status"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg><div class="tBody">{{ tOkText }}<sc-if value="{{ tUndo }}" hint-placeholder-val="{{ false }}"> <button class="tAct" type="button" onClick="{{ undo }}">Vrátit zpět</button></sc-if></div><button class="tClose" type="button" aria-label="Zavřít" onClick="{{ closeOk }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2100}}'>
+
+const CK = (() => {
+  const KEY = 'midasCheckoutV1';
+  const ITEMS = [
+    { id: 'kol', name: 'KG koleno DN 110 - 45°', code: '1104', img: '_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg', unit: 35.8, q: 4, stock: 120 },
+    { id: 'trb', name: 'KG trubka DN 110 × 3,2 mm – 1 m, SN 4', code: '2110', img: '_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg', unit: 98.5, q: 6, stock: 48 },
+    { id: 'red', name: 'Obrácená redukce DN 125/110 PP', code: '6057', img: '_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg', unit: 318, q: 1, stock: 3 }
+  ];
+  const FREE = 3000;
+  const DEL = {
+    personal: { name: 'Osobní odběr – Semanín 173', short: 'osobní odběr Semanín', p: 0, eta: '' },
+    dpd: { name: 'DPD – doručení na adresu', short: 'DPD na adresu', p: 99, free: true, eta: 'Doručíme ve čtvrtek 19. 11.' },
+    pickup: { name: 'DPD Pickup – výdejní místo', short: 'DPD Pickup', p: 79, free: true, eta: 'Na výdejním místě ve čtvrtek 19. 11.' },
+    pallet: { name: 'Rozvoz vozem Midas', short: 'rozvoz vozem Midas', p: 590, eta: 'Termín rozvozu potvrdíme telefonicky' }
+  };
+  const PAY = {
+    advance: { name: 'Převodem předem', short: 'převodem předem', p: 0, note: 'Platební údaje a QR kód pošleme e-mailem' },
+    cod: { name: 'Dobírka', short: 'dobírka', p: 39, note: 'Zaplatíte hotově nebo kartou při převzetí' },
+    shop: { name: 'Hotově nebo kartou na prodejně', short: 'na prodejně', p: 0, note: 'Platíte při vyzvednutí v Semaníně' }
+  };
+  const PLACES = [
+    { name: 'Trafika U Nádraží', addr: 'Nádražní 1220, 560 02 Česká Třebová', type: 'shop', sun: false, st: 'open', hours: 'Po–Pá 6:00–18:00, So 7:00–12:00', x: 46, y: 47 },
+    { name: 'DPD Pickup Box – Albert', addr: 'Dr. E. Beneše 2050, 560 02 Česká Třebová', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 51, y: 52 },
+    { name: 'Papírnictví Kopecký', addr: 'Hýblova 515, 560 02 Česká Třebová', type: 'shop', sun: false, st: 'soon', hours: 'Po–Pá 8:00–17:00', x: 43, y: 55 },
+    { name: 'AlzaBox Česká Třebová – Svitavská', addr: 'Svitavská 1446, 560 02 Česká Třebová', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 55, y: 44 },
+    { name: 'Květinářství Lilie', addr: 'Staré náměstí 21, 560 02 Česká Třebová', type: 'shop', sun: true, st: 'closed', hours: 'Po–Ne 9:00–17:00', x: 48, y: 41 },
+    { name: 'DPD Pickup Box – Penny', addr: 'Lochmanova 1300, 562 01 Ústí nad Orlicí', type: 'box', sun: true, st: 'open', hours: 'Nonstop', x: 22, y: 30 },
+    { name: 'Drogerie Jana', addr: 'Pražská 12, 568 02 Svitavy', type: 'shop', sun: false, st: 'open', hours: 'Po–Pá 8:00–18:00, So 8:00–11:30', x: 78, y: 70 },
+    { name: 'Pekárna U Mlýna', addr: 'Smetanovo náměstí 70, 570 01 Litomyšl', type: 'shop', sun: false, st: 'soon', hours: 'Po–So 6:00–16:00', x: 64, y: 18 }
+  ];
+  const DEMO = { items: ITEMS.map(i => ({ id: i.id, q: i.q })), del: 'dpd', pay: 'advance', place: -1, cpCode: '',
+    contact: { first: 'Jan', last: 'Novák', email: 'jan.novak@example.cz', pre: '+420', phone: '777 123 456', street: 'Husova 12', city: 'Česká Třebová', zip: '560 02', note: '' } };
+  const load = () => { try { const v = JSON.parse(window.localStorage.getItem(KEY) || 'null'); return v && typeof v === 'object' ? v : null; } catch (e) { return null; } };
+  const save = patch => { try { const cur = load() || {}; window.localStorage.setItem(KEY, JSON.stringify({ ...cur, ...patch })); } catch (e) {} };
+  const fmt = n => { n = Math.round(n * 100) / 100; return (Number.isInteger(n) ? n.toLocaleString('cs-CZ') : n.toLocaleString('cs-CZ', { minimumFractionDigits: 2, maximumFractionDigits: 2 })) + ' Kč'; };
+  const items = st => (st.items || DEMO.items).map(x => { const b = ITEMS.find(i => i.id === x.id); return b ? { ...b, q: x.q } : null; }).filter(Boolean);
+  const calc = st => {
+    const its = items(st), goods = its.reduce((t, i) => t + i.q * i.unit, 0);
+    const disc = st.cpCode ? Math.round(goods * 0.1 * 100) / 100 : 0, base = goods - disc, free = base >= FREE;
+    const dPrice = k => (DEL[k] && DEL[k].free && free) ? 0 : (DEL[k] ? DEL[k].p : 0);
+    const dp = st.del ? dPrice(st.del) : 0, pp = st.pay ? PAY[st.pay].p : 0, total = base + dp + pp;
+    return { its, goods, disc, base, free, dPrice, dp, pp, total, noVat: Math.round(total / 1.21 * 100) / 100, vat: Math.round((total - total / 1.21) * 100) / 100, count: its.reduce((t, i) => t + i.q, 0) };
+  };
+  const state = () => { const s = load(); return s ? { ...DEMO, ...s, contact: { ...(s.contact || DEMO.contact) } } : { ...DEMO, contact: { ...DEMO.contact }, demo: true }; };
+  return { KEY, ITEMS, FREE, DEL, PAY, PLACES, DEMO, load, save, fmt, items, calc, state };
+})();
+
+var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],f={},c=function(t,r){o=function(t){for(var r=new Array(t),e=0;e<t;e+=1){r[e]=new Array(t);for(var n=0;n<t;n+=1)r[e][n]=null}return r}(i=4*e+17),l(0,0),l(i-7,0),l(0,i-7),s(),h(),d(t,r),e>=7&&v(t),null==a&&(a=p(e,n,u)),w(a,r)},l=function(t,r){for(var e=-1;e<=7;e+=1)if(!(t+e<=-1||i<=t+e))for(var n=-1;n<=7;n+=1)r+n<=-1||i<=r+n||(o[t+e][r+n]=0<=e&&e<=6&&(0==n||6==n)||0<=n&&n<=6&&(0==e||6==e)||2<=e&&e<=4&&2<=n&&n<=4)},h=function(){for(var t=8;t<i-8;t+=1)null==o[t][6]&&(o[t][6]=t%2==0);for(var r=8;r<i-8;r+=1)null==o[6][r]&&(o[6][r]=r%2==0)},s=function(){for(var t=B.getPatternPosition(e),r=0;r<t.length;r+=1)for(var n=0;n<t.length;n+=1){var i=t[r],a=t[n];if(null==o[i][a])for(var u=-2;u<=2;u+=1)for(var f=-2;f<=2;f+=1)o[i+u][a+f]=-2==u||2==u||-2==f||2==f||0==u&&0==f} },v=function(t){for(var r=B.getBCHTypeNumber(e),n=0;n<18;n+=1){var a=!t&&1==(r>>n&1);o[Math.floor(n/3)][n%3+i-8-3]=a}for(n=0;n<18;n+=1){a=!t&&1==(r>>n&1);o[n%3+i-8-3][Math.floor(n/3)]=a} },d=function(t,r){for(var e=n<<3|r,a=B.getBCHTypeInfo(e),u=0;u<15;u+=1){var f=!t&&1==(a>>u&1);u<6?o[u][8]=f:u<8?o[u+1][8]=f:o[i-15+u][8]=f}for(u=0;u<15;u+=1){f=!t&&1==(a>>u&1);u<8?o[8][i-u-1]=f:u<9?o[8][15-u-1+1]=f:o[8][15-u-1]=f}o[i-8][8]=!t},w=function(t,r){for(var e=-1,n=i-1,a=7,u=0,f=B.getMaskFunction(r),c=i-1;c>0;c-=2)for(6==c&&(c-=1);;){for(var g=0;g<2;g+=1)if(null==o[n][c-g]){var l=!1;u<t.length&&(l=1==(t[u]>>>a&1)),f(n,c-g)&&(l=!l),o[n][c-g]=l,-1==(a-=1)&&(u+=1,a=7)}if((n+=e)<0||i<=n){n-=e,e=-e;break} } },p=function(t,r,e){for(var n=A.getRSBlocks(t,r),o=b(),i=0;i<e.length;i+=1){var a=e[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var u=0;for(i=0;i<n.length;i+=1)u+=n[i].dataCount;if(o.getLengthInBits()>8*u)throw"code length overflow. ("+o.getLengthInBits()+">"+8*u+")";for(o.getLengthInBits()+4<=8*u&&o.put(0,4);o.getLengthInBits()%8!=0;)o.putBit(!1);for(;!(o.getLengthInBits()>=8*u||(o.put(236,8),o.getLengthInBits()>=8*u));)o.put(17,8);return function(t,r){for(var e=0,n=0,o=0,i=new Array(r.length),a=new Array(r.length),u=0;u<r.length;u+=1){var f=r[u].dataCount,c=r[u].totalCount-f;n=Math.max(n,f),o=Math.max(o,c),i[u]=new Array(f);for(var g=0;g<i[u].length;g+=1)i[u][g]=255&t.getBuffer()[g+e];e+=f;var l=B.getErrorCorrectPolynomial(c),h=k(i[u],l.getLength()-1).mod(l);for(a[u]=new Array(l.getLength()-1),g=0;g<a[u].length;g+=1){var s=g+h.getLength()-a[u].length;a[u][g]=s>=0?h.getAt(s):0} }var v=0;for(g=0;g<r.length;g+=1)v+=r[g].totalCount;var d=new Array(v),w=0;for(g=0;g<n;g+=1)for(u=0;u<r.length;u+=1)g<i[u].length&&(d[w]=i[u][g],w+=1);for(g=0;g<o;g+=1)for(u=0;u<r.length;u+=1)g<a[u].length&&(d[w]=a[u][g],w+=1);return d}(o,n)};f.addData=function(t,r){var e=null;switch(r=r||"Byte"){case"Numeric":e=M(t);break;case"Alphanumeric":e=x(t);break;case"Byte":e=m(t);break;case"Kanji":e=L(t);break;default:throw"mode:"+r}u.push(e),a=null},f.isDark=function(t,r){if(t<0||i<=t||r<0||i<=r)throw t+","+r;return o[t][r]},f.getModuleCount=function(){return i},f.make=function(){if(e<1){for(var t=1;t<40;t++){for(var r=A.getRSBlocks(t,n),o=b(),i=0;i<u.length;i++){var a=u[i];o.put(a.getMode(),4),o.put(a.getLength(),B.getLengthInBits(a.getMode(),t)),a.write(o)}var g=0;for(i=0;i<r.length;i++)g+=r[i].dataCount;if(o.getLengthInBits()<=8*g)break}e=t}c(!1,function(){for(var t=0,r=0,e=0;e<8;e+=1){c(!0,e);var n=B.getLostPoint(f);(0==e||t>n)&&(t=n,r=e)}return r}())},f.createTableTag=function(t,r){t=t||2;var e="";e+='<table style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: "+(r=void 0===r?4*t:r)+"px;",e+='">',e+="<tbody>";for(var n=0;n<f.getModuleCount();n+=1){e+="<tr>";for(var o=0;o<f.getModuleCount();o+=1)e+='<td style="',e+=" border-width: 0px; border-style: none;",e+=" border-collapse: collapse;",e+=" padding: 0px; margin: 0px;",e+=" width: "+t+"px;",e+=" height: "+t+"px;",e+=" background-color: ",e+=f.isDark(n,o)?"#000000":"#ffffff",e+=";",e+='"/>';e+="</tr>"}return e+="</tbody>",e+="</table>"},f.createSvgTag=function(t,r,e,n){var o={};"object"==typeof arguments[0]&&(t=(o=arguments[0]).cellSize,r=o.margin,e=o.alt,n=o.title),t=t||2,r=void 0===r?4*t:r,(e="string"==typeof e?{text:e}:e||{}).text=e.text||null,e.id=e.text?e.id||"qrcode-description":null,(n="string"==typeof n?{text:n}:n||{}).text=n.text||null,n.id=n.text?n.id||"qrcode-title":null;var i,a,u,c,g=f.getModuleCount()*t+2*r,l="";for(c="l"+t+",0 0,"+t+" -"+t+",0 0,-"+t+"z ",l+='<svg version="1.1" xmlns="http://www.w3.org/2000/svg"',l+=o.scalable?"":' width="'+g+'px" height="'+g+'px"',l+=' viewBox="0 0 '+g+" "+g+'" ',l+=' preserveAspectRatio="xMinYMin meet"',l+=n.text||e.text?' role="img" aria-labelledby="'+y([n.id,e.id].join(" ").trim())+'"':"",l+=">",l+=n.text?'<title id="'+y(n.id)+'">'+y(n.text)+"</title>":"",l+=e.text?'<description id="'+y(e.id)+'">'+y(e.text)+"</description>":"",l+='<rect width="100%" height="100%" fill="white" cx="0" cy="0"/>',l+='<path d="',a=0;a<f.getModuleCount();a+=1)for(u=a*t+r,i=0;i<f.getModuleCount();i+=1)f.isDark(a,i)&&(l+="M"+(i*t+r)+","+u+c);return l+='" stroke="transparent" fill="black"/>',l+="</svg>"},f.createDataURL=function(t,r){t=t||2,r=void 0===r?4*t:r;var e=f.getModuleCount()*t+2*r,n=r,o=e-r;return I(e,e,function(r,e){if(n<=r&&r<o&&n<=e&&e<o){var i=Math.floor((r-n)/t),a=Math.floor((e-n)/t);return f.isDark(a,i)?0:1}return 1})},f.createImgTag=function(t,r,e){t=t||2,r=void 0===r?4*t:r;var n=f.getModuleCount()*t+2*r,o="";return o+="<img",o+=' src="',o+=f.createDataURL(t,r),o+='"',o+=' width="',o+=n,o+='"',o+=' height="',o+=n,o+='"',e&&(o+=' alt="',o+=y(e),o+='"'),o+="/>"};var y=function(t){for(var r="",e=0;e<t.length;e+=1){var n=t.charAt(e);switch(n){case"<":r+="&lt;";break;case">":r+="&gt;";break;case"&":r+="&amp;";break;case'"':r+="&quot;";break;default:r+=n} }return r};return f.createASCII=function(t,r){if((t=t||1)<2)return function(t){t=void 0===t?2:t;var r,e,n,o,i,a=1*f.getModuleCount()+2*t,u=t,c=a-t,g={"██":"█","█ ":"▀"," █":"▄","  ":" "},l={"██":"▀","█ ":"▀"," █":" ","  ":" "},h="";for(r=0;r<a;r+=2){for(n=Math.floor((r-u)/1),o=Math.floor((r+1-u)/1),e=0;e<a;e+=1)i="█",u<=e&&e<c&&u<=r&&r<c&&f.isDark(n,Math.floor((e-u)/1))&&(i=" "),u<=e&&e<c&&u<=r+1&&r+1<c&&f.isDark(o,Math.floor((e-u)/1))?i+=" ":i+="█",h+=t<1&&r+1>=c?l[i]:g[i];h+="\n"}return a%2&&t>0?h.substring(0,h.length-a-1)+Array(a+1).join("▀"):h.substring(0,h.length-1)}(r);t-=1,r=void 0===r?2*t:r;var e,n,o,i,a=f.getModuleCount()*t+2*r,u=r,c=a-r,g=Array(t+1).join("██"),l=Array(t+1).join("  "),h="",s="";for(e=0;e<a;e+=1){for(o=Math.floor((e-u)/t),s="",n=0;n<a;n+=1)i=1,u<=n&&n<c&&u<=e&&e<c&&f.isDark(o,Math.floor((n-u)/t))&&(i=0),s+=i?g:l;for(o=0;o<t;o+=1)h+=s+"\n"}return h.substring(0,h.length-1)},f.renderTo2dContext=function(t,r){r=r||2;for(var e=f.getModuleCount(),n=0;n<e;n++)for(var o=0;o<e;o++)t.fillStyle=f.isDark(n,o)?"black":"white",t.fillRect(n*r,o*r,r,r)},f};t.stringToBytes=(t.stringToBytesFuncs={default:function(t){for(var r=[],e=0;e<t.length;e+=1){var n=t.charCodeAt(e);r.push(255&n)}return r} }).default,t.createStringToBytes=function(t,r){var e=function(){for(var e=S(t),n=function(){var t=e.read();if(-1==t)throw"eof";return t},o=0,i={};;){var a=e.read();if(-1==a)break;var u=n(),f=n()<<8|n();i[String.fromCharCode(a<<8|u)]=f,o+=1}if(o!=r)throw o+" != "+r;return i}(),n="?".charCodeAt(0);return function(t){for(var r=[],o=0;o<t.length;o+=1){var i=t.charCodeAt(o);if(i<128)r.push(i);else{var a=e[t.charAt(o)];"number"==typeof a?(255&a)==a?r.push(a):(r.push(a>>>8),r.push(255&a)):r.push(n)} }return r} };var r,e,n,o,i,a=1,u=2,f=4,c=8,g={L:1,M:0,Q:3,H:2},l=0,h=1,s=2,v=3,d=4,w=5,p=6,y=7,B=(r=[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],e=1335,n=7973,i=function(t){for(var r=0;0!=t;)r+=1,t>>>=1;return r},(o={}).getBCHTypeInfo=function(t){for(var r=t<<10;i(r)-i(e)>=0;)r^=e<<i(r)-i(e);return 21522^(t<<10|r)},o.getBCHTypeNumber=function(t){for(var r=t<<12;i(r)-i(n)>=0;)r^=n<<i(r)-i(n);return t<<12|r},o.getPatternPosition=function(t){return r[t-1]},o.getMaskFunction=function(t){switch(t){case l:return function(t,r){return(t+r)%2==0};case h:return function(t,r){return t%2==0};case s:return function(t,r){return r%3==0};case v:return function(t,r){return(t+r)%3==0};case d:return function(t,r){return(Math.floor(t/2)+Math.floor(r/3))%2==0};case w:return function(t,r){return t*r%2+t*r%3==0};case p:return function(t,r){return(t*r%2+t*r%3)%2==0};case y:return function(t,r){return(t*r%3+(t+r)%2)%2==0};default:throw"bad maskPattern:"+t} },o.getErrorCorrectPolynomial=function(t){for(var r=k([1],0),e=0;e<t;e+=1)r=r.multiply(k([1,C.gexp(e)],0));return r},o.getLengthInBits=function(t,r){if(1<=r&&r<10)switch(t){case a:return 10;case u:return 9;case f:case c:return 8;default:throw"mode:"+t}else if(r<27)switch(t){case a:return 12;case u:return 11;case f:return 16;case c:return 10;default:throw"mode:"+t}else{if(!(r<41))throw"type:"+r;switch(t){case a:return 14;case u:return 13;case f:return 16;case c:return 12;default:throw"mode:"+t} } },o.getLostPoint=function(t){for(var r=t.getModuleCount(),e=0,n=0;n<r;n+=1)for(var o=0;o<r;o+=1){for(var i=0,a=t.isDark(n,o),u=-1;u<=1;u+=1)if(!(n+u<0||r<=n+u))for(var f=-1;f<=1;f+=1)o+f<0||r<=o+f||0==u&&0==f||a==t.isDark(n+u,o+f)&&(i+=1);i>5&&(e+=3+i-5)}for(n=0;n<r-1;n+=1)for(o=0;o<r-1;o+=1){var c=0;t.isDark(n,o)&&(c+=1),t.isDark(n+1,o)&&(c+=1),t.isDark(n,o+1)&&(c+=1),t.isDark(n+1,o+1)&&(c+=1),0!=c&&4!=c||(e+=3)}for(n=0;n<r;n+=1)for(o=0;o<r-6;o+=1)t.isDark(n,o)&&!t.isDark(n,o+1)&&t.isDark(n,o+2)&&t.isDark(n,o+3)&&t.isDark(n,o+4)&&!t.isDark(n,o+5)&&t.isDark(n,o+6)&&(e+=40);for(o=0;o<r;o+=1)for(n=0;n<r-6;n+=1)t.isDark(n,o)&&!t.isDark(n+1,o)&&t.isDark(n+2,o)&&t.isDark(n+3,o)&&t.isDark(n+4,o)&&!t.isDark(n+5,o)&&t.isDark(n+6,o)&&(e+=40);var g=0;for(o=0;o<r;o+=1)for(n=0;n<r;n+=1)t.isDark(n,o)&&(g+=1);return e+=Math.abs(100*g/r/r-50)/5*10},o),C=function(){for(var t=new Array(256),r=new Array(256),e=0;e<8;e+=1)t[e]=1<<e;for(e=8;e<256;e+=1)t[e]=t[e-4]^t[e-5]^t[e-6]^t[e-8];for(e=0;e<255;e+=1)r[t[e]]=e;var n={glog:function(t){if(t<1)throw"glog("+t+")";return r[t]},gexp:function(r){for(;r<0;)r+=255;for(;r>=256;)r-=255;return t[r]} };return n}();function k(t,r){if(void 0===t.length)throw t.length+"/"+r;var e=function(){for(var e=0;e<t.length&&0==t[e];)e+=1;for(var n=new Array(t.length-e+r),o=0;o<t.length-e;o+=1)n[o]=t[o+e];return n}(),n={getAt:function(t){return e[t]},getLength:function(){return e.length},multiply:function(t){for(var r=new Array(n.getLength()+t.getLength()-1),e=0;e<n.getLength();e+=1)for(var o=0;o<t.getLength();o+=1)r[e+o]^=C.gexp(C.glog(n.getAt(e))+C.glog(t.getAt(o)));return k(r,0)},mod:function(t){if(n.getLength()-t.getLength()<0)return n;for(var r=C.glog(n.getAt(0))-C.glog(t.getAt(0)),e=new Array(n.getLength()),o=0;o<n.getLength();o+=1)e[o]=n.getAt(o);for(o=0;o<t.getLength();o+=1)e[o]^=C.gexp(C.glog(t.getAt(o))+r);return k(e,0).mod(t)} };return n}var A=function(){var t=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12,7,37,13],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]],r=function(t,r){var e={};return e.totalCount=t,e.dataCount=r,e},e={};return e.getRSBlocks=function(e,n){var o=function(r,e){switch(e){case g.L:return t[4*(r-1)+0];case g.M:return t[4*(r-1)+1];case g.Q:return t[4*(r-1)+2];case g.H:return t[4*(r-1)+3];default:return} }(e,n);if(void 0===o)throw"bad rs block @ typeNumber:"+e+"/errorCorrectionLevel:"+n;for(var i=o.length/3,a=[],u=0;u<i;u+=1)for(var f=o[3*u+0],c=o[3*u+1],l=o[3*u+2],h=0;h<f;h+=1)a.push(r(c,l));return a},e}(),b=function(){var t=[],r=0,e={getBuffer:function(){return t},getAt:function(r){var e=Math.floor(r/8);return 1==(t[e]>>>7-r%8&1)},put:function(t,r){for(var n=0;n<r;n+=1)e.putBit(1==(t>>>r-n-1&1))},getLengthInBits:function(){return r},putBit:function(e){var n=Math.floor(r/8);t.length<=n&&t.push(0),e&&(t[n]|=128>>>r%8),r+=1} };return e},M=function(t){var r=a,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+2<r.length;)t.put(o(r.substring(n,n+3)),10),n+=3;n<r.length&&(r.length-n==1?t.put(o(r.substring(n,n+1)),4):r.length-n==2&&t.put(o(r.substring(n,n+2)),7))} },o=function(t){for(var r=0,e=0;e<t.length;e+=1)r=10*r+i(t.charAt(e));return r},i=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);throw"illegal char :"+t};return n},x=function(t){var r=u,e=t,n={getMode:function(){return r},getLength:function(t){return e.length},write:function(t){for(var r=e,n=0;n+1<r.length;)t.put(45*o(r.charAt(n))+o(r.charAt(n+1)),11),n+=2;n<r.length&&t.put(o(r.charAt(n)),6)} },o=function(t){if("0"<=t&&t<="9")return t.charCodeAt(0)-"0".charCodeAt(0);if("A"<=t&&t<="Z")return t.charCodeAt(0)-"A".charCodeAt(0)+10;switch(t){case" ":return 36;case"$":return 37;case"%":return 38;case"*":return 39;case"+":return 40;case"-":return 41;case".":return 42;case"/":return 43;case":":return 44;default:throw"illegal char :"+t} };return n},m=function(r){var e=f,n=t.stringToBytes(r),o={getMode:function(){return e},getLength:function(t){return n.length},write:function(t){for(var r=0;r<n.length;r+=1)t.put(n[r],8)} };return o},L=function(r){var e=c,n=t.stringToBytesFuncs.SJIS;if(!n)throw"sjis not supported.";!function(){var t=n("友");if(2!=t.length||38726!=(t[0]<<8|t[1]))throw"sjis not supported."}();var o=n(r),i={getMode:function(){return e},getLength:function(t){return~~(o.length/2)},write:function(t){for(var r=o,e=0;e+1<r.length;){var n=(255&r[e])<<8|255&r[e+1];if(33088<=n&&n<=40956)n-=33088;else{if(!(57408<=n&&n<=60351))throw"illegal char at "+(e+1)+"/"+n;n-=49472}n=192*(n>>>8&255)+(255&n),t.put(n,13),e+=2}if(e<r.length)throw"illegal char at "+(e+1)} };return i},D=function(){var t=[],r={writeByte:function(r){t.push(255&r)},writeShort:function(t){r.writeByte(t),r.writeByte(t>>>8)},writeBytes:function(t,e,n){e=e||0,n=n||t.length;for(var o=0;o<n;o+=1)r.writeByte(t[o+e])},writeString:function(t){for(var e=0;e<t.length;e+=1)r.writeByte(t.charCodeAt(e))},toByteArray:function(){return t},toString:function(){var r="";r+="[";for(var e=0;e<t.length;e+=1)e>0&&(r+=","),r+=t[e];return r+="]"} };return r},S=function(t){var r=t,e=0,n=0,o=0,i={read:function(){for(;o<8;){if(e>=r.length){if(0==o)return-1;throw"unexpected end of file./"+o}var t=r.charAt(e);if(e+=1,"="==t)return o=0,-1;t.match(/^\s$/)||(n=n<<6|a(t.charCodeAt(0)),o+=6)}var i=n>>>o-8&255;return o-=8,i} },a=function(t){if(65<=t&&t<=90)return t-65;if(97<=t&&t<=122)return t-97+26;if(48<=t&&t<=57)return t-48+52;if(43==t)return 62;if(47==t)return 63;throw"c:"+t};return i},I=function(t,r,e){for(var n=function(t,r){var e=t,n=r,o=new Array(t*r),i={setPixel:function(t,r,n){o[r*e+t]=n},write:function(t){t.writeString("GIF87a"),t.writeShort(e),t.writeShort(n),t.writeByte(128),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(0),t.writeByte(255),t.writeByte(255),t.writeByte(255),t.writeString(","),t.writeShort(0),t.writeShort(0),t.writeShort(e),t.writeShort(n),t.writeByte(0);var r=a(2);t.writeByte(2);for(var o=0;r.length-o>255;)t.writeByte(255),t.writeBytes(r,o,255),o+=255;t.writeByte(r.length-o),t.writeBytes(r,o,r.length-o),t.writeByte(0),t.writeString(";")} },a=function(t){for(var r=1<<t,e=1+(1<<t),n=t+1,i=u(),a=0;a<r;a+=1)i.add(String.fromCharCode(a));i.add(String.fromCharCode(r)),i.add(String.fromCharCode(e));var f,c,g,l=D(),h=(f=l,c=0,g=0,{write:function(t,r){if(t>>>r!=0)throw"length over";for(;c+r>=8;)f.writeByte(255&(t<<c|g)),r-=8-c,t>>>=8-c,g=0,c=0;g|=t<<c,c+=r},flush:function(){c>0&&f.writeByte(g)} });h.write(r,n);var s=0,v=String.fromCharCode(o[s]);for(s+=1;s<o.length;){var d=String.fromCharCode(o[s]);s+=1,i.contains(v+d)?v+=d:(h.write(i.indexOf(v),n),i.size()<4095&&(i.size()==1<<n&&(n+=1),i.add(v+d)),v=d)}return h.write(i.indexOf(v),n),h.write(e,n),h.flush(),l.toByteArray()},u=function(){var t={},r=0,e={add:function(n){if(e.contains(n))throw"dup key:"+n;t[n]=r,r+=1},size:function(){return r},indexOf:function(r){return t[r]},contains:function(r){return void 0!==t[r]} };return e};return i}(t,r),o=0;o<r;o+=1)for(var i=0;i<t;i+=1)n.setPixel(i,o,e(i,o));var a=D();n.write(a);for(var u=function(){var t=0,r=0,e=0,n="",o={},i=function(t){n+=String.fromCharCode(a(63&t))},a=function(t){if(t<0);else{if(t<26)return 65+t;if(t<52)return t-26+97;if(t<62)return t-52+48;if(62==t)return 43;if(63==t)return 47}throw"n:"+t};return o.writeByte=function(n){for(t=t<<8|255&n,r+=8,e+=1;r>=6;)i(t>>>r-6),r-=6},o.flush=function(){if(r>0&&(i(t<<6-r),t=0,r=0),e%3!=0)for(var o=3-e%3,a=0;a<o;a+=1)n+="="},o.toString=function(){return n},o}(),f=a.toByteArray(),c=0;c<f.length;c+=1)u.writeByte(f[c]);return u.flush(),"data:image/gif;base64,"+u};return t}();qrcode.stringToBytesFuncs["UTF-8"]=function(t){return function(t){for(var r=[],e=0;e<t.length;e++){var n=t.charCodeAt(e);n<128?r.push(n):n<2048?r.push(192|n>>6,128|63&n):n<55296||n>=57344?r.push(224|n>>12,128|n>>6&63,128|63&n):(e++,n=65536+((1023&n)<<10|1023&t.charCodeAt(e)),r.push(240|n>>18,128|n>>12&63,128|n>>6&63,128|63&n))}return r}(t)};
+const VAR = {
+  advance: { s2: 'Čekáme na platbu', s2s: 'Po připsání zboží předáme k doručení' },
+  cod: { s2: 'Připravujeme k odeslání', s2s: 'Předáme dopravci do 5 pracovních dnů' },
+  shop: { s2: 'Připravujeme na prodejně', s2s: 'Do 24 hodin' }
+};
+class Component extends DCLogic {
+  constructor(props) { super(props); const st = CK.load() || {}; this.state = { pv: CK.PAY[st.pay] ? st.pay : 'advance', toast: '', pw: '', accErr: false, accLoad: false, accDone: false }; this.qrCache = {}; }
+  componentWillUnmount() { clearTimeout(this.tT); clearTimeout(this.aT); }
+  qr(amount) {
+    if (this.qrCache[amount]) return this.qrCache[amount];
+    let out = { d: '', vb: '0 0 1 1', size: 1 };
+    try {
+      const q = qrcode(0, 'M'); q.addData('SPD*1.0*ACC:CZ9027000000001387887076*AM:' + amount + '*CC:CZK*X-VS:2026104512*MSG:Objednavka 2026104512 Midas'); q.make();
+      const n = q.getModuleCount(); let d = '';
+      for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (q.isDark(y, x)) d += 'M' + x + ',' + y + 'h1v1h-1z';
+      out = { d, vb: '-2 -2 ' + (n + 4) + ' ' + (n + 4), size: n + 4 };
+    } catch (e) {}
+    return (this.qrCache[amount] = out);
+  }
+  copy(k, txt, msg) {
+    try { if (navigator.clipboard) navigator.clipboard.writeText(txt).catch(() => {}); } catch (e) {}
+    clearTimeout(this.tT); this.setState({ toast: msg }); this.tT = setTimeout(() => this.setState({ toast: '' }), 2500);
+  }
+  renderVals() {
+    const s = this.state, st = CK.state(), pv = s.pv;
+    let del = st.del || 'dpd'; if (pv === 'shop') del = 'personal'; else if (del === 'personal') del = 'dpd';
+    const c = CK.calc({ ...st, del, pay: pv }), D = CK.DEL[del], V = VAR[pv];
+    const email = (st.contact && st.contact.v && String(st.contact.v.email || '').trim()) || CK.DEMO.contact.email;
+    const amount = c.total.toFixed(2), total = CK.fmt(c.total);
+    const set = {}; Object.keys(VAR).forEach(k => { set[k] = () => this.setState({ pv: k }); });
+    return {
+      v: { advance: pv === 'advance', cod: pv === 'cod', shop: pv === 'shop' }, set,
+      copy: { no: () => this.copy('no', '2026104512', 'Číslo objednávky zkopírováno'), acc: () => this.copy('acc', '1387887076/2700', 'Číslo účtu zkopírováno'),
+        vs: () => this.copy('vs', '2026104512', 'Variabilní symbol zkopírován'), amt: () => this.copy('amt', amount.replace('.', ','), 'Částka zkopírována') },
+      email, total, qr: this.qr(amount),
+      rows: c.its.map(i => ({ ...i, total: CK.fmt(i.q * i.unit) })), hasDisc: c.disc > 0, disc: '−' + CK.fmt(c.disc), cpCode: st.cpCode || '',
+      delName: D.short, delPrice: c.dp ? CK.fmt(c.dp) : 'Zdarma', payName: CK.PAY[pv].short, payPrice: c.pp ? CK.fmt(c.pp) : 'Zdarma', noVat: CK.fmt(c.noVat),
+      step2: V.s2, step2s: V.s2s, step3: pv === 'shop' ? 'Vyzvednete v Semaníně' : (del === 'pallet' ? 'Přivezeme vozem Midas' : 'Doručíme'),
+      step3s: pv === 'shop' ? 'Až bude připraveno, pošleme SMS' : (pv === 'advance' ? 'Obvykle do 2 pracovních dnů od platby' : (D.eta || 'Termín potvrdíme')),
+      tErr: false, tErrTitle: '', errs: [], closeErr: () => {}, tOk: !!s.toast, tOkText: s.toast, tUndo: false, undo: () => {}, closeOk: () => this.setState({ toast: '' }),
+      print: () => window.print(),
+      acc: { form: !s.accDone, done: s.accDone, v: s.pw, err: s.accErr, cls: s.accErr ? 'is-error' : '', load: s.accLoad ? '-loading' : '',
+        ch: e => this.setState({ pw: e.target.value, accErr: false }),
+        create: () => { if (String(s.pw).length < 8) { this.setState({ accErr: true }); return; } this.setState({ accLoad: true }); this.aT = setTimeout(() => this.setState({ accLoad: false, accDone: true }), 900); } }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

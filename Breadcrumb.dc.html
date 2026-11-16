@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Drobečková navigace</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+.bcx{font:400 14px/1.4 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.68);padding:14px 0 10px}
+.bcx ol{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;list-style:none;margin:0;padding:0}
+.bcx li{display:inline-flex;align-items:center;gap:6px;min-width:0}
+.bcx a{display:inline-flex;align-items:center;color:rgba(30,30,30,.68);text-decoration:none;border-radius:4px}
+.bcx a:hover{color:#3a7a27;text-decoration:underline;text-underline-offset:3px}
+.bcx a:focus-visible{outline:2px solid #3a7a27;outline-offset:2px}
+.bcx .bcHome{width:24px;height:24px;justify-content:center}
+.bcx .bcHome svg{width:16px;height:16px}
+.bcx .bcSep{width:12px;height:12px;flex:none;color:rgba(30,30,30,.4)}
+.bcx .bcCur{color:rgba(30,30,30,.9);font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60ch}
+</style>
+</helmet>
+<nav class="bcx BreadcrumbView" aria-label="Drobečková navigace"><ol>
+<li><a class="bcHome" href="Main.dc.html" aria-label="Domů"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z"></path></svg></a></li>
+<sc-if value="{{ has1 }}" hint-placeholder-val="{{ true }}"><li><svg class="bcSep" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg><a href="{{ h1 }}">{{ l1 }}</a></li></sc-if>
+<sc-if value="{{ has2 }}" hint-placeholder-val="{{ false }}"><li><svg class="bcSep" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg><a href="{{ h2 }}">{{ l2 }}</a></li></sc-if>
+<li><svg class="bcSep" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg><span class="bcCur" aria-current="page">{{ current }}</span></li>
+</ol></nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"l1":{"editor":"text"},"h1":{"editor":"text"},"l2":{"editor":"text"},"h2":{"editor":"text"},"current":{"editor":"text"},"$preview":{"width":800,"height":48}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props || {};
+    const has = p.l1 !== undefined || p.current !== undefined;
+    return {
+      l1: p.l1 || (has ? '' : 'Kategorie'), h1: p.h1 || 'Kategorie.dc.html', l2: p.l2 || '', h2: p.h2 || 'Kategorie.dc.html',
+      has1: has ? !!p.l1 : true, has2: !!p.l2,
+      current: has ? (p.current || '') : 'Venkovní kanalizace'
+    };
+  }
+}
+</script>
+</body>
+</html>

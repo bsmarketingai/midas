@@ -1,0 +1,291 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Breadcrumb.dc.html": {
+      "h": 48,
+      "is_interactive": true,
+      "title": "Komponenta – Drobečková navigace",
+      "w": 800,
+      "x": 4560,
+      "y": 1820
+    },
+    "CartPopup.dc.html": {
+      "h": 440,
+      "is_interactive": true,
+      "title": "Komponenta – Košík",
+      "w": 360,
+      "x": 4560,
+      "y": 540
+    },
+    "Certifikaty.dc.html": {
+      "expand": "fill",
+      "h": 2100,
+      "is_interactive": true,
+      "title": "Info – Certifikáty a prohlášení o shodě",
+      "w": 1440,
+      "x": 7600,
+      "y": 5400
+    },
+    "CookieModal.dc.html": {
+      "h": 330,
+      "is_interactive": true,
+      "title": "Komponenta – Souhlas s cookies",
+      "w": 640,
+      "x": 4560,
+      "y": 2000
+    },
+    "Dekujeme.dc.html": {
+      "expand": "fill",
+      "h": 2100,
+      "is_interactive": true,
+      "title": "Objednávka – Děkovná stránka",
+      "w": 1440,
+      "x": 4560,
+      "y": 12000
+    },
+    "Detail.dc.html": {
+      "expand": "fill",
+      "h": 2757,
+      "is_interactive": true,
+      "title": "Detail produktu",
+      "w": 1440,
+      "x": 3040,
+      "y": 0
+    },
+    "Doprava.dc.html": {
+      "expand": "fill",
+      "h": 2300,
+      "is_interactive": true,
+      "title": "Info – Doprava a platba",
+      "w": 1440,
+      "x": 6080,
+      "y": 5400
+    },
+    "FilterChip.dc.html": {
+      "h": 40,
+      "is_interactive": true,
+      "title": "Komponenta – Chip filtru",
+      "w": 120,
+      "x": 5000,
+      "y": 0
+    },
+    "Footer.dc.html": {
+      "h": 600,
+      "is_interactive": true,
+      "title": "Komponenta – Patička",
+      "w": 1440,
+      "x": 4560,
+      "y": 1100
+    },
+    "Gdpr.dc.html": {
+      "expand": "fill",
+      "h": 1500,
+      "is_interactive": true,
+      "title": "Info – GDPR informace",
+      "w": 1440,
+      "x": 10640,
+      "y": 5400
+    },
+    "Kariera.dc.html": {
+      "expand": "fill",
+      "h": 1500,
+      "is_interactive": true,
+      "title": "Info – Volné pracovní pozice",
+      "w": 1440,
+      "x": 12160,
+      "y": 5400
+    },
+    "Kategorie.dc.html": {
+      "expand": "fill",
+      "h": 3485,
+      "is_interactive": true,
+      "title": "Výpis – Venkovní kanalizace",
+      "w": 1440,
+      "x": 1520,
+      "y": 0
+    },
+    "Kontakt.dc.html": {
+      "expand": "fill",
+      "h": 2500,
+      "is_interactive": true,
+      "title": "Info – Kontakty",
+      "w": 1440,
+      "x": 1520,
+      "y": 5400
+    },
+    "Kontrola.dc.html": {
+      "expand": "fill",
+      "h": 1700,
+      "is_interactive": true,
+      "title": "Objednávka 3 – Kontrola údajů",
+      "w": 1440,
+      "x": 3040,
+      "y": 12000
+    },
+    "Kosik.dc.html": {
+      "expand": "fill",
+      "h": 1900,
+      "is_interactive": true,
+      "title": "Objednávka 1 – Nákupní košík",
+      "w": 1440,
+      "x": 0,
+      "y": 12000
+    },
+    "LoginPopup.dc.html": {
+      "h": 420,
+      "is_interactive": true,
+      "title": "Komponenta – Přihlášení",
+      "w": 320,
+      "x": 4560,
+      "y": 0
+    },
+    "Main.dc.html": {
+      "expand": "fill",
+      "h": 4875,
+      "is_interactive": true,
+      "title": "Homepage",
+      "w": 1440,
+      "x": 0,
+      "y": 0
+    },
+    "Navody.dc.html": {
+      "expand": "fill",
+      "h": 2200,
+      "is_interactive": true,
+      "title": "Info – Montážní návody",
+      "w": 1440,
+      "x": 9120,
+      "y": 5400
+    },
+    "ObchodniPodminky.dc.html": {
+      "expand": "fill",
+      "h": 6200,
+      "is_interactive": true,
+      "title": "Info – Obchodní podmínky",
+      "w": 1440,
+      "x": 3040,
+      "y": 5400
+    },
+    "Onas.dc.html": {
+      "expand": "fill",
+      "h": 2300,
+      "is_interactive": true,
+      "title": "Info – O nás",
+      "w": 1440,
+      "x": 0,
+      "y": 5400
+    },
+    "Porovnani.dc.html": {
+      "expand": "fill",
+      "h": 2300,
+      "is_interactive": true,
+      "title": "Porovnání produktů",
+      "w": 1440,
+      "x": 6400,
+      "y": 0
+    },
+    "PromoModal.dc.html": {
+      "h": 620,
+      "is_interactive": true,
+      "title": "Komponenta – Akční modal",
+      "w": 560,
+      "x": 5280,
+      "y": 2000
+    },
+    "Reklamace.dc.html": {
+      "expand": "fill",
+      "h": 3700,
+      "is_interactive": true,
+      "title": "Info – Reklamační podmínky",
+      "w": 1440,
+      "x": 4560,
+      "y": 5400
+    },
+    "Udaje.dc.html": {
+      "expand": "fill",
+      "h": 2000,
+      "is_interactive": true,
+      "title": "Objednávka 2 – Kontaktní údaje",
+      "w": 1440,
+      "x": 1520,
+      "y": 12000
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-13T14:30:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "flow",
+    "components",
+    "info",
+    "checkout"
+  ],
+  "notes": {
+    "checkout": {
+      "kind": "title1",
+      "maxW": 6000,
+      "text": "Průchod košíkem: Košík → Kontaktní údaje → Kontrola → Děkujeme",
+      "w": 240,
+      "x": 0,
+      "y": 11700
+    },
+    "components": {
+      "kind": "title1",
+      "maxW": 1440,
+      "text": "Komponenty",
+      "w": 240,
+      "x": 4560,
+      "y": -300
+    },
+    "flow": {
+      "kind": "title1",
+      "maxW": 4480,
+      "text": "Midas.cz – e-shop: Homepage → Výpis → Detail",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "info": {
+      "kind": "title1",
+      "maxW": 8000,
+      "text": "Informační stránky z patičky",
+      "w": 240,
+      "x": 0,
+      "y": 5100
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Kategorie.dc.html",
+    "Detail.dc.html",
+    "LoginPopup.dc.html",
+    "CartPopup.dc.html",
+    "Footer.dc.html",
+    "FilterChip.dc.html",
+    "Onas.dc.html",
+    "Kontakt.dc.html",
+    "ObchodniPodminky.dc.html",
+    "Reklamace.dc.html",
+    "Doprava.dc.html",
+    "Certifikaty.dc.html",
+    "Navody.dc.html",
+    "Gdpr.dc.html",
+    "Kariera.dc.html",
+    "Kosik.dc.html",
+    "Udaje.dc.html",
+    "Kontrola.dc.html",
+    "Dekujeme.dc.html",
+    "Breadcrumb.dc.html",
+    "CookieModal.dc.html",
+    "PromoModal.dc.html",
+    "Porovnani.dc.html"
+  ],
+  "pages": [],
+  "title": "Midas.cz"
+}

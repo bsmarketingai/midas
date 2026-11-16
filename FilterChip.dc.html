@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Chip aktivního filtru</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.fchip{box-sizing:border-box;display:inline-flex;align-items:center;gap:4px;height:32px;padding:0 4px 0 12px;border:1px solid #d2d7d9;border-radius:999px;background:#fff;color:rgba(30,30,30,.9);font:500 13px/1 Roboto,system-ui,sans-serif;white-space:nowrap;vertical-align:middle}
+.fchipX{display:grid;place-items:center;width:24px;height:24px;padding:0;border:0;border-radius:50%;background:#eef0ef;color:rgba(30,30,30,.75);cursor:pointer;transition:background-color .15s,color .15s}
+.fchipX svg{width:12px;height:12px}
+.fchipX:hover{background:#dfe3e1;color:#1e1e1e}
+.fchipX:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
+@media (prefers-reduced-motion:reduce){.fchipX{transition:none}}
+</style>
+</helmet>
+<span class="fchip"><span>{{ label }}</span><button class="fchipX" type="button" aria-label="Odebrat filtr {{ label }}" onClick="{{ remove }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"label":{"editor":"text","default":"DN 110"},"onRemove":{"editor":null},"$preview":{"width":120,"height":32}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { label: this.props.label ?? 'DN 110', remove: () => { if (this.props.onRemove) this.props.onRemove(); } };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Patička</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.ft{box-sizing:border-box;width:100%;background:#3a7a27;color:#fff;font:400 15px/1.5 Roboto,system-ui,sans-serif;padding:0 max(var(--gutter,24px),env(safe-area-inset-left,0px))}
+.ft *{box-sizing:border-box}
+.ftIn{max-width:var(--content-max,1560px);margin:0 auto}
+.ftTop{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr) minmax(0,.9fr) minmax(0,.9fr);gap:24px;padding:48px 0 32px}
+.ftCard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:24px}
+.ftH{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:17px;font-weight:700;line-height:1.3;color:#fff}
+.ftH .ic{flex:0 0 32px;width:32px;height:32px;display:grid;place-items:center;border-radius:8px;background:rgba(255,255,255,.14)}
+.ftH .ic svg{width:18px;height:18px}
+/* podpora */
+.ftSup{display:grid;grid-template-columns:88px minmax(0,1fr);gap:20px;align-items:start}
+.ftAv{position:relative;width:88px;height:88px}
+.ftAv svg.av{width:88px;height:88px;border-radius:50%;display:block;background:#eaf5e4}
+.ftAv .dot{position:absolute;right:4px;bottom:4px;width:18px;height:18px;border-radius:50%;border:3px solid #3a7a27;background:#9aa39a}
+.ftAv .dot.on{background:#7be05a}
+.ftAv .dot.on::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid #7be05a;animation:ftPulse 2s ease-out infinite}
+@keyframes ftPulse{from{transform:scale(1);opacity:.9}to{transform:scale(1.9);opacity:0}}
+.ftSupT{margin:0;font-size:14px;font-weight:500;color:rgba(255,255,255,.82)}
+.ftSoc{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16)}
+.ftSocH{margin:0 0 12px;font-size:17px;font-weight:700;color:#fff}
+.ft .ftFbBtn{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;text-decoration:none;max-width:320px}
+.ft .ftFbBtn:hover{background:rgba(255,255,255,.18);border-color:#fff}
+.ftFbBtn .fbIc{flex:0 0 40px;width:40px;height:40px;display:grid;place-items:center;border-radius:50%;background:#fff;color:#1877f2}
+.ftFbBtn .fbIc svg{width:26px;height:26px}
+.ftFbBtn b{display:block;font-weight:700}
+.ftFbBtn small{display:block;font-size:13px;color:rgba(255,255,255,.8)}
+.ftFbBtn .go{margin-left:auto;width:16px;height:16px;flex:none}
+@media (max-width:819px){.ftSoc{margin-top:0;padding:16px 0 20px}}
+.ftSupH{margin:2px 0 8px;font-size:20px;font-weight:700;line-height:1.25}
+.ftStatus{display:inline-flex;align-items:center;gap:8px;padding:4px 10px 4px 8px;border-radius:999px;font-size:13px;font-weight:600;background:rgba(0,0,0,.18)}
+.ftStatus i{width:8px;height:8px;border-radius:50%;background:#c7cbc7}
+.ftStatus.on{background:#eaf9e3;color:#245a17}
+.ftStatus.on i{background:#2f9e16}
+.ftPhone{display:inline-flex;align-items:center;gap:10px;margin:16px 0 4px;font-size:26px;font-weight:700;letter-spacing:.01em;color:#fff;text-decoration:none;white-space:nowrap}
+.ftPhone svg{width:24px;height:24px}
+.ftPhone:hover{text-decoration:underline;text-underline-offset:4px}
+.ftNote{margin:0 0 16px;font-size:14px;color:rgba(255,255,255,.82)}
+.ftMail{list-style:none;margin:0;padding:16px 0 0;border-top:1px solid rgba(255,255,255,.16);display:grid;gap:10px}
+.ftMail a{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:600;text-decoration:none}
+.ftMail a:hover{text-decoration:underline;text-underline-offset:3px}
+.ftMail svg{width:18px;height:18px;flex:none}
+.ftMail span{display:block;margin-left:26px;font-size:13px;color:rgba(255,255,255,.72)}
+/* otevírací doba */
+.ftDays{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.ftDays li{display:flex;justify-content:space-between;gap:12px;padding:7px 10px;border-radius:6px;font-size:14px;color:rgba(255,255,255,.88)}
+.ftDays li b{font-weight:500;color:#fff;font-variant-numeric:tabular-nums}
+.ftDays li.closed b{color:rgba(255,255,255,.62);font-weight:400}
+.ftDays li.today{background:#fff;color:#245a17;font-weight:700}
+.ftDays li.today b{color:#245a17;font-weight:700}
+.ftShop{display:flex;gap:10px;margin:16px 0 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.16);font-size:14px;font-style:normal;color:rgba(255,255,255,.88)}
+.ftShop svg{width:18px;height:18px;flex:none;margin-top:2px}
+.ftShop b{color:#fff;font-weight:600}
+.ftShop a{color:#fff;font-weight:600}
+/* odkazy */
+.ftCol{padding-top:4px}
+.ftTog{display:flex;align-items:center;gap:10px;width:100%;padding:0;margin:0;border:0;background:transparent;color:#fff;font:inherit;text-align:left;cursor:default}
+.ftTog .chev{display:none;margin-left:auto;width:18px;height:18px;transition:transform .2s}
+.ftLinks{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ftLinks a{display:inline-flex;align-items:center;gap:8px;min-height:32px;color:rgba(255,255,255,.9);text-decoration:none;font-size:15px}
+.ftLinks a svg{width:16px;height:16px;flex:none;opacity:.75}
+.ftLinks a:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.ftLinks a:hover svg{opacity:1}
+.ft a:focus-visible,.ft button:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
+.ft .ftAll{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:9px 16px;border:1px solid rgba(255,255,255,.55);border-radius:999px;color:#fff;font-weight:500;font-size:15px;text-decoration:none}
+.ft .ftAll svg{width:16px;height:16px}
+.ft .ftAll:hover{background:rgba(255,255,255,.14);border-color:#fff;color:#fff}
+.ft a:hover,.ft a:focus-visible,.ft a:active{color:#fff}
+/* spodní lišta */
+.ftBottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:18px 0 24px;border-top:1px solid rgba(255,255,255,.18);font-size:13px;color:rgba(255,255,255,.8)}
+.ftBottom .r{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ftBottom a{color:#fff;text-decoration:none}
+.ftBottom a:hover{text-decoration:underline;text-underline-offset:3px}
+.ftFb{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12)}
+.ftFb:hover{background:rgba(255,255,255,.22)}
+.ftFb svg{width:22px;height:22px}
+.ftBs{display:inline-flex;align-items:center;gap:8px}
+.ftBs svg{width:24px;height:24px;flex:none}
+@media (max-width:1149px){.ftTop{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:819px){
+.ftTop{grid-template-columns:minmax(0,1fr);gap:16px;padding-top:32px}
+.ftCol{border-top:1px solid rgba(255,255,255,.16);padding-top:0}
+.ftCol .ftH{margin:0}
+.ftTog{min-height:56px;cursor:pointer}
+.ftTog .chev{display:block}
+.ftCol.open .ftTog .chev{transform:rotate(180deg)}
+.ftCol .ftLinks{display:none;padding-bottom:12px}
+.ftCol.open .ftLinks{display:grid}
+}
+@media (max-width:419px){.ftSup{grid-template-columns:minmax(0,1fr)}.ftPhone{font-size:22px}.ftCard{padding:20px}}
+@media (prefers-reduced-motion:reduce){.ftAv .dot.on::after{animation:none}.ftTog .chev{transition:none}}
+</style>
+</helmet>
+<footer class="ft" id="Footer">
+<div class="ftIn">
+<div class="ftTop">
+
+<section class="ftCard ftSup" aria-labelledby="ftSupH">
+<div class="ftAv">
+<svg class="av" viewBox="0 0 88 88" aria-hidden="true"><circle cx="44" cy="44" r="44" fill="#eaf5e4"></circle><path d="M16 88c2-17 13-27 28-27s26 10 28 27z" fill="#3a7a27"></path><path d="M36 58h16v8c0 4-4 7-8 7s-8-3-8-7z" fill="#e9b48f"></path><circle cx="44" cy="40" r="16" fill="#f2c4a0"></circle><path d="M28 39c0-11 7-18 16-18s16 6 16 16c-4-1-9-4-12-8-4 5-12 9-20 10z" fill="#4a3426"></path><path d="M26 42a18 18 0 0 1 36 0" fill="none" stroke="#1f2a1c" stroke-width="3" stroke-linecap="round"></path><rect x="22" y="38" width="7" height="12" rx="3.5" fill="#1f2a1c"></rect><rect x="59" y="38" width="7" height="12" rx="3.5" fill="#1f2a1c"></rect><path d="M62 49c0 7-5 10-12 10" fill="none" stroke="#1f2a1c" stroke-width="2.5" stroke-linecap="round"></path><circle cx="49" cy="59" r="3" fill="#1f2a1c"></circle><circle cx="38" cy="42" r="1.8" fill="#4a3426"></circle><circle cx="50" cy="42" r="1.8" fill="#4a3426"></circle><path d="M39 49c3 2.5 7 2.5 10 0" fill="none" stroke="#b5714f" stroke-width="2" stroke-linecap="round"></path></svg>
+<span class="dot {{ onCls }}" aria-hidden="true"></span>
+</div>
+<div>
+<p class="ftSupT">Technická podpora</p>
+<h2 class="ftSupH" id="ftSupH">Poradíme s výběrem i montáží</h2>
+<span class="ftStatus {{ onCls }}" role="status"><i aria-hidden="true"></i>{{ statusText }}</span>
+<div><a class="ftPhone" href="tel:+420739162221"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M222,158.4l-46.9-21a16,16,0,0,0-15.2,1.4l-25.4,16.9a73.9,73.9,0,0,1-33.8-33.7l16.9-25.5a16,16,0,0,0,1.4-15.1L98,34.6a16,16,0,0,0-16.7-9.6A56.3,56.3,0,0,0,32,80c0,79.4,64.6,144,144,144a56.3,56.3,0,0,0,55.6-49.2A16.1,16.1,0,0,0,222,158.4ZM176,208A128.1,128.1,0,0,1,48,80,40.2,40.2,0,0,1,82.9,40.9l20.8,46.5-16.9,25.5a16,16,0,0,0-1,15.4,89.9,89.9,0,0,0,41.8,41.6,16,16,0,0,0,15.5-1.1l25.2-16.8,46.5,20.8A40.2,40.2,0,0,1,176,208Z"></path></svg>+420 739 162 221</a></div>
+<p class="ftNote">{{ noteText }}</p>
+<ul class="ftMail">
+<li><a href="mailto:e-objednavky@midas.cz"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>e-objednavky@midas.cz</a><span>objednávky z e-shopu</span></li>
+<li><a href="mailto:poptavky@midas.cz"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>poptavky@midas.cz</a><span>poptávky a projekty</span></li>
+</ul>
+<a class="ftAll" href="Kontakt.dc.html">Všechny kontakty a oddělení<svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a>
+</div>
+</section>
+
+<section class="ftCard" aria-labelledby="ftHoursH">
+<h2 class="ftH" id="ftHoursH"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></svg></span>Otevírací doba</h2>
+<ul class="ftDays">
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="7"><li class="{{ d.cls }}"><span>{{ d.name }}</span><b>{{ d.hours }}</b></li></sc-for>
+</ul>
+<address class="ftShop"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg><span><b>Prodejna a sklad Semanín 173</b><br>560 02 Česká Třebová · osobní odběr zdarma<br><a href="https://maps.google.com/?q=Seman%C3%ADn%20173">Navigovat</a></span></address>
+</section>
+
+<section class="ftCol {{ nakupCls }}" aria-labelledby="ftNakupH">
+<h2 class="ftH" id="ftNakupH"><button class="ftTog" type="button" aria-expanded="{{ nakupExp }}" aria-controls="ftNakupL" onClick="{{ toggleNakup }}"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z"></path></svg></span>Vše o nákupu<svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></button></h2>
+<ul class="ftLinks" id="ftNakupL">
+<li><a href="ObchodniPodminky.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path></svg>Obchodní podmínky</a></li>
+<li><a href="Reklamace.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,144H32V64H224V192Zm-48-72a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,120Z"></path></svg>Reklamační podmínky</a></li>
+<li><a href="Doprava.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg>Doprava a platba</a></li>
+<li><a href="Certifikaty.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>Certifikáty a prohlášení o shodě</a></li>
+<li><a href="Navody.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"></path></svg>Montážní návody</a></li>
+<li><a href="Gdpr.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"></path></svg>GDPR informace</a></li>
+</ul>
+<div class="ftSoc"><h3 class="ftSocH">Sledujte nás</h3><a class="ftFbBtn" href="https://www.facebook.com/p/Midas-International-spol-sro-100070995493911/"><span class="fbIc"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M232,128a104.16,104.16,0,0,1-91.55,103.26,4,4,0,0,1-4.45-4V152h24a8,8,0,0,0,8-8.53,8.17,8.17,0,0,0-8.25-7.47H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,8-8.53A8.17,8.17,0,0,0,167.73,80H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0-8,8.53A8.17,8.17,0,0,0,96.27,152H120v75.28a4,4,0,0,1-4.44,4A104.15,104.15,0,0,1,24.07,124.09c2-54,45.74-97.9,99.78-100A104.12,104.12,0,0,1,232,128Z"></path></svg></span><span><b>Facebook</b><small>Novinky, akce a tipy z provozu</small></span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div>
+</section>
+
+<section class="ftCol {{ firmaCls }}" aria-labelledby="ftFirmaH">
+<h2 class="ftH" id="ftFirmaH"><button class="ftTog" type="button" aria-expanded="{{ firmaExp }}" aria-controls="ftFirmaL" onClick="{{ toggleFirma }}"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M240,208H224V96a16,16,0,0,0-16-16H144V32a16,16,0,0,0-24.88-13.32L39.12,72A16,16,0,0,0,32,85.34V208H16a8,8,0,0,0,0,16H240a8,8,0,0,0,0-16ZM208,96V208H144V96ZM48,85.34,128,32V208H48ZM112,112v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm-32,0v16a8,8,0,0,1-16,0V112a8,8,0,1,1,16,0Zm0,56v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Zm32,0v16a8,8,0,0,1-16,0V168a8,8,0,0,1,16,0Z"></path></svg></span>Midas International<svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></button></h2>
+<ul class="ftLinks" id="ftFirmaL">
+<li><a href="Onas.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>Informace o firmě</a></li>
+<li><a href="Kariera.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200Z"></path></svg>Volné pracovní pozice</a></li>
+<li><a href="Kontakt.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg>Všechny kontakty</a></li>
+</ul>
+</section>
+
+</div>
+<div class="ftBottom">
+<span>© 2026 Midas International spol. s r.o.</span>
+<div class="r">
+<a href="#">Cookies</a>
+<a class="ftBs" href="https://www.bsshop.cz"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.1228 5H2.00244V17.7249H20.1228V5Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M4.7119 6.28384C5.47559 6.28384 6.09741 6.92694 6.09741 7.719C6.09741 8.51105 5.47795 9.15415 4.7119 9.15415C3.94586 9.15415 3.3264 8.51105 3.3264 7.719C3.3264 6.92694 3.94586 6.28384 4.7119 6.28384ZM2.00236 13.1357V5H12.5142C11.1713 6.5912 9.97021 8.20132 8.65327 10.0597C7.93214 11.0764 8.16858 10.8707 6.96749 11.3246C6.52536 11.4925 3.50136 12.5399 2 13.1333L2.00236 13.1357ZM19.9856 5C21.0945 5 22 5.90554 22 7.01442V17.985C22 19.0939 21.0945 19.9994 19.9856 19.9994H4.01679C2.90791 19.9994 2.00236 19.0939 2.00236 17.985V13.9065C3.17272 13.5566 6.06667 12.6605 6.94621 12.4666C7.02896 12.4477 7.02896 12.5068 7.01241 12.5375C6.65067 13.1759 5.62218 14.8026 5.51105 15.8831C5.44012 16.5546 5.77586 17.3111 6.48753 17.4554C7.16137 17.5901 7.96052 17.1622 8.53505 16.8454C9.71486 16.1952 13.9778 13.358 14.5405 12.2396C14.5807 12.4501 14.8455 12.6605 15.3751 12.7976C15.6754 12.8756 16.2097 12.9111 16.484 12.9868C16.666 13.0364 16.7866 13.1546 16.8008 13.3249C16.8339 13.7221 15.8172 14.0673 15.4768 14.1926C14.7793 14.4527 13.9849 14.7175 13.3441 15.0958C13.0202 15.2873 12.9067 15.7341 13.1952 16.0131C13.4647 16.2732 14.0369 16.1266 14.3561 16.051C15.4839 15.7767 17.5716 14.9444 18.3376 14.0578C18.8223 13.4951 19.0067 12.6368 18.392 12.0883C17.6993 11.4712 16.7039 11.5682 16.4958 11.3175C15.978 10.6933 17.7513 10.1661 18.4795 10.0479C19.0398 9.95803 19.8224 10.01 19.969 9.44733C20.0943 8.96264 19.5624 8.82788 19.1557 8.78295C17.8175 8.634 16.1341 9.05012 14.9944 10.2063C14.8006 10.4025 14.6942 10.5822 14.5972 10.7974C14.0771 9.3504 10.6724 10.3647 10.5542 10.1235C10.4194 9.80435 12.266 7.18229 13.8619 5.00236H19.9927L19.9856 5ZM10.5093 11.762C10.9325 11.6604 11.961 11.4712 12.3416 11.7076C13.382 12.3508 9.91819 14.3297 9.42641 14.6323C7.96761 15.5237 7.43799 15.4882 8.37428 13.8166C8.90625 12.8993 9.41695 11.9583 10.5116 11.7644L10.5093 11.762Z" fill="#E30613"></path></svg>BSSHOP: e-shop napojený na Pohodu</a>
+</div>
+</div>
+</div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":600}}'>
+const HOURS = { 1: [8, 16], 2: [8, 16], 3: [8, 16], 4: [8, 16], 5: [8, 15] };
+const NAMES = ['Neděle', 'Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek', 'Sobota'];
+const ACC = ['', 'v pondělí', 've úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { now: new Date(), nakup: false, firma: false }; }
+  componentDidMount() { this.tick = setInterval(() => this.setState({ now: new Date() }), 30000); }
+  componentWillUnmount() { clearInterval(this.tick); }
+  status(now) {
+    const d = now.getDay(), h = now.getHours() + now.getMinutes() / 60, today = HOURS[d];
+    if (today && h >= today[0] && h < today[1]) return { on: true, text: 'Online · volejte, jsme tu do ' + today[1] + ':00', note: 'Technik vám poradí s dimenzí, spádem i náhradou za starý typ.' };
+    let n = new Date(now), label = '';
+    if (today && h < today[0]) label = 'dnes';
+    else { for (let i = 1; i <= 7; i++) { n = new Date(now); n.setDate(now.getDate() + i); if (HOURS[n.getDay()]) { label = i === 1 ? 'zítra' : ACC[n.getDay()]; break; } } }
+    const open = HOURS[label === 'dnes' ? d : n.getDay()][0];
+    return { on: false, text: 'Offline · ozveme se ' + label + ' od ' + open + ':00', note: 'Napište nám e-mail, odpovíme hned ráno v pracovní době.' };
+  }
+  renderVals() {
+    const s = this.state, st = this.status(s.now), today = s.now.getDay();
+    const days = [1, 2, 3, 4, 5, 6, 0].map(d => ({ name: NAMES[d], hours: HOURS[d] ? HOURS[d][0] + ':00 – ' + HOURS[d][1] + ':00' : 'zavřeno', cls: [d === today ? 'today' : '', HOURS[d] ? '' : 'closed'].join(' ').trim() }));
+    const tog = k => () => { if (typeof matchMedia === 'function' && matchMedia('(min-width:820px)').matches) return; this.setState({ [k]: !s[k] }); };
+    return {
+      onCls: st.on ? 'on' : '', statusText: st.text, noteText: st.note, days,
+      nakupCls: s.nakup ? 'open' : '', nakupExp: String(s.nakup), toggleNakup: tog('nakup'),
+      firmaCls: s.firma ? 'open' : '', firmaExp: String(s.firma), toggleFirma: tog('firma')
+    };
+  }
+}
+</script>
+</body>
+</html>
