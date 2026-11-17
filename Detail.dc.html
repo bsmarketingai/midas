@@ -1031,7 +1031,8 @@ main[hidden]{display:none!important}
 .qsEmpty p{margin:0;color:var(--text-weaker);font-size:var(--fs-body-sm)}
 /* našeptávač: produkty + kategorie (řádkový výpis) */
 .qsDrop{min-width:min(780px,92vw);padding:var(--space-3);max-height:min(78vh,640px)}
-@media (min-width:1000px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:10%;right:10%;top:calc(100% - 12px);min-width:0}}
+@media (min-width:820px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:10%;right:10%;top:calc(100% - 12px);min-width:0}}
+@media (min-width:820px) and (max-width:1149px){.SimpleSearchView .qsDrop{left:0;right:0}}
 .qsGrid{display:grid;gap:var(--space-3)}
 .qsT{display:flex;align-items:center;gap:var(--space-2);margin:var(--space-1) var(--space-2) var(--space-2);font-size:var(--fs-body-sm);font-weight:700;color:var(--text)}
 .qsN{font-weight:500;color:var(--text-weaker);font-variant-numeric:tabular-nums}
@@ -1056,9 +1057,9 @@ main[hidden]{display:none!important}
 .qsCats a small{font-size:var(--fs-caption);color:var(--text-weaker)}
 .qsCats a .icon{flex:0 0 auto;width:16px;height:16px;color:var(--text-weaker)}
 @media (min-width:820px){.qsGrid.two{grid-template-columns:minmax(0,1fr) 260px;align-items:start}}
-#qm::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;width:20px;height:20px;margin:0 var(--space-1) 0 var(--space-2);background-color:var(--text-weaker);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;cursor:pointer}
+#qm::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;flex:none;align-self:center;width:20px;height:20px;margin:0 var(--space-1) 0 var(--space-2);background-color:var(--text-weaker);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;cursor:pointer}
 #qm::-webkit-search-cancel-button:hover{background-color:var(--text)}
-@media (max-width:819px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i p" "i b";row-gap:var(--space-1);padding:var(--space-3) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i}.qsRow .qsPrice{grid-area:p;justify-self:end}.qsRow .qsBuy{grid-area:b;justify-self:end}}
+@media (max-width:819px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsDrop{overflow-x:hidden}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i i" "p b";align-items:center;row-gap:0;padding:var(--space-2) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i;min-width:0;min-height:0}.qsRow .qsPrice{grid-area:p;justify-self:start;padding-left:calc(48px + 2 * var(--space-2))}.qsRow .qsBuy{grid-area:b;justify-self:end}.qsDrop .button.qsAll{width:100%;white-space:normal;height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);text-align:center}}
 
 /* ===== quick order (B2B) ===== */
 .QuickOrder{margin-top:var(--section-gap);padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-soft)}
