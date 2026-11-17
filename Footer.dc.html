@@ -98,7 +98,8 @@ body{margin:0}
 .ftCol .ftLinks{display:none;padding-bottom:12px}
 .ftCol.open .ftLinks{display:grid}
 }
-@media (max-width:419px){.ftSup{grid-template-columns:minmax(0,1fr)}.ftPhone{font-size:22px}.ftCard{padding:20px}}
+@media (max-width:549px){.ftSup{grid-template-columns:48px minmax(0,1fr);column-gap:var(--space-3,12px);row-gap:0}.ftSup > div:not(.ftAv){display:contents}.ftAv{grid-row:1 / span 2;align-self:center;width:48px;height:48px}.ftAv svg.av{width:48px;height:48px}.ftAv .dot{right:0;bottom:0;width:14px;height:14px;border-width:2px}.ftSupT,.ftSupH{grid-column:2}.ftSupH{margin-bottom:0}.ftSup > div > :not(.ftSupT):not(.ftSupH){grid-column:1 / -1}.ftStatus{justify-self:start;margin-top:var(--space-3,12px)}}
+@media (max-width:419px){.ftPhone{font-size:22px}.ftCard{padding:20px}}
 @media (prefers-reduced-motion:reduce){.ftAv .dot.on::after{animation:none}.ftTog .chev{transition:none}}
 </style>
 </helmet>
