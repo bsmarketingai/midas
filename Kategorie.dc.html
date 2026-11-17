@@ -1167,7 +1167,9 @@ main[hidden]{display:none!important}
 .popSlot{position:absolute;right:0;top:calc(100% + 8px);z-index:1002;animation:popIn .14s ease-out}
 @keyframes popIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .LoginUserView > .button[aria-expanded="true"],.SimpleBasketView > .button[aria-expanded="true"]{background:var(--primary-10)}
-@media (max-width:819px){.popSlot{position:fixed;left:var(--gutter);right:var(--gutter);top:auto;bottom:var(--gutter)}.popSlot .lp,.popSlot .cp{width:100%}}
+@media (max-width:819px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
+@media (max-width:819px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
+@keyframes sheetUp{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.popSlot{animation:none}}
 
 
@@ -1277,7 +1279,7 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
 @media (max-width:549px){#childCats{margin-bottom:var(--space-3)}#childCats:not(.all) > li:nth-child(n+7){display:none}.subMoreBtn{display:inline-flex !important}}
 .subMoreBtn{width:100%;margin:0 0 var(--space-6)}.subMoreBtn:focus-visible{outline:2px solid var(--primary);outline-offset:2px;border-radius:4px}
 .subMoreBtn .icon{width:16px;height:16px;transition:rotate .2s}.subMoreBtn[aria-expanded="true"] .icon{rotate:180deg}
-@media (max-width:419px){#ChildCategories ul.root{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:549px){#ChildCategories ul.root{grid-template-columns:minmax(0,1fr)}}
 .items.pgAlt > .productHolder:not(.pgx){display:none}
 .ProductPaging a.disabled{pointer-events:none;opacity:.4}
 #CategoryUserContentInList{max-width:none;margin-top:var(--space-7);padding-top:var(--space-6)}
