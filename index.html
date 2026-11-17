@@ -4,36 +4,176 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Midas.cz – prototyp e-shopu</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<meta name="description" content="Rozcestník interaktivního prototypu e-shopu Midas.cz: stránky, objednávkový proces, informační stránky a komponenty.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&amp;display=swap">
 <style>
-:root{--primary:#3a7a27;--primary-10:#eff8eb;--line:#e1e1e1;--text:#1e1e1e;--muted:#5c5c5c;--radius-lg:8px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px}
+:root{--primary:#3a7a27;--primary-d:#2c6420;--primary-dd:#1f4a16;--primary-10:#eff8eb;--primary-20:#dcefd3;--main:#cc0000;--text:#1e1e1e;--muted:rgba(30,30,30,.7);--line:#e1e1e1;--bg-soft:#f4f7f2;--radius-md:6px;--radius-lg:8px;--radius-xl:16px;--pill:999px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--shadow:0 1px 2px rgba(24,36,18,.06),0 8px 24px rgba(24,36,18,.08);--shadow-h:0 2px 4px rgba(24,36,18,.08),0 16px 40px rgba(24,36,18,.14);--max:1240px;--gutter:clamp(16px,4vw,32px)}
 *{box-sizing:border-box}
-body{margin:0;font:400 16px/1.5 Roboto,system-ui,sans-serif;color:var(--text);background:#fff}
-main{max-width:1160px;margin:0 auto;padding:var(--space-7) var(--space-5)}
-h1{margin:0 0 var(--space-2);font-size:32px;line-height:1.2}
-.lead{margin:0 0 var(--space-6);color:var(--muted)}
-.lead a{color:var(--primary);font-weight:500}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--space-5)}
-h2{margin:0 0 var(--space-3);font-size:18px}
-ul{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--radius-lg)}
-li+li{border-top:1px solid var(--line)}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font:400 16px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);background:#fff}
+img{display:block;max-width:100%}
 a{color:inherit}
-li a{display:flex;align-items:center;gap:var(--space-3);min-height:48px;padding:var(--space-2) var(--space-4);text-decoration:none}
-li a:hover{background:var(--primary-10);color:var(--primary)}
-li a svg{width:16px;height:16px;flex:none;margin-left:auto}
-li a:focus-visible{outline:2px solid var(--primary);outline-offset:-2px}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:var(--space-3);top:-80px;z-index:10;padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:var(--text);color:#fff;font-weight:600;text-decoration:none}
+.skip:focus{top:var(--space-3)}
+/* lišta */
+.top{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.92);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:var(--space-5);height:64px}
+.logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none}
+.logo img{height:36px;width:auto}
+.tag{padding:var(--space-1) var(--space-3);border-radius:var(--pill);background:var(--primary-10);color:var(--primary-d);font-size:13px;font-weight:500;white-space:nowrap}
+.top nav{margin-left:auto}
+.top nav ul{display:flex;gap:var(--space-1);list-style:none;margin:0;padding:0}
+.top nav a{display:inline-flex;align-items:center;min-height:40px;padding:0 var(--space-3);border-radius:var(--pill);color:var(--text);font-size:15px;font-weight:500;text-decoration:none}
+.top nav a:hover{background:var(--bg-soft);color:var(--primary-d)}
+/* hero */
+.hero{position:relative;overflow:hidden;background:var(--primary-d);color:#fff}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 90% at 85% 10%,rgba(123,224,90,.28),transparent 60%),radial-gradient(40% 60% at 0% 100%,rgba(0,0,0,.25),transparent 70%)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:var(--space-7);align-items:center;padding-block:var(--space-8)}
+.eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);margin:0 0 var(--space-4);font-size:15px;font-weight:500;color:#cdeec2}
+.eyebrow::before{content:"";width:24px;height:2px;background:#7be05a}
+.hero h1{margin:0 0 var(--space-4);font-size:clamp(34px,4.6vw,56px);font-weight:900;line-height:1.05;letter-spacing:-.01em}
+.hero p.lead{max-width:34em;margin:0 0 var(--space-6);font-size:18px;color:rgba(255,255,255,.92)}
+.ctas{display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.btn{display:inline-flex;align-items:center;gap:var(--space-2);height:48px;padding:0 var(--space-5);border-radius:var(--radius-md);font-weight:700;font-size:16px;text-decoration:none;transition:background-color .15s,border-color .15s,transform .15s}
+.btn svg{width:20px;height:20px}
+.btn.-main{background:var(--main);color:#fff}
+.btn.-main:hover{background:#a80000}
+.btn.-ghost{border:1px solid rgba(255,255,255,.6);color:#fff}
+.btn.-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.hero :focus-visible{outline-color:#fff}
+.stats{display:flex;flex-wrap:wrap;gap:var(--space-5);margin:var(--space-6) 0 0;padding:0;list-style:none}
+.stats li{display:grid}
+.stats b{font-size:28px;font-weight:900;line-height:1.1}
+.stats span{font-size:14px;color:rgba(255,255,255,.88)}
+.shot{position:relative;justify-self:end;width:100%;max-width:560px}
+.shot .frame{border-radius:var(--radius-xl);overflow:hidden;background:#fff;box-shadow:0 30px 80px rgba(0,0,0,.35);border:6px solid rgba(255,255,255,.14);transform:rotate(-1.5deg)}
+.shot .frame img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.shot .float{position:absolute;left:-28px;bottom:-24px;width:42%;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35);border:4px solid #fff;transform:rotate(2deg)}
+/* sekce */
+main section{padding-block:var(--space-8) 0}
+main section:last-of-type{padding-bottom:var(--space-8)}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-5)}
+.sh h2{margin:0;font-size:clamp(24px,2.6vw,32px);font-weight:700;line-height:1.2}
+.sh p{margin:var(--space-1) 0 0;color:var(--muted)}
+.sh .cnt{flex:none;padding:var(--space-1) var(--space-3);border-radius:var(--pill);background:var(--bg-soft);font-size:14px;font-weight:500;color:var(--muted)}
+.grid{display:grid;gap:var(--space-4);list-style:none;margin:0;padding:0}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{display:flex;flex-direction:column;height:100%;border:1px solid var(--line);border-radius:var(--radius-lg);background:#fff;text-decoration:none;color:var(--text);overflow:hidden;transition:box-shadow .2s,border-color .2s,transform .2s}
+.card:hover{border-color:var(--primary);box-shadow:var(--shadow-h);transform:translateY(-2px)}
+.card .thumb{display:block;overflow:hidden;background:var(--bg-soft);border-bottom:1px solid var(--line)}
+.card .thumb img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;transition:transform .4s}
+.card:hover .thumb img{transform:scale(1.03)}
+.card .body{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4)}
+.card .txt{display:grid;gap:2px;min-width:0;flex:1}
+.card b{font-size:17px;font-weight:700}
+.card small{font-size:14px;color:var(--muted)}
+.card .chev{flex:none;width:18px;height:18px;color:var(--primary);transition:transform .2s}
+.card:hover .chev{transform:translateX(3px)}
+.card:hover b{color:var(--primary-d)}
+.card.big b{font-size:19px}
+/* kroky objednávky */
+.steps{counter-reset:s;position:relative}
+.step .num{display:grid;place-items:center;flex:none;width:36px;height:36px;border-radius:50%;background:var(--primary);color:#fff;font-weight:700;font-size:16px}
+.steps li{position:relative}
+.steps li+li::before{content:"";position:absolute;left:calc(-1 * var(--space-4));top:calc(50% - 1px);width:var(--space-4);height:2px;background:var(--primary-20)}
+/* info + komponenty */
+.card.mini{flex-direction:row;align-items:stretch}
+.card.mini .thumb{flex:0 0 132px;border-bottom:0;border-right:1px solid var(--line)}
+.card.mini .thumb img{height:100%;aspect-ratio:auto;object-position:top left}
+.card.mini .body{flex:1}
+.card.comp .thumb img{object-fit:contain;object-position:center}
+.band{background:var(--bg-soft)}
+.band section,section.band{padding-bottom:var(--space-8)}
+/* patička */
+footer{background:var(--primary-d);color:#fff}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-4);padding-block:var(--space-6)}
+footer p{margin:0;color:rgba(255,255,255,.92);font-size:15px}
+footer a{color:#fff;font-weight:500}
+footer :focus-visible{outline-color:#fff}
+@media (max-width:1149px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.steps li:nth-child(odd)::before{display:none}}
+@media (max-width:999px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.shot{justify-self:start;max-width:520px;margin-bottom:var(--space-4)}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:819px){.top nav{display:none}.tag{margin-left:auto}}
+@media (max-width:549px){.g4,.g3{grid-template-columns:minmax(0,1fr)}.steps li::before{display:none}.shot .float{display:none}.card.mini .thumb{flex-basis:104px}.stats{gap:var(--space-4)}.sh{flex-direction:column;align-items:start}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.card,.card .thumb img,.card .chev,.btn{transition:none}.card:hover{transform:none}.card:hover .thumb img{transform:none}}
 </style>
 </head>
 <body>
-<main>
-<h1>Midas.cz – prototyp e-shopu</h1>
-<p class="lead">Interaktivní návrh stránek a komponent. Začněte na <a href="Main.dc.html">homepage</a>, přehled změn je v <a href="changelog-finalni-upravy.html">changelogu</a>.</p>
-<div class="grid">
-<section><h2>Midas.cz – e-shop</h2><ul><li><a href="Main.dc.html"><span>Homepage</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Kategorie.dc.html"><span>Výpis – Venkovní kanalizace</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Detail.dc.html"><span>Detail produktu</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Porovnani.dc.html"><span>Porovnání produktů</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></ul></section>
-<section><h2>Průchod košíkem</h2><ul><li><a href="Kosik.dc.html"><span>Objednávka 1 – Nákupní košík</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Udaje.dc.html"><span>Objednávka 2 – Kontaktní údaje</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Kontrola.dc.html"><span>Objednávka 3 – Kontrola údajů</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Dekujeme.dc.html"><span>Objednávka – Děkovná stránka</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></ul></section>
-<section><h2>Informační stránky z patičky</h2><ul><li><a href="Onas.dc.html"><span>Info – O nás</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Kontakt.dc.html"><span>Info – Kontakty</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="ObchodniPodminky.dc.html"><span>Info – Obchodní podmínky</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Reklamace.dc.html"><span>Info – Reklamační podmínky</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Doprava.dc.html"><span>Info – Doprava a platba</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Certifikaty.dc.html"><span>Info – Certifikáty a prohlášení o shodě</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Navody.dc.html"><span>Info – Montážní návody</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Gdpr.dc.html"><span>Info – GDPR informace</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Kariera.dc.html"><span>Info – Volné pracovní pozice</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></ul></section>
-<section><h2>Komponenty</h2><ul><li><a href="LoginPopup.dc.html"><span>Komponenta – Přihlášení</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="CartPopup.dc.html"><span>Komponenta – Košík</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Footer.dc.html"><span>Komponenta – Patička</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="FilterChip.dc.html"><span>Komponenta – Chip filtru</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="Breadcrumb.dc.html"><span>Komponenta – Drobečková navigace</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="CookieModal.dc.html"><span>Komponenta – Souhlas s cookies</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="PromoModal.dc.html"><span>Komponenta – Akční modal</span><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></ul></section>
+<a class="skip" href="#obsah">Přeskočit na obsah</a>
+<header class="top">
+<div class="wrap">
+<a class="logo" href="Main.dc.html"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – homepage prototypu" width="140" height="36"></a>
+<span class="tag">Prototyp e-shopu</span>
+<nav aria-label="Sekce rozcestníku"><ul>
+<li><a href="#cesta">Nákupní cesta</a></li>
+<li><a href="#objednavka">Objednávka</a></li>
+<li><a href="#info">Informace</a></li>
+<li><a href="#komponenty">Komponenty</a></li>
+<li><a href="changelog-finalni-upravy.html">Changelog</a></li>
+</ul></nav>
+</div>
+</header>
+<main id="obsah">
+<div class="hero">
+<div class="wrap">
+<div>
+<p class="eyebrow">Midas International · návrh 2026</p>
+<h1>Nový e-shop Midas.cz</h1>
+<p class="lead">Interaktivní prototyp e-shopu s kanalizačními systémy. Proklikejte si celou cestu zákazníka od homepage přes výpis a detail produktu až po dokončení objednávky – na desktopu i na mobilu.</p>
+<div class="ctas">
+<a class="btn -main" href="Main.dc.html">Otevřít homepage<svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+<a class="btn -ghost" href="Kosik.dc.html"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"/></svg>Projít objednávku</a>
+</div>
+<ul class="stats">
+<li><b>17</b><span>stránek</span></li>
+<li><b>8</b><span>komponent</span></li>
+<li><b>6</b><span>breakpointů</span></li>
+</ul>
+</div>
+<div class="shot" aria-hidden="true">
+<div class="frame"><img src="rozcestnik-img/Main.jpg" alt=""></div>
+<div class="float"><img src="rozcestnik-img/Detail.jpg" alt=""></div>
+</div>
+</div>
+</div>
+
+<div class="wrap">
+<section id="cesta" aria-labelledby="h-cesta">
+<div class="sh"><div><h2 id="h-cesta">Nákupní cesta</h2><p>Hlavní obrazovky e-shopu v pořadí, jak jimi prochází zákazník.</p></div><span class="cnt">4 stránky</span></div>
+<ul class="grid g4"><li><a class="card big" href="Main.dc.html"><span class="thumb"><img src="rozcestnik-img/Main.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Homepage</b><small>Hero slider, kategorie, akční produkty, USP a patička</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card big" href="Kategorie.dc.html"><span class="thumb"><img src="rozcestnik-img/Kategorie.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Výpis kategorie</b><small>Podkategorie, filtry, řazení, aktivní filtry a stránkování</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card big" href="Detail.dc.html"><span class="thumb"><img src="rozcestnik-img/Detail.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Detail produktu</b><small>Galerie, ceny, balení, dostupnost, porovnání a záložky</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card big" href="Porovnani.dc.html"><span class="thumb"><img src="rozcestnik-img/Porovnani.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Porovnání produktů</b><small>Tabulka parametrů, jen rozdíly, naposledy navštívené</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li></ul>
+</section>
+
+<section id="objednavka" aria-labelledby="h-obj">
+<div class="sh"><div><h2 id="h-obj">Objednávka</h2><p>Čtyři kroky košíkem – od položek po potvrzení.</p></div><span class="cnt">4 kroky</span></div>
+<ol class="grid g4 steps"><li><a class="card step" href="Kosik.dc.html"><span class="thumb"><img src="rozcestnik-img/Kosik.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="num" aria-hidden="true">1</span><span class="txt"><b>Nákupní košík</b><small>Položky, množství, doprava a platba, slevový kód</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card step" href="Udaje.dc.html"><span class="thumb"><img src="rozcestnik-img/Udaje.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="num" aria-hidden="true">2</span><span class="txt"><b>Kontaktní údaje</b><small>Kontaktní a fakturační údaje, firma, doručení</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card step" href="Kontrola.dc.html"><span class="thumb"><img src="rozcestnik-img/Kontrola.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="num" aria-hidden="true">3</span><span class="txt"><b>Kontrola objednávky</b><small>Rekapitulace objednávky před odesláním</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card step" href="Dekujeme.dc.html"><span class="thumb"><img src="rozcestnik-img/Dekujeme.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="num" aria-hidden="true">4</span><span class="txt"><b>Děkujeme</b><small>Potvrzení objednávky a další kroky</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li></ol>
+</section>
+</div>
+
+<div class="band">
+<div class="wrap">
+<section id="info" aria-labelledby="h-info">
+<div class="sh"><div><h2 id="h-info">Informační stránky</h2><p>Stránky z patičky – o firmě, podmínky, doprava a dokumenty.</p></div><span class="cnt">9 stránek</span></div>
+<ul class="grid g3"><li><a class="card mini" href="Onas.dc.html"><span class="thumb"><img src="rozcestnik-img/Onas.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>O nás</b><small>Historie a výroba Midas International</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Kontakt.dc.html"><span class="thumb"><img src="rozcestnik-img/Kontakt.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Kontakty</b><small>Oddělení, kontakty, mapa a otevírací doba</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="ObchodniPodminky.dc.html"><span class="thumb"><img src="rozcestnik-img/ObchodniPodminky.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Obchodní podmínky</b><small>Kompletní obchodní podmínky</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Reklamace.dc.html"><span class="thumb"><img src="rozcestnik-img/Reklamace.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Reklamační podmínky</b><small>Postup a podmínky reklamace</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Doprava.dc.html"><span class="thumb"><img src="rozcestnik-img/Doprava.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Doprava a platba</b><small>Způsoby dopravy, platby a ceny</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Certifikaty.dc.html"><span class="thumb"><img src="rozcestnik-img/Certifikaty.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Certifikáty</b><small>Certifikáty a prohlášení o shodě ke stažení</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Navody.dc.html"><span class="thumb"><img src="rozcestnik-img/Navody.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Montážní návody</b><small>Montážní návody a dokumenty</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Gdpr.dc.html"><span class="thumb"><img src="rozcestnik-img/Gdpr.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>GDPR</b><small>Zpracování osobních údajů</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card mini" href="Kariera.dc.html"><span class="thumb"><img src="rozcestnik-img/Kariera.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Kariéra</b><small>Volné pracovní pozice</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li></ul>
+</section>
+</div>
+</div>
+
+<div class="wrap">
+<section id="komponenty" aria-labelledby="h-komp">
+<div class="sh"><div><h2 id="h-komp">Komponenty</h2><p>Opakované prvky s jedním zdrojem pravdy, použité napříč stránkami.</p></div><span class="cnt">8 komponent</span></div>
+<ul class="grid g4"><li><a class="card comp" href="LoginPopup.dc.html"><span class="thumb"><img src="rozcestnik-img/LoginPopup.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Přihlášení</b><small>Přihlášení s validací</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="CartPopup.dc.html"><span class="thumb"><img src="rozcestnik-img/CartPopup.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Mini košík</b><small>Mini košík po přidání</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="Footer.dc.html"><span class="thumb"><img src="rozcestnik-img/Footer.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Patička</b><small>Patička s podporou a otevírací dobou</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="FilterChip.dc.html"><span class="thumb"><img src="rozcestnik-img/FilterChip.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Chip filtru</b><small>Chip aktivního filtru</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="Breadcrumb.dc.html"><span class="thumb"><img src="rozcestnik-img/Breadcrumb.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Drobečková navigace</b><small>Drobečková navigace</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="CookieModal.dc.html"><span class="thumb"><img src="rozcestnik-img/CookieModal.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Cookies</b><small>Souhlas s cookies</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="PromoModal.dc.html"><span class="thumb"><img src="rozcestnik-img/PromoModal.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Akční modal</b><small>Akční sdělení s fotkou</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li><li><a class="card comp" href="FontSizeSwitch.dc.html"><span class="thumb"><img src="rozcestnik-img/FontSizeSwitch.jpg" alt="" loading="lazy" width="640" height="400"></span><span class="body"><span class="txt"><b>Velikost písma</b><small>Prezentační přepínač velikosti písma</small></span><svg class="chev" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></svg></span></a></li></ul>
+</section>
 </div>
 </main>
+<footer>
+<div class="wrap">
+<p>© 2026 Midas International spol. s r.o. · návrh a prototyp BSSHOP</p>
+<p><a href="changelog-finalni-upravy.html">Přehled změn (changelog)</a></p>
+</div>
+</footer>
 </body>
 </html>

@@ -20,7 +20,7 @@
     },
     "Certifikaty.dc.html": {
       "expand": "fill",
-      "h": 2100,
+      "h": 2140,
       "is_interactive": true,
       "title": "Info – Certifikáty a prohlášení o shodě",
       "w": 1440,
@@ -37,7 +37,7 @@
     },
     "Dekujeme.dc.html": {
       "expand": "fill",
-      "h": 2100,
+      "h": 1262,
       "is_interactive": true,
       "title": "Objednávka – Děkovná stránka",
       "w": 1440,
@@ -46,7 +46,7 @@
     },
     "Detail.dc.html": {
       "expand": "fill",
-      "h": 2757,
+      "h": 2891,
       "is_interactive": true,
       "title": "Detail produktu",
       "w": 1440,
@@ -55,7 +55,7 @@
     },
     "Doprava.dc.html": {
       "expand": "fill",
-      "h": 2300,
+      "h": 2031,
       "is_interactive": true,
       "title": "Info – Doprava a platba",
       "w": 1440,
@@ -88,7 +88,7 @@
     },
     "Gdpr.dc.html": {
       "expand": "fill",
-      "h": 1500,
+      "h": 1404,
       "is_interactive": true,
       "title": "Info – GDPR informace",
       "w": 1440,
@@ -97,7 +97,7 @@
     },
     "Kariera.dc.html": {
       "expand": "fill",
-      "h": 1500,
+      "h": 1408,
       "is_interactive": true,
       "title": "Info – Volné pracovní pozice",
       "w": 1440,
@@ -106,7 +106,7 @@
     },
     "Kategorie.dc.html": {
       "expand": "fill",
-      "h": 3485,
+      "h": 3764,
       "is_interactive": true,
       "title": "Výpis – Venkovní kanalizace",
       "w": 1440,
@@ -115,7 +115,7 @@
     },
     "Kontakt.dc.html": {
       "expand": "fill",
-      "h": 2500,
+      "h": 2381,
       "is_interactive": true,
       "title": "Info – Kontakty",
       "w": 1440,
@@ -124,7 +124,7 @@
     },
     "Kontrola.dc.html": {
       "expand": "fill",
-      "h": 1700,
+      "h": 1418,
       "is_interactive": true,
       "title": "Objednávka 3 – Kontrola údajů",
       "w": 1440,
@@ -133,7 +133,7 @@
     },
     "Kosik.dc.html": {
       "expand": "fill",
-      "h": 1900,
+      "h": 1433,
       "is_interactive": true,
       "title": "Objednávka 1 – Nákupní košík",
       "w": 1440,
@@ -150,7 +150,7 @@
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 4875,
+      "h": 4431,
       "is_interactive": true,
       "title": "Homepage",
       "w": 1440,
@@ -159,7 +159,7 @@
     },
     "Navody.dc.html": {
       "expand": "fill",
-      "h": 2200,
+      "h": 2216,
       "is_interactive": true,
       "title": "Info – Montážní návody",
       "w": 1440,
@@ -168,7 +168,7 @@
     },
     "ObchodniPodminky.dc.html": {
       "expand": "fill",
-      "h": 6200,
+      "h": 6267,
       "is_interactive": true,
       "title": "Info – Obchodní podmínky",
       "w": 1440,
@@ -177,7 +177,7 @@
     },
     "Onas.dc.html": {
       "expand": "fill",
-      "h": 2300,
+      "h": 3341,
       "is_interactive": true,
       "title": "Info – O nás",
       "w": 1440,
@@ -186,7 +186,7 @@
     },
     "Porovnani.dc.html": {
       "expand": "fill",
-      "h": 2300,
+      "h": 2676,
       "is_interactive": true,
       "title": "Porovnání produktů",
       "w": 1440,
@@ -203,7 +203,7 @@
     },
     "Reklamace.dc.html": {
       "expand": "fill",
-      "h": 3700,
+      "h": 3533,
       "is_interactive": true,
       "title": "Info – Reklamační podmínky",
       "w": 1440,
@@ -212,7 +212,7 @@
     },
     "Udaje.dc.html": {
       "expand": "fill",
-      "h": 2000,
+      "h": 1671,
       "is_interactive": true,
       "title": "Objednávka 2 – Kontaktní údaje",
       "w": 1440,

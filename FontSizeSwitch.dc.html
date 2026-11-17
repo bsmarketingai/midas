@@ -37,7 +37,7 @@ body{margin:0}
 @media (prefers-reduced-motion:reduce){.fswBtn{transition:none}}
 </style>
 </helmet>
-<div class="fsw" data-fsw="" onKeyDown="{{ key }}" ref="{{ rootRef }}">
+<div class="fsw" data-fsw="" role="region" aria-label="Nastavení velikosti písma" onKeyDown="{{ key }}" ref="{{ rootRef }}">
 <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
 <div class="fswMenu" id="fswMenu" role="radiogroup" aria-label="Velikost písma">
 <p class="fswH">Velikost písma na celém webu</p>
