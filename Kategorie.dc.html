@@ -609,7 +609,8 @@ main:not([data-page="home"]) .userContent a{color:var(--primary-d);text-decorati
 /* CompoundFilterView.vert */
 .CompoundFilter{position:sticky;top:calc(var(--header-h,0px) + var(--space-4));max-height:calc(100vh - var(--header-h,0px) - 2*var(--space-4));overflow:auto;display:flex;flex-direction:column;background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-lg);padding:var(--space-4) var(--space-5)}
 .filterHead{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);padding-bottom:var(--space-2)}
-.CoumpoundFilterCustomTitle{font-size:var(--fs-h4);font-weight:700}
+.CoumpoundFilterCustomTitle{margin:0;font-size:var(--fs-h4);font-weight:700;line-height:1.25}
+@media (max-width:999px){.CompoundFilter .CoumpoundFilterCustomTitle{font-size:var(--fs-h2)}}
 .filterClose{display:none}
 .fSection{border-top:1px solid var(--line)}
 .fSection .toggle{width:100%;justify-content:space-between;padding:0;height:48px;font-size:var(--fs-body);font-weight:600;color:var(--text);border-radius:0}
@@ -1253,7 +1254,9 @@ main[hidden]{display:none!important}
 .fOverlay{display:block;position:fixed;inset:0;z-index:1099;background:rgba(20,30,15,.45);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
 .fOverlay.open{opacity:1;visibility:visible;transition:opacity .4s ease}
 .CompoundFilter .filterHead{position:sticky;top:calc(-1*var(--space-4));z-index:2;margin:calc(-1*var(--space-4)) calc(-1*var(--space-5)) 0;padding:var(--space-3) var(--space-3) var(--space-3) var(--space-5);background:var(--bg-soft);border-bottom:1px solid var(--line)}
-.CompoundFilter .filterClose{width:44px;height:44px}
+.CompoundFilter .button.-icon.filterClose{width:44px;height:44px;color:var(--text);background:#fff;border:1px solid var(--line);border-radius:var(--radius-md)}
+.CompoundFilter .filterClose .icon{width:22px;height:22px}
+.CompoundFilter .filterClose:hover{background:var(--primary-10);border-color:var(--primary);color:var(--primary-d)}
 .filterFooter{margin:auto calc(-1*var(--space-5)) 0;padding:var(--space-3) var(--space-5) max(var(--space-3),env(safe-area-inset-bottom,0px));box-shadow:0 -8px 20px rgba(0,0,0,.05)}
 body.filterOpen{overflow:hidden}
 body.filterOpen .AiAssistantView .open{display:none}
@@ -1390,7 +1393,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <div class="fOverlay {{ fl.openCls }}" onClick="{{ fl.close }}" aria-hidden="true"></div>
       <aside id="CompoundFilter" class="CompoundFilterView v5a v5 bs-view vert CompoundFilter {{ fl.openCls }}" aria-label="Filtr produktů" onChange="{{ fl.change }}" onKeyDown="{{ fl.key }}">
         <div class="filterHead">
-          <span class="CoumpoundFilterCustomTitle">Upřesnit výběr</span>
+          <h2 class="CoumpoundFilterCustomTitle">Upřesnit výběr</h2>
           
           <button class="button -icon -sm filterClose" type="button" aria-label="Zavřít filtr" onClick="{{ fl.close }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
         </div>
