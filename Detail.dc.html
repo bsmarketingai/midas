@@ -758,7 +758,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDImage .counter{position:absolute;left:var(--space-3);bottom:var(--space-3);z-index:1;display:none;height:28px;padding:0 10px;align-items:center;border-radius:var(--radius-sm);background:rgba(255,255,255,.92);border:1px solid var(--line);font-size:var(--fs-caption);color:var(--text-weaker);font-variant-numeric:tabular-nums}
 .PDImage .images{display:flex;gap:var(--space-2);overflow-x:auto;scrollbar-width:none;padding:2px}
 .PDImage .images .item{flex:0 0 72px;height:72px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;padding:6px;cursor:pointer}
-.PDImage .images .item img{max-width:100%;max-height:100%;object-fit:contain}
+.PDImage .images .item{overflow:hidden}.PDImage .images .item img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
 .PDImage .images .item.active{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
 .PDImage .images .item.ph{color:var(--text-muted);font-size:11px;text-align:center;line-height:1.2}
 .PDImage .dots{display:none;justify-content:center;align-items:center;gap:0;min-height:24px}
@@ -791,7 +791,7 @@ html.lbLock,html.lbLock body{overflow:hidden}
 .GalleryLoaderView .lbPrev{left:12px}.GalleryLoaderView .lbNext{right:12px}
 .GalleryLoaderView .lbThumbs{display:flex;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--gutter) max(var(--space-4),env(safe-area-inset-bottom,0px));overflow-x:auto;scrollbar-width:none}
 .GalleryLoaderView .lbThumbs .item{flex:0 0 64px;height:64px;display:grid;place-items:center;padding:4px;border:2px solid transparent;border-radius:var(--radius-sm);background:#fff;cursor:pointer;opacity:.55;color:var(--text-muted);font-size:10px;line-height:1.15;text-align:center;transition:opacity .15s}
-.GalleryLoaderView .lbThumbs .item img{max-width:100%;max-height:100%;object-fit:contain}
+.GalleryLoaderView .lbThumbs .item{overflow:hidden}.GalleryLoaderView .lbThumbs .item img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
 .GalleryLoaderView .lbThumbs .item.active{opacity:1;border-color:var(--primary)}
 /* výhody (USP) – 3 sloupce, ikona nad textem; pod 550 px řádky */
 .pdTrust{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--line)}

@@ -61,6 +61,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 #Header.inBasket .hPhone b{display:block;font-size:15px}
 #Header.inBasket .hPhone small{display:block;color:var(--text-weaker-color);font-size:12px}
 #Header.inBasket .hPhone .ic{color:var(--primary-color)}
+#Header.inBasket .hUser{display:flex;align-items:center;gap:8px;color:var(--text-color)}
+#Header.inBasket .hUser b{display:block;font-size:15px}
+#Header.inBasket .hUser small{display:block;color:var(--text-weaker-color);font-size:12px}
+.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--primary-color);color:var(--text-on-primary-color);font:700 13px/1 var(--font-body)}
+@media (max-width:819px){#Header.inBasket .hUserTxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 @media (max-width:549px){#Header.inBasket .hIn{min-height:60px}#Header.inBasket .logo img{height:34px}#Header.inBasket .hPhone span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#Header.inBasket .hPhone{width:44px;height:44px;justify-content:center;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-pill)}}
 
 /* OrderNavigatorView */
@@ -274,6 +279,16 @@ select.input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xml
 .lgCols>div{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-right:var(--space-6);min-width:0}
 .lgCols>div+div{padding:0 0 0 var(--space-6);border-left:1px solid var(--neutral-separator-color)}
 .lgCols p{margin:0}
+.accRow{display:flex;align-items:center;gap:var(--space-3) var(--space-4);flex-wrap:wrap}
+.userMono.-lg{width:48px;height:48px;font-size:16px}
+.accWho{flex:1 1 220px;min-width:0}
+.accWho p{margin:0}
+.accName{font-size:var(--fs-h3);font-weight:var(--fw-heading)}
+.accMeta{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;color:var(--text-weaker-color);font-size:var(--fs-body-sm);overflow-wrap:anywhere}
+.accGroup b{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:var(--radius-pill);background:var(--primary-10);color:var(--primary-color);font-weight:600}
+.accInfo{margin:var(--space-4) 0 0;flex-wrap:nowrap;align-items:flex-start;background:#f8faf8}
+.accInfo>.ic{flex:none;width:20px;height:20px;color:var(--primary-color);margin-top:1px}
+@media (max-width:549px){.accOut{width:100%}}
 .h3{margin:0;font-size:17px;font-weight:700}
 @media (max-width:819px){.lgCols{grid-template-columns:1fr;gap:20px}.lgCols>div{padding:0}.lgCols>div+div{padding:20px 0 0;border-left:0;border-top:1px solid var(--neutral-separator-color)}}
 .dlvInfo{margin:0 0 var(--space-5);flex-wrap:nowrap;align-items:flex-start;background:#f8faf8}
@@ -321,7 +336,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <div id="Master" class="MasterView bs-view OrderState hasBar">
 <header id="Header" class="HeaderView v1a v1 bs-view inBasket"><div class="container hIn">
 <div id="Logo" class="LogoView v1a v1 bs-view logo"><a href="Main.dc.html" title="Zpět na úvodní stránku obchodu"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – výroba kanalizačních systémů"></a></div>
-<div class="hRight"><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
+<div class="hRight"><sc-if value="{{ authIn }}" hint-placeholder-val="{{ false }}"><span class="hUser"><span class="userMono" aria-hidden="true">AZ</span><span class="hUserTxt"><small>Přihlášena</small><b>Andrea Zelená</b></span></span></sc-if><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
 </div></header>
 <main class="orderMain" id="Content"><div class="container">
 <h1 class="sr-only">Kontaktní údaje</h1>
@@ -329,7 +344,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <div id="OrderMaster" class="OrderMasterView v1a bs-view step1 cards">
 
 
-<section class="card loginCard" aria-labelledby="lgTitle">
+<sc-if value="{{ authOut }}" hint-placeholder-val="{{ true }}"><section class="card loginCard" aria-labelledby="lgTitle">
 <div class="cardHead"><h2 class="cardTitle" id="lgTitle">Přihlášení a registrace</h2></div>
 <div class="lgCols">
 <div id="OrderUserForm" class="OrderFormView v3a bs-view">
@@ -347,7 +362,13 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <button class="button -primary" type="button" onClick="{{ openLogin }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>Přihlásit se</button>
 </div>
 </div>
-</section>
+</section></sc-if>
+<sc-if value="{{ authIn }}" hint-placeholder-val="{{ false }}"><section class="card accCard" aria-labelledby="acTitle">
+<div class="cardHead"><h2 class="cardTitle" id="acTitle">Přihlášený zákazník</h2></div>
+<div class="accRow"><span class="userMono -lg" aria-hidden="true">AZ</span><div class="accWho"><p class="accName">Andrea Zelená</p><p class="accMeta">{{ accEmail }}<span class="accGroup">Cenová skupina: <b>Prodejní</b></span></p></div><button class="button -secondary accOut" type="button" onClick="{{ logout }}">Odhlásit se</button></div>
+<div class="box accInfo"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg><span>Fakturační údaje jsme vyplnili z vašeho účtu. Úpravy platí jen pro tuto objednávku.</span></div>
+</section></sc-if>
+
 
 <section class="card" id="OrderBillingForm1" aria-labelledby="bfTitle">
 <div class="cardHead"><h2 class="cardTitle" id="bfTitle">Fakturační údaje</h2><span class="t-sm t-weak"><span class="req">*</span> povinné údaje</span></div>
@@ -407,7 +428,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <sc-if value="{{ tErr }}" hint-placeholder-val="{{ false }}"><div class="toast -error" role="alert"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"></path></svg><div class="tBody"><b>{{ tErrTitle }}</b><ul><sc-for list="{{ errs }}" as="e" hint-placeholder-count="2"><li><button type="button" onClick="{{ e.go }}">{{ e.text }}</button></li></sc-for></ul></div><button class="tClose" type="button" aria-label="Zavřít upozornění" onClick="{{ closeErr }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
 <sc-if value="{{ tOk }}" hint-placeholder-val="{{ false }}"><div class="toast -success" role="status"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg><div class="tBody">{{ tOkText }}<sc-if value="{{ tUndo }}" hint-placeholder-val="{{ false }}"> <button class="tAct" type="button" onClick="{{ undo }}">Vrátit zpět</button></sc-if></div><button class="tClose" type="button" aria-label="Zavřít" onClick="{{ closeOk }}"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div></sc-if>
 </div>
-<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="lgOverlay" onMouseDown="{{ overlayDown }}" onKeyDown="{{ overlayKey }}"><div class="lgBox" role="dialog" aria-modal="true" aria-label="Přihlášení"><dc-import name="LoginPopup" on-close="{{ closeLogin }}" hint-size="320px,420px"></dc-import></div></div></sc-if>
+<sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="lgOverlay" onMouseDown="{{ overlayDown }}" onKeyDown="{{ overlayKey }}"><div class="lgBox" role="dialog" aria-modal="true" aria-label="Přihlášení"><dc-import name="LoginPopup" on-close="{{ closeLogin }}" on-login="{{ doLogin }}" hint-size="320px,420px"></dc-import></div></div></sc-if>
 </div>
 <dc-import name="FontSizeSwitch" hint-size="200px,48px"></dc-import></x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2000}}'>
@@ -464,15 +485,17 @@ const ADDR = [
   ['Semanín 173', 'Semanín', '560 02'], ['Svitavská 1446', 'Česká Třebová', '560 02'], ['Husova 1260', 'Svitavy', '568 02'],
   ['Nádražní 1220', 'Česká Třebová', '560 02'], ['Na Lánech 594', 'Ústí nad Orlicí', '562 01']
 ];
+const ACC = { v: { first: 'Andrea', last: 'Zelená', email: 'andrea.zelena@stavebniny-zelena.cz', phonePre: '+420', phone: '731 482 615', street: 'Husova 1260', city: 'Svitavy', zip: '568 02', ico: '27384915', company: 'Stavebniny Zelená s.r.o.', dic: 'CZ27384915' } };
 const LABEL = { first: 'Jméno', last: 'Příjmení', email: 'E-mail', phone: 'Telefon', street: 'Ulice a číslo popisné', city: 'Město', zip: 'PSČ',
   ico: 'IČ', company: 'Společnost', pw1: 'Heslo', pw2: 'Heslo znovu', dName: 'Jméno a příjmení (dodací adresa)', dStreet: 'Ulice (dodací adresa)', dCity: 'Město (dodací adresa)', dZip: 'PSČ (dodací adresa)' };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) {
     super(props);
     const st = CK.load() || {};
     const c = st.contact || {};
     this.store = st;
-    this.state = { v: { ...(c.v || {}) }, account: !!c.account, company: !!c.company, other: !!c.other, news: !!c.news, heureka: !!c.heureka, zbozi: !!c.zbozi, vat: !!c.vat, errOpen: false,
+    this.state = { v: { ...(c.v || {}) }, acc: !!c.acc, account: !!c.account, company: !!c.company, other: !!c.other, news: !!c.news, heureka: !!c.heureka, zbozi: !!c.zbozi, vat: !!c.vat, errOpen: false,
       showPw: false, tried: false, loginOpen: false, smOpen: false, smPicked: false, aresLoad: false, aresOk: false, aresErr: '' };
   }
 
@@ -488,12 +511,19 @@ class Component extends DCLogic {
     return true;
   }
 
-  componentWillUnmount() { clearTimeout(this.navT); clearTimeout(this.aT); clearTimeout(this.sT); clearTimeout(this.svT); }
+  componentDidMount() { this.onAuth = e => { if (e && e.type === 'storage' && e.key !== 'midasAuthV1') return; this.authChanged(AUTH_IN()); }; window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth); this.authChanged(AUTH_IN(), true); }
+  authChanged(auth, init) {
+    if (auth && !this.state.acc) this.up({ acc: true, v: { ...ACC.v }, company: true, vat: true, other: false, account: false, tried: false, errOpen: false, aresOk: false, aresErr: '' });
+    else if (!auth && this.state.acc) this.up({ acc: false, v: {}, company: false, vat: false, tried: false, errOpen: false });
+    else this.setState({ authTick: Date.now() });
+    if (auth && !init && this.state.loginOpen) { clearTimeout(this.lT); this.lT = setTimeout(() => this.setState({ loginOpen: false }), 900); }
+  }
+  componentWillUnmount() { window.removeEventListener('midas-auth', this.onAuth); window.removeEventListener('storage', this.onAuth); clearTimeout(this.lT); clearTimeout(this.navT); clearTimeout(this.aT); clearTimeout(this.sT); clearTimeout(this.svT); }
   persist(patch) {
     const m = { ...this.state, ...(patch || {}) };
     const v = { ...m.v }; delete v.pw1; delete v.pw2;
     clearTimeout(this.svT);
-    this.svT = setTimeout(() => CK.save({ contact: { v, account: m.account, company: m.company, other: m.other, news: m.news, heureka: m.heureka, zbozi: m.zbozi, vat: m.vat } }), 150);
+    this.svT = setTimeout(() => CK.save({ contact: { v, acc: m.acc, account: m.account, company: m.company, other: m.other, news: m.news, heureka: m.heureka, zbozi: m.zbozi, vat: m.vat } }), 150);
   }
   up(patch) { this.setState(patch); this.persist(patch); }
   set(k, val) { const v = { ...this.state.v, [k]: val }; const st = { v }; if (k === 'street') { st.smOpen = String(val).trim().length >= 2; st.smPicked = false; } if (k === 'ico') { st.aresErr = ''; st.aresOk = false; } this.up(st); }
@@ -538,6 +568,7 @@ class Component extends DCLogic {
     const st = CK.state(), c = CK.calc(st), del = st.del || 'dpd';
     const DT = { personal: 'Zboží si vyzvednete na prodejně v Semaníně, adresu potřebujeme pro fakturu.', dpd: 'Zboží doručíme na fakturační adresu, pokud nezvolíte jinou.', pickup: 'Zboží vyzvednete na zvoleném výdejním místě, adresu potřebujeme pro fakturu.', pallet: 'Zboží přivezeme na fakturační adresu, pokud nezvolíte jinou. Termín potvrdíme telefonicky.' };
     return {
+      authIn: AUTH_IN(), authOut: !AUTH_IN(),
       fs, account: s.account, company: s.company, other: s.other, news: s.news, heureka: s.heureka, zbozi: s.zbozi, vat: s.vat,
       toggleAccount: tog('account'), toggleCompany: tog('company'), toggleOther: tog('other'), toggleNews: tog('news'), toggleHeureka: tog('heureka'), toggleZbozi: tog('zbozi'), toggleVat: tog('vat'),
       dlvName: CK.DEL[del].name + (del === 'pickup' && st.place >= 0 ? ' (' + CK.PLACES[st.place].name.replace('DPD Pickup – ', '') + ')' : ''), dlvText: DT[del],
@@ -550,6 +581,9 @@ class Component extends DCLogic {
       errs: errList.length > 6 ? errList.slice(0, 5).concat([{ text: 'a další ' + (errList.length - 5) + ' – jsou označené ve formuláři', go: () => this.go(Object.keys(e)[5]) }]) : errList,
       navCls: s.navCls || '',
       next: ev => { if (this.goNow) { this.goNow = false; return; } const er = this.check(); if (Object.keys(er).length) { ev.preventDefault(); this.setState({ tried: true, errOpen: true }); const first = Object.keys(er)[0]; setTimeout(() => this.go(first), 30); return; } this.navGo(ev, true); },
+      doLogin: () => { try { window.localStorage.setItem('midasAuthV1', 'in'); } catch (x) {} window.dispatchEvent(new Event('midas-auth')); },
+      logout: () => { try { window.localStorage.setItem('midasAuthV1', 'out'); } catch (x) {} window.dispatchEvent(new Event('midas-auth')); },
+      accEmail: ACC.v.email,
       loginOpen: s.loginOpen, openLogin: () => this.setState({ loginOpen: true }), closeLogin: () => this.setState({ loginOpen: false }),
       overlayDown: ev => { if (ev.target === ev.currentTarget) this.setState({ loginOpen: false }); },
       overlayKey: ev => { if (ev.key === 'Escape') { ev.stopPropagation(); this.setState({ loginOpen: false }); } }

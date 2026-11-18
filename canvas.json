@@ -226,6 +226,14 @@
       "w": 320,
       "x": 5000,
       "y": 120
+    },
+    "ProductCard.dc.html": {
+      "h": 540,
+      "is_interactive": true,
+      "title": "Komponenta – Karta produktu",
+      "w": 300,
+      "x": 5400,
+      "y": 0
     }
   },
   "createdOnFiles": {
@@ -302,7 +310,8 @@
     "PromoModal.dc.html",
     "Porovnani.dc.html",
     "FontSizeSwitch.dc.html",
-    "UserMenu.dc.html"
+    "UserMenu.dc.html",
+    "ProductCard.dc.html"
   ],
   "pages": [],
   "title": "Midas.cz"

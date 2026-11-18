@@ -174,22 +174,11 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .ProductsView .items::-webkit-scrollbar{display:none}
 .ProductsView .productHolder{scroll-snap-align:start;min-width:0}
 
-/* ProductView dlaždice */
-.ProductView{position:relative;display:flex;flex-direction:column;height:100%;padding:calc(var(--card-pad) * .75);border:1px solid var(--line);border-radius:var(--card-radius);background:#fff;transition:box-shadow .15s,transform .15s}
-.ProductView:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
-.ProductView .ActionIconsView{position:absolute;top:var(--space-3);left:var(--space-3);right:var(--space-3);display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:1}
-.ProductView .icons{display:flex;flex-direction:column;gap:var(--space-1);align-items:flex-start}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 var(--space-2);border-radius:var(--radius-xs);font:600 var(--fs-caption)/1 var(--font);color:#fff;white-space:nowrap}
 .badge.discount{background:var(--flag-discount);color:var(--flag-discount-fg);font-size:13px;font-weight:700;height:24px}
 .badge.flag01{background:var(--flag-akce)}.badge.flag00{background:var(--flag-novinka)}.badge.flag02{background:var(--flag-doporucujeme)}.badge.flag03{background:var(--flag-vyprodej)}
-.ProductView a.image{display:flex;align-items:center;justify-content:center;aspect-ratio:220/200;margin-bottom:var(--space-3)}
-.ProductView a.image img{max-height:100%;width:auto;object-fit:contain}
-.ProductView h2{font-size:var(--fs-h4);font-weight:700;line-height:1.3;margin-bottom:var(--space-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.ProductView h2 a{color:var(--text)}.ProductView h2 a:hover{color:var(--primary-d)}
 .PackageInfo{display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-3);font-size:14px;line-height:1.4;color:rgba(30,30,30,.78);margin-bottom:var(--space-4)}
 .PackageInfo .caption{font-weight:600;color:var(--text)}
-.ProductView .bottom{margin-top:auto;display:flex;flex-direction:column;gap:var(--space-2)}
-.ProductView .prices{display:flex;flex-direction:column;gap:2px}
 .price{font-variant-numeric:tabular-nums}
 .price.primary{font-size:var(--fs-price-md);font-weight:700;color:var(--text)}
 .price.secondary{font-size:var(--fs-body-sm);color:var(--text-weaker)}
@@ -507,22 +496,8 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .hero .slide .bg.-ph::after{inset:auto 0 0 0;width:auto;height:60%;background:linear-gradient(0deg,var(--hero-bg),transparent)}
   .hero .slide .bg .ph{inset:0 0 20% 0}
 }
-/* karta produktu – pevné výšky bloků, aby název, parametry, skladovost, ceny i Koupit byly ve všech kartách ve stejné výšce */
-.ProductView h2{min-height:calc(3 * 1.3em)}
-.ProductView .PackageInfo{min-height:calc(3 * 1.4em + 2 * 4px);align-content:start}
-.ProductView .price.retail[aria-hidden="true"]{text-decoration:none}
-.ProductView .price.retail{color:var(--main)}
-.ProductView a.image{position:relative;overflow:hidden}
-.ProductView a.image img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto}
 .protoToast{position:fixed;left:50%;bottom:24px;translate:-50% 0;z-index:3000;max-width:min(92vw,420px);padding:var(--space-3) var(--space-4);border-radius:var(--radius-md);background:#1e1e1e;color:#fff;font-size:var(--fs-body-sm);box-shadow:0 8px 24px rgba(0,0,0,.25);text-align:center}
-/* karta produktu – úzká dlaždice: stepper a Koupit pod sebe */
 .productHolder{container-type:inline-size}
-@container (max-width:300px){
-  .ProductView .AddToCartView{flex-wrap:wrap}
-  .ProductView .AddToCartView .stepper{flex:1 1 100%}
-  .ProductView .AddToCartView .stepper input{flex:1 1 0;width:0;min-width:0}
-  .ProductView .AddToCartView a.buy{flex:1 1 100%}
-}
 .stepper .button .icon{pointer-events:none}
 /* ===== hamburger menu (≤ 819 px) ===== */
 @media (max-width:819px){
@@ -561,10 +536,6 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .menuContacts .icon{justify-self:center;width:24px;height:24px;color:var(--primary-d)}
   .menuContacts b{display:block;font-weight:600}.menuContacts small{color:var(--text-weaker);font-size:var(--fs-body-sm)}
 }
-/* taste-skill: hover mikroanimace – fotka se v rámečku přiblíží o 3 % */
-.ProductView a.image img{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
-.ProductView:hover a.image img{transform:scale(1.03)}
-@media (prefers-reduced-motion:reduce){.ProductView,.ProductView a.image img{transition:none}.ProductView:hover{transform:none}.ProductView:hover a.image img{transform:none}}
 @media (max-width:819px){#Footer li a,#Footer .bottom a{display:inline-flex;align-items:center;min-height:44px}}
 
 /* ===== společné pro podstránky ===== */
@@ -1107,8 +1078,6 @@ main[hidden]{display:none!important}
 .SimpleSearchView .dcQuery,.mobileSearch .dcQuery{background:#fff;border-color:#868d93}
 .SimpleSearchView .dcQuery:hover,.mobileSearch .dcQuery:hover{border-color:#5f666b}
 
-/* karta: pevná výška parametrů, ať skladovost a cena sedí ve všech kartách stejně */
-.ProductView .PackageInfo{height:calc(3 * 1.4em + 2 * 4px);min-height:0;overflow:hidden}
 /* detail: výhody ve stejném stylu jako na homepage */
 .pdUsp{grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:0;margin-top:var(--space-2)}
 .usp .uspT{margin:0;font-size:var(--fs-h4);color:var(--primary-text);font-weight:700;line-height:1.25}
@@ -1162,9 +1131,6 @@ main[hidden]{display:none!important}
 .availPop{display:none}
 .availTip:hover .availPop,.availTip:focus .availPop,.availTip:focus-within .availPop{display:block;animation:availIn .16s cubic-bezier(.2,.7,.2,1)}
 @keyframes availIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
-.ProductView .bottom{position:relative}
-.ProductView .availTip{position:static}
-.ProductView .availPop{left:0;right:0;width:auto;bottom:calc(100% + 8px)}
 .dcAvailability .availPop{animation-name:availInDown}
 @keyframes availInDown{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.availTip .availPop{animation:none}}
@@ -1560,87 +1526,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   </sc-if>
   <sc-if value="{{ cmp.none }}" hint-placeholder-val="{{ false }}"><div class="cmpEmpty"><b>V porovnání nemáte žádné produkty.</b><p>Produkty přidáte tlačítkem „Porovnat“ u produktu ve výpisu nebo na detailu.</p><div class="cmpEmptyBtns"><a class="button -primary" href="Kategorie.dc.html">Přejít do e-shopu</a><button class="button -secondary" type="button" onClick="{{ cmp.restore }}">Obnovit ukázku</button></div></div></sc-if>
 </main>
-<div role="region" id="RecentProducts" class="ProductsView ProductsViewBase v2a v2 bs-view columns4 RecentProducts container" aria-label="Naposledy navštívené produkty"><h2 class="title">Naposledy navštívené</h2><div class="nav" role="group" aria-label="Posun karuselu"><button class="button -secondary -icon left disabled" type="button" aria-label="Předchozí produkty" onClick="{{ slide }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button class="button -secondary -icon right" type="button" aria-label="Další produkty" onClick="{{ slide }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div><div class="slidingItems nativeScroll"><div class="items"><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/448dcd7558de85d151484d14132838a2.jpg" alt="KG koleno DN 160 - 30°"></a>
-    <h2><a href="Detail.dc.html">KG koleno DN 160 - 30°</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 64 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">122 Kč</span><span class="price secondary novat">101 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit KG koleno DN 160 - 30°" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/361e05d0097750626fff2cf983b22daa.jpg" alt="Zpětná klapka včetně šachty 400/160, s hliníkovou tyčí"></a>
-    <h2><a href="Detail.dc.html">Zpětná klapka včetně šachty 400/160, s hliníkovou tyčí</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 6 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">4 257 Kč</span><span class="price secondary novat">3 518 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Zpětná klapka včetně šachty 400/160, s hliníkovou tyčí" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/21b62102943e4ac236671b3fa7f67152.jpg" alt="Poklop plastový kulatý A15 – 1,5 t na hladkou trubku DN 400"></a>
-    <h2><a href="Detail.dc.html">Poklop plastový kulatý A15 – 1,5 t na hladkou trubku DN 400</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 22 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">448 Kč</span><span class="price secondary novat">370 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Poklop plastový kulatý A15 – 1,5 t na hladkou trubku DN 400" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/be43d7ac677c87d027133e48fc429a06.jpg" alt="Ventilační hlavice – na rouru DN 110"></a>
-    <h2><a href="Detail.dc.html">Ventilační hlavice – na rouru DN 110</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem &gt; 100 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">113 Kč</span><span class="price secondary novat">93,4 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Ventilační hlavice – na rouru DN 110" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/57c5bd4a6420e2a716b828570ad0075b.jpg" alt="HTB koleno DN 50 - 87°"></a>
-    <h2><a href="Detail.dc.html">HTB koleno DN 50 - 87°</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem &gt; 100 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">19,7 Kč</span><span class="price secondary novat">16,3 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit HTB koleno DN 50 - 87°" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/2c7cc293501bb2b682766ce4ffed3f26.jpg" alt="Redukce drenážní – přechod 100/110 KG"></a>
-    <h2><a href="Detail.dc.html">Redukce drenážní – přechod 100/110 KG</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 52 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">118 Kč</span><span class="price secondary novat">97,5 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Redukce drenážní – přechod 100/110 KG" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/11aebcca4e2c6f63e0c833db3972ec65.jpg" alt="Okapové koleno z PP DN 110 / 90° – hnědé"></a>
-    <h2><a href="Detail.dc.html">Okapové koleno z PP DN 110 / 90° – hnědé</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 70 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">110 Kč</span><span class="price secondary novat">90,9 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Okapové koleno z PP DN 110 / 90° – hnědé" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/b8e4d9e8915c19a797d91e4bd250d2b0.jpg" alt="Rošt – mříž PP DN 200 x 200 mm, zatížení do 1,5 t"></a>
-    <h2><a href="Detail.dc.html">Rošt – mříž PP DN 200 x 200 mm, zatížení do 1,5 t</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 40 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">95,0 Kč</span><span class="price secondary novat">78,5 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Rošt – mříž PP DN 200 x 200 mm, zatížení do 1,5 t" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/745ac32355c81e2ccfe6c183dc13a990.jpg" alt="KG koleno DN 110 - 30°"></a>
-    <h2><a href="Detail.dc.html">KG koleno DN 110 - 30°</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem &gt; 100 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">33,0 Kč</span><span class="price secondary novat">27,3 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit KG koleno DN 110 - 30°" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div><div class="productHolder"><div class="ProductView v1c v1 canBuy bs-view HomeProduct">
-    <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"></div></div>
-    <a class="image" href="Detail.dc.html"><img class="thumbnail" src="_blob/0d4361b3faa3060d5ee7c9da2d980d71.jpg" alt="Přivzdušňovací klapka DN 50"></a>
-    <h2><a href="Detail.dc.html">Přivzdušňovací klapka DN 50</a></h2>
-    <div class="bottom">
-      <div class="availTip"><div class="AvailabilityView v1a v1 bs-view cs_zelena AvailabilityInfo"><span class="label">skladem 27 ks</span></div></div>
-      <div class="prices"><span class="price retail" aria-hidden="true">&nbsp;</span><span class="price primary vat">114 Kč</span><span class="price secondary novat">94,2 Kč <small>bez DPH</small></span></div>
-      <div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit Přivzdušňovací klapka DN 50" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
-    </div></div></div></div></div></div>
+<div role="region" id="RecentProducts" class="ProductsView ProductsViewBase v2a v2 bs-view columns4 RecentProducts container" aria-label="Naposledy navštívené produkty"><h2 class="title">Naposledy navštívené</h2><div class="nav" role="group" aria-label="Posun karuselu"><button class="button -secondary -icon left disabled" type="button" aria-label="Předchozí produkty" onClick="{{ slide }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button class="button -secondary -icon right" type="button" aria-label="Další produkty" onClick="{{ slide }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div><div class="slidingItems nativeScroll"><div class="items"><sc-for list="{{ cards.recent }}" as="c" hint-placeholder-count="10"><div class="productHolder {{ c.hcls }}" data-i="{{ c.i }}"><dc-import name="ProductCard" p="{{ c.p }}" pickup="{{ pickup }}" delivery="{{ delivery }}" on-add="{{ addCart }}" hint-size="100%,560px"></dc-import></div></sc-for></div></div></div>
 
 
 
@@ -1673,6 +1559,7 @@ const CMP_ROWS = ["avail", "price", "nov", "buy", "code", "dn", "angle", "mat", 
 const CATALOG = [{"code": "89", "name": "KG koleno DN 110 - 45°", "price": "35,8 Kč", "img": "_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg", "avail": "skladem > 100 ks", "bal": "30 ks", "pal": "240 ks"}, {"code": "98", "name": "KG koleno DN 125 - 45°", "price": "79,3 Kč", "img": "_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg", "avail": "skladem > 100 ks", "bal": "24 ks", "pal": "192 ks"}, {"code": "95", "name": "KG koleno DN 110 - 87,5°", "price": "47,9 Kč", "img": "_blob/7f6b7e1447d106155eb29db6b23f857b.jpg", "avail": "skladem > 100 ks", "bal": "25 ks", "pal": "200 ks"}, {"code": "80", "name": "KG koleno DN 110 - 15°", "price": "28,1 Kč", "img": "_blob/a2e6cd39f5671def5cf27f1e36777d83.jpg", "avail": "skladem > 100 ks", "bal": "40 ks", "pal": "320 ks"}, {"code": "101", "name": "KG koleno DN 160 - 30°", "price": "122 Kč", "img": "_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg", "avail": "skladem > 100 ks", "bal": "12 ks", "pal": "96 ks"}, {"code": "104", "name": "KG redukce DN 125/110", "price": "53,2 Kč", "img": "_blob/cabf087ebde548aeb3835cd226ed408d.jpg", "avail": "skladem > 100 ks", "bal": "42 ks", "pal": "336 ks"}, {"code": "6057", "name": "Obrácená redukce DN 125/110 PP", "price": "318 Kč", "img": "_blob/cabf087ebde548aeb3835cd226ed408d.jpg", "avail": "skladem 13 ks", "bal": "1 ks", "pal": ""}, {"code": "12", "name": "KG trubka DN 110 × 3,2 mm – 1 m, SN 4", "price": "98,5 Kč", "img": "_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg", "avail": "skladem > 100 ks", "bal": "1 ks", "pal": "180 ks"}, {"code": "131", "name": "KG odbočka DN 160/110 - 45°", "price": "186 Kč", "img": "_blob/7f6b7e1447d106155eb29db6b23f857b.jpg", "avail": "skladem 64 ks", "bal": "10 ks", "pal": "80 ks"}, {"code": "140", "name": "KG přesuvka DN 110", "price": "41,6 Kč", "img": "_blob/cabf087ebde548aeb3835cd226ed408d.jpg", "avail": "skladem > 100 ks", "bal": "40 ks", "pal": "320 ks"}, {"code": "150", "name": "KG zátka DN 110", "price": "19,4 Kč", "img": "_blob/a2e6cd39f5671def5cf27f1e36777d83.jpg", "avail": "skladem > 100 ks", "bal": "60 ks", "pal": "480 ks"}, {"code": "163", "name": "KG čisticí kus DN 160 s víčkem", "price": "312 Kč", "img": "_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg", "avail": "na objednávku 5 dní", "bal": "6 ks", "pal": "48 ks"}];
 const DNCOUNT = {"110": 6, "125": 3, "160": 3, "200": 0, "250": 0, "315": 0, "400": 0, "500": 0};
 const ACC = [];
+const PC_recent = [{"i": "", "hcls": "", "p": {"name": "KG koleno DN 160 - 30°", "img": "_blob/448dcd7558de85d151484d14132838a2.jpg", "code": "KB81105", "unit": "ks", "weight": "0,71 kg", "pack": 12, "pallet": 96, "av": "skladem 64 ks", "price": "122 Kč", "nov": "101 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Zpětná klapka včetně šachty 400/160, s hliníkovou tyčí", "img": "_blob/361e05d0097750626fff2cf983b22daa.jpg", "code": "KB87126", "unit": "ks", "av": "skladem 6 ks", "price": "4 257 Kč", "nov": "3 518 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Poklop plastový kulatý A15 – 1,5 t na hladkou trubku DN 400", "img": "_blob/21b62102943e4ac236671b3fa7f67152.jpg", "code": "KB84040", "unit": "ks", "av": "skladem 22 ks", "price": "448 Kč", "nov": "370 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Ventilační hlavice – na rouru DN 110", "img": "_blob/be43d7ac677c87d027133e48fc429a06.jpg", "code": "KB97005", "unit": "ks", "av": "skladem > 100 ks", "price": "113 Kč", "nov": "93,4 Kč"}}, {"i": "", "hcls": "", "p": {"name": "HTB koleno DN 50 - 87°", "img": "_blob/57c5bd4a6420e2a716b828570ad0075b.jpg", "code": "KB94043", "unit": "ks", "av": "skladem > 100 ks", "price": "19,7 Kč", "nov": "16,3 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Redukce drenážní – přechod 100/110 KG", "img": "_blob/2c7cc293501bb2b682766ce4ffed3f26.jpg", "code": "KB85244", "unit": "ks", "av": "skladem 52 ks", "price": "118 Kč", "nov": "97,5 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Okapové koleno z PP DN 110 / 90° – hnědé", "img": "_blob/11aebcca4e2c6f63e0c833db3972ec65.jpg", "code": "KB80707", "unit": "ks", "av": "skladem 70 ks", "price": "110 Kč", "nov": "90,9 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Rošt – mříž PP DN 200 x 200 mm, zatížení do 1,5 t", "img": "_blob/b8e4d9e8915c19a797d91e4bd250d2b0.jpg", "code": "KB89080", "unit": "ks", "av": "skladem 40 ks", "price": "95,0 Kč", "nov": "78,5 Kč"}}, {"i": "", "hcls": "", "p": {"name": "KG koleno DN 110 - 30°", "img": "_blob/745ac32355c81e2ccfe6c183dc13a990.jpg", "code": "KB98818", "unit": "ks", "av": "skladem > 100 ks", "price": "33,0 Kč", "nov": "27,3 Kč"}}, {"i": "", "hcls": "", "p": {"name": "Přivzdušňovací klapka DN 50", "img": "_blob/0d4361b3faa3060d5ee7c9da2d980d71.jpg", "code": "KB88849", "unit": "ks", "av": "skladem 27 ks", "price": "114 Kč", "nov": "94,2 Kč"}}];
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -1885,7 +1772,7 @@ class Component extends DCLogic {
       open: s.open, last: s.last || { name: '', img: '', price: '', qty: '', avail: '' }, close: () => this.setState({ open: false }), free: this.freeInfo(s.total) };
     return {
       hero, tabs, cart, foot, ai: s.ai, qs, dn, qo, acc,
-      pickup: this.when.pickup, delivery: this.when.delivery,
+      cards: { recent: PC_recent }, pickup: this.when.pickup, delivery: this.when.delivery,
       stuckCls: s.stuck ? 'stuck' : '', dnCls: s.dn ? 'dnf-' + s.dn : '',
       slide: e => { const b = e.currentTarget, pv = b.closest('.ProductsView'), it = pv && pv.querySelector('.items'); if (!it) return;
         const dir = b.classList.contains('left') ? -1 : 1; it.scrollBy({ left: dir * it.clientWidth, behavior: this.reduced ? 'auto' : 'smooth' });

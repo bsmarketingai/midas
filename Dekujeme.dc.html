@@ -61,6 +61,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 #Header.inBasket .hPhone b{display:block;font-size:15px}
 #Header.inBasket .hPhone small{display:block;color:var(--text-weaker-color);font-size:12px}
 #Header.inBasket .hPhone .ic{color:var(--primary-color)}
+#Header.inBasket .hUser{display:flex;align-items:center;gap:8px;color:var(--text-color)}
+#Header.inBasket .hUser b{display:block;font-size:15px}
+#Header.inBasket .hUser small{display:block;color:var(--text-weaker-color);font-size:12px}
+.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--primary-color);color:var(--text-on-primary-color);font:700 13px/1 var(--font-body)}
+@media (max-width:819px){#Header.inBasket .hUserTxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 @media (max-width:549px){#Header.inBasket .hIn{min-height:60px}#Header.inBasket .logo img{height:34px}#Header.inBasket .hPhone span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#Header.inBasket .hPhone{width:44px;height:44px;justify-content:center;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-pill)}}
 
 /* OrderNavigatorView */
@@ -340,7 +345,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <div id="Master" class="MasterView bs-view OrderFinishedState">
 <header id="Header" class="HeaderView v1a v1 bs-view inBasket"><div class="container hIn">
 <div id="Logo" class="LogoView v1a v1 bs-view logo"><a href="Main.dc.html" title="Zpět na úvodní stránku obchodu"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – výroba kanalizačních systémů"></a></div>
-<div class="hRight"><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
+<div class="hRight"><sc-if value="{{ authIn }}" hint-placeholder-val="{{ false }}"><span class="hUser"><span class="userMono" aria-hidden="true">AZ</span><span class="hUserTxt"><small>Přihlášena</small><b>Andrea Zelená</b></span></span></sc-if><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
 </div></header>
 <main class="orderMain finished" id="Content"><div class="container">
 <!-- NEOVĚŘENO: komponenta děkovné stránky v BSSHOP není zachycena; TemplateView #OrderFinished je pracovní název -->
@@ -390,6 +395,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 </section>
 
 <section class="card acct" aria-labelledby="acT">
+<sc-if value="{{ authIn }}" hint-placeholder-val="{{ false }}"><div class="cardHead"><h2 class="cardTitle" id="acT">Objednávka je ve vašem účtu</h2></div><p class="t-weak">Stav objednávky a fakturu najdete v účtu Andrea Zelená v Přehledu objednávek.</p></sc-if>
 <sc-if value="{{ acc.form }}" hint-placeholder-val="{{ true }}">
 <div class="cardHead"><h2 class="cardTitle" id="acT"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg>Uložte si údaje pro příští nákup</h2></div>
 <p class="t-weak">Stačí zvolit heslo, e-mail už známe. V účtu uvidíte stav objednávky a faktury.</p>
@@ -466,9 +472,12 @@ const VAR = {
   cod: { s2: 'Připravujeme k odeslání', s2s: 'Předáme dopravci do 5 pracovních dnů' },
   shop: { s2: 'Připravujeme na prodejně', s2s: 'Do 24 hodin' }
 };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) { super(props); const st = CK.load() || {}; this.state = { pv: CK.PAY[st.pay] ? st.pay : 'advance', toast: '', pw: '', accErr: false, accLoad: false, accDone: false }; this.qrCache = {}; }
-  componentWillUnmount() { clearTimeout(this.tT); clearTimeout(this.aT); }
+  componentDidMount() { this.onAuth = e => { if (e && e.type === 'storage' && e.key !== 'midasAuthV1') return; this.authChanged(AUTH_IN()); }; window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth); this.authChanged(AUTH_IN(), true); }
+  authChanged() { this.setState({ authTick: Date.now() }); }
+  componentWillUnmount() { window.removeEventListener('midas-auth', this.onAuth); window.removeEventListener('storage', this.onAuth); clearTimeout(this.tT); clearTimeout(this.aT); }
   qr(amount) {
     if (this.qrCache[amount]) return this.qrCache[amount];
     let out = { d: '', vb: '0 0 1 1', size: 1 };
@@ -492,6 +501,7 @@ class Component extends DCLogic {
     const amount = c.total.toFixed(2), total = CK.fmt(c.total);
     const set = {}; Object.keys(VAR).forEach(k => { set[k] = () => this.setState({ pv: k }); });
     return {
+      authIn: AUTH_IN(), authOut: !AUTH_IN(),
       v: { advance: pv === 'advance', cod: pv === 'cod', shop: pv === 'shop' }, set,
       copy: { no: () => this.copy('no', '2026104512', 'Číslo objednávky zkopírováno'), acc: () => this.copy('acc', '1387887076/2700', 'Číslo účtu zkopírováno'),
         vs: () => this.copy('vs', '2026104512', 'Variabilní symbol zkopírován'), amt: () => this.copy('amt', amount.replace('.', ','), 'Částka zkopírována') },
@@ -502,7 +512,7 @@ class Component extends DCLogic {
       step3s: pv === 'shop' ? 'Až bude připraveno, pošleme SMS' : (pv === 'advance' ? 'Obvykle do 2 pracovních dnů od platby' : (D.eta || 'Termín potvrdíme')),
       tErr: false, tErrTitle: '', errs: [], closeErr: () => {}, tOk: !!s.toast, tOkText: s.toast, tUndo: false, undo: () => {}, closeOk: () => this.setState({ toast: '' }),
       print: () => window.print(),
-      acc: { form: !s.accDone, done: s.accDone, v: s.pw, err: s.accErr, cls: s.accErr ? 'is-error' : '', load: s.accLoad ? '-loading' : '',
+      acc: { form: !s.accDone && !AUTH_IN(), done: s.accDone && !AUTH_IN(), v: s.pw, err: s.accErr, cls: s.accErr ? 'is-error' : '', load: s.accLoad ? '-loading' : '',
         ch: e => this.setState({ pw: e.target.value, accErr: false }),
         create: () => { if (String(s.pw).length < 8) { this.setState({ accErr: true }); return; } this.setState({ accLoad: true }); this.aT = setTimeout(() => this.setState({ accLoad: false, accDone: true }), 900); } }
     };

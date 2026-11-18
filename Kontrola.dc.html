@@ -61,6 +61,11 @@ button,input,select,textarea{font:inherit;color:inherit}
 #Header.inBasket .hPhone b{display:block;font-size:15px}
 #Header.inBasket .hPhone small{display:block;color:var(--text-weaker-color);font-size:12px}
 #Header.inBasket .hPhone .ic{color:var(--primary-color)}
+#Header.inBasket .hUser{display:flex;align-items:center;gap:8px;color:var(--text-color)}
+#Header.inBasket .hUser b{display:block;font-size:15px}
+#Header.inBasket .hUser small{display:block;color:var(--text-weaker-color);font-size:12px}
+.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--primary-color);color:var(--text-on-primary-color);font:700 13px/1 var(--font-body)}
+@media (max-width:819px){#Header.inBasket .hUserTxt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 @media (max-width:549px){#Header.inBasket .hIn{min-height:60px}#Header.inBasket .logo img{height:34px}#Header.inBasket .hPhone span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}#Header.inBasket .hPhone{width:44px;height:44px;justify-content:center;border:1px solid var(--neutral-separator-color);border-radius:var(--radius-pill)}}
 
 /* OrderNavigatorView */
@@ -318,7 +323,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 <div id="Master" class="MasterView bs-view OrderState hasBar">
 <header id="Header" class="HeaderView v1a v1 bs-view inBasket"><div class="container hIn">
 <div id="Logo" class="LogoView v1a v1 bs-view logo"><a href="Main.dc.html" title="Zpět na úvodní stránku obchodu"><img src="_blob/f56bbfd10665fb5a96b3b78afd886dbd.png" alt="Midas International – výroba kanalizačních systémů"></a></div>
-<div class="hRight"><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
+<div class="hRight"><sc-if value="{{ authIn }}" hint-placeholder-val="{{ false }}"><span class="hUser"><span class="userMono" aria-hidden="true">AZ</span><span class="hUserTxt"><small>Přihlášena</small><b>Andrea Zelená</b></span></span></sc-if><a class="hPhone" href="tel:+420739162221"><svg class="ic" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span><b>+420 739 162 221</b><small>Po–Čt 8–16, Pá 8–15</small></span></a></div>
 </div></header>
 <main class="orderMain" id="Content"><div class="container">
 <h1 class="sr-only">Kontrola údajů</h1>
@@ -464,9 +469,12 @@ const CK = (() => {
 })();
 
 
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { vop: false, tried: false, sending: false, errOpen: false }; }
-  componentWillUnmount() { clearTimeout(this.sT); }
+  componentDidMount() { this.onAuth = e => { if (e && e.type === 'storage' && e.key !== 'midasAuthV1') return; this.authChanged(AUTH_IN()); }; window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth); this.authChanged(AUTH_IN(), true); }
+  authChanged() { this.setState({ authTick: Date.now() }); }
+  componentWillUnmount() { window.removeEventListener('midas-auth', this.onAuth); window.removeEventListener('storage', this.onAuth); clearTimeout(this.sT); }
   goVop() { const el = document.getElementById('vop'); if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(() => el.focus({ preventScroll: true }), 350); } }
   renderVals() {
     const s = this.state, err = s.tried && !s.vop;
@@ -482,6 +490,7 @@ class Component extends DCLogic {
     else if (raw.other) { d1 = [has('dName'), has('dCompany')].filter(Boolean).join(', ') || '—'; d2 = [has('dStreet'), [has('dZip'), has('dCity')].filter(Boolean).join(' ')].filter(Boolean).join(', '); }
     const fP = n => n ? CK.fmt(n) : 'Zdarma';
     return {
+      authIn: AUTH_IN(), authOut: !AUTH_IN(),
       navCls: '',
       demo: !!st.demo || !(st.contact && st.contact.v),
       rows: c.its.map(i => ({ ...i, unit: CK.fmt(i.unit), total: CK.fmt(i.q * i.unit) })), count: c.count + ' ks',
@@ -498,7 +507,7 @@ class Component extends DCLogic {
       hasCompany: !!raw.company && !!has('company'), company: has('company'),
       companyIds: ['IČ ' + dv('ico'), has('dic') ? 'DIČ ' + has('dic') : ''].filter(Boolean).join(' · ') + (raw.vat ? ' · plátce DPH' : ''),
       dlvLine1: d1, dlvLine2: d2, hasDlv2: !!d2,
-      note: has('note') || 'Bez poznámky', noteCls: has('note') ? '' : 'empty', hasAccount: !!raw.account,
+      note: has('note') || 'Bez poznámky', noteCls: has('note') ? '' : 'empty', hasAccount: !!raw.account && !AUTH_IN(),
       vop: s.vop, vopErr: err, vopInv: err ? 'true' : 'false', vopCls: err ? 'is-error' : '',
       tErr: s.errOpen && err, tErrTitle: 'Objednávku zatím nelze odeslat:', errs: [{ text: 'Potvrďte souhlas s obchodními podmínkami', go: () => this.goVop() }],
       closeErr: () => this.setState({ errOpen: false }), tOk: false, tOkText: '', tUndo: false, undo: () => {}, closeOk: () => {},
