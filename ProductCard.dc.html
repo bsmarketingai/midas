@@ -25,6 +25,8 @@ body{margin:0}
 /* obal, který runtime vkládá kolem komponenty, se v mřížce i karuselu natáhne na výšku řádku */
 :where(.productHolder) > :has(> .ProductView){display:flex;flex-direction:column;width:100%;min-width:0;height:100%}
 .ProductView{flex:1 1 auto}
+/* samostatný náhled komponenty (rozcestník, artboard): šířka jako karta ve výpisu kategorie na 1440 px */
+.ProductView:not(.productHolder .ProductView){width:254px;height:auto;margin:32px auto}
 .ProductView *,.ProductView *::before,.ProductView *::after{box-sizing:border-box}
 .ProductView:hover{box-shadow:0 6px 24px rgba(0,0,0,.1);transform:translateY(-2px)}
 .ProductView .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -51,7 +53,7 @@ body{margin:0}
 .ProductView .pkgSet:hover{text-decoration:underline;text-underline-offset:3px}
 .ProductView .pkgSet:focus-visible{outline:2px solid var(--pc-primary);outline-offset:2px}
 /* skladovost + popover */
-.ProductView .bottom{position:relative;margin-top:auto;display:flex;flex-direction:column;gap:var(--pc-s2)}
+.ProductView .bottom{container:pcbottom / inline-size;position:relative;margin-top:auto;display:flex;flex-direction:column;gap:var(--pc-s2)}
 .ProductView .availTip{position:static;display:inline-flex;align-items:center;align-self:flex-start;outline:none;cursor:help;border-radius:var(--radius-xs,2px)}
 .ProductView .availTip:focus-visible{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--pc-primary)}
 .ProductView .AvailabilityView{display:inline-flex;align-items:center;gap:6px;font-size:var(--pc-fs-sm);font-weight:500}
@@ -96,8 +98,8 @@ body{margin:0}
 @keyframes pcFlashA{0%{background:var(--pc-primary-10)}100%{background:transparent}}
 @keyframes pcFlashB{0%{background:var(--pc-primary-10)}100%{background:transparent}}
 .ProductView .qtyUnit{font:inherit;line-height:1.25;color:inherit}
-/* úzká karta: kvantifikátor a Koupit pod sebe */
-@container (max-width:300px){
+/* úzká karta (vnitřek ≤ 262 px, tj. karta ≤ 300 px): kvantifikátor a Koupit pod sebe – řídí se šířkou karty, ne stránky */
+@container pcbottom (max-width:262px){
   .ProductView .AddToCartView{flex-wrap:wrap}
   .ProductView .AddToCartView .stepper{flex:1 1 100%}
   .ProductView .AddToCartView .qtyField{flex:1 1 0;min-width:0}
@@ -118,7 +120,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"p":{"editor":null},"pickup":{"editor":null},"delivery":{"editor":null},"onAdd":{"editor":null},"$preview":{"width":300,"height":540}}'>
+<script type="text/x-dc" data-dc-script data-props='{"p":{"editor":null},"pickup":{"editor":null},"delivery":{"editor":null},"onAdd":{"editor":null},"$preview":{"width":320,"height":700}}'>
 let PC_SEQ = 0;
 const PC_DEMO = { name: 'KG koleno DN 110 - 45°', img: '_blob/7689de5d4afd4ef373fef0fb94b96b10.jpg', code: 'KB97477', unit: 'ks', flags: [{ cls: 'discount', t: '-29%' }],
   weight: '0,32 kg', pack: 30, pallet: 240, av: 'skladem > 100 ks', old: '50,6 Kč', price: '35,8 Kč', nov: '29,6 Kč' };

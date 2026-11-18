@@ -228,10 +228,10 @@
       "y": 120
     },
     "ProductCard.dc.html": {
-      "h": 540,
+      "h": 700,
       "is_interactive": true,
       "title": "Komponenta – Karta produktu",
-      "w": 300,
+      "w": 320,
       "x": 5400,
       "y": 0
     }
