@@ -19,7 +19,10 @@ body{margin:0}
 .fswBtn .ic{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--fsw-primary);color:#fff}
 .fswBtn .ic svg{width:20px;height:20px}
 .fswBtn .val{color:var(--fsw-muted);font-weight:400}
-.fswMenu{position:absolute;left:0;bottom:calc(100% + 8px);width:260px;padding:8px;border:1px solid var(--fsw-line);border-radius:var(--fsw-radius);background:#fff;box-shadow:var(--fsw-shadow)}
+.fswMenu{position:absolute;left:0;bottom:calc(100% + 8px);width:280px;max-height:calc(100vh - 96px);overflow:auto;padding:8px;border:1px solid var(--fsw-line);border-radius:var(--fsw-radius);background:#fff;box-shadow:var(--fsw-shadow)}
+.fswGrp + .fswGrp{margin-top:8px;padding-top:8px;border-top:1px solid var(--fsw-line)}
+.fswOpt .smp svg{width:18px;height:18px}
+.fswOpt .smp.mono{font-size:12px;letter-spacing:.02em}
 .fswH{margin:4px 8px 8px;font-size:13px;font-weight:500;color:var(--fsw-muted)}
 .fswOpt{display:flex;align-items:center;gap:12px;width:100%;min-height:48px;padding:8px;border:0;border-radius:6px;background:transparent;color:var(--fsw-text);font:inherit;text-align:left;cursor:pointer}
 .fswOpt:hover{background:var(--fsw-primary-10)}
@@ -33,19 +36,27 @@ body{margin:0}
 .fswOpt[aria-checked="true"]{background:var(--fsw-primary-10)}
 .fswOpt[aria-checked="true"] .smp{border-color:var(--fsw-primary);color:var(--fsw-primary)}
 .fswOpt[aria-checked="true"] .ok{opacity:1}
-@media (max-width:549px){.fswBtn .lbl{display:none}.fswBtn{padding:0 12px 0 8px}}
+@media (max-width:549px){.fswBtn .lbl{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fswBtn{padding:0 12px 0 8px}}
+@media (max-width:419px){.fswBtn .val{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.fswBtn{padding:0 7px}}
 @media (prefers-reduced-motion:reduce){.fswBtn{transition:none}}
 </style>
 </helmet>
-<div class="fsw" data-fsw="" role="region" aria-label="Nastavení velikosti písma" onKeyDown="{{ key }}" ref="{{ rootRef }}">
+<div class="fsw" data-fsw="" role="region" aria-label="Prezentační nastavení" onKeyDown="{{ key }}" ref="{{ rootRef }}">
 <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
-<div class="fswMenu" id="fswMenu" role="radiogroup" aria-label="Velikost písma">
-<p class="fswH">Velikost písma na celém webu</p>
+<div class="fswMenu" id="fswMenu">
+<div class="fswGrp" role="radiogroup" aria-labelledby="fswH1">
+<p class="fswH" id="fswH1">Velikost písma na celém webu</p>
 <button class="fswOpt" type="button" role="radio" aria-checked="{{ stdOn }}" onClick="{{ setStd }}"><span class="smp s" aria-hidden="true">A</span><span class="t"><b>Standardní</b><small>Velikost podle návrhu</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
 <button class="fswOpt" type="button" role="radio" aria-checked="{{ bigOn }}" onClick="{{ setBig }}"><span class="smp l" aria-hidden="true">A</span><span class="t"><b>Velké</b><small>Všechny texty o stupeň větší</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
 </div>
+<div class="fswGrp" role="radiogroup" aria-labelledby="fswH2">
+<p class="fswH" id="fswH2">Zákazník</p>
+<button class="fswOpt" type="button" role="radio" aria-checked="{{ outOn }}" onClick="{{ setOut }}"><span class="smp" aria-hidden="true"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg></span><span class="t"><b>Nepřihlášen</b><small>Návštěvník bez účtu</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
+<button class="fswOpt" type="button" role="radio" aria-checked="{{ inOn }}" onClick="{{ setIn }}"><span class="smp mono" aria-hidden="true">AZ</span><span class="t"><b>Přihlášen</b><small>Andrea Zelená · Prodejní</small></span><svg class="ok" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></button>
+</div>
+</div>
 </sc-if>
-<button class="fswBtn" type="button" aria-haspopup="true" aria-expanded="{{ openStr }}" aria-controls="fswMenu" onClick="{{ toggle }}"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M87.24,52.59a8,8,0,0,0-14.48,0l-64,136a8,8,0,1,0,14.48,6.81L39.9,160h80.2l16.66,35.4a8,8,0,1,0,14.48-6.81ZM47.43,144,80,74.79,112.57,144ZM200,96c-12.76,0-22.73,3.47-29.63,10.32a8,8,0,0,0,11.26,11.36c3.8-3.77,10-5.68,18.37-5.68,13.23,0,24,9,24,20v3.22A42.76,42.76,0,0,0,200,128c-22.06,0-40,16.15-40,36s17.94,36,40,36a42.73,42.73,0,0,0,24-7.25,8,8,0,0,0,16-.75V132C240,112.15,222.06,96,200,96Zm0,88c-13.23,0-24-9-24-20s10.77-20,24-20,24,9,24,20S213.23,184,200,184Z"></path></svg></span><span class="lbl">Písmo:</span><span class="val">{{ curLabel }}</span></button>
+<button class="fswBtn" type="button" aria-haspopup="true" aria-expanded="{{ openStr }}" aria-controls="fswMenu" onClick="{{ toggle }}"><span class="ic"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M87.24,52.59a8,8,0,0,0-14.48,0l-64,136a8,8,0,1,0,14.48,6.81L39.9,160h80.2l16.66,35.4a8,8,0,1,0,14.48-6.81ZM47.43,144,80,74.79,112.57,144ZM200,96c-12.76,0-22.73,3.47-29.63,10.32a8,8,0,0,0,11.26,11.36c3.8-3.77,10-5.68,18.37-5.68,13.23,0,24,9,24,20v3.22A42.76,42.76,0,0,0,200,128c-22.06,0-40,16.15-40,36s17.94,36,40,36a42.73,42.73,0,0,0,24-7.25,8,8,0,0,0,16-.75V132C240,112.15,222.06,96,200,96Zm0,88c-13.23,0-24-9-24-20s10.77-20,24-20,24,9,24,20S213.23,184,200,184Z"></path></svg></span><span class="lbl">Prezentace:</span><span class="val">{{ curLabel }}</span></button>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":300,"height":260}}'>
@@ -54,18 +65,24 @@ body{margin:0}
    který se dorenderuje později. Volba se pamatuje napříč stránkami (localStorage). */
 const KEY = 'midasFontSizeV1';
 const STEP = 1.125;
+const AUTH = 'midasAuthV1';
 class Component extends DCLogic {
   constructor(props) {
     super(props);
     let big = false;
     try { big = localStorage.getItem(KEY) === 'big'; } catch (e) {}
-    this.state = { open: false, big };
+    let auth = false;
+    try { auth = localStorage.getItem(AUTH) === 'in'; } catch (e) {}
+    this.state = { open: false, big, auth };
+    this.onAuth = () => { let v = false; try { v = localStorage.getItem(AUTH) === 'in'; } catch (e) {} if (v !== this.state.auth) this.setState({ auth: v }); };
     this.rootRef = el => { this.rootEl = el; };
     this.onDoc = e => { if (this.state.open && this.rootEl && !this.rootEl.contains(e.target)) this.setState({ open: false }); };
     this.onResize = () => { clearTimeout(this.rt); this.rt = setTimeout(() => { if (this.state.big) { this.restore(document.body); this.scale(document.body); } }, 200); };
   }
   componentDidMount() {
     document.addEventListener('pointerdown', this.onDoc);
+    window.addEventListener('midas-auth', this.onAuth);
+    window.addEventListener('storage', this.onAuth);
     window.addEventListener('resize', this.onResize);
     this.mo = new MutationObserver(list => {
       if (!this.state.big) return;
@@ -81,6 +98,8 @@ class Component extends DCLogic {
   }
   componentWillUnmount() {
     document.removeEventListener('pointerdown', this.onDoc);
+    window.removeEventListener('midas-auth', this.onAuth);
+    window.removeEventListener('storage', this.onAuth);
     window.removeEventListener('resize', this.onResize);
     if (this.mo) this.mo.disconnect();
     clearTimeout(this.rt);
@@ -140,11 +159,18 @@ class Component extends DCLogic {
     if (big) this.scale(document.body);
     this.setState({ big, open: false });
   }
+  setAuth(v) {
+    try { localStorage.setItem(AUTH, v ? 'in' : 'out'); } catch (e) {}
+    this.setState({ auth: v, open: false });
+    window.dispatchEvent(new Event('midas-auth'));
+  }
   renderVals() {
     const s = this.state;
     return {
       open: s.open, openStr: String(s.open), rootRef: this.rootRef,
-      curLabel: s.big ? 'Velké' : 'Standardní',
+      curLabel: (s.big ? 'Velké písmo' : 'Standardní písmo') + ' · ' + (s.auth ? 'přihlášen' : 'nepřihlášen'),
+      outOn: String(!s.auth), inOn: String(s.auth),
+      setOut: () => this.setAuth(false), setIn: () => this.setAuth(true),
       stdOn: String(!s.big), bigOn: String(s.big),
       toggle: () => this.setState({ open: !s.open }),
       setStd: () => this.apply(false),

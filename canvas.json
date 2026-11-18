@@ -218,6 +218,14 @@
       "w": 1440,
       "x": 1520,
       "y": 12000
+    },
+    "UserMenu.dc.html": {
+      "h": 420,
+      "is_interactive": true,
+      "title": "Komponenta – Uživatelské menu",
+      "w": 320,
+      "x": 5000,
+      "y": 120
     }
   },
   "createdOnFiles": {
@@ -293,7 +301,8 @@
     "CookieModal.dc.html",
     "PromoModal.dc.html",
     "Porovnani.dc.html",
-    "FontSizeSwitch.dc.html"
+    "FontSizeSwitch.dc.html",
+    "UserMenu.dc.html"
   ],
   "pages": [],
   "title": "Midas.cz"

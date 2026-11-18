@@ -71,7 +71,7 @@ body{margin:0}
 </sc-if>
 </form>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"onClose":{"editor":null},"$preview":{"width":320,"height":420}}'>
+<script type="text/x-dc" data-dc-script data-props='{"onClose":{"editor":null},"onLogin":{"editor":null},"$preview":{"width":320,"height":420}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
@@ -99,6 +99,7 @@ class Component extends DCLogic {
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { this.setState({ err: 'Zadejte e-mail ve tvaru jmeno@firma.cz.', bad: 'email' }); return; }
         if (s.pass.length < 4) { this.setState({ err: 'Zadejte heslo (alespoň 4 znaky).', bad: 'pass' }); return; }
         this.setState({ done: true, err: '', bad: '', email: em });
+        if (this.props.onLogin) this.props.onLogin(em);
       }
     };
   }

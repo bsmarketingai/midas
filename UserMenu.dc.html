@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Komponenta – Uživatelské menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+.um{position:relative;box-sizing:border-box;width:320px;max-width:100%;padding:8px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 15px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
+.um *{box-sizing:border-box}
+.umHead{display:flex;align-items:center;gap:12px;padding:12px 48px 12px 12px}
+.umMono{flex:0 0 44px;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#3a7a27;color:#fff;font-weight:700;font-size:16px;letter-spacing:.02em}
+.umName{margin:0;font-size:17px;font-weight:700;line-height:1.25}
+.umGroup{margin:2px 0 0;font-size:13px;color:rgba(30,30,30,.72)}
+.umGroup b{display:inline-block;margin-left:4px;padding:1px 8px;border-radius:999px;background:#eff8eb;color:#245a17;font-weight:600}
+.umClose{position:absolute;top:8px;right:8px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.9);cursor:pointer}
+.umClose:hover{background:#f2f2f2}
+.umClose svg{width:18px;height:18px}
+.umList{list-style:none;margin:4px 0 0;padding:4px 0 0;border-top:1px solid #e9e9e9}
+.umList a,.umOut{display:flex;align-items:center;gap:12px;width:100%;min-height:44px;padding:8px 12px;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.9);font:inherit;text-decoration:none;text-align:left;cursor:pointer}
+.umList a:hover{background:#eff8eb;color:#245a17}
+.umList .ic,.umOut .ic{flex:none;width:20px;height:20px;color:#3a7a27}
+.umList span{flex:1}
+.umList .go{flex:none;width:14px;height:14px;opacity:.5}
+.umFoot{margin-top:4px;padding-top:4px;border-top:1px solid #e9e9e9}
+.umOut{color:#b00000;font-weight:500}
+.umOut .ic{color:#b00000}
+.umOut:hover{background:#fdecea}
+.um a:focus-visible,.um button:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
+</style>
+</helmet>
+<nav class="um" aria-label="Uživatelský účet" onKeyDown="{{ key }}">
+<button class="umClose" type="button" aria-label="Zavřít menu účtu" onClick="{{ close }}"><svg class="" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button>
+<div class="umHead"><span class="umMono" aria-hidden="true">{{ mono }}</span><div><p class="umName">{{ userName }}</p><p class="umGroup">Cenová skupina:<b>{{ group }}</b></p></div></div>
+<ul class="umList"><li><a href="#"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"></path></svg><span>Přehled objednávek</span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="#"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M72,104a8,8,0,0,1,8-8h96a8,8,0,0,1,0,16H80A8,8,0,0,1,72,104Zm8,40h96a8,8,0,0,0,0-16H80a8,8,0,0,0,0,16ZM232,56V208a8,8,0,0,1-11.58,7.15L192,200.94l-28.42,14.21a8,8,0,0,1-7.16,0L128,200.94,99.58,215.15a8,8,0,0,1-7.16,0L64,200.94,35.58,215.15A8,8,0,0,1,24,208V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56Zm-16,0H40V195.06l20.42-10.22a8,8,0,0,1,7.16,0L96,199.06l28.42-14.22a8,8,0,0,1,7.16,0L160,199.06l28.42-14.22a8,8,0,0,1,7.16,0L216,195.06Z"></path></svg><span>Přehled faktur</span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="#"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M117.66,170.34a8,8,0,0,1,0,11.32l-32,32a8,8,0,0,1-11.32,0l-32-32a8,8,0,0,1,11.32-11.32L72,188.69V48a8,8,0,0,1,16,0V188.69l18.34-18.35A8,8,0,0,1,117.66,170.34Zm96-96-32-32a8,8,0,0,0-11.32,0l-32,32a8,8,0,0,0,11.32,11.32L168,67.31V208a8,8,0,0,0,16,0V67.31l18.34,18.35a8,8,0,0,0,11.32-11.32Z"></path></svg><span>Export / import produktů</span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="#"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"></path></svg><span>Oblíbené produkty</span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li><li><a href="#"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M144,157.68a68,68,0,1,0-71.9,0c-20.65,6.76-39.23,19.39-54.17,37.17a8,8,0,1,0,12.24,10.3C50.25,181.19,77.91,168,108,168s57.75,13.19,77.87,37.15a8,8,0,0,0,12.26-10.3C183.18,177.07,164.6,164.44,144,157.68ZM56,100a52,52,0,1,1,52,52A52.06,52.06,0,0,1,56,100Zm196.25,43.07-4.66-2.69a23.6,23.6,0,0,0,0-8.76l4.66-2.69a8,8,0,1,0-8-13.86l-4.67,2.7a23.92,23.92,0,0,0-7.58-4.39V108a8,8,0,0,0-16,0v5.38a23.92,23.92,0,0,0-7.58,4.39l-4.67-2.7a8,8,0,1,0-8,13.86l4.66,2.69a23.6,23.6,0,0,0,0,8.76l-4.66,2.69a8,8,0,0,0,8,13.86l4.67-2.7a23.92,23.92,0,0,0,7.58,4.39V164a8,8,0,0,0,16,0v-5.38a23.92,23.92,0,0,0,7.58-4.39l4.67,2.7a7.92,7.92,0,0,0,4,1.07,8,8,0,0,0,4-14.93ZM216,136a8,8,0,1,1,8,8A8,8,0,0,1,216,136Z"></path></svg><span>Správa účtu</span><svg class="go" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></ul>
+<div class="umFoot"><button class="umOut" type="button" onClick="{{ logout }}"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z"></path></svg><span>Odhlásit z e-shopu</span></button></div>
+</nav>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"userName":{"editor":"text","default":"Andrea Zelená"},"group":{"editor":"text","default":"Prodejní"},"onClose":{"editor":null},"onLogout":{"editor":null},"$preview":{"width":320,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const n = this.props.userName ?? 'Andrea Zelená';
+    const mono = n.split(/\s+/).filter(Boolean).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const close = () => { if (this.props.onClose) this.props.onClose(); };
+    return {
+      userName: n, mono, group: this.props.group ?? 'Prodejní', close,
+      logout: () => { if (this.props.onLogout) this.props.onLogout(); else close(); },
+      key: e => { if (e.key === 'Escape') { e.stopPropagation(); close(); } }
+    };
+  }
+}
+</script>
+</body>
+</html>
