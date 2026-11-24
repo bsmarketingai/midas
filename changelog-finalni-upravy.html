@@ -30,6 +30,27 @@ figcaption{margin-top:var(--space-2);font-size:14px;color:var(--muted)}
 <h1>Changelog finálních úprav</h1>
 <p class="lead">Přehled synchronizací prototypu z Claude Design do repozitáře. Nejnovější nahoře. <a href="index.html">Zpět na přehled stránek</a></p>
 
+<article id="sync-2026-11-24d">
+<h2>Zpřehledněná hlavička: jedno primární tlačítko, ostatní jen ikony</h2>
+<time datetime="2026-11-24">24. 11. 2026 · sync-2026-11-24d</time>
+<p>Mobilní a tabletová hlavička (do 999 px) už nemíchá plná, obtažená a barevná tlačítka:</p>
+<ul>
+<li><strong>Hamburger</strong> je jediné plné zelené (primární) tlačítko.</li>
+<li><strong>Telefon, nákupní asistent a uživatel</strong> jsou zelené ikony bez obtažení a bez hover stavů. Přihlášený uživatel má místo iniciál „AZ“ ikonu User.</li>
+<li><strong>Košík</strong> je tmavá ikona bez obtažení s červeným počtem.</li>
+<li><strong>Ikony jsou opticky srovnané:</strong> Phosphor ikony mají 27 px a zesílený tah, aby odpovídaly ikoně asistenta (24 px, tah 1,8 px).</li>
+<li><strong>Plovoucí tlačítko asistenta</strong> je nově i na mobilu, 16 px od okraje. Při otevřeném menu nebo panelu se schová.</li>
+<li><strong>Mobilní panely</strong> (účet, přihlášení, košík) vyjíždějí zespodu pozvolným ease-in-out za 0,42 s a stejně plynule zajíždějí za 0,34 s.</li>
+<li><strong>Křížek v panelech</strong> má plochu 48 × 48 px a ikonu 24 px. Je 16 px od pravého okraje a svisle vystředěný s prvním řádkem.</li>
+</ul>
+<p>Na desktopu do 1439 px, kde se jméno nevejde, je přihlášený účet zelená ikona User bez obtažení. Bez obtažení je i prázdný košík. Od 1440 px zůstává tlačítko s iniciálami a jménem.</p>
+<p class="files"><strong>Soubory:</strong> <code>CartPopup.dc.html</code>, <code>Certifikaty.dc.html</code>, <code>Detail.dc.html</code>, <code>Doprava.dc.html</code>, <code>Gdpr.dc.html</code>, <code>Kariera.dc.html</code>, <code>Kategorie.dc.html</code>, <code>Kontakt.dc.html</code>, <code>LoginPopup.dc.html</code>, <code>Main.dc.html</code>, <code>Navody.dc.html</code>, <code>ObchodniPodminky.dc.html</code>, <code>Onas.dc.html</code>, <code>Porovnani.dc.html</code>, <code>Reklamace.dc.html</code>, <code>UserMenu.dc.html</code></p>
+<figure>
+<img src="changelog-img/2026-11-24d-hlavicka-ikony.png" alt="Hlavička na mobilu (430 px) a desktopu (1200 px), ikony červeně orámované" loading="lazy">
+<figcaption>Nahoře 430 px: telefon, asistent a uživatel zeleně, košík tmavý, hamburger plný. Dole 1200 px: účet a prázdný košík jako ikony bez obtažení.</figcaption>
+</figure>
+</article>
+
 <article id="sync-2026-11-24c">
 <h2>Užší a nižší karta produktu na mobilu</h2>
 <time datetime="2026-11-24">24. 11. 2026 · sync-2026-11-24c</time>

@@ -991,8 +991,8 @@ main[hidden]{display:none!important}
   .fCol ul{display:none;padding-bottom:var(--space-4)}
   .fCol.open ul{display:grid}
   .fCol.open .chev{rotate:180deg}
-  /* asistent je v hlavičce – plovoucí tlačítko na mobilu nepřekrývá obsah */
-  .AiAssistantView .open{display:none}
+  /* plovoucí tlačítko asistenta i na mobilu, blíž k okraji */
+  .AiAssistantView .open{right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px))}
 }
 @media (prefers-reduced-motion:reduce){.fToggle .chev{transition:none}}
 
@@ -1259,9 +1259,11 @@ main[hidden]{display:none!important}
 .popSlot{position:absolute;right:0;top:calc(100% + 8px);z-index:1002;animation:popIn .14s ease-out}
 @keyframes popIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .LoginUserView > .button[aria-expanded="true"],.SimpleBasketView > .button[aria-expanded="true"]{background:var(--primary-10)}
-@media (max-width:999px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
-@media (max-width:999px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
-@keyframes sheetUp{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+@media (max-width:999px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .42s cubic-bezier(.45,0,.2,1)}.popSlot.isClosing{animation:sheetDown .34s cubic-bezier(.45,0,.55,1) forwards}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
+@media (max-width:999px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw,body:has(.popSlot) .AiAssistantView .open{visibility:hidden}}
+@keyframes sheetUp{from{transform:translateY(100%);box-shadow:0 0 0 100vmax rgba(20,28,18,0)}to{transform:none;box-shadow:0 0 0 100vmax rgba(20,28,18,.55)}}
+@keyframes sheetDown{from{transform:none;box-shadow:0 0 0 100vmax rgba(20,28,18,.55)}to{transform:translateY(100%);box-shadow:0 0 0 100vmax rgba(20,28,18,0)}}
+@media (prefers-reduced-motion:reduce){.popSlot,.popSlot.isClosing{animation:none}}
 @media (prefers-reduced-motion:reduce){.popSlot{animation:none}}
 
 
@@ -1485,11 +1487,22 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 .userCaret{width:14px;height:14px;color:var(--text-weaker);transition:transform .15s}
 .LoginUserView .button.login[aria-expanded="true"] .userCaret{transform:rotate(180deg)}
 @media (max-width:1439px){.userCaret{display:none}.userName{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.LoginUserView .button.login.isIn{width:var(--btn-h-md);padding:0;justify-content:center;border-color:var(--line)}}
-/* mobilní hlavička: přihlášený uživatel jako plné tlačítko s iniciálami, bez obtažení, stejně velké jako ostatní tlačítka */
+/* mobilní hlavička (≤ 999 px): jediné primární tlačítko je hamburger (plné zelené); asistent, uživatel, košík a telefon jsou jen ikony bez obtažení */
+.userIc{display:none;color:var(--primary)}
+/* bez jména (pod 1440 px) se přihlášený uživatel ukazuje ikonou User místo iniciál */
+@media (max-width:1439px){header.HeaderView .LoginUserView .button.login.isIn .userMono{display:none}header.HeaderView .LoginUserView .button.login.isIn .userIc{display:block}header.HeaderView .LoginUserView .button.login,header.HeaderView .LoginUserView .button.login.isIn,header.HeaderView .LoginUserView .button.login:hover,header.HeaderView .LoginUserView .button.login.isIn:hover,header.HeaderView .LoginUserView .button.login[aria-expanded="true"]{border-color:transparent}header.HeaderView .SimpleBasketView.empty > .button,header.HeaderView .SimpleBasketView.empty > .button:hover,header.HeaderView .SimpleBasketView.empty > .button[aria-expanded="true"]{border-color:transparent}}/* ikona účtu bez jména i prázdný košík (jen ikona) jsou bez obtažení */
 @media (max-width:999px){
-  header .LoginUserView .button.login.isIn,header .LoginUserView .button.login.isIn:hover,header .LoginUserView .button.login.isIn[aria-expanded="true"]{border:0;padding:0;background:transparent;width:var(--btn-h-md);height:var(--btn-h-md)}
-  header .LoginUserView .button.login.isIn .userMono{width:100%;height:100%;border-radius:var(--btn-radius,4px);font-size:17px;transition:background-color .15s}
-  header .LoginUserView .button.login.isIn:hover .userMono,header .LoginUserView .button.login.isIn[aria-expanded="true"] .userMono{background:var(--primary)}
+  header.HeaderView .SimpleSearchView .ai,header.HeaderView .LoginUserView > .button,header.HeaderView .LoginUserView .button.login.isIn,header.HeaderView .SimpleBasketView > .button,header.HeaderView .SimpleBasketView:not(.empty) > .button{width:var(--btn-h-md);height:var(--btn-h-md);padding:0;justify-content:center;border-color:transparent;background:transparent;color:var(--text)}
+  header.HeaderView .SimpleSearchView .ai:hover,header.HeaderView .LoginUserView > .button:hover,header.HeaderView .LoginUserView > .button[aria-expanded="true"],header.HeaderView .SimpleBasketView > .button:hover,header.HeaderView .SimpleBasketView > .button[aria-expanded="true"]{border-color:transparent;background:transparent;color:var(--text)} /* bez hover stavů – na dotykovém zařízení nemají smysl */
+  header.HeaderView .SimpleSearchView .ai .icon{width:24px;height:24px}
+  /* Phosphor ikony (telefon, uživatel, košík) opticky srovnané s ikonou asistenta: větší box a tah zesílený na jeho tloušťku */
+  header.HeaderView .ContactsView .phone .icon,header.HeaderView .LoginUserView .userIc,header.HeaderView .LoginUserView > .button > .icon,header.HeaderView .SimpleBasketView > .button > .icon{width:27px;height:27px;stroke:currentColor;stroke-width:2;stroke-linejoin:round}
+  /* telefon, asistent a uživatel zeleně, košík zůstává tmavý */
+  header.HeaderView .ContactsView .phone .icon,header.HeaderView .SimpleSearchView .ai,header.HeaderView .SimpleSearchView .ai:hover,header.HeaderView .LoginUserView > .button,header.HeaderView .LoginUserView > .button:hover,header.HeaderView .LoginUserView > .button[aria-expanded="true"],header.HeaderView .LoginUserView .button.login.isIn{color:var(--primary)}
+}
+@media (max-width:549px){
+  header.HeaderView .ContactsView .phone{border-color:transparent;background:transparent}
+  header.HeaderView .ContactsView .phone:hover{border-color:transparent;background:transparent}
 }
 </style>
 </helmet>
@@ -1516,7 +1529,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <a class="phone" href="tel:+420739162221"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></svg><span class="txt"><span class="num">+420 739 162 221</span><small class="hours isOpen" data-open-hours="" title="Právě máme otevřeno">Dnes 8:00–16:00</small></span></a>
       <a class="email" href="mailto:e-objednavky@midas.cz"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></svg>e-objednavky@midas.cz</a>
     </div>
-    <div id="LoginUser" class="LoginUserView v1a v1 bs-view LoginUser"><a class="button -icon login {{ auth.btnCls }}" href="#" id="loginBtn" onClick="{{ toggleLogin }}" aria-label="{{ auth.btnLabel }}" aria-expanded="{{ loginExp }}" aria-haspopup="true"><sc-if value="{{ auth.out }}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg></sc-if><sc-if value="{{ auth.in }}" hint-placeholder-val="{{ false }}"><span class="userMono" aria-hidden="true">AZ</span><span class="userName">Andrea Zelená</span><svg class="userCaret" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></sc-if></a>
+    <div id="LoginUser" class="LoginUserView v1a v1 bs-view LoginUser"><a class="button -icon login {{ auth.btnCls }}" href="#" id="loginBtn" onClick="{{ toggleLogin }}" aria-label="{{ auth.btnLabel }}" aria-expanded="{{ loginExp }}" aria-haspopup="true"><sc-if value="{{ auth.out }}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></svg></sc-if><sc-if value="{{ auth.in }}" hint-placeholder-val="{{ false }}"><span class="userMono" aria-hidden="true">AZ</span><svg class="icon -md userIc" aria-hidden="true"><use href="#i-user"></use></svg><span class="userName">Andrea Zelená</span><svg class="userCaret" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></sc-if></a>
       <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="LoginPopup" on-close="{{ closePop }}" on-login="{{ doLogin }}" hint-size="320px,420px"></dc-import></div></sc-if>
       <sc-if value="{{ userOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="UserMenu" user-name="Andrea Zelená" group="Prodejní" on-close="{{ closePop }}" on-logout="{{ doLogout }}" hint-size="320px,400px"></dc-import></div></sc-if>
       </div>
@@ -1656,7 +1669,9 @@ class Component extends DCLogic {
       nav.addEventListener('click', e => { const x = e.target.closest && e.target.closest('.exp'); if (!x || !nav.contains(x)) return; const li = x.closest('li'); const o = !li.classList.contains('expanded'); li.classList.toggle('expanded', o); x.setAttribute('aria-expanded', String(o)); });
       const mq = matchMedia('(min-width:1000px)'); const onMq = () => { if (mq.matches && nav.classList.contains('open')) { set(false); nav.classList.remove('open'); } }; if (mq.addEventListener) mq.addEventListener('change', onMq);
     }, 60);
-    this.popDoc = e => { if (this.state.pop && !(e.target && e.target.closest && e.target.closest('#LoginUser,#SimpleBasket'))) this.setState({ pop: '' }); };
+    /* mobilní bottom sheet: před zavřením dojede animace (pozvolné ease-in-out) */
+    this.popOut = fn => { const el = document.querySelector('.popSlot'); if (!el) return fn(); if (el.classList.contains('isClosing')) return; if (!matchMedia('(max-width:999px)').matches || matchMedia('(prefers-reduced-motion:reduce)').matches) return fn(); el.classList.add('isClosing'); setTimeout(fn, 340); };
+    this.popDoc = e => { if (this.state.pop && !(e.target && e.target.closest && e.target.closest('#LoginUser,#SimpleBasket'))) this.popOut(() => this.setState({ pop: '' })); };
     document.addEventListener('mousedown', this.popDoc);
     this.mmT = setTimeout(() => {
       const nav = document.getElementById('MenuCategories'); if (!nav) return;
@@ -1842,12 +1857,12 @@ class Component extends DCLogic {
       menuNext: e => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.scrollTo({ left: ul.scrollWidth, behavior: this.reduced ? 'auto' : 'smooth' }); },
       menuPrev: e => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.scrollTo({ left: 0, behavior: this.reduced ? 'auto' : 'smooth' }); },
       menuLoginGo: e => { if (e && e.preventDefault) e.preventDefault(); const c = document.querySelector('#MenuCategories .navClose'); if (c) c.click(); setTimeout(() => { this.setState({ pop: this.state.auth ? 'user' : 'login' }); }, 80); },
-      toggleLogin: e => { if (e && e.preventDefault) e.preventDefault(); const w = s.auth ? 'user' : 'login'; this.setState({ pop: s.pop === w ? '' : w }); },
+      toggleLogin: e => { if (e && e.preventDefault) e.preventDefault(); const w = s.auth ? 'user' : 'login'; if (s.pop === w) this.popOut(() => this.setState({ pop: '' })); else this.setState({ pop: w }); },
       doLogin: () => { try { localStorage.setItem('midasAuthV1', 'in'); } catch (x) {} this.setState({ auth: true }); window.dispatchEvent(new Event('midas-auth')); },
       doLogout: () => { try { localStorage.setItem('midasAuthV1', 'out'); } catch (x) {} this.setState({ auth: false, pop: '' }); window.dispatchEvent(new Event('midas-auth')); },
       auth: { in: !!s.auth, out: !s.auth, btnCls: s.auth ? 'isIn' : '', btnLabel: s.auth ? undefined : 'Přihlášení' },
-      toggleCart: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ pop: s.pop === 'cart' ? '' : 'cart' }); },
-      closePop: () => { const w = this.state.pop; this.setState({ pop: '' }); const b = document.querySelector(w === 'cart' ? '#SimpleBasket > a' : '#loginBtn'); if (b) b.focus(); },
+      toggleCart: e => { if (e && e.preventDefault) e.preventDefault(); if (s.pop === 'cart') this.popOut(() => this.setState({ pop: '' })); else this.setState({ pop: 'cart' }); },
+      closePop: () => { const w = this.state.pop; this.popOut(() => this.setState({ pop: '' })); const b = document.querySelector(w === 'cart' ? '#SimpleBasket > a' : '#loginBtn'); if (b) b.focus(); },
       loginOpen: s.pop === 'login', userOpen: s.pop === 'user', cartOpen: s.pop === 'cart', loginExp: String(s.pop === 'login' || s.pop === 'user'), cartExp: String(s.pop === 'cart'), cartLines: s.lines || [], removeLine: i => { const L = this.state.lines || [], l = L[i]; if (!l) return; this.setState({ lines: L.filter((_, k) => k !== i), count: Math.max(0, this.state.count - l.q), total: Math.max(0, Math.round((this.state.total - l.q * l.unit) * 100) / 100) }); },
       fl: { chips: (s.chips || []).map(c => ({ label: c.label, remove: () => this.removeChip(c.i) })), count: String((s.chips || []).length), any: (s.chips || []).length > 0, many: (s.chips || []).length > 1,
         openCls: s.fOpen ? 'open' : '', exp: String(!!s.fOpen),
