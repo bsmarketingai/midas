@@ -11,40 +11,40 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
 <style>
 body{margin:0}
-.lp{position:relative;box-sizing:border-box;width:320px;max-width:100%;display:flex;flex-direction:column;gap:12px;padding:24px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 15px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
+.lp{position:relative;box-sizing:border-box;width:320px;max-width:100%;display:flex;flex-direction:column;gap:12px;padding:24px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 17px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
 .lp *{box-sizing:border-box}
-.lpTitle{margin:0 40px 4px 0;font-size:18px;font-weight:700;line-height:1.3}
+.lpTitle{margin:0 0 12px;padding:0 40px 12px 0;border-bottom:1px solid #e9e9e9;font-size:20px;font-weight:700;line-height:1.3}
 .lpClose{position:absolute;top:8px;right:8px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.9);cursor:pointer}
 .lpClose:hover{background:#f2f2f2}
 .lpClose:focus-visible,.lpEye:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
 .lpClose svg{width:18px;height:18px}
-.lpLabel{display:block;margin:0 0 -6px;font-size:13px;font-weight:500}
+.lpLabel{display:block;margin:0 0 -6px;font-size:15px;font-weight:500}
 .lpField{position:relative;display:flex}
 .lpField > svg{position:absolute;left:12px;top:50%;width:18px;height:18px;translate:0 -50%;color:#8a8a8a;pointer-events:none}
-.lpField input{width:100%;height:44px;padding:0 14px 0 40px;font:inherit;font-size:16px;color:inherit;background:#fff;border:1px solid #d2d7d9;border-radius:4px;appearance:none}
+.lpField input{width:100%;height:44px;padding:0 14px 0 40px;font:inherit;font-size:18px;color:inherit;background:#fff;border:1px solid #d2d7d9;border-radius:4px;appearance:none}
 .lpField input:focus{outline:none;border-color:#3a7a27;box-shadow:0 0 0 3px rgba(101,188,71,.25)}
 .lpField input[aria-invalid="true"]{border-color:#cc0000}
 .lpField.pw input{padding-right:48px}
 .lpEye{position:absolute;right:2px;top:2px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:4px;background:transparent;color:#5c5c5c;cursor:pointer}
 .lpEye:hover{color:#1e1e1e}
 .lpEye svg{width:20px;height:20px}
-.lpErr{margin:-2px 0 0;font-size:13px;color:#b00000}
-.lpBtn{height:44px;margin-top:4px;padding:0 20px;font:600 15px/1 Roboto,system-ui,sans-serif;color:#fff;background:#cc0000;border:0;border-radius:6px;cursor:pointer}
+.lpErr{margin:-2px 0 0;font-size:15px;color:#b00000}
+.lpBtn{height:44px;margin-top:4px;padding:0 20px;font:600 17px/1 Roboto,system-ui,sans-serif;color:#fff;background:#cc0000;border:0;border-radius:6px;cursor:pointer}
 .lpBtn:hover{background:#a80000}
 .lpBtn:focus-visible{outline:2px solid #1e1e1e;outline-offset:2px}
-.lpCheck{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:32px;font-size:14px;cursor:pointer;user-select:none}
+.lpCheck{position:relative;display:inline-flex;align-items:center;gap:10px;min-height:32px;font-size:16px;cursor:pointer;user-select:none}
 .lpCheck input{position:absolute;opacity:0;width:20px;height:20px;margin:0}
 .lpBox{flex:0 0 20px;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;border:2px solid #b9c0c3;border-radius:3px;background:#fff;color:#fff}
 .lpBox svg{width:14px;height:14px;opacity:0}
 .lpCheck input:checked + .lpBox{background:#3a7a27;border-color:#3a7a27}
 .lpCheck input:checked + .lpBox svg{opacity:1}
 .lpCheck input:focus-visible + .lpBox{outline:2px solid #3a7a27;outline-offset:2px}
-.lpLinks{display:flex;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid #e9e9e9;font-size:14px}
+.lpLinks{display:flex;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid #e9e9e9;font-size:16px}
 .lpLinks a{color:#3a7a27;font-weight:500;text-decoration:none}
 .lpLinks a:hover{text-decoration:underline;text-underline-offset:3px}
 .lpDone{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding-top:4px}
 .lpDone svg.ok{width:36px;height:36px;color:#3a7a27}
-.lpDone p{margin:0;font-size:14px;color:rgba(30,30,30,.72)}
+.lpDone p{margin:0;font-size:16px;color:rgba(30,30,30,.66)}
 .lpDone .lpBtn{align-self:stretch}
 </style>
 </helmet>

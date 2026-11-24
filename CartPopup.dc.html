@@ -11,44 +11,52 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap">
 <style>
 body{margin:0}
-.cp{position:relative;box-sizing:border-box;width:360px;max-width:100%;display:flex;flex-direction:column;gap:16px;padding:20px 20px 16px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 15px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
+.cp{position:relative;box-sizing:border-box;width:440px;max-width:100%;display:flex;flex-direction:column;gap:16px;padding:20px 20px 16px;background:#fff;border:1px solid #e1e1e1;border-radius:8px;box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);font:400 17px/1.45 Roboto,system-ui,sans-serif;color:rgba(30,30,30,.9);text-align:left}
 .cp *{box-sizing:border-box}
-.cpHead{display:flex;align-items:baseline;gap:8px;padding-right:40px}
-.cpTitle{margin:0;font-size:18px;font-weight:700;line-height:1.3}
-.cpCount{font-size:13px;color:rgba(30,30,30,.68)}
+.cpHead{display:flex;align-items:baseline;gap:8px;padding:0 40px 14px 0;border-bottom:1px solid #e9e9e9}
+.cpTitle{margin:0;font-size:20px;font-weight:700;line-height:1.3}
+.cpCount{font-size:15px;color:rgba(30,30,30,.63)}
 .cpClose{position:absolute;top:8px;right:8px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;padding:0;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.9);cursor:pointer}
 .cpClose:hover{background:#f2f2f2}
 .cpClose:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
 .cpClose svg{width:18px;height:18px}
 .cpList{list-style:none;margin:0;padding:0 4px 0 0;display:flex;flex-direction:column;max-height:288px;overflow:auto}
-.cpItem{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee}
+.cpItem{display:grid;grid-template-columns:52px minmax(0,1fr) auto 40px;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee}
 .cpItem:first-child{border-top:0;padding-top:0}
 .cpItem img{width:52px;height:52px;object-fit:contain;border:1px solid #e9e9e9;border-radius:4px;background:#fff}
 .cpN{display:flex;flex-direction:column;gap:2px;min-width:0}
-.cpName{font-size:14px;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cpQ{font-size:13px;color:rgba(30,30,30,.68)}
-.cpP{font-size:15px;font-weight:700;white-space:nowrap}
+.cpName{font-size:16px;font-weight:500;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.cpQ{font-size:15px;color:rgba(30,30,30,.63)}
+.cpP{font-size:17px;font-weight:700;white-space:nowrap}
+.cpDel{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:0;border-radius:6px;background:transparent;color:rgba(30,30,30,.63);cursor:pointer;transition:background-color .15s,color .15s}
+.cpDel svg{width:20px;height:20px}
+.cpDel:hover{background:#fdecec;color:#c40000}
+.cpDel:focus-visible{outline:2px solid #c40000;outline-offset:1px}
+@media (prefers-reduced-motion:reduce){.cpDel{transition:none}}
 .cpSum{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:12px;border-top:1px solid #e1e1e1}
-.cpSum span{font-size:14px}
-.cpSum small{display:block;font-size:12px;color:rgba(30,30,30,.68)}
-.cpSum b{font-size:22px;font-weight:700;white-space:nowrap}
+.cpSum > span{font-size:16px}
+.cpSum small{display:block;font-size:14px;color:rgba(30,30,30,.63)}
+.cpSum{align-items:center}
+.cpSum b{font-size:28px;font-weight:800;line-height:1.1;letter-spacing:-.01em;white-space:nowrap;font-variant-numeric:tabular-nums}
 .cpActions{display:flex;flex-direction:column;gap:4px}
-.cpBtn{display:flex;align-items:center;justify-content:center;height:48px;padding:0 20px;font:600 16px/1 Roboto,system-ui,sans-serif;color:#fff;background:#cc0000;border-radius:6px;text-decoration:none}
+.cpBtn{display:flex;align-items:center;justify-content:center;height:48px;padding:0 20px;font:600 18px/1 Roboto,system-ui,sans-serif;color:#fff;background:#cc0000;border-radius:6px;text-decoration:none}
 .cpBtn:hover{background:#a80000;color:#fff}
 .cpBtn:focus-visible{outline:2px solid #1e1e1e;outline-offset:2px}
-.cpLink{height:40px;padding:0 12px;font:500 14px/1 Roboto,system-ui,sans-serif;color:#3a7a27;background:transparent;border:0;border-radius:6px;cursor:pointer}
+.cpLink{height:40px;padding:0 12px;font:500 16px/1 Roboto,system-ui,sans-serif;color:#3a7a27;background:transparent;border:0;border-radius:6px;cursor:pointer}
 .cpLink:hover{text-decoration:underline;text-underline-offset:3px}
 .cpLink:focus-visible{outline:2px solid #3a7a27;outline-offset:1px}
-.cpFree{display:flex;flex-direction:column;gap:6px;padding:10px 12px;border:1px solid #cfe9c4;border-radius:6px;background:#e9f6e3;font-size:13px;line-height:1.4}
+.cpFree{display:flex;align-items:center;gap:12px;padding:10px 12px;border:1px solid #cfe9c4;border-radius:6px;background:#e9f6e3;font-size:15px;line-height:1.4}
 .cpFree b{font-weight:700}
+.cpFreeIc{flex:none;width:24px;height:24px;color:#3a7a27}
+.cpFreeT{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:6px}
 .cpFree.done b{color:#3a7a27}
 .cpBar{position:relative;display:block;height:6px;border-radius:999px;background:#d3e8c9;overflow:hidden}
 .cpBar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:#3a7a27;transition:width .5s cubic-bezier(.2,.7,.2,1)}
 @media (prefers-reduced-motion:reduce){.cpBar i{transition:none}}
 .cpEmpty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:8px 8px 4px;text-align:center}
 .cpEmpty svg{width:40px;height:40px;color:#9aa39a}
-.cpEmpty b{font-size:15px;font-weight:600}
-.cpEmpty p{margin:0;font-size:14px;color:rgba(30,30,30,.68)}
+.cpEmpty b{font-size:17px;font-weight:600}
+.cpEmpty p{margin:0;font-size:16px;color:rgba(30,30,30,.63)}
 </style>
 </helmet>
 <div class="cp" role="dialog" aria-labelledby="cpTitle" onKeyDown="{{ key }}">
@@ -60,15 +68,15 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{ hasItems }}" hint-placeholder-val="{{ true }}">
 <ul class="cpList">
-<sc-for list="{{ lines }}" as="l" hint-placeholder-count="2"><li class="cpItem"><img src="{{ l.img }}" alt=""><div class="cpN"><span class="cpName">{{ l.name }}</span><span class="cpQ">{{ l.qty }}</span></div><b class="cpP">{{ l.price }}</b></li></sc-for>
+<sc-for list="{{ lines }}" as="l" hint-placeholder-count="2"><li class="cpItem"><img src="{{ l.img }}" alt=""><div class="cpN"><span class="cpName">{{ l.name }}</span><span class="cpQ">{{ l.qty }}</span></div><b class="cpP">{{ l.price }}</b><button class="cpDel" type="button" aria-label="{{ l.delLabel }}" onClick="{{ l.del }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"></path></svg></button></li></sc-for>
 </ul>
 <div class="cpSum"><span>Celkem s DPH<small>{{ noVat }} bez DPH</small></span><b>{{ total }}</b></div>
-<div class="cpFree {{ freeCls }}"><span>{{ freeLead }}<b>{{ freeAmount }}</b>{{ freeTail }}</span><span class="cpBar" role="progressbar" aria-label="Nákup do dopravy zdarma" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="{{ freeNow }}"><i style="width: {{ freePct }}"></i></span></div>
+<div class="cpFree {{ freeCls }}"><svg class="cpFreeIc" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg><div class="cpFreeT"><span>{{ freeLead }}<b>{{ freeAmount }}</b>{{ freeTail }}</span><span class="cpBar" role="progressbar" aria-label="Nákup do dopravy zdarma" aria-valuemin="0" aria-valuemax="3000" aria-valuenow="{{ freeNow }}"><i style="width: {{ freePct }}"></i></span></div></div>
 <div class="cpActions"><a class="cpBtn" href="Kosik.dc.html">Přejít do košíku</a><button class="cpLink" type="button" onClick="{{ close }}">Pokračovat v nákupu</button></div>
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"lines":{"editor":null},"onClose":{"editor":null},"$preview":{"width":360,"height":440}}'>
+<script type="text/x-dc" data-dc-script data-props='{"lines":{"editor":null},"onClose":{"editor":null},"onRemove":{"editor":null},"$preview":{"width":440,"height":440}}'>
 const DEMO = [
   { name: 'KG koleno DN 110 - 45°', img: '_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg', q: 4, unit: 35.8 },
   { name: 'KG trubka DN 110 × 3,2 mm – 1 m, SN 4', img: '_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg', q: 6, unit: 98.5 },
@@ -79,8 +87,8 @@ class Component extends DCLogic {
   componentDidMount() { if (this.props.onClose && this.closeEl) this.closeEl.focus(); }
   fmt(n) { return n.toLocaleString('cs-CZ', { maximumFractionDigits: 1 }) + ' Kč'; }
   renderVals() {
-    const raw = Array.isArray(this.props.lines) ? this.props.lines : DEMO;
-    const lines = raw.map(l => ({ name: l.name, img: l.img, qty: l.q + ' ks × ' + this.fmt(l.unit), price: this.fmt(l.q * l.unit) }));
+    const raw = Array.isArray(this.props.lines) ? this.props.lines : (this.state && this.state.demo) || DEMO;
+    const lines = raw.map((l, i) => ({ name: l.name, img: l.img, qty: l.q + ' ks × ' + this.fmt(l.unit), price: this.fmt(l.q * l.unit), delLabel: 'Odebrat z košíku: ' + l.name, del: () => { if (this.props.onRemove) this.props.onRemove(i); else this.setState({ demo: raw.filter((_, k) => k !== i) }); } }));
     const sum = raw.reduce((t, l) => t + l.q * l.unit, 0);
     const n = raw.reduce((t, l) => t + l.q, 0);
     const close = () => { if (this.props.onClose) this.props.onClose(); };

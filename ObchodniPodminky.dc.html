@@ -18,7 +18,7 @@
   --main: #cc0000;               /* červená: Koupit, AI asistent, badge košíku */
   --main-d: #a80000;
   --text: rgba(30,30,30,.9);
-  --text-weaker: rgba(30,30,30,.68);
+  --text-weaker: rgba(30,30,30,.63);
   --text-muted: #999;
   --bg: #fff;
   --bg-soft: #f8f8f8;
@@ -40,16 +40,16 @@
   --gutter-xxs:12px; --gutter-xs:16px; --gutter-s:16px; --gutter-m:24px; --gutter-l:24px; --gutter-xl:32px; --gutter-xxl:32px;
   --gutter: var(--gutter-xxs);
   --content-max: 1560px;
-  --section-gap: var(--space-6); --card-pad: var(--space-4); --grid-gap: var(--space-3);
+  --section-gap: 40px; --card-pad: var(--space-4); --grid-gap: var(--space-4);
   --font: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fs-h1:28px; --fs-h2:22px; --fs-h3:18px; --fs-h4:16px; --fs-body:15px; --fs-body-sm:13px; --fs-caption:12px; --fs-price-md:20px; --fs-price-sm:15px;
-  --lh-body:1.5;
+  --fs-h1:32px; --fs-h2:25px; --fs-h3:20px; --fs-h4:18px; --fs-body:17px; --fs-body-sm:15px; --fs-caption:14px; --fs-price-md:23px; --fs-price-sm:17px;
+  --lh-body:1.6;
 }
 @media (min-width:420px){:root{--gutter:var(--gutter-xs)}}
 @media (min-width:550px){:root{--gutter:var(--gutter-s)}}
-@media (min-width:820px){:root{--gutter:var(--gutter-m);--section-gap:var(--space-7);--card-pad:var(--space-5);--grid-gap:var(--space-4);--fs-h1:32px;--fs-h2:24px;--fs-h3:20px}}
+@media (min-width:820px){:root{--gutter:var(--gutter-m);--section-gap:var(--space-8);--card-pad:var(--space-5);--grid-gap:20px;--fs-h1:36px;--fs-h2:27px;--fs-h3:23px}}
 @media (min-width:1000px){:root{--gutter:var(--gutter-l)}}
-@media (min-width:1150px){:root{--gutter:var(--gutter-xl);--section-gap:var(--space-8);--fs-h1:40px;--fs-h2:28px;--fs-h3:22px;--fs-h4:18px;--fs-body:16px;--fs-body-sm:14px;--fs-price-md:22px;--fs-price-sm:16px}}
+@media (min-width:1150px){:root{--gutter:var(--gutter-xl);--section-gap:80px;--grid-gap:var(--space-5);--fs-h1:45px;--fs-h2:32px;--fs-h3:25px;--fs-h4:20px;--fs-body:18px;--fs-body-sm:16px;--fs-price-md:25px;--fs-price-sm:18px}}
 @media (min-width:1440px){:root{--gutter:var(--gutter-xxl)}}
 
 *{box-sizing:border-box}
@@ -68,14 +68,14 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* ---- tlačítka (00b) ---- */
-.button{background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:var(--btn-h-md);padding:0 20px;font:600 15px/1 var(--font);border:1px solid transparent;border-radius:var(--btn-radius);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
+.button{background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:var(--btn-h-md);padding:0 20px;font:600 17px/1 var(--font);border:1px solid transparent;border-radius:var(--btn-radius);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
 .button:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--primary)}
 .button.-main{background:var(--main);color:#fff;border-color:var(--main)}.button.-main:hover{background:var(--main-d);border-color:var(--main-d)}
 .button.-primary{background:var(--primary);color:#fff;border-color:var(--primary)}.button.-primary:hover{background:var(--primary-d);border-color:var(--primary-d)}
 .button.-secondary{background:transparent;color:var(--primary-d);border-color:var(--primary)}.button.-secondary:hover{background:var(--primary-10)}
 .button.-neutral{background:var(--input-bg-soft);color:var(--text);border-color:var(--input-border)}.button.-neutral:hover{background:#e9ebeb}
 .button.-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.button.-ghost:hover{background:rgba(255,255,255,.12)}
-.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:13px}.button.-sm .icon{width:16px;height:16px}
+.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:15px}.button.-sm .icon{width:16px;height:16px}
 .button.-icon{width:var(--btn-h-md);padding:0}.button.-icon.-sm{width:var(--btn-h-sm)}
 .button.disabled{opacity:.45;pointer-events:none}
 
@@ -93,7 +93,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .SimpleSearchView input.query:focus,.SimpleSearchView input.query:focus-visible,.mobileSearch input:focus,.mobileSearch input:focus-visible{outline:none;box-shadow:none}
 .SimpleSearchView .dcQuery a.search:focus-visible,.mobileSearch .dcQuery .button:focus-visible{outline:none;box-shadow:none;background:var(--primary-10)}
 .SimpleSearchView .dcQuery a.search{border-radius:0 var(--radius-sm) var(--radius-sm) 0;height:100%}
-.SimpleSearchView input.query{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:16px;color:var(--text)}
+.SimpleSearchView input.query{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:18px;color:var(--text)}
 .SimpleSearchView input.query::placeholder{color:var(--text-muted)}
 .SimpleSearchView a.search{color:var(--primary);background:transparent;border-color:transparent}
 .SimpleSearchView a.search:hover{background:var(--primary-10)}
@@ -108,12 +108,12 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .ContactsView{align-items:center}
 .LoginUserView > .button,.SimpleBasketView > .button{color:var(--text);position:relative}
 .LoginUserView > .button:hover,.SimpleBasketView > .button:hover{background:var(--primary-10)}
-.SimpleBasketView .count{position:absolute;top:4px;right:4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--main);color:#fff;font:700 11px/18px var(--font);text-align:center}
+.SimpleBasketView .count{position:absolute;top:4px;right:4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--main);color:#fff;font:700 12px/20.2px var(--font);text-align:center}
 .hamburger,.search-mobile{display:none}
 .mobileSearch{display:none;padding-block:0 var(--space-3)}
 .mobileSearch .dcQuery{display:flex;align-items:center;height:var(--btn-h-md);background:var(--bg-soft);border:1px solid var(--bg-soft);border-radius:var(--radius-sm)}
 .mobileSearch .dcQuery:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(101,188,71,.25)}
-.mobileSearch input{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:16px;color:var(--text)}
+.mobileSearch input{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:18px;color:var(--text)}
 .mobileSearch .button{color:var(--primary);border-color:transparent}
 
 /* ---- MenuCategoriesRwdView (horizontální, ikony + uppercase) ---- */
@@ -146,7 +146,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .SliderRwdView .slide img{height:100%;width:auto;max-height:360px;object-fit:contain}
 .SliderRwdView .uc-slide{position:relative;display:grid;justify-content:center;height:100%}
 .SliderRwdView .uc-slide-text{display:none;position:absolute;inset:0 auto auto 0;padding:var(--space-5);color:rgba(0,0,0,.45);pointer-events:none}
-.SliderRwdView .uc-slide-text h2{font-size:clamp(28px,5vw,62px);font-weight:700;line-height:1}
+.SliderRwdView .uc-slide-text h2{font-size:clamp(32px,5.625vw,70px);font-weight:700;line-height:1}
 .SliderRwdView .pagination{position:absolute;left:50%;bottom:var(--space-3);translate:-50% 0;display:flex;gap:6px;z-index:2}
 .SliderRwdView .pagination button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:#dfe3e1;cursor:pointer;transition:transform .15s,background .15s}
 .SliderRwdView .pagination button.active{background:var(--primary);transform:scale(1.4)}
@@ -158,7 +158,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .usp .item{display:flex;gap:var(--space-3);align-items:flex-start}
 .usp img{width:36px;height:36px;flex:0 0 auto}
 .usp h4{font-size:var(--fs-h4);color:var(--primary-text);font-weight:700;line-height:1.25}
-.usp p{margin:4px 0 0;font-size:var(--fs-body-sm);line-height:1.4}
+.usp p{margin:4px 0 0;font-size:var(--fs-body-sm);line-height:1.4;color:var(--text-weaker)}
 
 .HeadingView{font-size:var(--fs-h1);font-weight:400;text-align:center;letter-spacing:-.01em}
 
@@ -180,13 +180,13 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .ProductView .ActionIconsView{position:absolute;top:var(--space-3);left:var(--space-3);right:var(--space-3);display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:1}
 .ProductView .icons{display:flex;flex-direction:column;gap:var(--space-1);align-items:flex-start}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 var(--space-2);border-radius:var(--radius-xs);font:600 var(--fs-caption)/1 var(--font);color:#fff;white-space:nowrap}
-.badge.discount{background:var(--flag-discount);color:var(--flag-discount-fg);font-size:13px;font-weight:700;height:24px}
+.badge.discount{background:var(--flag-discount);color:var(--flag-discount-fg);font-size:15px;font-weight:700;height:24px}
 .badge.flag01{background:var(--flag-akce)}.badge.flag00{background:var(--flag-novinka)}.badge.flag02{background:var(--flag-doporucujeme)}.badge.flag03{background:var(--flag-vyprodej)}
 .ProductView a.image{display:flex;align-items:center;justify-content:center;aspect-ratio:220/200;margin-bottom:var(--space-3)}
 .ProductView a.image img{max-height:100%;width:auto;object-fit:contain}
 .ProductView h2{font-size:var(--fs-h4);font-weight:700;line-height:1.3;margin-bottom:var(--space-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .ProductView h2 a{color:var(--text)}.ProductView h2 a:hover{color:var(--primary-d)}
-.PackageInfo{display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-3);font-size:14px;line-height:1.4;color:rgba(30,30,30,.78);margin-bottom:var(--space-4)}
+.PackageInfo{display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-3);font-size:16px;line-height:1.4;color:rgba(30,30,30,.66);margin-bottom:var(--space-4)}
 .PackageInfo .caption{font-weight:600;color:var(--text)}
 .ProductView .bottom{margin-top:auto;display:flex;flex-direction:column;gap:var(--space-2)}
 .ProductView .prices{display:flex;flex-direction:column;gap:2px}
@@ -196,12 +196,12 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .price.retail{font-size:var(--fs-body-sm);color:var(--text-weaker);text-decoration:line-through}
 .AddToCartView{display:flex;gap:var(--space-2);align-items:center}
 .stepper{display:inline-flex;height:var(--btn-h-md)}
-.stepper .button{border-radius:0;width:36px;background:#fff;color:var(--text);border-color:var(--input-border);font-size:18px}
+.stepper .button{border-radius:0;width:36px;background:#fff;color:var(--text);border-color:var(--input-border);font-size:20px}
 .stepper .button:hover{background:var(--primary-10);color:var(--primary-d)}
 .stepper .button.disabled{opacity:1;color:var(--text-muted);pointer-events:none}
 .stepper .button:first-child{border-radius:var(--btn-radius) 0 0 var(--btn-radius)}
 .stepper .button:last-child{border-radius:0 var(--btn-radius) var(--btn-radius) 0}
-.stepper input{width:44px;height:100%;border:1px solid var(--input-border);border-inline:0;border-radius:0;text-align:center;font:inherit;font-size:16px;font-weight:600;color:var(--text);background:#fff;color-scheme:light;appearance:textfield;-moz-appearance:textfield;padding:0}
+.stepper input{width:44px;height:100%;border:1px solid var(--input-border);border-inline:0;border-radius:0;text-align:center;font:inherit;font-size:18px;font-weight:600;color:var(--text);background:#fff;color-scheme:light;appearance:textfield;-moz-appearance:textfield;padding:0}
 .stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
 .AddToCartView a.buy{flex:1 1 auto}
 .AvailabilityView{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-body-sm);font-weight:500}
@@ -247,7 +247,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
   .usp{grid-template-columns:repeat(3,1fr)}
   .benefits{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:819px){
+@media (max-width:999px){ /* hlavička s hamburgerem už pod 1000 px */
   .HeaderView{grid-template-columns:minmax(0,1fr) auto auto auto auto;gap:var(--space-2);min-height:60px}
   .LogoView img{height:auto;max-height:40px;width:auto;max-width:100%}
   .SimpleSearchView .dcQuery,.SimpleSearchView .ai span{display:none}
@@ -257,6 +257,8 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
   .hamburger{display:inline-flex;background:var(--primary);color:#fff;border-color:var(--primary)}
   .search-mobile{display:none}
   .MenuCategoriesRwdView{display:none}
+}
+@media (max-width:819px){
   .ProductsView .items{grid-auto-columns:calc((100% - var(--grid-gap))/2)}
   .ProductsView{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "items" "nav";row-gap:var(--space-4)}
   .ProductsView .nav{justify-self:end;margin-top:var(--space-2)}
@@ -287,10 +289,10 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .hero .slide.-grey{--hero-bg:#f2f3f2}
 .hero .stage.-red{background:#fdecea}.hero .stage.-dark{background:#1f2a1c;color:#fff}.hero .stage.-grey{background:#f2f3f2}.hero .stage.-green{background:#eef7ea}
 .hero .copy{display:grid;gap:var(--space-4);align-content:center;max-width:52ch}
-.hero .kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-size:15px;font-weight:600;color:var(--hero-accent)}
+.hero .kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-size:17px;font-weight:600;color:var(--hero-accent)}
 .hero .kicker::before{content:"";width:24px;height:3px;background:var(--hero-accent);border-radius:2px}
-.hero h2{font-size:clamp(26px,2.6vw,36px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:inherit}
-.hero p{margin:0;font-size:var(--fs-body-lg,17px);line-height:1.5;color:inherit;opacity:.85}
+.hero h2{font-size:clamp(29px,2.925vw,41px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:inherit}
+.hero p{margin:0;font-size:var(--fs-body-lg,19px);line-height:1.5;color:inherit;opacity:.85}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
 .hero .slide.-dark .button.-secondary{color:#fff;border-color:rgba(255,255,255,.6)}
 .hero .slide.-dark .button.-secondary:hover{background:rgba(255,255,255,.12)}
@@ -305,7 +307,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .hero .stage.-dark + .controls{background:var(--bg-soft)}
 .hero .tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:var(--space-2);min-width:0}
 .hero .tab{position:relative;display:grid;grid-template-columns:28px 1fr;gap:var(--space-2);align-items:center;text-align:left;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;color:var(--text-weaker);font:inherit;font-size:var(--fs-body-sm);line-height:1.3;cursor:pointer;min-height:44px;overflow:hidden}
-.hero .tab .num{position:relative;z-index:1;width:28px;height:28px;display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--text-weaker)}
+.hero .tab .num{position:relative;z-index:1;width:28px;height:28px;display:grid;place-items:center;font-size:16px;font-weight:700;color:var(--text-weaker)}
 .hero .tab .lbl{position:relative;z-index:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:500}
 .hero .tab:hover{border-color:var(--text-muted);color:var(--text)}
 .hero .tab[aria-selected="true"]{border-color:var(--primary);color:var(--text)}
@@ -323,7 +325,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 @media (max-width:999px){
   .hero .slide{grid-template-columns:1fr;gap:var(--space-5);padding:var(--space-6) var(--space-5)}
   .hero .visual{max-height:220px;aspect-ratio:16/9;order:-1;justify-self:stretch}
-  .hero h2{font-size:clamp(26px,5.5vw,34px)}
+  .hero h2{font-size:clamp(29px,6.188vw,38px)}
 }
 @media (max-width:819px){
   .hero{border-radius:var(--radius-md);margin-top:var(--space-3)}
@@ -341,11 +343,20 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 /* košík v hlavičce s cenou */
 .SimpleBasketView > .button{width:auto;padding:0 var(--space-3);gap:var(--space-2)}
 .SimpleBasketView .cartInfo{display:none;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
-.SimpleBasketView .cartInfo .ci-price{font-weight:700;font-size:15px;color:var(--text)}
-.SimpleBasketView .cartInfo .ci-items{font-size:12px;color:var(--text-weaker)}
+.SimpleBasketView .cartInfo .ci-price{font-weight:700;font-size:17px;color:var(--text)}
+.SimpleBasketView .cartInfo .ci-items{font-size:14px;color:var(--text-weaker)}
 .SimpleBasketView:not(.empty) .cartInfo{display:flex}
-.SimpleBasketView:not(.empty) .count{display:none}
-@media (max-width:819px){ .SimpleBasketView:not(.empty) .cartInfo{display:none} .SimpleBasketView:not(.empty) .count{display:block} .SimpleBasketView > .button{width:var(--btn-h-md);padding:0} }
+/* počet kusů jako notifikace v pravém horním rohu „pilulky“ košíku */
+.SimpleBasketView:not(.empty) .count{top:-4px;right:-4px;box-shadow:0 0 0 2px #fff}
+/* košík s obsahem: obtažená „pilulka“ s chevronem – stejně jako jméno přihlášeného uživatele */
+.SimpleBasketView .cartCaret{display:none;width:14px;height:14px;flex:none;color:var(--text-weaker);transition:transform .15s}
+.SimpleBasketView:not(.empty) > .button{border:1px solid var(--line);border-radius:var(--btn-radius,4px);padding:0 var(--space-3) 0 var(--space-4)}
+.SimpleBasketView:not(.empty) .cartCaret{display:block}
+.SimpleBasketView > .button[aria-expanded="true"] .cartCaret{transform:rotate(180deg)}
+.SimpleBasketView:not(.empty) > .button:hover,.SimpleBasketView:not(.empty) > .button[aria-expanded="true"],.LoginUserView .button.login.isIn:hover,.LoginUserView .button.login.isIn[aria-expanded="true"]{background:var(--primary-10);border-color:var(--primary)}
+@media (max-width:999px){ .SimpleBasketView:not(.empty) .cartInfo{display:none} .SimpleBasketView:not(.empty) .count{display:block;top:4px;right:4px;box-shadow:none}
+ .SimpleBasketView:not(.empty) > .button{border-color:transparent;padding:0}
+ .SimpleBasketView:not(.empty) .cartCaret{display:none} .SimpleBasketView > .button{width:var(--btn-h-md);padding:0} }
 
 /* ---- popupy a dialogy (03, 13) ---- */
 .bs-popup-overlay,.bs-dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1001}
@@ -361,7 +372,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .field{display:grid;gap:6px}
 .field__control{position:relative;display:flex}
 .field__control .icon{position:absolute;left:12px;top:50%;translate:0 -50%;color:var(--text-muted);pointer-events:none}
-.input{width:100%;height:var(--btn-h-md);padding:0 14px 0 40px;font:inherit;font-size:16px;color:var(--text);background:#fff;border:1px solid var(--input-border);border-radius:var(--radius-sm);appearance:none}
+.input{width:100%;height:var(--btn-h-md);padding:0 14px 0 40px;font:inherit;font-size:18px;color:var(--text);background:#fff;border:1px solid var(--input-border);border-radius:var(--radius-sm);appearance:none}
 .input:focus-visible{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(101,188,71,.25)}
 .check{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:var(--fs-body-sm)}
 .check input{position:absolute;opacity:0;width:0;height:0}
@@ -382,7 +393,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 #SimpleBasketPopup .empty{color:var(--text-weaker);margin:0 0 var(--space-4)}
 /* bs-dialog */
 .bs-dialog{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100% - 32px);width:min(740px,100% - 2*var(--gutter));z-index:1002;background:#fff;border-radius:var(--radius-lg);box-shadow:0 0 10px rgba(0,0,0,.2);overflow:auto;color:var(--text)}
-.bs-dialog .top{position:relative;padding:var(--space-5) var(--space-6) 0}
+.bs-dialog .top{position:relative;padding:var(--space-5) var(--space-6) var(--space-4);border-bottom:1px solid var(--line)}
 .bs-dialog .top .title{display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-h3);font-weight:500}
 .bs-dialog .top .title .icon{color:var(--success)}
 .bs-dialog .close{position:absolute;top:var(--space-3);right:var(--space-3)}
@@ -441,6 +452,27 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .chip:hover{border-color:var(--primary);color:var(--primary-d)}
 .dcHeader{position:relative}
 .LoginUserView,.SimpleBasketView{position:relative;z-index:1002}
+.LoginUserView:has(.popSlot),.SimpleBasketView:has(.popSlot){z-index:1003} /* otevřený popup (i s overlayem) nad sousedními tlačítky hlavičky */
+/* telefon v hlavičce i na tabletu a mobilu: 1000–1149 číslo bez e-mailu, 550–999 číslo vedle loga, pod 550 ikonové tlačítko */
+@media (max-width:1149px){
+  .HeaderView{grid-template-columns:auto minmax(0,1fr) auto auto auto}
+  .HeaderView .ContactsView{display:flex}
+  .HeaderView .ContactsView .email{display:none}
+}
+@media (max-width:999px){
+  .HeaderView{grid-template-columns:minmax(0,1fr) auto auto auto auto auto}
+  .HeaderView > *{order:2}
+  .HeaderView > .LogoView{order:0}
+  .HeaderView > .ContactsView{order:1;margin-right:var(--space-2)}
+}
+@media (max-width:549px){
+  .HeaderView > .ContactsView{margin-right:0}
+  .HeaderView .ContactsView .phone{justify-content:center;width:var(--btn-h-md);height:var(--btn-h-md);border:1px solid var(--line);border-radius:var(--btn-radius,4px);background:#fff}
+  .HeaderView .ContactsView .phone:hover{background:var(--primary-10);border-color:var(--primary)}
+  .HeaderView .ContactsView .phone .icon{width:22px;height:22px}
+  .HeaderView .ContactsView .phone .txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (max-width:419px){.HeaderView{gap:var(--space-2);grid-template-columns:minmax(0,1fr) auto auto auto auto}.HeaderView .ContactsView{display:none}} /* XXS: telefon v hlavičce schovat, ať zůstane místo pro logo */
 .SimpleSearchView{position:static}
 .HeaderView{position:relative;z-index:1002}
 /* AI asistent */
@@ -457,7 +489,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 #AiAssistantPopup .in{display:flex;gap:var(--space-2);padding:var(--space-3) var(--space-4);border-top:1px solid var(--line)}
 #AiAssistantPopup .in .input{padding-left:14px}
 /* mobilní hamburger menu – podoba C */
-@media (max-width:819px){
+@media (max-width:999px){
   #Login,#SimpleBasketPopup{position:fixed;left:var(--gutter);right:var(--gutter);top:auto;bottom:var(--gutter);width:auto}
   #DynamicSearchPopup .mini{grid-template-columns:1fr}
   #DynamicSearchPopup .mini .row{grid-template-columns:64px minmax(0,1fr) auto}
@@ -475,7 +507,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .stickyTop{position:sticky;top:0;z-index:400;background:#fff;transition:box-shadow .2s}
 body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 .dc-page.stuck .stickyTop{box-shadow:0 6px 18px rgba(0,0,0,.08)}
-@media (min-width:820px){
+@media (min-width:1000px){
   .MenuCategoriesRwdView{padding-bottom:var(--space-3)}
   .MenuCategoriesRwdView li.level_0 + li.level_0{border-left:1px solid rgba(255,255,255,.22)}
   .MenuCategoriesRwdView .image{display:block;overflow:hidden;max-height:28px;transition:max-height .2s,opacity .15s,margin .2s}
@@ -525,7 +557,7 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 }
 .stepper .button .icon{pointer-events:none}
 /* ===== hamburger menu (≤ 819 px) ===== */
-@media (max-width:819px){
+@media (max-width:999px){
   body.menuOpen{overflow:hidden}
   body.menuOpen .AiAssistantView .open{display:none}
   .hamburger.isOpen .icOpen{display:none}.hamburger.isOpen .icClose{display:block}
@@ -546,6 +578,12 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .MenuCategoriesRwdView.open li.expanded > .exp{color:var(--primary-d);background:var(--primary-10)}
   .MenuCategoriesRwdView.open li.expanded > .exp .icon{rotate:180deg}
   .MenuCategoriesRwdView.open li.expanded > ul.child{display:block}
+  /* plynulé rozbalení podkategorií v hamburger menu: řádek mřížky 0fr → 1fr */
+  .MenuCategoriesRwdView.open li.level_0.hasChild{display:grid;grid-template-rows:auto 0fr;transition:grid-template-rows .3s cubic-bezier(.2,.7,.2,1)}
+  .MenuCategoriesRwdView.open li.level_0.hasChild.expanded{grid-template-rows:auto 1fr}
+  .MenuCategoriesRwdView.open li.level_0.hasChild > ul.child{display:block;min-height:0;overflow:hidden;padding-bottom:0;visibility:hidden;opacity:0;transition:opacity .25s ease,visibility 0s linear .3s}
+  .MenuCategoriesRwdView.open li.level_0.hasChild.expanded > ul.child{visibility:visible;opacity:1;transition:opacity .25s ease .05s,visibility 0s}
+  .MenuCategoriesRwdView.open ul.child > li:last-child{padding-bottom:var(--space-3)}
   .MenuCategoriesRwdView.open ul.child{list-style:none;margin:0;padding:0 var(--gutter) var(--space-3) calc(var(--gutter) + 40px + var(--space-3))}
   .MenuCategoriesRwdView.open ul.child li{display:block}
   .MenuCategoriesRwdView.open ul.child a{display:flex;align-items:center;min-height:44px;color:var(--text);font-size:var(--fs-body);border-top:1px solid var(--line)}
@@ -556,11 +594,19 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .MenuInHamburger a{display:flex;align-items:center;justify-content:space-between;min-height:48px;color:var(--text);font-size:var(--fs-body);font-weight:500}
   .MenuInHamburger .icon{color:var(--text-muted)}
   .menuLogin{width:100%;background:#fff}
+  /* přihlášený: stejně jako v hlavičce – zaoblená „pilulka“ s iniciálami */
+  .menuLogin.isIn{justify-content:flex-start;gap:var(--space-3);height:auto;min-height:56px;padding:var(--space-2) var(--space-4) var(--space-2) var(--space-2);border:1px solid var(--line);border-radius:var(--btn-radius,4px);color:var(--text);text-align:left}
+  .menuLogin.isIn:hover{background:var(--primary-10);border-color:var(--primary)}
+  .menuUser{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 auto}
+  .menuUser b{font-weight:600;line-height:1.2}
+  .menuUser small{font-weight:400;font-size:var(--fs-body-sm);color:var(--text-weaker);line-height:1.2}
+  .menuLogin .menuUserGo{color:var(--text-weaker)}
   .menuContacts{display:grid!important;gap:var(--space-3)}
   .menuContacts a{display:grid;grid-template-columns:40px minmax(0,1fr);gap:var(--space-3);align-items:center;color:var(--text)}
   .menuContacts .icon{justify-self:center;width:24px;height:24px;color:var(--primary-d)}
   .menuContacts b{display:block;font-weight:600}.menuContacts small{color:var(--text-weaker);font-size:var(--fs-body-sm)}
 }
+@media (prefers-reduced-motion:reduce){.MenuCategoriesRwdView.open li.level_0.hasChild,.MenuCategoriesRwdView.open li.level_0.hasChild > ul.child{transition:none}}
 /* taste-skill: hover mikroanimace – fotka se v rámečku přiblíží o 3 % */
 .ProductView a.image img{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 .ProductView:hover a.image img{transform:scale(1.03)}
@@ -569,7 +615,7 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 
 /* ===== společné pro podstránky ===== */
 .button.-text{background:transparent;color:var(--primary-d);padding:0 var(--space-2);border-color:transparent}.button.-text:hover{background:var(--primary-10)}
-.button.-lg{height:var(--btn-h-lg);padding:0 28px;font-size:17px}
+.button.-lg{height:var(--btn-h-lg);padding:0 28px;font-size:19px}
 .BreadcrumbView{margin:var(--space-4) 0 var(--space-2)}
 .BreadcrumbView .path{display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-body-sm);white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .BreadcrumbView a{color:var(--text-weaker);display:inline-flex;align-items:center}.BreadcrumbView a:hover{color:var(--primary-d)}
@@ -583,7 +629,7 @@ main:not([data-page="home"]) .userContent a{color:var(--primary-d);text-decorati
 
 /* ===== kategorie ===== */
 .catHead{display:grid;gap:var(--space-3);margin-bottom:var(--space-5)}
-.catHead .userContent p{margin:0;color:rgba(30,30,30,.78)}
+.catHead .userContent p{margin:0;color:rgba(30,30,30,.66)}
 /* FlatCategoriesRwdView – karty podkategorií */
 .ChildCategories ul.root{list-style:none;margin:0 0 var(--space-6);padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--grid-gap)}
 .ChildCategories li a{display:grid;grid-template-columns:44px minmax(0,1fr) 16px;align-items:center;gap:var(--space-3);min-height:64px;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--card-radius);background:#fff;color:var(--text);transition:border-color .15s,box-shadow .15s}
@@ -727,7 +773,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDImage .slide img{max-width:84%;max-height:84%;object-fit:contain;transition:transform .2s;user-select:none;-webkit-user-drag:none}
 .PDImage .slide:hover img{transform:scale(1.04)}
 .PDImage .slide:focus-visible{outline:2px solid var(--primary);outline-offset:-4px}
-.phBox{display:grid;place-items:center;align-content:center;gap:var(--space-2);width:100%;height:100%;color:var(--text-muted);font-size:14px;background:repeating-linear-gradient(135deg,#fff 0 12px,#f4f4f4 12px 24px)}
+.phBox{display:grid;place-items:center;align-content:center;gap:var(--space-2);width:100%;height:100%;color:var(--text-muted);font-size:16px;background:repeating-linear-gradient(135deg,#fff 0 12px,#f4f4f4 12px 24px)}
 .phBox .icon{width:40px;height:40px}
 .PDImage .PDActionIcons{position:absolute;top:var(--space-4);left:var(--space-4);z-index:2;pointer-events:none}
 .PDImage .PDActionIcons .icons{display:flex;flex-direction:column;gap:var(--space-1);align-items:flex-start}
@@ -743,7 +789,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDImage .images .item{flex:0 0 72px;height:72px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;padding:6px;cursor:pointer}
 .PDImage .images .item img{max-width:100%;max-height:100%;object-fit:contain}
 .PDImage .images .item.active{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
-.PDImage .images .item.ph{color:var(--text-muted);font-size:11px;text-align:center;line-height:1.2}
+.PDImage .images .item.ph{color:var(--text-muted);font-size:12px;text-align:center;line-height:1.2}
 .PDImage .dots{display:none;justify-content:center;align-items:center;gap:0;min-height:24px}
 .PDImage .dots button{display:grid;place-items:center;height:24px;padding:0 3px;border:0;background:transparent;cursor:pointer}
 .PDImage .dots button::before{content:"";display:block;width:8px;height:8px;border-radius:4px;background:var(--line-strong,#c9cdcf);transition:width .3s cubic-bezier(.4,0,.2,1),background-color .3s}
@@ -767,7 +813,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{position:absolute;top:50%;translate:0 -50%;width:48px;height:48px}
 .GalleryLoaderView .lbPrev{left:12px}.GalleryLoaderView .lbNext{right:12px}
 .GalleryLoaderView .lbThumbs{display:flex;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--gutter) max(var(--space-4),env(safe-area-inset-bottom,0px));overflow-x:auto;scrollbar-width:none}
-.GalleryLoaderView .lbThumbs .item{flex:0 0 64px;height:64px;display:grid;place-items:center;padding:4px;border:2px solid transparent;border-radius:var(--radius-sm);background:#fff;cursor:pointer;opacity:.55;color:var(--text-muted);font-size:10px;line-height:1.15;text-align:center;transition:opacity .15s}
+.GalleryLoaderView .lbThumbs .item{flex:0 0 64px;height:64px;display:grid;place-items:center;padding:4px;border:2px solid transparent;border-radius:var(--radius-sm);background:#fff;cursor:pointer;opacity:.55;color:var(--text-muted);font-size:11px;line-height:1.15;text-align:center;transition:opacity .15s}
 .GalleryLoaderView .lbThumbs .item img{max-width:100%;max-height:100%;object-fit:contain}
 .GalleryLoaderView .lbThumbs .item.active{opacity:1;border-color:var(--primary)}
 /* výhody (USP) – 3 sloupce, ikona nad textem; pod 550 px řádky */
@@ -782,7 +828,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .buyBox{display:grid;gap:var(--space-4);padding:var(--space-5);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-soft)}
 .dcAvailability{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-4);flex-wrap:wrap}
 .PDTable{display:flex;flex-direction:column;gap:2px}
-.PDTable .price.primary{font-size:var(--fs-price-lg,32px);line-height:1.1}
+.PDTable .price.primary{font-size:var(--fs-price-lg,36px);line-height:1.1}
 .PDTable .currency{font-size:.7em;font-weight:600}
 .PDAvailabilityInfo{font-size:var(--fs-body);font-weight:600;padding-bottom:4px}
 .PDAvailabilityInfo .storeCount{font-weight:400}
@@ -792,8 +838,8 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDAvailabilityPanel .date{margin-left:auto;font-weight:600;color:var(--text)}
 .PDAddToCart{display:flex;gap:var(--space-3);align-items:stretch}
 .stepper.-lg{height:var(--btn-h-lg)}
-.stepper.-lg .button{width:44px;height:100%;font-size:20px}
-.stepper.-lg input{width:56px;font-size:18px}
+.stepper.-lg .button{width:44px;height:100%;font-size:23px}
+.stepper.-lg input{width:56px;font-size:20px}
 .PDAddToCart .buy{flex:1 1 auto}
 .PDTotalPrice{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--fs-body-sm);color:var(--text-weaker);margin-top:calc(-1*var(--space-2))}
 .PDTotalPrice .totalPrice{font-size:var(--fs-price-md);font-weight:700;color:var(--text)}
@@ -808,7 +854,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDTabsMaster .tab:hover{color:var(--text)}
 .PDTabsMaster .tab.selected{color:var(--primary-d)}
 .PDTabsMaster .tab.selected::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--primary);border-radius:3px 3px 0 0}
-.PDTabsMaster .tab .n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--bg-soft);font-size:12px;color:var(--text-weaker)}
+.PDTabsMaster .tab .n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--bg-soft);font-size:14px;color:var(--text-weaker)}
 .PDTabsMaster .tabPage{display:none}
 .PDTabsMaster .tabPage.selected{display:block}
 .PDTabsMaster .acc{display:none}
@@ -821,14 +867,14 @@ table.params td.caption{width:40%;font-weight:600;color:var(--text)}
 .PDMedia{display:grid;gap:var(--space-2);max-width:560px}
 .PDMedia .file{display:grid;grid-template-columns:44px 1fr;gap:var(--space-3);align-items:center;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text)}
 .PDMedia .file:hover{border-color:var(--primary)}
-.PDMedia .ext{display:grid;place-items:center;height:44px;border-radius:var(--radius-xs);background:#fdecea;color:var(--main);font-size:11px;font-weight:700}
+.PDMedia .ext{display:grid;place-items:center;height:44px;border-radius:var(--radius-xs);background:#fdecea;color:var(--main);font-size:12px;font-weight:700}
 .PDMedia .n{display:grid;font-weight:500}.PDMedia small{color:var(--text-weaker);font-weight:400}
 .PDForum .emptyState{max-width:560px;padding:var(--space-5);border:1px dashed var(--line);border-radius:var(--radius-lg)}
 .PDForum .topicListTitle{font-size:var(--fs-h3);font-weight:700;margin-bottom:var(--space-2)}
 .PDForum .topicListDescription{margin:0 0 var(--space-4);color:var(--text-weaker);line-height:1.5}
 .PDProductReviewSummary .mainBox{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center;padding:var(--space-5);border-radius:var(--radius-lg);background:var(--bg-soft);max-width:860px}
 .PDProductReviewSummary .score{display:grid;justify-items:center;gap:var(--space-1)}
-.averageRatingPercent{font-size:40px;font-weight:700;line-height:1}
+.averageRatingPercent{font-size:45px;font-weight:700;line-height:1}
 .totalReviewCount{font-size:var(--fs-body-sm);color:var(--text-weaker)}
 .PDProductReviewSummary .chart{display:grid;gap:6px;min-width:200px}
 .PDProductReviewSummary .chart .row{display:grid;grid-template-columns:36px 1fr 24px;gap:var(--space-2);align-items:center;font-size:var(--fs-caption);color:var(--text-weaker)}
@@ -920,7 +966,7 @@ main[hidden]{display:none!important}
 .FooterView .uc-footer{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:var(--space-6);align-items:start;padding-block:var(--space-7) var(--space-6)}
 .FooterView h3{color:var(--footer-ink);font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--space-3)}
 .fContact{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:var(--space-5)}
-.fContact .fPhone{display:inline-block;font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.01em;color:var(--footer-ink);margin-bottom:var(--space-1)}
+.fContact .fPhone{display:inline-block;font-size:clamp(25px,2.475vw,32px);font-weight:700;letter-spacing:-.01em;color:var(--footer-ink);margin-bottom:var(--space-1)}
 .fContact .fHours{margin:0 0 var(--space-4);font-size:var(--fs-body-sm);color:var(--footer-muted)}
 .fContact .fMail{list-style:none;margin:0 0 var(--space-4);padding:0;display:grid;gap:var(--space-2)}
 .fContact .fMail li{display:flex;flex-wrap:wrap;gap:2px var(--space-3);align-items:baseline}
@@ -957,8 +1003,8 @@ main[hidden]{display:none!important}
 .rb-counter .d .sizer{visibility:hidden}
 .rb-counter .d .strip{position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.3,1.35,.5,1);will-change:transform}
 .rb-counter .d .strip span{height:1.2em;line-height:1.2em;text-align:center}
-.SimpleBasketView .count .rb-counter .d{height:18px;line-height:18px}
-.SimpleBasketView .count .rb-counter .d .strip span{height:18px;line-height:18px}
+.SimpleBasketView .count .rb-counter .d{height:18px;line-height:20.2px}
+.SimpleBasketView .count .rb-counter .d .strip span{height:18px;line-height:20.2px}
 .rb-bump{animation:rb-bump .45s cubic-bezier(.3,1.6,.5,1)}
 @keyframes rb-bump{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
 
@@ -984,7 +1030,7 @@ main[hidden]{display:none!important}
 /* ===== availability popover ===== */
 .availTip{position:relative;display:inline-flex;align-items:center;outline:none;cursor:help;border-radius:var(--radius-xs)}
 .availTip:focus-visible{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--primary)}
-.availPop{position:absolute;left:-10px;bottom:calc(100% + 10px);z-index:60;width:min(320px,82vw);padding:16px 18px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:14px;line-height:1.45;font-weight:400;color:var(--text);text-align:left;white-space:normal;cursor:default;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .16s cubic-bezier(.2,.7,.2,1),transform .16s cubic-bezier(.2,.7,.2,1),visibility 0s linear .16s;pointer-events:none}
+.availPop{position:absolute;left:-10px;bottom:calc(100% + 10px);z-index:60;width:min(320px,82vw);padding:16px 18px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:16px;line-height:1.45;font-weight:400;color:var(--text);text-align:left;white-space:normal;cursor:default;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .16s cubic-bezier(.2,.7,.2,1),transform .16s cubic-bezier(.2,.7,.2,1),visibility 0s linear .16s;pointer-events:none}
 .availPop::before{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
 .availTip:hover .availPop,.availTip:focus .availPop,.availTip:focus-within .availPop{opacity:1;visibility:visible;transform:none;transition-delay:0s;pointer-events:auto}
 .availPop p{margin:0 0 8px;font-weight:600;color:var(--text)}
@@ -1022,8 +1068,14 @@ main[hidden]{display:none!important}
 #iconSprite{position:absolute}
 /* našeptávač: produkty + kategorie (řádkový výpis) */
 .qsDrop{min-width:min(780px,92vw);padding:var(--space-3);max-height:min(78vh,640px)}
-@media (min-width:820px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:10%;right:10%;top:calc(100% - 12px);min-width:0}}
-@media (min-width:820px) and (max-width:1149px){.SimpleSearchView .qsDrop{left:0;right:0}}
+@media (min-width:1000px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:0;right:0;top:calc(100% - 12px);min-width:0}}
+@media (min-width:1000px) and (max-width:1149px){.SimpleSearchView .qsDrop{left:0;right:0}}
+/* našeptávač na všech šířkách jako megamenu: přes celou šíři okna, hned pod bílou částí hlavičky, bez rádiusů, obsah na ose webu */
+@media all{
+  .SimpleSearchView .qsDrop,.mobileSearch .qsDrop{left:calc((100% - var(--vw,100vw)) / 2);right:auto;width:var(--vw,100vw);min-width:0;max-width:none;padding:var(--space-4) max(var(--gutter),(var(--vw,100vw) - var(--content-max)) / 2);border-width:0 0 1px;border-radius:0;box-shadow:0 18px 30px rgba(0,0,0,.12)}
+  .SimpleSearchView .qsDrop{top:calc(100% - 3px)} /* lehký přesah do bílé hlavičky – žádná škvíra při zaokrouhlení */
+  .mobileSearch .qsDrop{top:calc(100% + var(--space-3) - 3px);max-height:calc(100dvh - var(--qs-top,124px))}
+}
 .qsGrid{display:grid;gap:var(--space-3)}
 .qsT{display:flex;align-items:center;gap:var(--space-2);margin:var(--space-1) var(--space-2) var(--space-2);font-size:var(--fs-body-sm);font-weight:700;color:var(--text)}
 .qsN{font-weight:500;color:var(--text-weaker);font-variant-numeric:tabular-nums}
@@ -1036,8 +1088,11 @@ main[hidden]{display:none!important}
 .qsRow .qsItem:hover .qsTxt b{text-decoration:underline}
 .qsAv{color:var(--primary-d);font-weight:500}
 .qsRow .qsPrice{font-size:var(--fs-body);font-weight:700;white-space:nowrap}
-.qsDrop .qsRow .button.qsBuy,.qsDrop .qsRow .button.qsBuy:hover{color:#fff;background:var(--main);border-color:var(--main);width:auto;height:var(--btn-h-sm);padding:0 12px}
-.qsAll{display:flex;width:fit-content;margin:var(--space-3) auto var(--space-1)}
+.qsDrop .qsRow .button.qsBuy{color:#fff;background:var(--main);border-color:var(--main);width:var(--btn-h-md);height:var(--btn-h-md);padding:0;justify-content:center;transition:background-color .15s,border-color .15s} /* Koupit jako ikonové tlačítko */
+.qsDrop .qsRow .button.qsBuy .icon{width:20px;height:20px}
+.qsDrop .qsRow .button.qsBuy:hover{color:#fff;background:var(--main-d);border-color:var(--main-d)}
+.qsDrop .qsRow .button.qsBuy:focus-visible{outline:2px solid var(--main);outline-offset:2px}
+.qsAll{display:flex;width:fit-content;margin:var(--space-3) 0 var(--space-1)}
 .qsAll .icon{width:16px;height:16px}
 .qsCats{background:var(--bg-soft);border-radius:var(--radius-md);padding:var(--space-2)}
 .qsCats ul{list-style:none;margin:0;padding:0}
@@ -1047,10 +1102,14 @@ main[hidden]{display:none!important}
 .qsCats a b{font-weight:600;color:var(--primary-d)}
 .qsCats a small{font-size:var(--fs-caption);color:var(--text-weaker)}
 .qsCats a .icon{flex:0 0 auto;width:16px;height:16px;color:var(--text-weaker)}
-@media (min-width:820px){.qsGrid.two{grid-template-columns:minmax(0,1fr) 260px;align-items:start}}
+.qsCats .button.qsCatsAll{display:flex;width:fit-content;max-width:100%;justify-content:flex-start;gap:var(--space-2);height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);margin:var(--space-3) 0 var(--space-1)} /* stejné jako „Zobrazit všechny produkty“ */
+.qsDrop .button.qsAll{background:#fff}
+.qsDrop .button.qsAll:hover{background:var(--primary-10)}
+.mobileSearch .qsDrop .button.qsAll{color:var(--primary-d);border-color:var(--primary)} /* .mobileSearch .button (ikona lupy) nesmí přebarvit tlačítka v našeptávači */
+@media (min-width:820px){.qsGrid.two{grid-template-columns:minmax(0,1fr) minmax(340px,34%);align-items:start}}
 #qm::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;flex:none;align-self:center;width:20px;height:20px;margin:0 var(--space-1) 0 var(--space-2);background-color:var(--text-weaker);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;cursor:pointer}
 #qm::-webkit-search-cancel-button:hover{background-color:var(--text)}
-@media (max-width:819px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsDrop{overflow-x:hidden}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i i" "p b";align-items:center;row-gap:0;padding:var(--space-2) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i;min-width:0;min-height:0}.qsRow .qsPrice{grid-area:p;justify-self:start;padding-left:calc(48px + 2 * var(--space-2))}.qsRow .qsBuy{grid-area:b;justify-self:end}.qsDrop .button.qsAll{width:100%;white-space:normal;height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);text-align:center}}
+@media (max-width:999px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsDrop{overflow-x:hidden}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i i" "p b";align-items:center;row-gap:0;padding:var(--space-2) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i;min-width:0;min-height:0}.qsRow .qsPrice{grid-area:p;justify-self:start;padding-left:calc(48px + 2 * var(--space-2))}.qsRow .qsBuy{grid-area:b;justify-self:end}.qsDrop .button.qsAll{width:fit-content;max-width:100%;white-space:normal;height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);text-align:left}}
 
 /* ===== quick order (B2B) ===== */
 .QuickOrder{margin-top:var(--section-gap);padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-soft)}
@@ -1177,30 +1236,30 @@ main[hidden]{display:none!important}
 .megaMenu.on{display:block;animation:mmIn .16s ease-out}
 .megaMenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
 @keyframes mmIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-.megaMenu .mmInner{max-width:var(--content-max);margin-inline:auto;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);padding:var(--space-4) var(--space-5) var(--space-5)}
-.mmHead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-3)}
-.mmHead b{font-size:18px;font-weight:700;color:var(--text)}
-.mmHead a{display:inline-flex;align-items:center;gap:6px;color:var(--primary-text);font-size:15px;font-weight:600;text-decoration:none}
+.megaMenu .mmInner{max-width:var(--content-max);margin-inline:auto;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);padding:var(--space-6) var(--space-7) var(--space-7)}
+.mmHead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-5);padding-bottom:var(--space-4);border-bottom:1px solid var(--line)}
+.mmHead b{font-size:30px;font-weight:700;line-height:1.2;color:var(--text)} /* nadpis kategorie v megamenu 1,5× (20 → 30 px) */
+.mmHead a{display:inline-flex;align-items:center;gap:6px;color:var(--primary-text);font-size:17px;font-weight:600;text-decoration:none}
 .mmHead a:hover{text-decoration:underline;text-underline-offset:3px}
 .mmHead a .icon{width:16px;height:16px;fill:currentColor}
-.mmGrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-2)}
+.mmGrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-3) var(--space-4)}
 .mmGrid li{display:block;min-width:0}
-.mmGrid a{display:flex;align-items:center;gap:var(--space-3);height:100%;min-height:64px;box-sizing:border-box;padding:var(--space-2) var(--space-3) var(--space-2) var(--space-2);border:1px solid var(--line);border-radius:var(--radius-md);color:var(--text);font-size:15px;font-weight:500;line-height:1.3;text-decoration:none;transition:border-color .15s,background-color .15s}
+.mmGrid a{display:flex;align-items:center;gap:var(--space-3);height:100%;min-height:76px;box-sizing:border-box;padding:var(--space-3) var(--space-4) var(--space-3) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-md);color:var(--text);font-size:17px;font-weight:500;line-height:1.3;text-decoration:none;transition:border-color .15s,background-color .15s}
 .mmGrid a:hover,.mmGrid a:focus-visible{border-color:var(--primary);background:#f4f9f1;color:var(--text);outline:none}
 .mmGrid a:focus-visible{box-shadow:0 0 0 2px var(--primary)}
 .mmGrid img{flex:0 0 64px;width:64px;height:48px;object-fit:contain;mix-blend-mode:multiply}
 .mmGrid span{min-width:0;overflow-wrap:break-word;hyphens:manual}
 .MenuCategoriesRwdView li.mmOn > .imageNameWrapper{background:rgba(0,0,0,.16)}
-@media (max-width:1149px){.mmGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:819px){.megaMenu{display:none!important}}
+@media (max-width:1149px){.mmGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:999px){.megaMenu{display:none!important}}
 @media (prefers-reduced-motion:reduce){.megaMenu.on{animation:none}}
 
 /* ---- Header popupy (komponenty LoginPopup / CartPopup) ---- */
 .popSlot{position:absolute;right:0;top:calc(100% + 8px);z-index:1002;animation:popIn .14s ease-out}
 @keyframes popIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .LoginUserView > .button[aria-expanded="true"],.SimpleBasketView > .button[aria-expanded="true"]{background:var(--primary-10)}
-@media (max-width:819px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
-@media (max-width:819px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
+@media (max-width:999px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
+@media (max-width:999px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
 @keyframes sheetUp{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.popSlot{animation:none}}
 
@@ -1210,12 +1269,12 @@ main[hidden]{display:none!important}
 /* ---- Doprava zdarma – progress v dialogu košíku ---- */
 #BasketResultDialog .notice{align-items:center}
 .frWrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
-.frMsg{font-size:15px;line-height:1.4;color:var(--text)}
+.frMsg{font-size:17px;line-height:1.4;color:var(--text)}
 .frMsg b{font-weight:700}
 .frWrap.done .frMsg b{color:var(--primary-text)}
 .frBar{position:relative;display:block;height:8px;border-radius:999px;background:#d3e8c9;overflow:hidden}
 .frBar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:var(--primary-surface);transition:width .5s cubic-bezier(.2,.7,.2,1)}
-.frScale{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--text-weaker)}
+.frScale{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--text-weaker)}
 /* ---- Sticky prvky pod hlavičkou (výška hlavičky z JS: --header-h) ---- */
 .CompoundFilter,.pdTop > .right{transition:top .2s}
 @media (prefers-reduced-motion:reduce){.frBar i,.CompoundFilter,.pdTop > .right{transition:none}}
@@ -1227,18 +1286,18 @@ main[hidden]{display:none!important}
 .ChildCategories li a::before,.ChildCategories li a::after{display:none}
 .ChildCategories .image{width:64px;height:48px;background:transparent;border-radius:0}
 .ChildCategories .image img{width:64px;height:48px;object-fit:contain;filter:none;mix-blend-mode:multiply}
-.ChildCategories .name{font-size:15px;font-weight:500;line-height:1.3}
+.ChildCategories .name{font-size:17px;font-weight:500;line-height:1.3}
 @media (max-width:1149px){.ChildCategories ul.root{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:999px){.ChildCategories ul.root{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:699px){.ChildCategories ul.root{grid-template-columns:repeat(2,minmax(0,1fr))}.ChildCategories li a{grid-template-columns:48px minmax(0,1fr);min-height:56px;gap:var(--space-2)}.ChildCategories .image,.ChildCategories .image img{width:48px;height:36px}.ChildCategories .name{font-size:14px}}
+@media (max-width:699px){.ChildCategories ul.root{grid-template-columns:repeat(2,minmax(0,1fr))}.ChildCategories li a{grid-template-columns:48px minmax(0,1fr);min-height:56px;gap:var(--space-2)}.ChildCategories .image,.ChildCategories .image img{width:48px;height:36px}.ChildCategories .name{font-size:16px}}
 
 /* ---- Hamburger menu: drawer zprava (≤ 819 px), XS/XXS přes celý displej ---- */
 .navHead,.navOverlay{display:none}
-@media (max-width:819px){
+@media (max-width:999px){
 .MenuCategoriesRwdView.open{position:fixed;top:0;right:0;bottom:0;left:auto;width:min(420px,88vw);margin:0;border-top:0;z-index:1200;background:#fff;overflow:auto;overscroll-behavior:contain;transform:translateX(100%);transition:transform .4s cubic-bezier(.65,0,.35,1);box-shadow:-16px 0 40px rgba(20,30,15,.2);padding:0 0 env(safe-area-inset-bottom,0px)}
 .MenuCategoriesRwdView.open.drawerIn{transform:none}
 .MenuCategoriesRwdView.open .navHead{display:flex;position:sticky;top:0;z-index:3;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:64px;padding:0 var(--space-2) 0 var(--gutter);background:#fff;border-bottom:1px solid var(--line)}
-.navHead b{font-size:18px;font-weight:700;color:var(--text)}
+.navHead b{font-size:20px;font-weight:700;color:var(--text)}
 .navClose{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius-sm);background:transparent;color:var(--text);cursor:pointer}
 .navClose:hover{background:var(--bg-soft)}
 .navClose svg{width:20px;height:20px}
@@ -1272,88 +1331,88 @@ body.filterOpen .AiAssistantView .open{display:none}
 .infoMain{padding-bottom:64px}
 .ipWrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start;margin-top:8px}
 .ipNav{position:sticky;top:calc(var(--header-h,120px) + 16px);background:#fff;border:1px solid #e3e6e1;border-radius:12px;padding:8px}
-.ipNav b{display:block;font-size:14px;font-weight:600;color:#4b5563;padding:10px 12px 6px}
+.ipNav b{display:block;font-size:16px;font-weight:600;color:#4b5563;padding:10px 12px 6px}
 .ipNav ul{list-style:none;margin:0;padding:0}
-.ipNav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#1f2937;text-decoration:none;font-size:15px;line-height:1.3}
+.ipNav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;color:#1f2937;text-decoration:none;font-size:17px;line-height:1.3}
 .ipNav a .ic{width:18px;height:18px;flex:none;color:#6b7280}
 .ipNav a:hover{background:#f3f5f2;color:#1f2937}
 .ipNav a[aria-current="page"]{background:var(--primary-10,#eff8eb);color:var(--primary-d,#3a7a27);font-weight:600}
 .ipNav a[aria-current="page"] .ic{color:var(--primary-d,#3a7a27)}
 .ipNav .ipAll{margin-top:6px;border-top:1px solid #e3e6e1;padding-top:6px}
 .ipHead{margin:0 0 28px;max-width:820px}
-.ipHead h1{font-size:36px;line-height:1.15;margin:0 0 10px;font-weight:700;color:#111827}
-.ipHead .lead{font-size:18px;line-height:1.55;color:#4b5563;margin:0}
-.ipBody{max-width:960px;color:#1f2937;font-size:16px;line-height:1.65}
+.ipHead h1{font-size:41px;line-height:1.15;margin:0 0 10px;font-weight:700;color:#111827}
+.ipHead .lead{font-size:20px;line-height:1.55;color:#4b5563;margin:0}
+.ipBody{max-width:none;color:#1f2937;font-size:18px;line-height:1.65}
 .ipBody a{color:var(--primary-d,#3a7a27)}
 .prose{max-width:760px}
-.prose h2,.ipBody>section>h2,.dept h2{font-size:22px;line-height:1.3;margin:36px 0 12px;font-weight:700;color:#111827}
+.prose h2,.ipBody>section>h2,.dept h2{font-size:25px;line-height:1.3;margin:36px 0 12px;font-weight:700;color:#111827}
 .prose section{scroll-margin-top:calc(var(--header-h,120px) + 24px)}
 .prose p{margin:0 0 12px}
 .prose ul,.prose ol{margin:0 0 14px;padding-left:22px}
 .prose li{margin:4px 0}
-.firmBox{display:flex;flex-wrap:wrap;gap:6px 24px;padding:16px 20px;border-radius:12px;background:#f6f7f5;border:1px solid #e3e6e1;font-size:15px;margin-bottom:12px}
-.contactLine{font-size:15px;color:#4b5563;margin:0 0 24px}
+.firmBox{display:flex;flex-wrap:wrap;gap:6px 24px;padding:16px 20px;border-radius:12px;background:#f6f7f5;border:1px solid #e3e6e1;font-size:17px;margin-bottom:12px}
+.contactLine{font-size:17px;color:#4b5563;margin:0 0 24px}
 .toc{border:1px solid #e3e6e1;border-radius:12px;padding:16px 20px;margin:0 0 8px;max-width:760px;background:#fff}
-.toc b{display:block;margin-bottom:8px;font-size:15px;font-weight:600;color:#4b5563}
+.toc b{display:block;margin-bottom:8px;font-size:17px;font-weight:600;color:#4b5563}
 .toc ol{list-style:none;margin:0;padding:0;columns:2;column-gap:32px}
 .toc li{break-inside:avoid;padding:3px 0}
-.toc a{text-decoration:none;font-size:15px}
+.toc a{text-decoration:none;font-size:17px}
 .toc a:hover{text-decoration:underline}
 .statRow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 0 32px}
 .statRow div{background:var(--primary-10,#eff8eb);border-radius:12px;padding:20px}
-.statRow b{display:block;font-size:30px;line-height:1.1;color:var(--primary-d,#3a7a27);font-weight:700}
-.statRow span{font-size:14px;color:#4b5563}
+.statRow b{display:block;font-size:34px;line-height:1.1;color:var(--primary-d,#3a7a27);font-weight:700}
+.statRow span{font-size:16px;color:#4b5563}
 .fleet{list-style:none!important;padding:0!important;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .fleet li{border:1px solid #e3e6e1;border-radius:10px;padding:12px 14px;margin:0!important}
-.fleet b{display:block}.fleet span{font-size:14px;color:#6b7280}
+.fleet b{display:block}.fleet span{font-size:16px;color:#6b7280}
 .hoursGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
 .iCard .hoursGrid{grid-template-columns:1fr;gap:10px;margin:0}
 .hoursGrid>div{border:1px solid #e3e6e1;border-radius:12px;padding:14px 16px;background:#fff}
 .iCard .hoursGrid>div{border:0;padding:0}
-.hoursGrid b{font-size:14px}
-.hoursGrid dl{display:grid;grid-template-columns:auto 1fr;gap:2px 16px;margin:6px 0 0;font-size:15px}
+.hoursGrid b{font-size:16px}
+.hoursGrid dl{display:grid;grid-template-columns:auto 1fr;gap:2px 16px;margin:6px 0 0;font-size:17px}
 .hoursGrid dt{color:#6b7280}.hoursGrid dd{margin:0;font-variant-numeric:tabular-nums}
 .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
 .cardRow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 8px}
 .iCard{border:1px solid #e3e6e1;border-radius:12px;padding:20px;background:#fff;display:flex;flex-direction:column;gap:8px}
 .iCard p{margin:0}
-.iCard .cap{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:#4b5563}
+.iCard .cap{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:600;color:#4b5563}
 .iCard .cap .ic{width:18px;height:18px}
-.iCard .sm{font-size:14px;color:#6b7280}
+.iCard .sm{font-size:16px;color:#6b7280}
 .iCard>a{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:500}
 .iCard>a .ic{width:18px;height:18px}
-.iCard .big{font-size:24px;font-weight:700;color:#111827}
+.iCard .big{font-size:27px;font-weight:700;color:#111827}
 .iCard .lnk .ic{width:16px;height:16px}
 .iCard.hl{background:var(--primary-10,#eff8eb);border-color:#cfe8c4}
 .iCard.hl .big{color:var(--primary-d,#3a7a27)}
 .ul.plain,.plain{list-style:none;margin:0;padding:0}.plain li{padding:2px 0}
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .person{min-width:0;display:flex;gap:14px;border:1px solid #e3e6e1;border-radius:12px;padding:18px;background:#fff}
-.ava{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--primary-10,#eff8eb);color:var(--primary-d,#3a7a27);font-weight:700;font-size:16px}
+.ava{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--primary-10,#eff8eb);color:var(--primary-d,#3a7a27);font-weight:700;font-size:18px}
 .person>div{min-width:0}
-.person h3{margin:0;font-size:17px;line-height:1.3}
-.person .role{margin:2px 0 10px;font-size:14px;color:#6b7280;line-height:1.4}
+.person h3{margin:0;font-size:19px;line-height:1.3}
+.person .role{margin:2px 0 10px;font-size:16px;color:#6b7280;line-height:1.4}
 .pLinks{display:flex;flex-direction:column;gap:4px}
-.pLinks a{display:inline-flex;align-items:center;gap:8px;font-size:15px;text-decoration:none;color:#1f2937;word-break:break-all}
+.pLinks a{display:inline-flex;align-items:center;gap:8px;font-size:17px;text-decoration:none;color:#1f2937;word-break:break-all}
 .pLinks a .ic{width:16px;height:16px;color:#6b7280;flex:none}
 .pLinks a:hover{color:var(--primary-d,#3a7a27)}
 .dept{margin-top:8px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:12px 0 24px;counter-reset:s}
 .steps>div{border:1px solid #e3e6e1;border-radius:12px;padding:16px;background:#fff}
-.steps span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--primary,#65bc47);color:#fff;font-weight:700;font-size:14px;margin-bottom:8px}
-.steps b{display:block;font-size:15px}.steps p{margin:4px 0 0;font-size:14px;color:#4b5563;line-height:1.45}
+.steps span{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--primary,#65bc47);color:#fff;font-weight:700;font-size:16px;margin-bottom:8px}
+.steps b{display:block;font-size:17px}.steps p{margin:4px 0 0;font-size:16px;color:#4b5563;line-height:1.45}
 .docList{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 16px}
-.docList a{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid #e3e6e1;border-radius:10px;background:#fff;color:#1f2937;text-decoration:none;font-size:15px;line-height:1.35;min-height:56px}
+.docList a{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid #e3e6e1;border-radius:10px;background:#fff;color:#1f2937;text-decoration:none;font-size:17px;line-height:1.35;min-height:56px}
 .docList a>span:nth-child(2){flex:1}
 .docIc{flex:none;width:40px;height:40px;border-radius:8px;background:#fdecec;color:#cc0000;display:grid;place-items:center}
 .docIc .ic{width:24px;height:24px}
 .docList .dl{width:20px;height:20px;color:#9ca3af;flex:none}
 .docList a:hover{border-color:var(--primary,#65bc47);color:#1f2937}
 .docList a:hover .dl{color:var(--primary-d,#3a7a27)}
-.note{margin-top:20px;font-size:15px;color:#4b5563}
+.note{margin-top:20px;font-size:17px;color:#4b5563}
 .emptyJobs{max-width:620px;border:1px dashed #cfd4cc;border-radius:16px;padding:40px;text-align:center;background:#fafbf9}
 .emptyJobs .big{width:48px;height:48px;color:var(--primary,#65bc47)}
-.emptyJobs h2{font-size:22px;margin:12px 0 8px}
+.emptyJobs h2{font-size:25px;margin:12px 0 8px}
 .emptyJobs p{color:#4b5563;margin:0 0 20px}
 @media (max-width:1023px){.ipWrap{grid-template-columns:minmax(0,1fr);gap:20px}
  .ipNav{position:static;padding:0;border:0;background:none}
@@ -1361,14 +1420,17 @@ body.filterOpen .AiAssistantView .open{display:none}
  .ipNav ul{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
  .ipNav ul::-webkit-scrollbar{display:none}
  .ipNav li{flex:none}
- .ipNav a{border:1px solid #e3e6e1;border-radius:999px;padding:8px 14px;white-space:nowrap;font-size:14px;background:#fff}
+ .ipNav a{border:1px solid #e3e6e1;border-radius:var(--radius-sm,4px);padding:8px 14px;white-space:nowrap;font-size:16px;background:#fff}
  .ipNav a[aria-current="page"]{border-color:#cfe8c4}
  .ipNav .ipAll{margin:0;border:0;padding:0}
  .people,.cardRow{grid-template-columns:repeat(2,1fr)}
  .statRow,.fleet,.steps{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:639px){.ipHead h1{font-size:28px}.ipHead .lead{font-size:16px}
+@media (max-width:639px){.ipHead h1{font-size:32px}.ipHead .lead{font-size:18px}
  .people,.cardRow,.docList,.hoursGrid{grid-template-columns:1fr}
  .toc ol{columns:1}.emptyJobs{padding:28px 20px}}
+#qm::-webkit-search-cancel-button{display:none}.qsClear{flex:none;display:grid;place-items:center;width:32px;height:32px;margin:0 2px 0 var(--space-1);padding:0;border:0;border-radius:var(--radius-sm);background:transparent;color:var(--primary);cursor:pointer}.qsClear .icon{width:20px;height:20px}.qsClear:hover{background:var(--primary-10)}.qsClear:focus-visible{outline:2px solid var(--primary);outline-offset:1px}
+@media (max-width:1439px){header .LoginUserView > .button,header .LoginUserView .button.login.isIn,header .SimpleBasketView > .button,header .SimpleBasketView:not(.empty) > .button{border:1px solid var(--line);border-radius:var(--btn-radius,4px)}header .LoginUserView > .button:hover,header .SimpleBasketView > .button:hover,header .LoginUserView > .button[aria-expanded="true"],header .SimpleBasketView > .button[aria-expanded="true"]{border-color:var(--primary)}}
+@media (min-width:1000px) and (max-width:1439px){.HeaderView .SimpleBasketView{margin-left:calc(var(--space-2) - var(--space-6))}}
 </style>
 </head>
 <body>
@@ -1378,20 +1440,44 @@ body.filterOpen .AiAssistantView .open{display:none}
 <style>
 body{margin:0}
 a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
-@media (min-width:820px){.HeaderView{column-gap:var(--space-6)}.SimpleSearchView .dcQuery{flex:0 1 80%;margin-left:auto}}
+@media (min-width:1000px){.HeaderView{column-gap:var(--space-6)}.SimpleSearchView .dcQuery{flex:0 1 80%;margin-left:auto}}
 
 .ipBody p a{text-decoration:underline;text-underline-offset:2px}
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--primary,#3a7a27);outline-offset:2px}
 .MenuCategoriesRwdView .imageNameWrapper:focus-visible{outline:2px solid #fff;outline-offset:-4px}
 .MenuCategoriesRwdView.open .imageNameWrapper:focus-visible{outline-color:var(--primary,#3a7a27)}
+/* ---- Menu varianta B (přepínač v Prezentaci, html[data-menu="B"]): na desktopu zelený pás přes celou šíři okna,
+   položky v kontejneru na šíři webu, místo si dělí podle délky názvu. Tablet (820–1439 px): pás také přes celou šíři,
+   položky se posouvají jako v A, první začíná na ose webu. Mobil má místo pásu vysouvací panel. ---- */
+@media (min-width:1000px){
+  html[data-menu="B"] .MenuCategoriesRwdView.bleed{padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView .menuScroll{width:100%;border-radius:0}
+  html[data-menu="B"] .dc-page .MenuCategoriesRwdView{padding-bottom:0} /* pás přes celou šíři: bez bílého proužku pod ním (i v přilepeném stavu) */
+  html[data-menu="B"] .MenuCategoriesRwdView ul.root{padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu,html[data-menu="B"] .dc-page.stuck .MenuCategoriesRwdView .megaMenu{top:100%;padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu::before{display:none}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu .mmInner{max-width:none;border-width:0 0 1px;border-radius:0;padding-inline:max(var(--gutter),(var(--vw,100vw) - var(--content-max)) / 2)} /* panel přes celou šíři, hned pod pásem, obsah na ose webu */
+}
+@media (min-width:1440px){
+  html[data-menu="B"] .MenuCategoriesRwdView ul.root{width:min(var(--content-max),100% - 2*var(--gutter));margin-inline:auto;padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView li{flex:1 1 auto;min-width:min-content}
+  html[data-menu="B"] .MenuCategoriesRwdView .name{overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+  html[data-menu="B"] .MenuCategoriesRwdView .imageNameWrapper{padding-inline:var(--space-1)}
+}
 
-.LoginUserView .button.login.isIn{width:auto;gap:var(--space-2);padding:0 var(--space-3) 0 var(--space-1);border:1px solid var(--line);border-radius:var(--radius-pill,999px)}
+.LoginUserView .button.login.isIn{width:auto;gap:var(--space-2);padding:0 var(--space-3) 0 var(--space-1);border:1px solid var(--line);border-radius:var(--btn-radius,4px)}
 .LoginUserView .button.login.isIn:hover,.LoginUserView .button.login.isIn[aria-expanded="true"]{background:var(--primary-10);border-color:var(--primary)}
-.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--primary-d);color:#fff;font:700 13px/1 var(--font);letter-spacing:.02em}
-.userName{font:500 15px/1.2 var(--font);color:var(--text);white-space:nowrap}
+.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:max(2px, calc(var(--btn-radius, 4px) - 1px));background:var(--primary-d);color:#fff;font:700 15px/1 var(--font);letter-spacing:.02em}
+.userName{font:500 17px/1.2 var(--font);color:var(--text);white-space:nowrap}
 .userCaret{width:14px;height:14px;color:var(--text-weaker);transition:transform .15s}
 .LoginUserView .button.login[aria-expanded="true"] .userCaret{transform:rotate(180deg)}
-@media (max-width:1439px){.userCaret{display:none}.userName{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.LoginUserView .button.login.isIn{width:var(--btn-h-md);padding:0;justify-content:center;border-color:transparent}}
+@media (max-width:1439px){.userCaret{display:none}.userName{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.LoginUserView .button.login.isIn{width:var(--btn-h-md);padding:0;justify-content:center;border-color:var(--line)}}
+/* mobilní hlavička: přihlášený uživatel jako plné tlačítko s iniciálami, bez obtažení, stejně velké jako ostatní tlačítka */
+@media (max-width:999px){
+  header .LoginUserView .button.login.isIn,header .LoginUserView .button.login.isIn:hover,header .LoginUserView .button.login.isIn[aria-expanded="true"]{border:0;padding:0;background:transparent;width:var(--btn-h-md);height:var(--btn-h-md)}
+  header .LoginUserView .button.login.isIn .userMono{width:100%;height:100%;border-radius:var(--btn-radius,4px);font-size:17px;transition:background-color .15s}
+  header .LoginUserView .button.login.isIn:hover .userMono,header .LoginUserView .button.login.isIn[aria-expanded="true"] .userMono{background:var(--primary)}
+}
 </style>
 </helmet>
 <div class="dc-page {{ stuckCls }} {{ dnCls }}"><svg width="0" height="0" aria-hidden="true" id="iconSprite"><defs><symbol id="i-arrows-out" viewBox="0 0 256 256"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"></path></symbol><symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></symbol><symbol id="i-caret-left" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></symbol><symbol id="i-caret-right" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></symbol><symbol id="i-caret-up" viewBox="0 0 256 256"><path d="M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z"></path></symbol><symbol id="i-check-circle" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></symbol><symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></symbol><symbol id="i-download-simple" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></symbol><symbol id="i-envelope-simple" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></symbol><symbol id="i-facebook-logo-fill" viewBox="0 0 256 256"><path d="M232,128a104.16,104.16,0,0,1-91.55,103.26,4,4,0,0,1-4.45-4V152h24a8,8,0,0,0,8-8.53,8.17,8.17,0,0,0-8.25-7.47H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,8-8.53A8.17,8.17,0,0,0,167.73,80H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0-8,8.53A8.17,8.17,0,0,0,96.27,152H120v75.28a4,4,0,0,1-4.44,4A104.15,104.15,0,0,1,24.07,124.09c2-54,45.74-97.9,99.78-100A104.12,104.12,0,0,1,232,128Z"></path></symbol><symbol id="i-file-pdf" viewBox="0 0 256 256"><path d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z"></path></symbol><symbol id="i-image" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></symbol><symbol id="i-info" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></symbol><symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></symbol><symbol id="i-lock" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></symbol><symbol id="i-magnifying-glass-plus" viewBox="0 0 256 256"><path d="M152,112a8,8,0,0,1-8,8H120v24a8,8,0,0,1-16,0V120H80a8,8,0,0,1,0-16h24V80a8,8,0,0,1,16,0v24h24A8,8,0,0,1,152,112Zm77.66,117.66a8,8,0,0,1-11.32,0l-50.06-50.07a88.11,88.11,0,1,1,11.31-11.31l50.07,50.06A8,8,0,0,1,229.66,229.66ZM112,184a72,72,0,1,0-72-72A72.08,72.08,0,0,0,112,184Z"></path></symbol><symbol id="i-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></symbol><symbol id="i-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></symbol><symbol id="i-minus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></symbol><symbol id="i-paper-plane-tilt" viewBox="0 0 256 256"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"></path></symbol><symbol id="i-pause" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></symbol><symbol id="i-phone" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></symbol><symbol id="i-play" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></symbol><symbol id="i-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></symbol><symbol id="i-robot" viewBox="0 0 256 256"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"></path></symbol><symbol id="i-shopping-cart" viewBox="0 0 256 256"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></symbol><symbol id="i-star-fill" viewBox="0 0 256 256"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"></path></symbol><symbol id="i-star-half-fill" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.4,16.4,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65A8,8,0,0,0,128,181.1V32c.24,0,.27.08.35.26L153,91.86a8,8,0,0,0,6.75,4.92l63.91,5.16c.16,0,.25,0,.34.29S224,102.63,223.84,102.73Z"></path></symbol><symbol id="i-star" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></symbol><symbol id="i-storefront" viewBox="0 0 256 256"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"></path></symbol><symbol id="i-truck" viewBox="0 0 256 256"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></symbol><symbol id="i-user" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></symbol><symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></symbol><symbol id="i-asistent" viewBox="0 0 24 24"><path d="M15.2,3.5c.3,0,.5.2.5.5,0,2.1,1.7,3.8,3.8,3.8s.5.2.5.5-.2.5-.5.5c-2.1,0-3.8,1.7-3.8,3.8s-.2.5-.5.5-.5-.2-.5-.5c0-2.1-1.7-3.8-3.8-3.8s-.5-.2-.5-.5.2-.5.5-.5c2.1,0,3.8-1.7,3.8-3.8s.2-.5.5-.5ZM20.1,1.3c.1,0,.2.1.2.2,0,.9.8,1.7,1.7,1.7s.2.1.2.2-.1.2-.2.2c-.9,0-1.7.8-1.7,1.7s-.1.2-.2.2-.2-.1-.2-.2c0-.9-.8-1.7-1.7-1.7s-.2-.1-.2-.2.1-.2.2-.2c.9,0,1.7-.8,1.7-1.7s.1-.2.2-.2ZM10.8,10.7c.1,0,.2,0,.2.2,0,.9.7,1.6,1.6,1.6s.2,0,.2.2,0,.2-.2.2c-.9,0-1.6.7-1.6,1.6s0,.2-.2.2-.2,0-.2-.2c0-.9-.7-1.6-1.6-1.6s-.2,0-.2-.2,0-.2.2-.2c.9,0,1.6-.7,1.6-1.6s0-.2.2-.2Z" fill="currentColor" stroke="none"></path><path d="M12.2,4.2h-7.3c-1.8,0-3.3,1.5-3.3,3.3v8.3c0,1.9,1.5,3.4,3.4,3.4h0v3.5l5-3.5h6.1c1.9,0,3.4-1.5,3.4-3.4v-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol><symbol id="i-ai-asistent" viewBox="0 0 24 24"><path d="M13.429 2.71426C13.727 2.71426 13.9709 2.95814 13.9709 3.25621C13.9709 5.35628 15.6736 7.0544 17.7691 7.0544C18.0672 7.0544 18.3111 7.29828 18.3111 7.59636C18.3111 7.89443 18.0672 8.13831 17.7691 8.13831C15.669 8.13831 13.9709 9.84095 13.9709 11.9365C13.9709 12.2346 13.727 12.4785 13.429 12.4785C13.1309 12.4785 12.887 12.2346 12.887 11.9365C12.887 9.83643 11.1844 8.13831 9.08883 8.13831C8.79075 8.13831 8.54688 7.89443 8.54688 7.59636C8.54688 7.29828 8.79075 7.0544 9.08883 7.0544C11.1889 7.0544 12.887 5.35177 12.887 3.25621C12.887 2.95814 13.1309 2.71426 13.429 2.71426ZM18.3156 0.541931C18.4511 0.541931 18.5549 0.650322 18.5549 0.781294C18.5549 1.71616 19.3092 2.47038 20.244 2.47038C20.375 2.47038 20.4834 2.57877 20.4834 2.70974C20.4834 2.84072 20.375 2.94911 20.244 2.94911C19.3092 2.94911 18.5549 3.70333 18.5549 4.6382C18.5549 4.76917 18.4466 4.87756 18.3156 4.87756C18.1846 4.87756 18.0762 4.76917 18.0762 4.6382C18.0762 3.70333 17.322 2.94911 16.3871 2.94911C16.2562 2.94911 16.1478 2.84072 16.1478 2.70974C16.1478 2.57877 16.2562 2.47038 16.3871 2.47038C17.322 2.47038 18.0762 1.71616 18.0762 0.781294C18.0762 0.650322 18.1846 0.541931 18.3156 0.541931ZM8.99975 10C9.12449 10 9.22012 10.0998 9.22012 10.2204C9.22012 11.0811 9.91451 11.7755 10.7752 11.7755C10.8958 11.7755 10.9956 11.8753 10.9956 11.9958C10.9956 12.1164 10.8958 12.2162 10.7752 12.2162C9.91451 12.2162 9.22012 12.9106 9.22012 13.7713C9.22012 13.8919 9.12033 13.9917 8.99975 13.9917C8.87917 13.9917 8.77937 13.8919 8.77937 13.7713C8.77937 12.9106 8.08499 12.2162 7.22428 12.2162C7.1037 12.2162 7.00391 12.1164 7.00391 11.9958C7.00391 11.8753 7.1037 11.7755 7.22428 11.7755C8.08499 11.7755 8.77937 11.0811 8.77937 10.2204C8.77937 10.0998 8.87917 10 8.99975 10Z" fill="currentColor" stroke="none"></path><path d="M14.9836 15.9982L20.9754 21.99M16.9809 11.003C16.9809 14.8641 13.8494 17.9955 9.98835 17.9955C6.12724 17.9955 3 14.8641 3 11.003C3 7.14189 6.12724 4.01465 9.98835 4.01465" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol></defs></svg><div id="Master" class="MasterView CustomMasterView v1a v1 bs-view Master">
@@ -1403,10 +1489,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
     <div id="SimpleSearch" class="SimpleSearchView v1a v1 bs-view SimpleSearch">
       <div class="dcQuery qsHost dc-con">
         <label class="sr" for="q">Hledat</label>
-        <input class="query" id="q" type="text" placeholder="Zadejte hledaný výraz..." onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}">
+        <input class="query" id="q" type="text" placeholder="Zadejte hledaný výraz..." onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><sc-if value="{{ qs.hasQ }}" hint-placeholder-val="{{ false }}"><button class="qsClear" type="button" aria-label="Smazat hledaný výraz" onMouseDown="{{ qs.keep }}" onClick="{{ qs.clear }}"><svg viewBox="0 0 256 256" class="icon -sm" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></sc-if>
         <a class="button -icon search" href="#" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></a>
       <sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
-<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -sm qsBuy" type="button" onClick="{{ it.buy }}">Koupit</button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">Zobrazit všechny produkty ({{ qs.total }})<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul></div></sc-if></div>
+<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -icon qsBuy" type="button" aria-label="Koupit {{ it.name }}" title="Koupit" onClick="{{ it.buy }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg></button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">{{ qs.allLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul><sc-if value="{{ qs.catsMore }}" hint-placeholder-val="{{ false }}"><a class="button -secondary qsAll qsCatsAll" href="Kategorie.dc.html">{{ qs.catsAllLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></sc-if></div></sc-if></div>
 <sc-if value="{{ qs.none }}" hint-placeholder-val="{{ false }}"><div class="qsEmpty"><b>Pro „{{ qs.q }}“ jsme nic nenašli.</b><p>Zkuste kód produktu (např. 89), dimenzi (DN 110) nebo část názvu (koleno). Poradí i technik na <a href="tel:+420739162221">+420 739 162 221</a>.</p></div></sc-if>
 </div></sc-if></div>
       
@@ -1421,13 +1507,13 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="LoginPopup" on-close="{{ closePop }}" on-login="{{ doLogin }}" hint-size="320px,420px"></dc-import></div></sc-if>
       <sc-if value="{{ userOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="UserMenu" user-name="Andrea Zelená" group="Prodejní" on-close="{{ closePop }}" on-logout="{{ doLogout }}" hint-size="320px,400px"></dc-import></div></sc-if>
       </div>
-    <div id="SimpleBasket" class="SimpleBasketView v1a v1 bs-view  small SimpleBasket {{ cart.emptyCls }}"><a class="button -icon goToBasketOverlay" href="#" onClick="{{ toggleCart }}" aria-label="Košík {{ cart.total }} {{ cart.items }}" aria-expanded="{{ cartExp }}" aria-haspopup="dialog"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span class="count" aria-hidden="true">{{ cart.count }}</span><span class="cartInfo"><span class="ci-price" id="ciPrice">{{ cart.total }}</span><span class="ci-items" id="ciItems">{{ cart.items }}</span></span></a>
-      <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="CartPopup" lines="{{ cartLines }}" on-close="{{ closePop }}" hint-size="360px,440px"></dc-import></div></sc-if>
+    <div id="SimpleBasket" class="SimpleBasketView v1a v1 bs-view  small SimpleBasket {{ cart.emptyCls }}"><a class="button -icon goToBasketOverlay" href="#" onClick="{{ toggleCart }}" aria-label="Košík {{ cart.total }} {{ cart.items }}" aria-expanded="{{ cartExp }}" aria-haspopup="dialog"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span class="count" aria-hidden="true">{{ cart.count }}</span><span class="cartInfo"><span class="ci-price" id="ciPrice">{{ cart.total }}</span></span><svg class="cartCaret" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></a>
+      <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="CartPopup" lines="{{ cartLines }}" on-close="{{ closePop }}" on-remove="{{ removeLine }}" hint-size="440px,440px"></dc-import></div></sc-if>
       </div>
     <button class="button -icon hamburger" id="hamburger" type="button" aria-expanded="false" aria-controls="MenuCategories" aria-label="Menu"><svg class="icon -md icClose" aria-hidden="true"><use href="#i-x"></use></svg><svg viewBox="0 0 256 256" class="icon -md icOpen" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg></button>
   </header>
-  <div class="mobileSearch container" role="search"><div class="dcQuery qsHost dc-con"><label class="sr" for="qm">Hledat</label><input id="qm" type="search" placeholder="Zadejte hledaný výraz..." autocomplete="off" onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><button class="button -icon" type="button" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></button><sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
-<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -sm qsBuy" type="button" onClick="{{ it.buy }}">Koupit</button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">Zobrazit všechny produkty ({{ qs.total }})<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul></div></sc-if></div>
+  <div class="mobileSearch container" role="search"><div class="dcQuery qsHost dc-con"><label class="sr" for="qm">Hledat</label><input id="qm" type="search" placeholder="Zadejte hledaný výraz..." autocomplete="off" onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><sc-if value="{{ qs.hasQ }}" hint-placeholder-val="{{ false }}"><button class="qsClear" type="button" aria-label="Smazat hledaný výraz" onMouseDown="{{ qs.keep }}" onClick="{{ qs.clear }}"><svg viewBox="0 0 256 256" class="icon -sm" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></sc-if><button class="button -icon" type="button" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></button><sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
+<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -icon qsBuy" type="button" aria-label="Koupit {{ it.name }}" title="Koupit" onClick="{{ it.buy }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg></button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">{{ qs.allLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul><sc-if value="{{ qs.catsMore }}" hint-placeholder-val="{{ false }}"><a class="button -secondary qsAll qsCatsAll" href="Kategorie.dc.html">{{ qs.catsAllLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></sc-if></div></sc-if></div>
 <sc-if value="{{ qs.none }}" hint-placeholder-val="{{ false }}"><div class="qsEmpty"><b>Pro „{{ qs.q }}“ jsme nic nenašli.</b><p>Zkuste kód produktu (např. 89), dimenzi (DN 110) nebo část názvu (koleno). Poradí i technik na <a href="tel:+420739162221">+420 739 162 221</a>.</p></div></sc-if>
 </div></sc-if></div></div>
 </div>
@@ -1456,10 +1542,11 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         <li><a href="ObchodniPodminky.dc.html"><span>Obchodní podmínky</span><svg class="icon -xs" aria-hidden="true"><use href="#i-caret-right"></use></svg></a></li>
       </ul>
     </div>
-    <a class="button -secondary menuLogin" href="#" id="menuLogin" onClick="{{ menuLoginGo }}"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>{{ auth.menuLabel }}</a>
+    <a class="button -secondary menuLogin {{ auth.btnCls }}" href="#" id="menuLogin" onClick="{{ menuLoginGo }}"><sc-if value="{{ auth.out }}" hint-placeholder-val="{{ true }}"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>Přihlášení / Registrace</sc-if><sc-if value="{{ auth.in }}" hint-placeholder-val="{{ false }}"><span class="userMono" aria-hidden="true">AZ</span><span class="menuUser"><b>Andrea Zelená</b><small>Můj účet</small></span><svg class="icon menuUserGo" aria-hidden="true"><use href="#i-caret-right"></use></svg></sc-if></a>
     <div class="ContactsView v1a v1 bs-view bsPlaceMigrated menuContacts">
       <a href="tel:+420739162221"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span><b>+420 739 162 221</b><small data-open-hours="" class="isOpen" title="Právě máme otevřeno">Dnes 8:00–16:00</small></span></a>
       <a href="mailto:e-objednavky@midas.cz"><svg class="icon" aria-hidden="true"><use href="#i-envelope-simple"></use></svg><span><b>e-objednavky@midas.cz</b><small>Odpovídáme do 24 hodin</small></span></a>
+      <a href="mailto:poptavky@midas.cz"><svg class="icon" aria-hidden="true"><use href="#i-envelope-simple"></use></svg><span><b>poptavky@midas.cz</b><small>Velkoobchod – poptávky a projekty</small></span></a>
       <a href="Kontakt.dc.html"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg><span><b>Prodejna Semanín 173</b><small>560 02 Česká Třebová</small></span></a>
     </div>
   </div>
@@ -1470,7 +1557,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 
 <main data-page="info" id="InfoPage" class="infoMain container">
   <dc-import name="Breadcrumb" current="Obchodní podmínky" hint-size="100%,48px"></dc-import>
-  <div class="ipWrap"><aside class="ipNav" aria-label="Informace"><b>Informace</b><ul><li><a href="Onas.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>O nás</a></li><li><a href="Kontakt.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M222,158.4l-46.9-21a16,16,0,0,0-15.2,1.4l-25.4,16.9a73.9,73.9,0,0,1-33.8-33.7l16.9-25.5a16,16,0,0,0,1.4-15.1L98,34.6a16,16,0,0,0-16.7-9.6A56.3,56.3,0,0,0,32,80c0,79.4,64.6,144,144,144a56.3,56.3,0,0,0,55.6-49.2A16.1,16.1,0,0,0,222,158.4ZM176,208A128.1,128.1,0,0,1,48,80,40.2,40.2,0,0,1,82.9,40.9l20.8,46.5-16.9,25.5a16,16,0,0,0-1,15.4,89.9,89.9,0,0,0,41.8,41.6,16,16,0,0,0,15.5-1.1l25.2-16.8,46.5,20.8A40.2,40.2,0,0,1,176,208Z"></path></svg>Kontakty</a></li><li><a href="ObchodniPodminky.dc.html" aria-current="page"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path></svg>Obchodní podmínky</a></li><li><a href="Reklamace.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,144H32V64H224V192Zm-48-72a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,120Z"></path></svg>Reklamační podmínky</a></li><li><a href="Doprava.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg>Doprava a platba</a></li><li><a href="Certifikaty.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-52.2,6.84-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z"></path></svg>Certifikáty a prohlášení o shodě</a></li><li><a href="Navody.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"></path></svg>Montážní návody</a></li><li><a href="Gdpr.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"></path></svg>GDPR informace</a></li><li><a href="Kariera.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200Z"></path></svg>Volné pracovní pozice</a></li></ul></aside><article class="ipMain"><header class="ipHead"><h1>Obchodní podmínky</h1><p class="lead">Všeobecné obchodní podmínky pro prodej prostřednictvím on-line obchodu na adrese www.midas.cz.</p></header><div class="ipBody"><div class="firmBox"><span><b>Midas International, spol. s r.o.</b></span><span>Sídlo: Semanín 171, 560 02 Česká Třebová</span><span>IČO: 49680731 · DIČ: CZ49680731</span></div><p class="contactLine">Kontaktní adresa: Semanín 173, 560 02 Česká Třebová · <a href="mailto:objednavky@midas.cz">objednavky@midas.cz</a> · <a href="tel:+420736779160">+420 736 779 160</a></p><nav class="toc" aria-label="Obsah"><b>Obsah</b><ol><li><a href="#vop1">1. Úvodní ustanovení</a></li><li><a href="#vop2">2. Vymezení pojmů</a></li><li><a href="#vop3">3. Objednávka a uzavření kupní smlouvy</a></li><li><a href="#vop4">4. Dodací podmínky</a></li><li><a href="#vop5">5. Cena zboží a platební podmínky</a></li><li><a href="#vop6">6. Odstoupení od kupní smlouvy</a></li><li><a href="#vop7">7. Odpovědnost za vady a reklamační řád</a></li><li><a href="#vop8">8. Ochrana obchodního tajemství</a></li><li><a href="#vop9">9. Rozhodčí doložka</a></li><li><a href="#vop10">10. Závěrečná ustanovení</a></li><li><a href="#vop11">11. E-shop</a></li></ol></nav><div class="prose"><section id="vop1"><h2>1. Úvodní ustanovení</h2><p>1.1. Tyto obchodní podmínky (ve smyslu § 1751 zákona č. 89/2012 Sb., občanského zákoníku, v aktuálním znění, dále jen „občanský zákoník“) platí pro nákup v internetovém obchodě Midas s.r.o. prostřednictvím webového rozhraní umístěného na internetové adrese www.midas.cz (dále společně rovněž jen „webové rozhraní“) provozovaném Prodávajícím.</p><p>1.2. Obchodní podmínky vymezují a upřesňují základní práva a povinnosti Prodávajícího, Kupujícího a Uživatele.</p><p>1.3. Veškeré smluvní vztahy se řídí obchodními podmínkami a vztahy jimi neupravené zákonem občanským zákoníkem. Ustanovení odchylná od obchodních podmínek je možné sjednat v kupní smlouvě. Odchylná ujednání v kupní smlouvě mají přednost před ustanovením obchodních podmínek.</p><p>1.4. Znění obchodních podmínek může Prodávající měnit či doplňovat. Práva a povinnosti stran se řídí vždy tím zněním obchodních podmínek, za jehož účinnosti vznikly.</p><p>1.5. Ustanovení obchodních podmínek jsou nedílnou součástí kupní smlouvy (za „kupní smlouvu“ se zde označuje smlouva kupní, smlouva o dílo, smlouva o poskytnutí služby, či jiná smlouva, uzavřená dle těchto obchodních podmínek). Kupní smlouva a obchodní podmínky jsou vyhotoveny v českém jazyce. Kupní smlouvu lze uzavřít v českém jazyce, ledaže se Kupující a Prodávající výslovně dohodnou na jiném jazyce.</p><p>1.6. Na smlouvy uzavírané se spotřebitelem se neuplatní tyto obchodní podmínky, ale Všeobecné obchodní podmínky pro maloobchod. V otázkách neupravených těmito obchodními podmínkami pro velkoobchod se vztahy řídí obdobně dle podmínek upravených ve Všeobecných obchodních podmínkách pro maloobchod, vyjma ustanovení na ochranu spotřebitele. Zasláním objednávky Kupující stvrzuje, že se seznámil s těmito obchodními podmínkami i se Všeobecnými obchodními podmínkami pro maloobchod.</p></section><section id="vop2"><h2>2. Vymezení pojmů</h2><p>2.1. Kupujícím je fyzická nebo právnická osoba, která má v úmyslu koupit prostřednictvím webového rozhraní zboží. Vzhledem k platné právní úpravě se rozlišuje Kupující, který není spotřebitelem, a Kupující, který spotřebitelem je.</p><p>2.2. Uživatelem je každá fyzická nebo právnická osoba, která navštíví webové rozhraní. Kupující je také Uživatelem.</p><p>2.3. Zbožím prodávaným prostřednictvím webového rozhraní jsou kanalizační systémy a další příbuzné zboží blíže specifikované ve webovém rozhraní.</p></section><section id="vop3"><h2>3. Objednávka a uzavření kupní smlouvy</h2><p>3.1. Nabídkou na uzavření smlouvy je objednávka zboží ze strany Zákazníka. Smlouva vzniká přijetím nabídky ze strany Kupujícího.</p><p>3.2. Objednávku je možné učinit osobně na Kontaktní adrese Prodávajícího, písemně prostřednictvím poštovního doručovatele nebo pomocí prostředků komunikace na dálku.</p><p>3.3. Pro objednávku prostřednictvím prostředků komunikace na dálku se použije článek 3 Všeobecných obchodních podmínek pro maloobchod.</p><p>3.4. Prodávající není povinen obdrženou objednávku potvrdit. Nepotvrzená objednávka není pro Prodávajícího závazná.</p></section><section id="vop4"><h2>4. Dodací podmínky</h2><p>4.1. Prodávající je povinen dodat zboží Kupujícímu dohodnutým způsobem, řádně zabalené a vybavené potřebnými doklady. Není-li dohodnuto jinak, jsou doklady poskytovány v českém jazyce.</p><p>4.2. Na základě dohody smluvních stran může Prodávající zajistit pro Kupujícího přepravu zboží a pojištění zboží po dobu přepravy. Cenu dopravy je povinen hradit Kupující dle platného tarifu dopravce a dle individuálních podmínek.</p><p>4.3. Před převzetím zboží je Kupující povinen zkontrolovat neporušenost obalu zboží a případné závady neprodleně oznámit přepravci. O závadách bude sepsán protokol. Není-li sepsán protokol o závadách, ztrácí Kupující nároky plynoucí z porušeného obalu zboží.</p><p>4.4. Neprodleně po převzetí zboží je Kupující povinen zkontrolovat zboží, zejména počet kusů zboží a jeho kompletnost. V případě zjištění nesouladu je povinen jej oznámit bez zbytečného odkladu, nejpozději však do 24 hodin od převzetí zboží. Zjištěné závady je Kupující povinen vhodným způsobem zdokumentovat a tuto dokumentaci zaslat Prodávajícímu spolu s oznámením závady.</p></section><section id="vop5"><h2>5. Cena zboží a platební podmínky</h2><p>5.1. Na webovém rozhraní jsou uvedeny ceny včetně DPH. Ceny jsou dle ceníku pro e-shop platného od 01.01.2022.</p><p>5.2. Kupující má možnost zaplatit kupní cenu za zboží Prodávajícímu mimo dalších způsobů uvedených ve webovém rozhraní nebo individuálně dohodnutých i některým z níže uvedených způsobů:</p><ul><li>v hotovosti při osobním odběru na Kontaktní adrese nebo při platbě na dobírku</li><li>bezhotovostně po dodání zboží na základě faktury</li></ul><p>Prodávající je oprávněn neumožnit placení zboží bezhotovostně po dodání zboží. Tento způsob platby je zpravidla vyhrazen pro stálé zákazníky. Není-li dohodnuto jinak, je faktura přiložena ke zboží společně s dodacím listem.</p><p>5.3. V případě platby v hotovosti je kupní cena splatná při převzetí zboží.</p><p>5.4. V případě platby fakturou je kupní cena splatná dle individuálních podmínek. Kupní cena je splacena okamžikem připsání příslušné částky na účet Prodávajícího.</p><p>5.5. Při nedodržení doby splatnosti dle těchto obchodních podmínek může být Kupujícímu účtován úrok z prodlení ve výši 0,5 % z dlužné částky za každý den prodlení. Nárok Prodávajícího na náhradu škody, která mu prodlením Kupujícího vznikla, tím není dotčen.</p><p>5.6. V případě prodlení Kupujícího s úhradou kupní ceny je Prodávající rovněž oprávněn pozastavit další dohodnuté dodávky zboží, a to až do okamžiku úhrady všech splatných závazků Kupujícího.</p><p>5.7. Platba zboží je možná v českých korunách (Kč) pro maloobchod, nebo v eurech (EUR) pro velkoobchod, ceny jsou přepočítány aktuálním kurzem uvedeným ve webovém rozhraní ke dni objednávky.</p><p>5.8. Kupující nabývá vlastnické právo ke zboží zaplacením celé kupní ceny za zboží (včetně nákladů na balení a dodání), nikoli však dříve, než zboží převezme.</p></section><section id="vop6"><h2>6. Odstoupení od kupní smlouvy</h2><p>6.1. Do doby převzetí zboží Kupujícím je Prodávající oprávněn kdykoliv od kupní smlouvy odstoupit. V takovém případě vrátí Prodávající Kupujícímu kupní cenu bezhotovostně na účet sdělený mu pro tento účel Kupujícím nebo účet, ze kterého byly prostředky poukázány k úhradě kupní ceny (pokud Kupující žádný do 5 dnů od odstoupení Prodávajícímu nesdělí).</p><p>6.2. Prodávající je dále oprávněn odstoupit od smlouvy, je-li Kupující v prodlení s úhradou kupní ceny zboží déle než 4 týdny.</p><p>6.3. Kupující je oprávněn odstoupit od smlouvy, je-li Prodávající v prodlení s dodáním zboží déle než 4 týdny od sjednaného dne dodání.</p><p>6.4. Odstoupení musí být učiněno písemně a v případech smluv sjednaných elektronickou cestou též elektronicky. Odstoupení od smlouvy je účinné doručením oznámení o odstoupení druhé smluvní straně.</p><p>6.5. Postup vrácení zboží zasláním na adresu: Midas International, spol. s r.o., Semanín 173, 560 02 Česká Třebová, +420 739 162 221, objednavky@midas.cz. Na tento e-mail zašlete doklad k nákupu zboží a důvod vrácení, dále číslo účtu, kam bude vrácena částka za zakoupené zboží. Do balíku vložte zakoupené zboží, doklad o koupi a vytisknutý odeslaný e-mail. Zboží musí být nepoškozené, neznečištěné. Po obdržení vráceného nepoškozeného zboží budete informováni o odeslání platby na uvedený účet a obdržíte doklad na uvedený e-mail. Doporučené spediční firmy: DPD, TOP TRANS, GLS, PPL, Česká pošta.</p><p>6.6. Postup vrácení zboží osobně na adrese: Midas International, spol. s r.o., Semanín 173, 560 02 Česká Třebová, s možností vrácení platby v hotovosti nebo převodem na účet.</p></section><section id="vop7"><h2>7. Odpovědnost za vady a reklamační řád</h2><p>7.1. Prodávající je povinen dodat Kupujícímu zboží ve sjednaném množství, jakosti a provedení.</p><p>7.2. Práva Kupujícího z vadného plnění se řídí příslušnými obecně závaznými předpisy (zejména ustanoveními § 1914 až 1925 a § 2099 až 2117 občanského zákoníku).</p><p>7.3. Podmínky odpovědnosti za vady zboží a záruční odpovědnost se řídí obdobně článkem 6. Všeobecných obchodních podmínek pro maloobchod, s výjimkou záruční doby, která činí v případě prodeje dle těchto obchodních podmínek 12 měsíců.</p><p>7.4. Kupující uplatňuje nároky z odpovědnosti za vady na Kontaktní adrese Prodávajícího.</p></section><section id="vop8"><h2>8. Ochrana obchodního tajemství</h2><p>8.1. Při sjednávání smlouvy a jejím plnění mohou být Kupujícímu sděleny informace, které jsou označeny jako důvěrné nebo jejichž důvěrnost vyplývá z jejich povahy. Kupující se zavazuje tyto informace zejména:</p><ul><li>uchovávat jako důvěrné;</li><li>neposkytnout je bez souhlasu Prodávajícího jiné osobě;</li><li>nevyužít je k jinému účelu, než k plnění smluvního vztahu sjednaného Prodávajícím;</li><li>nevyužít jakýmkoliv jiným způsobem, který by mohl Prodávajícího poškodit.</li></ul><p>8.2. Dále se Kupující zavazuje, že nebude bez souhlasu Prodávajícího pořizovat kopie podkladů předaných mu Prodávajícím.</p><p>8.3. Kupující je oprávněn používat při své obchodní činnosti obchodní značku Prodávajícího, pokud mu k tomu Prodávající udělí písemný souhlas. Používání nesmí poškodit nebo ohrozit pověst Prodávajícího.</p></section><section id="vop9"><h2>9. Rozhodčí doložka</h2><p>9.1. Všechny spory, které vzniknou z kupní smlouvy anebo v souvislosti s ní, budou rozhodovány s vyloučením pravomoci obecných soudů s konečnou platností v rozhodčím řízení u Rozhodčího soudu při Hospodářské komoře České republiky a Agrární komoře České republiky v Praze podle jeho Řádu on-line jediným rozhodcem určeným předsedou Rozhodčího soudu.</p><p>9.2. E-mailové adresy pro vedení řízení on-line si smluvní strany sdělí při uzavírání smlouvy.</p></section><section id="vop10"><h2>10. Závěrečná ustanovení</h2><p>10.1. Pokud vztah související s užitím webové stránky nebo právní vztah založený kupní smlouvou obsahuje mezinárodní (zahraniční) prvek, pak strany sjednávají, že vztah se řídí českým právem. Úmluva OSN o smlouvách o mezinárodní koupi zboží se nepoužije.</p><p>10.2. Je-li některé ustanovení obchodních podmínek neplatné nebo neúčinné nebo nepoužitelné, nebo se takovým stane, namísto neplatných ustanovení nastoupí ustanovení, jehož smysl se neplatnému ustanovení co nejvíce přibližuje. Neplatností nebo neúčinností nebo nepoužitelností jednoho ustanovení není dotčena platnost ostatních ustanovení. Změny a doplňky kupní smlouvy či obchodních podmínek vyžadují písemnou formu.</p></section><section id="vop11"><h2>11. E-shop</h2><p>Zboží objednané přes e-shop dodáváme pouze po ČR v Kč. Platební a dodací podmínky e-shopu najdete na stránce <a href="Doprava.dc.html">Doprava a platba</a>.</p><p><b>Mimosoudní řešení sporu.</b> V souvislosti s novelou občanského zákoníku (378/2015 Sb.) je možné na popud zákazníka případný spor řešit prostřednictvím České obchodní inspekce, se sídlem Štěpánská 567/15, 120 00 Praha 2, <a href="https://www.coi.cz">www.coi.cz</a>.</p><p>Tyto obchodní podmínky jsou platné a účinné od 1. 1. 2017.</p></section></div></div></article></div>
+  <div class="ipWrap"><aside class="ipNav" aria-label="Informace"><b>Informace</b><ul><li><a href="Onas.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></svg>O nás</a></li><li><a href="Kontakt.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M222,158.4l-46.9-21a16,16,0,0,0-15.2,1.4l-25.4,16.9a73.9,73.9,0,0,1-33.8-33.7l16.9-25.5a16,16,0,0,0,1.4-15.1L98,34.6a16,16,0,0,0-16.7-9.6A56.3,56.3,0,0,0,32,80c0,79.4,64.6,144,144,144a56.3,56.3,0,0,0,55.6-49.2A16.1,16.1,0,0,0,222,158.4ZM176,208A128.1,128.1,0,0,1,48,80,40.2,40.2,0,0,1,82.9,40.9l20.8,46.5-16.9,25.5a16,16,0,0,0-1,15.4,89.9,89.9,0,0,0,41.8,41.6,16,16,0,0,0,15.5-1.1l25.2-16.8,46.5,20.8A40.2,40.2,0,0,1,176,208Z"></path></svg>Kontakty</a></li><li><a href="ObchodniPodminky.dc.html" aria-current="page"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Z"></path></svg>Obchodní podmínky</a></li><li><a href="Reklamace.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,144H32V64H224V192Zm-48-72a8,8,0,0,1-8,8H88a8,8,0,0,1,0-16h80A8,8,0,0,1,176,120Z"></path></svg>Reklamační podmínky</a></li><li><a href="Doprava.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg>Doprava a platba</a></li><li><a href="Certifikaty.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"></path></svg>Certifikáty a prohlášení o shodě</a></li><li><a href="Navody.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"></path></svg>Montážní návody</a></li><li><a href="Gdpr.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v58.77c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208Z"></path></svg>GDPR informace</a></li><li><a href="Kariera.dc.html"><svg class="ic" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200Z"></path></svg>Volné pracovní pozice</a></li></ul></aside><article class="ipMain"><header class="ipHead"><h1>Obchodní podmínky</h1><p class="lead">Všeobecné obchodní podmínky pro prodej prostřednictvím on-line obchodu na adrese www.midas.cz.</p></header><div class="ipBody"><div class="firmBox"><span><b>Midas International, spol. s r.o.</b></span><span>Sídlo: Semanín 171, 560 02 Česká Třebová</span><span>IČO: 49680731 · DIČ: CZ49680731</span></div><p class="contactLine">Kontaktní adresa: Semanín 173, 560 02 Česká Třebová · <a href="mailto:objednavky@midas.cz">objednavky@midas.cz</a> · <a href="tel:+420736779160">+420 736 779 160</a></p><nav class="toc" aria-label="Obsah"><b>Obsah</b><ol><li><a href="#vop1">1. Úvodní ustanovení</a></li><li><a href="#vop2">2. Vymezení pojmů</a></li><li><a href="#vop3">3. Objednávka a uzavření kupní smlouvy</a></li><li><a href="#vop4">4. Dodací podmínky</a></li><li><a href="#vop5">5. Cena zboží a platební podmínky</a></li><li><a href="#vop6">6. Odstoupení od kupní smlouvy</a></li><li><a href="#vop7">7. Odpovědnost za vady a reklamační řád</a></li><li><a href="#vop8">8. Ochrana obchodního tajemství</a></li><li><a href="#vop9">9. Rozhodčí doložka</a></li><li><a href="#vop10">10. Závěrečná ustanovení</a></li><li><a href="#vop11">11. E-shop</a></li></ol></nav><div class="prose"><section id="vop1"><h2>1. Úvodní ustanovení</h2><p>1.1. Tyto obchodní podmínky (ve smyslu § 1751 zákona č. 89/2012 Sb., občanského zákoníku, v aktuálním znění, dále jen „občanský zákoník“) platí pro nákup v internetovém obchodě Midas s.r.o. prostřednictvím webového rozhraní umístěného na internetové adrese www.midas.cz (dále společně rovněž jen „webové rozhraní“) provozovaném Prodávajícím.</p><p>1.2. Obchodní podmínky vymezují a upřesňují základní práva a povinnosti Prodávajícího, Kupujícího a Uživatele.</p><p>1.3. Veškeré smluvní vztahy se řídí obchodními podmínkami a vztahy jimi neupravené zákonem občanským zákoníkem. Ustanovení odchylná od obchodních podmínek je možné sjednat v kupní smlouvě. Odchylná ujednání v kupní smlouvě mají přednost před ustanovením obchodních podmínek.</p><p>1.4. Znění obchodních podmínek může Prodávající měnit či doplňovat. Práva a povinnosti stran se řídí vždy tím zněním obchodních podmínek, za jehož účinnosti vznikly.</p><p>1.5. Ustanovení obchodních podmínek jsou nedílnou součástí kupní smlouvy (za „kupní smlouvu“ se zde označuje smlouva kupní, smlouva o dílo, smlouva o poskytnutí služby, či jiná smlouva, uzavřená dle těchto obchodních podmínek). Kupní smlouva a obchodní podmínky jsou vyhotoveny v českém jazyce. Kupní smlouvu lze uzavřít v českém jazyce, ledaže se Kupující a Prodávající výslovně dohodnou na jiném jazyce.</p><p>1.6. Na smlouvy uzavírané se spotřebitelem se neuplatní tyto obchodní podmínky, ale Všeobecné obchodní podmínky pro maloobchod. V otázkách neupravených těmito obchodními podmínkami pro velkoobchod se vztahy řídí obdobně dle podmínek upravených ve Všeobecných obchodních podmínkách pro maloobchod, vyjma ustanovení na ochranu spotřebitele. Zasláním objednávky Kupující stvrzuje, že se seznámil s těmito obchodními podmínkami i se Všeobecnými obchodními podmínkami pro maloobchod.</p></section><section id="vop2"><h2>2. Vymezení pojmů</h2><p>2.1. Kupujícím je fyzická nebo právnická osoba, která má v úmyslu koupit prostřednictvím webového rozhraní zboží. Vzhledem k platné právní úpravě se rozlišuje Kupující, který není spotřebitelem, a Kupující, který spotřebitelem je.</p><p>2.2. Uživatelem je každá fyzická nebo právnická osoba, která navštíví webové rozhraní. Kupující je také Uživatelem.</p><p>2.3. Zbožím prodávaným prostřednictvím webového rozhraní jsou kanalizační systémy a další příbuzné zboží blíže specifikované ve webovém rozhraní.</p></section><section id="vop3"><h2>3. Objednávka a uzavření kupní smlouvy</h2><p>3.1. Nabídkou na uzavření smlouvy je objednávka zboží ze strany Zákazníka. Smlouva vzniká přijetím nabídky ze strany Kupujícího.</p><p>3.2. Objednávku je možné učinit osobně na Kontaktní adrese Prodávajícího, písemně prostřednictvím poštovního doručovatele nebo pomocí prostředků komunikace na dálku.</p><p>3.3. Pro objednávku prostřednictvím prostředků komunikace na dálku se použije článek 3 Všeobecných obchodních podmínek pro maloobchod.</p><p>3.4. Prodávající není povinen obdrženou objednávku potvrdit. Nepotvrzená objednávka není pro Prodávajícího závazná.</p></section><section id="vop4"><h2>4. Dodací podmínky</h2><p>4.1. Prodávající je povinen dodat zboží Kupujícímu dohodnutým způsobem, řádně zabalené a vybavené potřebnými doklady. Není-li dohodnuto jinak, jsou doklady poskytovány v českém jazyce.</p><p>4.2. Na základě dohody smluvních stran může Prodávající zajistit pro Kupujícího přepravu zboží a pojištění zboží po dobu přepravy. Cenu dopravy je povinen hradit Kupující dle platného tarifu dopravce a dle individuálních podmínek.</p><p>4.3. Před převzetím zboží je Kupující povinen zkontrolovat neporušenost obalu zboží a případné závady neprodleně oznámit přepravci. O závadách bude sepsán protokol. Není-li sepsán protokol o závadách, ztrácí Kupující nároky plynoucí z porušeného obalu zboží.</p><p>4.4. Neprodleně po převzetí zboží je Kupující povinen zkontrolovat zboží, zejména počet kusů zboží a jeho kompletnost. V případě zjištění nesouladu je povinen jej oznámit bez zbytečného odkladu, nejpozději však do 24 hodin od převzetí zboží. Zjištěné závady je Kupující povinen vhodným způsobem zdokumentovat a tuto dokumentaci zaslat Prodávajícímu spolu s oznámením závady.</p></section><section id="vop5"><h2>5. Cena zboží a platební podmínky</h2><p>5.1. Na webovém rozhraní jsou uvedeny ceny včetně DPH. Ceny jsou dle ceníku pro e-shop platného od 01.01.2022.</p><p>5.2. Kupující má možnost zaplatit kupní cenu za zboží Prodávajícímu mimo dalších způsobů uvedených ve webovém rozhraní nebo individuálně dohodnutých i některým z níže uvedených způsobů:</p><ul><li>v hotovosti při osobním odběru na Kontaktní adrese nebo při platbě na dobírku</li><li>bezhotovostně po dodání zboží na základě faktury</li></ul><p>Prodávající je oprávněn neumožnit placení zboží bezhotovostně po dodání zboží. Tento způsob platby je zpravidla vyhrazen pro stálé zákazníky. Není-li dohodnuto jinak, je faktura přiložena ke zboží společně s dodacím listem.</p><p>5.3. V případě platby v hotovosti je kupní cena splatná při převzetí zboží.</p><p>5.4. V případě platby fakturou je kupní cena splatná dle individuálních podmínek. Kupní cena je splacena okamžikem připsání příslušné částky na účet Prodávajícího.</p><p>5.5. Při nedodržení doby splatnosti dle těchto obchodních podmínek může být Kupujícímu účtován úrok z prodlení ve výši 0,5 % z dlužné částky za každý den prodlení. Nárok Prodávajícího na náhradu škody, která mu prodlením Kupujícího vznikla, tím není dotčen.</p><p>5.6. V případě prodlení Kupujícího s úhradou kupní ceny je Prodávající rovněž oprávněn pozastavit další dohodnuté dodávky zboží, a to až do okamžiku úhrady všech splatných závazků Kupujícího.</p><p>5.7. Platba zboží je možná v českých korunách (Kč) pro maloobchod, nebo v eurech (EUR) pro velkoobchod, ceny jsou přepočítány aktuálním kurzem uvedeným ve webovém rozhraní ke dni objednávky.</p><p>5.8. Kupující nabývá vlastnické právo ke zboží zaplacením celé kupní ceny za zboží (včetně nákladů na balení a dodání), nikoli však dříve, než zboží převezme.</p></section><section id="vop6"><h2>6. Odstoupení od kupní smlouvy</h2><p>6.1. Do doby převzetí zboží Kupujícím je Prodávající oprávněn kdykoliv od kupní smlouvy odstoupit. V takovém případě vrátí Prodávající Kupujícímu kupní cenu bezhotovostně na účet sdělený mu pro tento účel Kupujícím nebo účet, ze kterého byly prostředky poukázány k úhradě kupní ceny (pokud Kupující žádný do 5 dnů od odstoupení Prodávajícímu nesdělí).</p><p>6.2. Prodávající je dále oprávněn odstoupit od smlouvy, je-li Kupující v prodlení s úhradou kupní ceny zboží déle než 4 týdny.</p><p>6.3. Kupující je oprávněn odstoupit od smlouvy, je-li Prodávající v prodlení s dodáním zboží déle než 4 týdny od sjednaného dne dodání.</p><p>6.4. Odstoupení musí být učiněno písemně a v případech smluv sjednaných elektronickou cestou též elektronicky. Odstoupení od smlouvy je účinné doručením oznámení o odstoupení druhé smluvní straně.</p><p>6.5. Postup vrácení zboží zasláním na adresu: Midas International, spol. s r.o., Semanín 173, 560 02 Česká Třebová, +420 739 162 221, objednavky@midas.cz. Na tento e-mail zašlete doklad k nákupu zboží a důvod vrácení, dále číslo účtu, kam bude vrácena částka za zakoupené zboží. Do balíku vložte zakoupené zboží, doklad o koupi a vytisknutý odeslaný e-mail. Zboží musí být nepoškozené, neznečištěné. Po obdržení vráceného nepoškozeného zboží budete informováni o odeslání platby na uvedený účet a obdržíte doklad na uvedený e-mail. Doporučené spediční firmy: DPD, TOP TRANS, GLS, PPL, Česká pošta.</p><p>6.6. Postup vrácení zboží osobně na adrese: Midas International, spol. s r.o., Semanín 173, 560 02 Česká Třebová, s možností vrácení platby v hotovosti nebo převodem na účet.</p></section><section id="vop7"><h2>7. Odpovědnost za vady a reklamační řád</h2><p>7.1. Prodávající je povinen dodat Kupujícímu zboží ve sjednaném množství, jakosti a provedení.</p><p>7.2. Práva Kupujícího z vadného plnění se řídí příslušnými obecně závaznými předpisy (zejména ustanoveními § 1914 až 1925 a § 2099 až 2117 občanského zákoníku).</p><p>7.3. Podmínky odpovědnosti za vady zboží a záruční odpovědnost se řídí obdobně článkem 6. Všeobecných obchodních podmínek pro maloobchod, s výjimkou záruční doby, která činí v případě prodeje dle těchto obchodních podmínek 12 měsíců.</p><p>7.4. Kupující uplatňuje nároky z odpovědnosti za vady na Kontaktní adrese Prodávajícího.</p></section><section id="vop8"><h2>8. Ochrana obchodního tajemství</h2><p>8.1. Při sjednávání smlouvy a jejím plnění mohou být Kupujícímu sděleny informace, které jsou označeny jako důvěrné nebo jejichž důvěrnost vyplývá z jejich povahy. Kupující se zavazuje tyto informace zejména:</p><ul><li>uchovávat jako důvěrné;</li><li>neposkytnout je bez souhlasu Prodávajícího jiné osobě;</li><li>nevyužít je k jinému účelu, než k plnění smluvního vztahu sjednaného Prodávajícím;</li><li>nevyužít jakýmkoliv jiným způsobem, který by mohl Prodávajícího poškodit.</li></ul><p>8.2. Dále se Kupující zavazuje, že nebude bez souhlasu Prodávajícího pořizovat kopie podkladů předaných mu Prodávajícím.</p><p>8.3. Kupující je oprávněn používat při své obchodní činnosti obchodní značku Prodávajícího, pokud mu k tomu Prodávající udělí písemný souhlas. Používání nesmí poškodit nebo ohrozit pověst Prodávajícího.</p></section><section id="vop9"><h2>9. Rozhodčí doložka</h2><p>9.1. Všechny spory, které vzniknou z kupní smlouvy anebo v souvislosti s ní, budou rozhodovány s vyloučením pravomoci obecných soudů s konečnou platností v rozhodčím řízení u Rozhodčího soudu při Hospodářské komoře České republiky a Agrární komoře České republiky v Praze podle jeho Řádu on-line jediným rozhodcem určeným předsedou Rozhodčího soudu.</p><p>9.2. E-mailové adresy pro vedení řízení on-line si smluvní strany sdělí při uzavírání smlouvy.</p></section><section id="vop10"><h2>10. Závěrečná ustanovení</h2><p>10.1. Pokud vztah související s užitím webové stránky nebo právní vztah založený kupní smlouvou obsahuje mezinárodní (zahraniční) prvek, pak strany sjednávají, že vztah se řídí českým právem. Úmluva OSN o smlouvách o mezinárodní koupi zboží se nepoužije.</p><p>10.2. Je-li některé ustanovení obchodních podmínek neplatné nebo neúčinné nebo nepoužitelné, nebo se takovým stane, namísto neplatných ustanovení nastoupí ustanovení, jehož smysl se neplatnému ustanovení co nejvíce přibližuje. Neplatností nebo neúčinností nebo nepoužitelností jednoho ustanovení není dotčena platnost ostatních ustanovení. Změny a doplňky kupní smlouvy či obchodních podmínek vyžadují písemnou formu.</p></section><section id="vop11"><h2>11. E-shop</h2><p>Zboží objednané přes e-shop dodáváme pouze po ČR v Kč. Platební a dodací podmínky e-shopu najdete na stránce <a href="Doprava.dc.html">Doprava a platba</a>.</p><p><b>Mimosoudní řešení sporu.</b> V souvislosti s novelou občanského zákoníku (378/2015 Sb.) je možné na popud zákazníka případný spor řešit prostřednictvím České obchodní inspekce, se sídlem Štěpánská 567/15, 120 00 Praha 2, <a href="https://www.coi.cz">www.coi.cz</a>.</p><p>Tyto obchodní podmínky jsou platné a účinné od 1. 1. 2017.</p></section></div></div></article></div>
 </main>
 
 
@@ -1491,9 +1578,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="hd"><span class="t"><svg class="icon -md" aria-hidden="true"><use href="#i-asistent"></use></svg>Nákupní asistent</span><button class="button -icon -sm close" type="button" id="aiClose" aria-label="Zavřít" onClick="{{ toggleAi }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div>
   <div class="bd"><div class="msg">Dobrý den, jsem váš nákupní asistent. Pomohu s výběrem produktů, odpovím na dotazy a zjistím stav objednávky.</div><div class="msg me">Potřebuji KG koleno 110 pro venkovní kanalizaci.</div><div class="msg">Doporučuji <b>KG koleno DN 110 – 45°</b> (35,8 Kč s DPH, skladem &gt; 100 ks). Chcete ho přidat do košíku?</div></div>
   <div class="in"><input class="input" id="aiInput" type="text" placeholder="Napište dotaz…" aria-label="Dotaz pro asistenta"><button class="button -main -icon" type="button" aria-label="Odeslat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"></path></svg></button></div>
-</div></sc-if><canvas class="rb-spark" ref="{{ sparkRef }}" aria-hidden="true"></canvas></div>
+</div></sc-if></div>
 <dc-import name="FontSizeSwitch" hint-size="200px,48px"></dc-import></x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 6200}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1624, "height": 6200}}'>
 const HERO = [];
 const TABS = [];
 const QS_CATS = [{"name": "KG kolena", "path": "Venkovní kanalizace › KG tvarovky", "kw": "koleno kg 110 125 160 200"}, {"name": "KG odbočky", "path": "Venkovní kanalizace › KG tvarovky", "kw": "odbocka kg"}, {"name": "KG redukce", "path": "Venkovní kanalizace › KG tvarovky", "kw": "redukce kg"}, {"name": "KG trubky SN4", "path": "Venkovní kanalizace", "kw": "trubka kg sn4 110 125 160 200"}, {"name": "KG trubky SN8", "path": "Venkovní kanalizace", "kw": "trubka kg sn8"}, {"name": "Korugované tvarovky PP", "path": "Venkovní kanalizace", "kw": "koleno korugovane plasticor pp"}, {"name": "Korugované trubky PP SN 8-12", "path": "Venkovní kanalizace", "kw": "trubka korugovana plasticor"}, {"name": "HT kolena", "path": "Vnitřní kanalizace › HT tvarovky z PP", "kw": "koleno ht 32 40 50 75 110"}, {"name": "HT tvarovky kloubové z PP", "path": "Vnitřní kanalizace", "kw": "koleno kloubove ht"}, {"name": "HT trubky z PP", "path": "Vnitřní kanalizace", "kw": "trubka ht"}, {"name": "KGB kolena", "path": "Venkovní kanalizace › KG 2000 PP", "kw": "koleno kgb kg2000"}, {"name": "Drenážní flexi hadice", "path": "Drenáže a chráničky", "kw": "drenaz hadice"}, {"name": "Kabelové chráničky", "path": "Drenáže a chráničky", "kw": "chranicka"}, {"name": "Plastové poklopy", "path": "Poklopy", "kw": "poklop"}, {"name": "Poklopy kompozit/litina", "path": "Poklopy", "kw": "poklop litina kompozit"}, {"name": "Zpětné klapky jednoduché", "path": "Zpětné kanalizační klapky", "kw": "klapka zpetna"}, {"name": "Revizní šachty DN 400", "path": "Revizní šachty", "kw": "sachta revizni 400"}, {"name": "Revizní šachty DN 600", "path": "Revizní šachty", "kw": "sachta revizni 600"}, {"name": "Ventilační hlavice", "path": "Ventilační hlavice a klapky", "kw": "hlavice ventilace"}, {"name": "Přivzdušňovací klapky", "path": "Ventilační hlavice a klapky", "kw": "klapka privzdusnovaci"}, {"name": "Střešní lapače – gajgry", "path": "Gajgry, vpusti, žlaby", "kw": "gajgr lapac"}, {"name": "Odvodňovací žlaby", "path": "Gajgry, vpusti, žlaby", "kw": "zlab"}, {"name": "Vodoměrné šachty", "path": "Nádrže, vsaky, potrubí", "kw": "sachta vodomer"}, {"name": "Zatravňovací dlaždice", "path": "Zatravňovací dlaždice", "kw": "dlazdice"}, {"name": "Šroubovací odbočka", "path": "Speciální tvarovky", "kw": "odbocka sroubovaci"}, {"name": "Pružné kanalizační spojky", "path": "Speciální tvarovky", "kw": "spojka"}];
@@ -1529,7 +1616,7 @@ class Component extends DCLogic {
       if (ov) ov.addEventListener('click', () => set(false));
       nav.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('drawerIn')) set(false); });
       nav.addEventListener('click', e => { const x = e.target.closest && e.target.closest('.exp'); if (!x || !nav.contains(x)) return; const li = x.closest('li'); const o = !li.classList.contains('expanded'); li.classList.toggle('expanded', o); x.setAttribute('aria-expanded', String(o)); });
-      const mq = matchMedia('(min-width:820px)'); const onMq = () => { if (mq.matches && nav.classList.contains('open')) { set(false); nav.classList.remove('open'); } }; if (mq.addEventListener) mq.addEventListener('change', onMq);
+      const mq = matchMedia('(min-width:1000px)'); const onMq = () => { if (mq.matches && nav.classList.contains('open')) { set(false); nav.classList.remove('open'); } }; if (mq.addEventListener) mq.addEventListener('change', onMq);
     }, 60);
     this.popDoc = e => { if (this.state.pop && !(e.target && e.target.closest && e.target.closest('#LoginUser,#SimpleBasket'))) this.setState({ pop: '' }); };
     document.addEventListener('mousedown', this.popDoc);
@@ -1537,9 +1624,9 @@ class Component extends DCLogic {
       const nav = document.getElementById('MenuCategories'); if (!nav) return;
       const ul = nav.querySelector('ul.root'); let t, cur = null;
       const pairs = [...nav.querySelectorAll('li[data-mm]')].map(li => ({ li, a: li.querySelector('a'), mm: document.getElementById(li.getAttribute('data-mm')) })).filter(p => p.mm);
-      const place = p => { const inner = p.mm.querySelector('.mmInner'), bar = nav.querySelector('.menuScroll'); if (!inner || !bar) return; const br = bar.getBoundingClientRect(), nr = p.mm.getBoundingClientRect(), pad = parseFloat(getComputedStyle(p.mm).paddingLeft) || 0; inner.style.maxWidth = 'none'; inner.style.width = br.width + 'px'; inner.style.marginLeft = (br.left - nr.left - pad) + 'px'; };
+      const place = p => { const inner = p.mm.querySelector('.mmInner'), bar = nav.querySelector('.menuScroll'); if (!inner || !bar) return; if (document.documentElement.dataset.menu === 'B') { inner.style.maxWidth = inner.style.width = inner.style.marginLeft = ''; return; } const br = bar.getBoundingClientRect(), nr = p.mm.getBoundingClientRect(), pad = parseFloat(getComputedStyle(p.mm).paddingLeft) || 0; inner.style.maxWidth = 'none'; inner.style.width = br.width + 'px'; inner.style.marginLeft = (br.left - nr.left - pad) + 'px'; };
       const set = p => { pairs.forEach(q => { const on = q === p; q.mm.classList.toggle('on', on); q.li.classList.toggle('mmOn', on); q.a.setAttribute('aria-expanded', String(on)); }); cur = p; if (p) place(p); };
-      const open = p => { clearTimeout(t); if (matchMedia('(max-width:819px)').matches || nav.classList.contains('open')) return; t = setTimeout(() => set(p), cur ? 0 : 80); };
+      const open = p => { clearTimeout(t); if (matchMedia('(max-width:999px)').matches || nav.classList.contains('open')) return; t = setTimeout(() => set(p), cur ? 0 : 80); };
       const close = d => { clearTimeout(t); t = setTimeout(() => set(null), d == null ? 180 : d); };
       const inAny = el => !!el && pairs.some(q => q.mm.contains(el) || q.li.contains(el));
       pairs.forEach(p => { p.li.addEventListener('mouseenter', () => open(p)); p.li.addEventListener('mouseleave', () => close()); p.mm.addEventListener('mouseenter', () => clearTimeout(t)); p.mm.addEventListener('mouseleave', () => close()); p.li.addEventListener('focusin', () => open(p)); });
@@ -1550,8 +1637,19 @@ class Component extends DCLogic {
       const top = document.getElementById('stickyTop');
       if (top && typeof ResizeObserver === 'function') { const upd = () => document.documentElement.style.setProperty('--header-h', top.offsetHeight + 'px'); this.hro = new ResizeObserver(upd); this.hro.observe(top); upd(); }
     }, 60);
-    this.menuSync = () => { const nav = document.getElementById('MenuCategories'), ul = nav && nav.querySelector('ul.root'); if (!nav || !ul) return; const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-start', ul.scrollLeft <= 2); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); };
-    this.menuT = setTimeout(() => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.addEventListener('scroll', this.menuSync, { passive: true }); this.menuSync(); }, 50);
+    /* Menu B ≥1440: každé položce nastaví šířku názvu (1 nebo 2 vyvážené řádky) tak, aby zbylé místo dostaly všechny položky stejně
+       → stejné odsazení textu zleva i zprava u krátkých i dvouřádkových názvů. Krátké názvy se nechají na 1 řádku, dokud je místo. */
+    this.menuFit = () => { const nav = document.getElementById('MenuCategories'); if (!nav) return; const names = [...nav.querySelectorAll('ul.root > li.level_0 .name')]; if (!names.length) return;
+      let mB = document.documentElement.dataset.menu === 'B'; try { mB = mB || localStorage.getItem('midasMenuV1') === 'B'; } catch (e) {} if (mB) document.documentElement.dataset.menu = 'B'; if (!(mB && window.innerWidth >= 1440)) { names.forEach(n => n.style.removeProperty('width')); return; }
+      const ul = nav.querySelector('ul.root'), cs = getComputedStyle(names[0]), c = (this.mfCanvas = this.mfCanvas || document.createElement('canvas')).getContext('2d'); c.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = t => c.measureText(t).width;
+      const items = names.map(n => { const w = n.textContent.trim().split(/\s+/), one = m(w.join(' ')); let two = one; for (let k = 1; k < w.length; k++) two = Math.min(two, Math.max(m(w.slice(0, k).join(' ')), m(w.slice(k).join(' ')))); return { n, one, two, cur: two }; });
+      const pad = parseFloat(getComputedStyle(names[0].parentElement).paddingLeft) * 2 + 1, minSide = 12, avail = ul.clientWidth;
+      const spare = () => avail - items.reduce((s, i) => s + i.cur + pad, 0) - items.length * 2 * minSide;
+      items.filter(i => i.one > i.two).sort((x, y) => (x.one - x.two) - (y.one - y.two)).forEach(i => { if (spare() >= i.one - i.two) i.cur = i.one; });
+      items.forEach(i => { i.n.style.width = Math.ceil(i.cur + 1) + 'px'; });
+      requestAnimationFrame(() => { const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); }); };
+    this.menuSync = () => { this.menuFit(); const nav = document.getElementById('MenuCategories'), ul = nav && nav.querySelector('ul.root'); if (!nav || !ul) return; const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-start', ul.scrollLeft <= 2); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); };
+    this.menuT = setTimeout(() => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.addEventListener('scroll', this.menuSync, { passive: true }); this.menuSync(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.menuSync()); }, 50);
     window.addEventListener('resize', this.menuSync);
     this.reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (HERO.length) this.startHero();
@@ -1590,7 +1688,7 @@ class Component extends DCLogic {
   setRows(rows) { this.setState({ rows }); }
   num(s) { return parseFloat(String(s || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0; }
   fmt(n) { return n.toLocaleString('cs-CZ', { maximumFractionDigits: 1 }) + ' Kč'; }
-  spark(x, y) {
+  spark(x, y) { return; /* ClickSpark vypnut – potvrzení přidání řeší tlačítko Koupit */
     const c = this.cv; if (!c || this.reduced) return;
     const r = Math.min(window.devicePixelRatio || 1, 2), w = window.innerWidth, h = window.innerHeight;
     if (c.width !== w * r) { c.width = w * r; c.height = h * r; }
@@ -1623,9 +1721,11 @@ class Component extends DCLogic {
     const allHits = s.q.trim().length >= 2 ? CATALOG.filter(p => { const hay = this.norm(p.name + ' ' + p.code); return toks.every(t => hay.includes(t) || hay.includes(stem(t))); }) : [];
     const hits = allHits.slice(0, 5).map(p => Object.assign({}, p, { buy: e => { if (e && e.preventDefault) e.preventDefault(); clearTimeout(this.blurT); const pr = this.num(p.price);
       this.setState({ count: s.count + 1, total: s.total + pr, open: true, qsOpen: false, lines: this.mergeLines(s.lines, [{ name: p.name, img: p.img, q: 1, unit: pr }]), last: { name: p.name, img: p.img, price: this.fmt(pr), qty: '1 ks', avail: p.avail } }); } }));
-    const cats = s.q.trim().length >= 2 ? QS_CATS.filter(c => { const hay = this.norm(c.name + ' ' + c.path + ' ' + (c.kw || '')); return toks.every(t => hay.includes(stem(t))); }).slice(0, 6) : [];
+    const allCats = s.q.trim().length >= 2 ? QS_CATS.filter(c => { const hay = this.norm(c.name + ' ' + c.path + ' ' + (c.kw || '')); return toks.every(t => hay.includes(stem(t))); }).slice(0) : [];
+    const cats = allCats.slice(0, 5);
     const qs = { q: s.q.trim(), open: s.qsOpen && s.q.trim().length >= 2, has: hits.length > 0, none: hits.length === 0 && cats.length === 0, items: hits,
-      total: String(allHits.length), cats, hasCats: cats.length > 0, gridCls: hits.length && cats.length ? 'two' : '',
+      total: String(allHits.length), allLabel: 'Zobrazit všechny produkty (' + allHits.length + ')', cats, hasCats: cats.length > 0, catsMore: allCats.length > 5, catsAllLabel: 'Zobrazit všechny kategorie (' + allCats.length + ')', gridCls: hits.length && cats.length ? 'two' : '',
+      hasQ: s.q.length > 0, keep: e => e.preventDefault(), clear: e => { ['q', 'qm'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; }); const inp = e.currentTarget.parentNode.querySelector('input'); if (inp) inp.focus(); clearTimeout(this.blurT); this.setState({ q: '', qsOpen: true }); },
       change: e => this.setState({ q: e.target.value, qsOpen: true }),
       focus: () => { clearTimeout(this.blurT); this.setState({ qsOpen: true }); },
       blur: () => { this.blurT = setTimeout(() => this.setState({ qsOpen: false }), 180); },
@@ -1707,10 +1807,10 @@ class Component extends DCLogic {
       toggleLogin: e => { if (e && e.preventDefault) e.preventDefault(); const w = s.auth ? 'user' : 'login'; this.setState({ pop: s.pop === w ? '' : w }); },
       doLogin: () => { try { localStorage.setItem('midasAuthV1', 'in'); } catch (x) {} this.setState({ auth: true }); window.dispatchEvent(new Event('midas-auth')); },
       doLogout: () => { try { localStorage.setItem('midasAuthV1', 'out'); } catch (x) {} this.setState({ auth: false, pop: '' }); window.dispatchEvent(new Event('midas-auth')); },
-      auth: { in: !!s.auth, out: !s.auth, btnCls: s.auth ? 'isIn' : '', btnLabel: s.auth ? undefined : 'Přihlášení', menuLabel: s.auth ? 'Můj účet · Andrea Zelená' : 'Přihlášení / Registrace' },
+      auth: { in: !!s.auth, out: !s.auth, btnCls: s.auth ? 'isIn' : '', btnLabel: s.auth ? undefined : 'Přihlášení' },
       toggleCart: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ pop: s.pop === 'cart' ? '' : 'cart' }); },
       closePop: () => { const w = this.state.pop; this.setState({ pop: '' }); const b = document.querySelector(w === 'cart' ? '#SimpleBasket > a' : '#loginBtn'); if (b) b.focus(); },
-      loginOpen: s.pop === 'login', userOpen: s.pop === 'user', cartOpen: s.pop === 'cart', loginExp: String(s.pop === 'login' || s.pop === 'user'), cartExp: String(s.pop === 'cart'), cartLines: s.lines || [],
+      loginOpen: s.pop === 'login', userOpen: s.pop === 'user', cartOpen: s.pop === 'cart', loginExp: String(s.pop === 'login' || s.pop === 'user'), cartExp: String(s.pop === 'cart'), cartLines: s.lines || [], removeLine: i => { const L = this.state.lines || [], l = L[i]; if (!l) return; this.setState({ lines: L.filter((_, k) => k !== i), count: Math.max(0, this.state.count - l.q), total: Math.max(0, Math.round((this.state.total - l.q * l.unit) * 100) / 100) }); },
       fl: { chips: (s.chips || []).map(c => ({ label: c.label, remove: () => this.removeChip(c.i) })), count: String((s.chips || []).length), any: (s.chips || []).length > 0, many: (s.chips || []).length > 1,
         openCls: s.fOpen ? 'open' : '', exp: String(!!s.fOpen),
         open: () => this.setFilter(true), close: () => this.setFilter(false),

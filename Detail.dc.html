@@ -18,7 +18,7 @@
   --main: #cc0000;               /* červená: Koupit, AI asistent, badge košíku */
   --main-d: #a80000;
   --text: rgba(30,30,30,.9);
-  --text-weaker: rgba(30,30,30,.68);
+  --text-weaker: rgba(30,30,30,.63);
   --text-muted: #999;
   --bg: #fff;
   --bg-soft: #f8f8f8;
@@ -40,16 +40,16 @@
   --gutter-xxs:12px; --gutter-xs:16px; --gutter-s:16px; --gutter-m:24px; --gutter-l:24px; --gutter-xl:32px; --gutter-xxl:32px;
   --gutter: var(--gutter-xxs);
   --content-max: 1560px;
-  --section-gap: var(--space-6); --card-pad: var(--space-4); --grid-gap: var(--space-3);
+  --section-gap: 40px; --card-pad: var(--space-4); --grid-gap: var(--space-4);
   --font: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --fs-h1:28px; --fs-h2:22px; --fs-h3:18px; --fs-h4:16px; --fs-body:15px; --fs-body-sm:13px; --fs-caption:12px; --fs-price-md:20px; --fs-price-sm:15px;
-  --lh-body:1.5;
+  --fs-h1:32px; --fs-h2:25px; --fs-h3:20px; --fs-h4:18px; --fs-body:17px; --fs-body-sm:15px; --fs-caption:14px; --fs-price-md:23px; --fs-price-sm:17px;
+  --lh-body:1.6;
 }
 @media (min-width:420px){:root{--gutter:var(--gutter-xs)}}
 @media (min-width:550px){:root{--gutter:var(--gutter-s)}}
-@media (min-width:820px){:root{--gutter:var(--gutter-m);--section-gap:var(--space-7);--card-pad:var(--space-5);--grid-gap:var(--space-4);--fs-h1:32px;--fs-h2:24px;--fs-h3:20px}}
+@media (min-width:820px){:root{--gutter:var(--gutter-m);--section-gap:var(--space-8);--card-pad:var(--space-5);--grid-gap:20px;--fs-h1:36px;--fs-h2:27px;--fs-h3:23px}}
 @media (min-width:1000px){:root{--gutter:var(--gutter-l)}}
-@media (min-width:1150px){:root{--gutter:var(--gutter-xl);--section-gap:var(--space-8);--fs-h1:40px;--fs-h2:28px;--fs-h3:22px;--fs-h4:18px;--fs-body:16px;--fs-body-sm:14px;--fs-price-md:22px;--fs-price-sm:16px}}
+@media (min-width:1150px){:root{--gutter:var(--gutter-xl);--section-gap:80px;--grid-gap:var(--space-5);--fs-h1:45px;--fs-h2:32px;--fs-h3:25px;--fs-h4:20px;--fs-body:18px;--fs-body-sm:16px;--fs-price-md:25px;--fs-price-sm:18px}}
 @media (min-width:1440px){:root{--gutter:var(--gutter-xxl)}}
 
 *{box-sizing:border-box}
@@ -68,14 +68,14 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
 /* ---- tlačítka (00b) ---- */
-.button{background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:var(--btn-h-md);padding:0 20px;font:600 15px/1 var(--font);border:1px solid transparent;border-radius:var(--btn-radius);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
+.button{background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);height:var(--btn-h-md);padding:0 20px;font:600 17px/1 var(--font);border:1px solid transparent;border-radius:var(--btn-radius);cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
 .button:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--primary)}
 .button.-main{background:var(--main);color:#fff;border-color:var(--main)}.button.-main:hover{background:var(--main-d);border-color:var(--main-d)}
 .button.-primary{background:var(--primary);color:#fff;border-color:var(--primary)}.button.-primary:hover{background:var(--primary-d);border-color:var(--primary-d)}
 .button.-secondary{background:transparent;color:var(--primary-d);border-color:var(--primary)}.button.-secondary:hover{background:var(--primary-10)}
 .button.-neutral{background:var(--input-bg-soft);color:var(--text);border-color:var(--input-border)}.button.-neutral:hover{background:#e9ebeb}
 .button.-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.button.-ghost:hover{background:rgba(255,255,255,.12)}
-.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:13px}.button.-sm .icon{width:16px;height:16px}
+.button.-sm{height:var(--btn-h-sm);padding:0 12px;font-size:15px}.button.-sm .icon{width:16px;height:16px}
 .button.-icon{width:var(--btn-h-md);padding:0}.button.-icon.-sm{width:var(--btn-h-sm)}
 .button.disabled{opacity:.45;pointer-events:none}
 
@@ -93,7 +93,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .SimpleSearchView input.query:focus,.SimpleSearchView input.query:focus-visible,.mobileSearch input:focus,.mobileSearch input:focus-visible{outline:none;box-shadow:none}
 .SimpleSearchView .dcQuery a.search:focus-visible,.mobileSearch .dcQuery .button:focus-visible{outline:none;box-shadow:none;background:var(--primary-10)}
 .SimpleSearchView .dcQuery a.search{border-radius:0 var(--radius-sm) var(--radius-sm) 0;height:100%}
-.SimpleSearchView input.query{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:16px;color:var(--text)}
+.SimpleSearchView input.query{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:18px;color:var(--text)}
 .SimpleSearchView input.query::placeholder{color:var(--text-muted)}
 .SimpleSearchView a.search{color:var(--primary);background:transparent;border-color:transparent}
 .SimpleSearchView a.search:hover{background:var(--primary-10)}
@@ -108,12 +108,12 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .ContactsView{align-items:center}
 .LoginUserView > .button,.SimpleBasketView > .button{color:var(--text);position:relative}
 .LoginUserView > .button:hover,.SimpleBasketView > .button:hover{background:var(--primary-10)}
-.SimpleBasketView .count{position:absolute;top:4px;right:4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--main);color:#fff;font:700 11px/18px var(--font);text-align:center}
+.SimpleBasketView .count{position:absolute;top:4px;right:4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--main);color:#fff;font:700 12px/20.2px var(--font);text-align:center}
 .hamburger,.search-mobile{display:none}
 .mobileSearch{display:none;padding-block:0 var(--space-3)}
 .mobileSearch .dcQuery{display:flex;align-items:center;height:var(--btn-h-md);background:var(--bg-soft);border:1px solid var(--bg-soft);border-radius:var(--radius-sm)}
 .mobileSearch .dcQuery:focus-within{border-color:var(--primary);box-shadow:0 0 0 3px rgba(101,188,71,.25)}
-.mobileSearch input{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:16px;color:var(--text)}
+.mobileSearch input{flex:1 1 auto;min-width:0;height:100%;border:0;background:transparent;padding:0 var(--space-4);font:inherit;font-size:18px;color:var(--text)}
 .mobileSearch .button{color:var(--primary);border-color:transparent}
 
 /* ---- MenuCategoriesRwdView (horizontální, ikony + uppercase) ---- */
@@ -146,7 +146,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .SliderRwdView .slide img{height:100%;width:auto;max-height:360px;object-fit:contain}
 .SliderRwdView .uc-slide{position:relative;display:grid;justify-content:center;height:100%}
 .SliderRwdView .uc-slide-text{display:none;position:absolute;inset:0 auto auto 0;padding:var(--space-5);color:rgba(0,0,0,.45);pointer-events:none}
-.SliderRwdView .uc-slide-text h2{font-size:clamp(28px,5vw,62px);font-weight:700;line-height:1}
+.SliderRwdView .uc-slide-text h2{font-size:clamp(32px,5.625vw,70px);font-weight:700;line-height:1}
 .SliderRwdView .pagination{position:absolute;left:50%;bottom:var(--space-3);translate:-50% 0;display:flex;gap:6px;z-index:2}
 .SliderRwdView .pagination button{width:10px;height:10px;border-radius:50%;border:0;padding:0;background:#dfe3e1;cursor:pointer;transition:transform .15s,background .15s}
 .SliderRwdView .pagination button.active{background:var(--primary);transform:scale(1.4)}
@@ -156,9 +156,13 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 /* USP řádek (UserContent) */
 .usp{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-5);padding-block:var(--space-4);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .usp .item{display:flex;gap:var(--space-3);align-items:flex-start}
+/* USP Doprava: loga dopravců */
+.usp .uspLogos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.usp .uspLogo{display:block;width:65px;height:40px;flex:none}
+.usp 
 .usp img{width:36px;height:36px;flex:0 0 auto}
 .usp h4{font-size:var(--fs-h4);color:var(--primary-text);font-weight:700;line-height:1.25}
-.usp p{margin:4px 0 0;font-size:var(--fs-body-sm);line-height:1.4}
+.usp p{margin:4px 0 0;font-size:var(--fs-body-sm);line-height:1.4;color:var(--text-weaker)}
 
 .HeadingView{font-size:var(--fs-h1);font-weight:400;text-align:center;letter-spacing:-.01em}
 
@@ -180,13 +184,13 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .ProductView .ActionIconsView{position:absolute;top:var(--space-3);left:var(--space-3);right:var(--space-3);display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:1}
 .ProductView .icons{display:flex;flex-direction:column;gap:var(--space-1);align-items:flex-start}
 .badge{display:inline-flex;align-items:center;height:22px;padding:0 var(--space-2);border-radius:var(--radius-xs);font:600 var(--fs-caption)/1 var(--font);color:#fff;white-space:nowrap}
-.badge.discount{background:var(--flag-discount);color:var(--flag-discount-fg);font-size:13px;font-weight:700;height:24px}
+.badge.discount{background:var(--flag-discount);color:var(--flag-discount-fg);font-size:15px;font-weight:700;height:24px}
 .badge.flag01{background:var(--flag-akce)}.badge.flag00{background:var(--flag-novinka)}.badge.flag02{background:var(--flag-doporucujeme)}.badge.flag03{background:var(--flag-vyprodej)}
 .ProductView a.image{display:flex;align-items:center;justify-content:center;aspect-ratio:220/200;margin-bottom:var(--space-3)}
 .ProductView a.image img{max-height:100%;width:auto;object-fit:contain}
 .ProductView h2{font-size:var(--fs-h4);font-weight:700;line-height:1.3;margin-bottom:var(--space-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .ProductView h2 a{color:var(--text)}.ProductView h2 a:hover{color:var(--primary-d)}
-.PackageInfo{display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-3);font-size:14px;line-height:1.4;color:rgba(30,30,30,.78);margin-bottom:var(--space-4)}
+.PackageInfo{display:grid;grid-template-columns:auto 1fr;gap:4px var(--space-3);font-size:16px;line-height:1.4;color:rgba(30,30,30,.66);margin-bottom:var(--space-4)}
 .PackageInfo .caption{font-weight:600;color:var(--text)}
 .ProductView .bottom{margin-top:auto;display:flex;flex-direction:column;gap:var(--space-2)}
 .ProductView .prices{display:flex;flex-direction:column;gap:2px}
@@ -196,13 +200,22 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .price.retail{font-size:var(--fs-body-sm);color:var(--text-weaker);text-decoration:line-through}
 .AddToCartView{display:flex;gap:var(--space-2);align-items:center}
 .stepper{display:inline-flex;height:var(--btn-h-md)}
-.stepper .button{border-radius:0;width:36px;background:#fff;color:var(--text);border-color:var(--input-border);font-size:18px}
+.stepper .button{border-radius:0;width:36px;background:#fff;color:var(--text);border-color:var(--input-border);font-size:20px}
 .stepper .button:hover{background:var(--primary-10);color:var(--primary-d)}
 .stepper .button.disabled{opacity:1;color:var(--text-muted);pointer-events:none}
 .stepper .button:first-child{border-radius:var(--btn-radius) 0 0 var(--btn-radius)}
 .stepper .button:last-child{border-radius:0 var(--btn-radius) var(--btn-radius) 0}
-.stepper input{width:44px;height:100%;border:1px solid var(--input-border);border-inline:0;border-radius:0;text-align:center;font:inherit;font-size:16px;font-weight:600;color:var(--text);background:#fff;color-scheme:light;appearance:textfield;-moz-appearance:textfield;padding:0}
+.stepper input{width:44px;height:100%;border:1px solid var(--input-border);border-inline:0;border-radius:0;text-align:center;font:inherit;font-size:18px;font-weight:600;color:var(--text);background:#fff;color-scheme:light;appearance:textfield;-moz-appearance:textfield;padding:0}
 .stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none}
+/* kvantifikátor s jednotkou – vše se prodává po kusech (stejně jako karta produktu) */
+.stepper .qtyField{display:flex;align-items:center;justify-content:center;gap:4px;height:100%;padding:0 var(--space-2);border:1px solid var(--input-border);border-inline:0;background:#fff;font:400 18px/1 var(--font);color:var(--text);cursor:text}
+.stepper .qtyNum{display:inline-grid;min-width:1ch}
+.stepper .qtyNum>*{grid-area:1/1;min-width:0}
+.stepper .qtyMirror{visibility:hidden;white-space:pre;font:inherit;line-height:1.25}
+.stepper .qtyField input{width:0;min-width:100%;max-width:none;height:1.25em;padding:0;margin:0;border:0;font:inherit;line-height:1.25;text-align:center;outline:none;background:transparent}
+.stepper .qtyUnit{font:inherit;line-height:1.25;color:inherit}
+.stepper .qtyField:focus-within{box-shadow:inset 0 0 0 2px var(--primary)}
+.stepper.-lg .qtyField{flex:1 1 auto;min-width:72px;font-size:20px}
 .AddToCartView a.buy{flex:1 1 auto}
 .AvailabilityView{display:inline-flex;align-items:center;gap:6px;font-size:var(--fs-body-sm);font-weight:500}
 .AvailabilityView::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
@@ -247,7 +260,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
   .usp{grid-template-columns:repeat(3,1fr)}
   .benefits{grid-template-columns:repeat(2,1fr)}
 }
-@media (max-width:819px){
+@media (max-width:999px){ /* hlavička s hamburgerem už pod 1000 px */
   .HeaderView{grid-template-columns:minmax(0,1fr) auto auto auto auto;gap:var(--space-2);min-height:60px}
   .LogoView img{height:auto;max-height:40px;width:auto;max-width:100%}
   .SimpleSearchView .dcQuery,.SimpleSearchView .ai span{display:none}
@@ -257,6 +270,8 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
   .hamburger{display:inline-flex;background:var(--primary);color:#fff;border-color:var(--primary)}
   .search-mobile{display:none}
   .MenuCategoriesRwdView{display:none}
+}
+@media (max-width:819px){
   .ProductsView .items{grid-auto-columns:calc((100% - var(--grid-gap))/2)}
   .ProductsView{grid-template-columns:minmax(0,1fr);grid-template-areas:"title" "items" "nav";row-gap:var(--space-4)}
   .ProductsView .nav{justify-self:end;margin-top:var(--space-2)}
@@ -287,10 +302,10 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .hero .slide.-grey{--hero-bg:#f2f3f2}
 .hero .stage.-red{background:#fdecea}.hero .stage.-dark{background:#1f2a1c;color:#fff}.hero .stage.-grey{background:#f2f3f2}.hero .stage.-green{background:#eef7ea}
 .hero .copy{display:grid;gap:var(--space-4);align-content:center;max-width:52ch}
-.hero .kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-size:15px;font-weight:600;color:var(--hero-accent)}
+.hero .kicker{display:inline-flex;align-items:center;gap:var(--space-2);font-size:17px;font-weight:600;color:var(--hero-accent)}
 .hero .kicker::before{content:"";width:24px;height:3px;background:var(--hero-accent);border-radius:2px}
-.hero h2{font-size:clamp(26px,2.6vw,36px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:inherit}
-.hero p{margin:0;font-size:var(--fs-body-lg,17px);line-height:1.5;color:inherit;opacity:.85}
+.hero h2{font-size:clamp(29px,2.925vw,41px);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:inherit}
+.hero p{margin:0;font-size:var(--fs-body-lg,19px);line-height:1.5;color:inherit;opacity:.85}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
 .hero .slide.-dark .button.-secondary{color:#fff;border-color:rgba(255,255,255,.6)}
 .hero .slide.-dark .button.-secondary:hover{background:rgba(255,255,255,.12)}
@@ -305,7 +320,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .hero .stage.-dark + .controls{background:var(--bg-soft)}
 .hero .tabs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:var(--space-2);min-width:0}
 .hero .tab{position:relative;display:grid;grid-template-columns:28px 1fr;gap:var(--space-2);align-items:center;text-align:left;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;color:var(--text-weaker);font:inherit;font-size:var(--fs-body-sm);line-height:1.3;cursor:pointer;min-height:44px;overflow:hidden}
-.hero .tab .num{position:relative;z-index:1;width:28px;height:28px;display:grid;place-items:center;font-size:14px;font-weight:700;color:var(--text-weaker)}
+.hero .tab .num{position:relative;z-index:1;width:28px;height:28px;display:grid;place-items:center;font-size:16px;font-weight:700;color:var(--text-weaker)}
 .hero .tab .lbl{position:relative;z-index:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-weight:500}
 .hero .tab:hover{border-color:var(--text-muted);color:var(--text)}
 .hero .tab[aria-selected="true"]{border-color:var(--primary);color:var(--text)}
@@ -323,7 +338,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 @media (max-width:999px){
   .hero .slide{grid-template-columns:1fr;gap:var(--space-5);padding:var(--space-6) var(--space-5)}
   .hero .visual{max-height:220px;aspect-ratio:16/9;order:-1;justify-self:stretch}
-  .hero h2{font-size:clamp(26px,5.5vw,34px)}
+  .hero h2{font-size:clamp(29px,6.188vw,38px)}
 }
 @media (max-width:819px){
   .hero{border-radius:var(--radius-md);margin-top:var(--space-3)}
@@ -341,11 +356,20 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 /* košík v hlavičce s cenou */
 .SimpleBasketView > .button{width:auto;padding:0 var(--space-3);gap:var(--space-2)}
 .SimpleBasketView .cartInfo{display:none;flex-direction:column;align-items:flex-start;line-height:1.15;text-align:left}
-.SimpleBasketView .cartInfo .ci-price{font-weight:700;font-size:15px;color:var(--text)}
-.SimpleBasketView .cartInfo .ci-items{font-size:12px;color:var(--text-weaker)}
+.SimpleBasketView .cartInfo .ci-price{font-weight:700;font-size:17px;color:var(--text)}
+.SimpleBasketView .cartInfo .ci-items{font-size:14px;color:var(--text-weaker)}
 .SimpleBasketView:not(.empty) .cartInfo{display:flex}
-.SimpleBasketView:not(.empty) .count{display:none}
-@media (max-width:819px){ .SimpleBasketView:not(.empty) .cartInfo{display:none} .SimpleBasketView:not(.empty) .count{display:block} .SimpleBasketView > .button{width:var(--btn-h-md);padding:0} }
+/* počet kusů jako notifikace v pravém horním rohu „pilulky“ košíku */
+.SimpleBasketView:not(.empty) .count{top:-4px;right:-4px;box-shadow:0 0 0 2px #fff}
+/* košík s obsahem: obtažená „pilulka“ s chevronem – stejně jako jméno přihlášeného uživatele */
+.SimpleBasketView .cartCaret{display:none;width:14px;height:14px;flex:none;color:var(--text-weaker);transition:transform .15s}
+.SimpleBasketView:not(.empty) > .button{border:1px solid var(--line);border-radius:var(--btn-radius,4px);padding:0 var(--space-3) 0 var(--space-4)}
+.SimpleBasketView:not(.empty) .cartCaret{display:block}
+.SimpleBasketView > .button[aria-expanded="true"] .cartCaret{transform:rotate(180deg)}
+.SimpleBasketView:not(.empty) > .button:hover,.SimpleBasketView:not(.empty) > .button[aria-expanded="true"],.LoginUserView .button.login.isIn:hover,.LoginUserView .button.login.isIn[aria-expanded="true"]{background:var(--primary-10);border-color:var(--primary)}
+@media (max-width:999px){ .SimpleBasketView:not(.empty) .cartInfo{display:none} .SimpleBasketView:not(.empty) .count{display:block;top:4px;right:4px;box-shadow:none}
+ .SimpleBasketView:not(.empty) > .button{border-color:transparent;padding:0}
+ .SimpleBasketView:not(.empty) .cartCaret{display:none} .SimpleBasketView > .button{width:var(--btn-h-md);padding:0} }
 
 /* ---- popupy a dialogy (03, 13) ---- */
 .bs-popup-overlay,.bs-dialog-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1001}
@@ -361,7 +385,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .field{display:grid;gap:6px}
 .field__control{position:relative;display:flex}
 .field__control .icon{position:absolute;left:12px;top:50%;translate:0 -50%;color:var(--text-muted);pointer-events:none}
-.input{width:100%;height:var(--btn-h-md);padding:0 14px 0 40px;font:inherit;font-size:16px;color:var(--text);background:#fff;border:1px solid var(--input-border);border-radius:var(--radius-sm);appearance:none}
+.input{width:100%;height:var(--btn-h-md);padding:0 14px 0 40px;font:inherit;font-size:18px;color:var(--text);background:#fff;border:1px solid var(--input-border);border-radius:var(--radius-sm);appearance:none}
 .input:focus-visible{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(101,188,71,.25)}
 .check{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:var(--fs-body-sm)}
 .check input{position:absolute;opacity:0;width:0;height:0}
@@ -382,7 +406,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 #SimpleBasketPopup .empty{color:var(--text-weaker);margin:0 0 var(--space-4)}
 /* bs-dialog */
 .bs-dialog{position:fixed;inset:0;margin:auto;height:fit-content;max-height:calc(100% - 32px);width:min(740px,100% - 2*var(--gutter));z-index:1002;background:#fff;border-radius:var(--radius-lg);box-shadow:0 0 10px rgba(0,0,0,.2);overflow:auto;color:var(--text)}
-.bs-dialog .top{position:relative;padding:var(--space-5) var(--space-6) 0}
+.bs-dialog .top{position:relative;padding:var(--space-5) var(--space-6) var(--space-4);border-bottom:1px solid var(--line)}
 .bs-dialog .top .title{display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-h3);font-weight:500}
 .bs-dialog .top .title .icon{color:var(--success)}
 .bs-dialog .close{position:absolute;top:var(--space-3);right:var(--space-3)}
@@ -451,6 +475,27 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .chip:hover{border-color:var(--primary);color:var(--primary-d)}
 .dcHeader{position:relative}
 .LoginUserView,.SimpleBasketView{position:relative;z-index:1002}
+.LoginUserView:has(.popSlot),.SimpleBasketView:has(.popSlot){z-index:1003} /* otevřený popup (i s overlayem) nad sousedními tlačítky hlavičky */
+/* telefon v hlavičce i na tabletu a mobilu: 1000–1149 číslo bez e-mailu, 550–999 číslo vedle loga, pod 550 ikonové tlačítko */
+@media (max-width:1149px){
+  .HeaderView{grid-template-columns:auto minmax(0,1fr) auto auto auto}
+  .HeaderView .ContactsView{display:flex}
+  .HeaderView .ContactsView .email{display:none}
+}
+@media (max-width:999px){
+  .HeaderView{grid-template-columns:minmax(0,1fr) auto auto auto auto auto}
+  .HeaderView > *{order:2}
+  .HeaderView > .LogoView{order:0}
+  .HeaderView > .ContactsView{order:1;margin-right:var(--space-2)}
+}
+@media (max-width:549px){
+  .HeaderView > .ContactsView{margin-right:0}
+  .HeaderView .ContactsView .phone{justify-content:center;width:var(--btn-h-md);height:var(--btn-h-md);border:1px solid var(--line);border-radius:var(--btn-radius,4px);background:#fff}
+  .HeaderView .ContactsView .phone:hover{background:var(--primary-10);border-color:var(--primary)}
+  .HeaderView .ContactsView .phone .icon{width:22px;height:22px}
+  .HeaderView .ContactsView .phone .txt{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+}
+@media (max-width:419px){.HeaderView{gap:var(--space-2);grid-template-columns:minmax(0,1fr) auto auto auto auto}.HeaderView .ContactsView{display:none}} /* XXS: telefon v hlavičce schovat, ať zůstane místo pro logo */
 .SimpleSearchView{position:static}
 .HeaderView{position:relative;z-index:1002}
 /* AI asistent */
@@ -467,7 +512,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 #AiAssistantPopup .in{display:flex;gap:var(--space-2);padding:var(--space-3) var(--space-4);border-top:1px solid var(--line)}
 #AiAssistantPopup .in .input{padding-left:14px}
 /* mobilní hamburger menu – podoba C */
-@media (max-width:819px){
+@media (max-width:999px){
   #Login,#SimpleBasketPopup{position:fixed;left:var(--gutter);right:var(--gutter);top:auto;bottom:var(--gutter);width:auto}
   #DynamicSearchPopup .mini{grid-template-columns:1fr}
   #DynamicSearchPopup .mini .row{grid-template-columns:64px minmax(0,1fr) auto}
@@ -485,7 +530,7 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 .stickyTop{position:sticky;top:0;z-index:400;background:#fff;transition:box-shadow .2s}
 body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 .dc-page.stuck .stickyTop{box-shadow:0 6px 18px rgba(0,0,0,.08)}
-@media (min-width:820px){
+@media (min-width:1000px){
   .MenuCategoriesRwdView{padding-bottom:var(--space-3)}
   .MenuCategoriesRwdView li.level_0 + li.level_0{border-left:1px solid rgba(255,255,255,.22)}
   .MenuCategoriesRwdView .image{display:block;overflow:hidden;max-height:28px;transition:max-height .2s,opacity .15s,margin .2s}
@@ -535,7 +580,7 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 }
 .stepper .button .icon{pointer-events:none}
 /* ===== hamburger menu (≤ 819 px) ===== */
-@media (max-width:819px){
+@media (max-width:999px){
   body.menuOpen{overflow:hidden}
   body.menuOpen .AiAssistantView .open{display:none}
   .hamburger.isOpen .icOpen{display:none}.hamburger.isOpen .icClose{display:block}
@@ -556,6 +601,12 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .MenuCategoriesRwdView.open li.expanded > .exp{color:var(--primary-d);background:var(--primary-10)}
   .MenuCategoriesRwdView.open li.expanded > .exp .icon{rotate:180deg}
   .MenuCategoriesRwdView.open li.expanded > ul.child{display:block}
+  /* plynulé rozbalení podkategorií v hamburger menu: řádek mřížky 0fr → 1fr */
+  .MenuCategoriesRwdView.open li.level_0.hasChild{display:grid;grid-template-rows:auto 0fr;transition:grid-template-rows .3s cubic-bezier(.2,.7,.2,1)}
+  .MenuCategoriesRwdView.open li.level_0.hasChild.expanded{grid-template-rows:auto 1fr}
+  .MenuCategoriesRwdView.open li.level_0.hasChild > ul.child{display:block;min-height:0;overflow:hidden;padding-bottom:0;visibility:hidden;opacity:0;transition:opacity .25s ease,visibility 0s linear .3s}
+  .MenuCategoriesRwdView.open li.level_0.hasChild.expanded > ul.child{visibility:visible;opacity:1;transition:opacity .25s ease .05s,visibility 0s}
+  .MenuCategoriesRwdView.open ul.child > li:last-child{padding-bottom:var(--space-3)}
   .MenuCategoriesRwdView.open ul.child{list-style:none;margin:0;padding:0 var(--gutter) var(--space-3) calc(var(--gutter) + 40px + var(--space-3))}
   .MenuCategoriesRwdView.open ul.child li{display:block}
   .MenuCategoriesRwdView.open ul.child a{display:flex;align-items:center;min-height:44px;color:var(--text);font-size:var(--fs-body);border-top:1px solid var(--line)}
@@ -566,11 +617,19 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
   .MenuInHamburger a{display:flex;align-items:center;justify-content:space-between;min-height:48px;color:var(--text);font-size:var(--fs-body);font-weight:500}
   .MenuInHamburger .icon{color:var(--text-muted)}
   .menuLogin{width:100%;background:#fff}
+  /* přihlášený: stejně jako v hlavičce – zaoblená „pilulka“ s iniciálami */
+  .menuLogin.isIn{justify-content:flex-start;gap:var(--space-3);height:auto;min-height:56px;padding:var(--space-2) var(--space-4) var(--space-2) var(--space-2);border:1px solid var(--line);border-radius:var(--btn-radius,4px);color:var(--text);text-align:left}
+  .menuLogin.isIn:hover{background:var(--primary-10);border-color:var(--primary)}
+  .menuUser{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 auto}
+  .menuUser b{font-weight:600;line-height:1.2}
+  .menuUser small{font-weight:400;font-size:var(--fs-body-sm);color:var(--text-weaker);line-height:1.2}
+  .menuLogin .menuUserGo{color:var(--text-weaker)}
   .menuContacts{display:grid!important;gap:var(--space-3)}
   .menuContacts a{display:grid;grid-template-columns:40px minmax(0,1fr);gap:var(--space-3);align-items:center;color:var(--text)}
   .menuContacts .icon{justify-self:center;width:24px;height:24px;color:var(--primary-d)}
   .menuContacts b{display:block;font-weight:600}.menuContacts small{color:var(--text-weaker);font-size:var(--fs-body-sm)}
 }
+@media (prefers-reduced-motion:reduce){.MenuCategoriesRwdView.open li.level_0.hasChild,.MenuCategoriesRwdView.open li.level_0.hasChild > ul.child{transition:none}}
 /* taste-skill: hover mikroanimace – fotka se v rámečku přiblíží o 3 % */
 .ProductView a.image img{transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 .ProductView:hover a.image img{transform:scale(1.03)}
@@ -579,7 +638,7 @@ body:has(#popupOverlay:not([hidden])) .stickyTop{z-index:1002}
 
 /* ===== společné pro podstránky ===== */
 .button.-text{background:transparent;color:var(--primary-d);padding:0 var(--space-2);border-color:transparent}.button.-text:hover{background:var(--primary-10)}
-.button.-lg{height:var(--btn-h-lg);padding:0 28px;font-size:17px}
+.button.-lg{height:var(--btn-h-lg);padding:0 28px;font-size:19px}
 .BreadcrumbView{margin:var(--space-4) 0 var(--space-2)}
 .BreadcrumbView .path{display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-body-sm);white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .BreadcrumbView a{color:var(--text-weaker);display:inline-flex;align-items:center}.BreadcrumbView a:hover{color:var(--primary-d)}
@@ -593,7 +652,7 @@ main:not([data-page="home"]) .userContent a{color:var(--primary-d);text-decorati
 
 /* ===== kategorie ===== */
 .catHead{display:grid;gap:var(--space-3);margin-bottom:var(--space-5)}
-.catHead .userContent p{margin:0;color:rgba(30,30,30,.78)}
+.catHead .userContent p{margin:0;color:rgba(30,30,30,.66)}
 /* FlatCategoriesRwdView – karty podkategorií */
 .ChildCategories ul.root{list-style:none;margin:0 0 var(--space-6);padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--grid-gap)}
 .ChildCategories li a{display:grid;grid-template-columns:44px minmax(0,1fr) 16px;align-items:center;gap:var(--space-3);min-height:64px;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--card-radius);background:#fff;color:var(--text);transition:border-color .15s,box-shadow .15s}
@@ -737,7 +796,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDImage .slide img{max-width:84%;max-height:84%;object-fit:contain;transition:transform .2s;user-select:none;-webkit-user-drag:none}
 .PDImage .slide:hover img{transform:scale(1.04)}
 .PDImage .slide:focus-visible{outline:2px solid var(--primary);outline-offset:-4px}
-.phBox{display:grid;place-items:center;align-content:center;gap:var(--space-2);width:100%;height:100%;color:var(--text-muted);font-size:14px;background:repeating-linear-gradient(135deg,#fff 0 12px,#f4f4f4 12px 24px)}
+.phBox{display:grid;place-items:center;align-content:center;gap:var(--space-2);width:100%;height:100%;color:var(--text-muted);font-size:16px;background:repeating-linear-gradient(135deg,#fff 0 12px,#f4f4f4 12px 24px)}
 .phBox .icon{width:40px;height:40px}
 .PDImage .PDActionIcons{position:absolute;top:var(--space-4);left:var(--space-4);z-index:2;pointer-events:none}
 .PDImage .PDActionIcons .icons{display:flex;flex-direction:column;gap:var(--space-1);align-items:flex-start}
@@ -760,7 +819,7 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .PDImage .images .item{flex:0 0 72px;height:72px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius-sm);background:#fff;padding:6px;cursor:pointer}
 .PDImage .images .item{overflow:hidden}.PDImage .images .item img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
 .PDImage .images .item.active{border-color:var(--primary);box-shadow:inset 0 0 0 1px var(--primary)}
-.PDImage .images .item.ph{color:var(--text-muted);font-size:11px;text-align:center;line-height:1.2}
+.PDImage .images .item.ph{color:var(--text-muted);font-size:12px;text-align:center;line-height:1.2}
 .PDImage .dots{display:none;justify-content:center;align-items:center;gap:0;min-height:24px}
 .PDImage .dots button{display:grid;place-items:center;height:24px;padding:0 3px;border:0;background:transparent;cursor:pointer}
 .PDImage .dots button::before{content:"";display:block;width:8px;height:8px;border-radius:4px;background:var(--line-strong,#c9cdcf);transition:width .3s cubic-bezier(.4,0,.2,1),background-color .3s}
@@ -775,22 +834,33 @@ main:not([data-page="home"]) .userContent ul{margin:0 0 var(--space-3);padding-l
 .GalleryLoaderView .button.-icon{color:#fff;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.08)}
 .GalleryLoaderView .button.-icon:hover{background:rgba(255,255,255,.2)}
 .GalleryLoaderView .button.-icon:disabled{opacity:.25;pointer-events:none}
+/* šipky galerie: tmavý podklad, aby byly vidět i přes bílou fotku (mobil) */
+.GalleryLoaderView .button.-icon.lbPrev,.GalleryLoaderView .button.-icon.lbNext{background:rgba(20,26,20,.72);border-color:rgba(255,255,255,.35);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.GalleryLoaderView .button.-icon.lbPrev:hover,.GalleryLoaderView .button.-icon.lbNext:hover{background:rgba(20,26,20,.88)}
 .GalleryLoaderView .lbStage{position:relative;min-height:0}
 .GalleryLoaderView .lbTrack{display:flex;height:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior:contain}
 .GalleryLoaderView .lbTrack::-webkit-scrollbar{display:none}
 .GalleryLoaderView .lbSlide{flex:0 0 100%;min-width:0;height:100%;display:grid;place-items:center;padding:0 72px;scroll-snap-align:center;scroll-snap-stop:always}
 .GalleryLoaderView .lbSlide .frame{display:grid;place-items:center;width:min(100%,1100px);height:100%;max-height:100%;background:#fff;border-radius:var(--radius-lg);overflow:hidden}
-.GalleryLoaderView .lbSlide img{max-width:92%;max-height:92%;object-fit:contain}
+.GalleryLoaderView .lbSlide img{max-width:92%;max-height:92%;object-fit:contain;position:relative;z-index:1}
 html.lbLock,html.lbLock body{overflow:hidden}
+/* galerie: plynulý přechod mezi fotkami (najetí ze strany podle směru + prolnutí) */
+img.gInRA{animation:gInR .38s cubic-bezier(.2,.8,.2,1)}img.gInRB{animation:gInR2 .38s cubic-bezier(.2,.8,.2,1)}
+img.gInLA{animation:gInL .38s cubic-bezier(.2,.8,.2,1)}img.gInLB{animation:gInL2 .38s cubic-bezier(.2,.8,.2,1)}
+@keyframes gInR{from{opacity:0;transform:translateX(28px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes gInR2{from{opacity:0;transform:translateX(28px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes gInL{from{opacity:0;transform:translateX(-28px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes gInL2{from{opacity:0;transform:translateX(-28px) scale(.98)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){img.gInRA,img.gInRB,img.gInLA,img.gInLB{animation:none}}
 .GalleryLoaderView{overscroll-behavior:contain}
 .GalleryLoaderView:focus{outline:none}
 .GalleryLoaderView .lbTitle{margin:0;font-size:var(--fs-h4)}
 .GalleryLoaderView .lbClose{width:48px;height:48px}
 .GalleryLoaderView .lbClose .icon,.GalleryLoaderView .lbPrev .icon,.GalleryLoaderView .lbNext .icon{width:24px;height:24px}
-.GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{position:absolute;top:50%;translate:0 -50%;width:48px;height:48px}
+.GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{position:absolute;z-index:3;top:50%;translate:0 -50%;width:48px;height:48px}
 .GalleryLoaderView .lbPrev{left:12px}.GalleryLoaderView .lbNext{right:12px}
 .GalleryLoaderView .lbThumbs{display:flex;justify-content:center;gap:var(--space-2);padding:var(--space-3) var(--gutter) max(var(--space-4),env(safe-area-inset-bottom,0px));overflow-x:auto;scrollbar-width:none}
-.GalleryLoaderView .lbThumbs .item{flex:0 0 64px;height:64px;display:grid;place-items:center;padding:4px;border:2px solid transparent;border-radius:var(--radius-sm);background:#fff;cursor:pointer;opacity:.55;color:var(--text-muted);font-size:10px;line-height:1.15;text-align:center;transition:opacity .15s}
+.GalleryLoaderView .lbThumbs .item{flex:0 0 64px;height:64px;display:grid;place-items:center;padding:4px;border:2px solid transparent;border-radius:var(--radius-sm);background:#fff;cursor:pointer;opacity:.55;color:var(--text-muted);font-size:11px;line-height:1.15;text-align:center;transition:opacity .15s}
 .GalleryLoaderView .lbThumbs .item{overflow:hidden}.GalleryLoaderView .lbThumbs .item img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
 .GalleryLoaderView .lbThumbs .item.active{opacity:1;border-color:var(--primary)}
 /* výhody (USP) – 3 sloupce, ikona nad textem; pod 550 px řádky */
@@ -805,7 +875,7 @@ html.lbLock,html.lbLock body{overflow:hidden}
 .buyBox{display:grid;gap:var(--space-4);padding:var(--space-5);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-soft)}
 .dcAvailability{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-4);flex-wrap:wrap}
 .PDTable{display:flex;flex-direction:column;gap:2px}
-.PDTable .price.primary{font-size:var(--fs-price-lg,32px);line-height:1.1}
+.PDTable .price.primary{font-size:var(--fs-price-lg,36px);line-height:1.1}
 .PDTable .currency{font-size:.7em;font-weight:600}
 .PDAvailabilityInfo{font-size:var(--fs-body);font-weight:600;padding-bottom:4px}
 .PDAvailabilityInfo .storeCount{font-weight:400}
@@ -815,9 +885,14 @@ html.lbLock,html.lbLock body{overflow:hidden}
 .PDAvailabilityPanel .date{margin-left:auto;font-weight:600;color:var(--text)}
 .PDAddToCart{display:flex;gap:var(--space-3);align-items:stretch}
 .stepper.-lg{height:var(--btn-h-lg)}
-.stepper.-lg .button{width:44px;height:100%;font-size:20px}
-.stepper.-lg input{width:56px;font-size:18px}
+.stepper.-lg .button{width:44px;height:100%;font-size:23px}
+.stepper.-lg input{font-size:20px}
 .PDAddToCart .buy{flex:1 1 auto}
+/* po přidání do košíku: černé tlačítko „V košíku“ + červené kolečko s počtem kusů (stejně jako produktová karta) */
+.PDAddToCart .buy{position:relative;transition:background-color .3s ease,border-color .3s ease}
+.PDAddToCart .button.-main.-inCart{background:#1e1e1e;border-color:#1e1e1e;color:#fff}
+.PDAddToCart .button.-main.-inCart:hover{background:#000;border-color:#000}
+.PDAddToCart .inCartN{position:absolute;top:-10px;right:-10px;min-width:26px;height:26px;padding:0 7px;border-radius:999px;background:var(--main,#cc0000);color:#fff;font:700 14px/26px var(--font);text-align:center;box-shadow:0 0 0 2px #fff}
 .PDTotalPrice{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--fs-body-sm);color:var(--text-weaker);margin-top:calc(-1*var(--space-2))}
 .PDTotalPrice .totalPrice{font-size:var(--fs-price-md);font-weight:700;color:var(--text)}
 .PDActionPanel{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-2);margin-top:var(--space-4)}
@@ -831,7 +906,7 @@ html.lbLock,html.lbLock body{overflow:hidden}
 .PDTabsMaster .tab:hover{color:var(--text)}
 .PDTabsMaster .tab.selected{color:var(--primary-d)}
 .PDTabsMaster .tab.selected::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--primary);border-radius:3px 3px 0 0}
-.PDTabsMaster .tab .n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--bg-soft);font-size:12px;color:var(--text-weaker)}
+.PDTabsMaster .tab .n{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:10px;background:var(--bg-soft);font-size:14px;color:var(--text-weaker)}
 .PDTabsMaster .tabPage{display:none}
 .PDTabsMaster .tabPage.selected{display:block}
 .PDTabsMaster .acc{display:none}
@@ -844,14 +919,14 @@ table.params td.caption{width:40%;font-weight:600;color:var(--text)}
 .PDMedia{display:grid;gap:var(--space-2);max-width:560px}
 .PDMedia .file{display:grid;grid-template-columns:44px 1fr;gap:var(--space-3);align-items:center;padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-sm);color:var(--text)}
 .PDMedia .file:hover{border-color:var(--primary)}
-.PDMedia .ext{display:grid;place-items:center;height:44px;border-radius:var(--radius-xs);background:#fdecea;color:var(--main);font-size:11px;font-weight:700}
+.PDMedia .ext{display:grid;place-items:center;height:44px;border-radius:var(--radius-xs);background:#fdecea;color:var(--main);font-size:12px;font-weight:700}
 .PDMedia .n{display:grid;font-weight:500}.PDMedia small{color:var(--text-weaker);font-weight:400}
 .PDForum .emptyState{max-width:560px;padding:var(--space-5);border:1px dashed var(--line);border-radius:var(--radius-lg)}
 .PDForum .topicListTitle{font-size:var(--fs-h3);font-weight:700;margin-bottom:var(--space-2)}
 .PDForum .topicListDescription{margin:0 0 var(--space-4);color:var(--text-weaker);line-height:1.5}
 .PDProductReviewSummary .mainBox{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-6);align-items:center;padding:var(--space-5);border-radius:var(--radius-lg);background:var(--bg-soft);max-width:860px}
 .PDProductReviewSummary .score{display:grid;justify-items:center;gap:var(--space-1)}
-.averageRatingPercent{font-size:40px;font-weight:700;line-height:1}
+.averageRatingPercent{font-size:45px;font-weight:700;line-height:1}
 .totalReviewCount{font-size:var(--fs-body-sm);color:var(--text-weaker)}
 .PDProductReviewSummary .chart{display:grid;gap:6px;min-width:200px}
 .PDProductReviewSummary .chart .row{display:grid;grid-template-columns:36px 1fr 24px;gap:var(--space-2);align-items:center;font-size:var(--fs-caption);color:var(--text-weaker)}
@@ -895,7 +970,8 @@ table.params td.caption{width:40%;font-weight:600;color:var(--text)}
   .PDImage .zoomHint{display:none}
   .PDImage .slide:hover img{transform:none}
   .GalleryLoaderView .lbSlide{padding:0 var(--space-2)}
-  .GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{width:44px;height:44px;background:rgba(0,0,0,.45)}
+  .GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{width:44px;height:44px;background:rgba(20,26,20,.72);border-color:transparent;color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+  .GalleryLoaderView .lbPrev{left:calc(var(--space-2) + 8px)}.GalleryLoaderView .lbNext{right:calc(var(--space-2) + 8px)}
   .GalleryLoaderView .lbTitle{text-align:left}
   .GalleryLoaderView .lbThumbs .item{flex-basis:52px;height:52px}
   .buyBox{padding:var(--space-4)}
@@ -943,7 +1019,7 @@ main[hidden]{display:none!important}
 .FooterView .uc-footer{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr);gap:var(--space-6);align-items:start;padding-block:var(--space-7) var(--space-6)}
 .FooterView h3{color:var(--footer-ink);font-size:var(--fs-h4);font-weight:700;margin:0 0 var(--space-3)}
 .fContact{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:var(--space-5)}
-.fContact .fPhone{display:inline-block;font-size:clamp(22px,2.2vw,28px);font-weight:700;letter-spacing:-.01em;color:var(--footer-ink);margin-bottom:var(--space-1)}
+.fContact .fPhone{display:inline-block;font-size:clamp(25px,2.475vw,32px);font-weight:700;letter-spacing:-.01em;color:var(--footer-ink);margin-bottom:var(--space-1)}
 .fContact .fHours{margin:0 0 var(--space-4);font-size:var(--fs-body-sm);color:var(--footer-muted)}
 .fContact .fMail{list-style:none;margin:0 0 var(--space-4);padding:0;display:grid;gap:var(--space-2)}
 .fContact .fMail li{display:flex;flex-wrap:wrap;gap:2px var(--space-3);align-items:baseline}
@@ -980,8 +1056,8 @@ main[hidden]{display:none!important}
 .rb-counter .d .sizer{visibility:hidden}
 .rb-counter .d .strip{position:absolute;left:0;right:0;top:0;display:flex;flex-direction:column;transition:transform .7s cubic-bezier(.3,1.35,.5,1);will-change:transform}
 .rb-counter .d .strip span{height:1.2em;line-height:1.2em;text-align:center}
-.SimpleBasketView .count .rb-counter .d{height:18px;line-height:18px}
-.SimpleBasketView .count .rb-counter .d .strip span{height:18px;line-height:18px}
+.SimpleBasketView .count .rb-counter .d{height:18px;line-height:20.2px}
+.SimpleBasketView .count .rb-counter .d .strip span{height:18px;line-height:20.2px}
 .rb-bump{animation:rb-bump .45s cubic-bezier(.3,1.6,.5,1)}
 @keyframes rb-bump{0%{transform:scale(1)}40%{transform:scale(1.25)}100%{transform:scale(1)}}
 
@@ -1007,7 +1083,7 @@ main[hidden]{display:none!important}
 /* ===== availability popover ===== */
 .availTip{position:relative;display:inline-flex;align-items:center;outline:none;cursor:help;border-radius:var(--radius-xs)}
 .availTip:focus-visible{box-shadow:0 0 0 2px #fff,0 0 0 4px var(--primary)}
-.availPop{position:absolute;left:-10px;bottom:calc(100% + 10px);z-index:60;width:min(320px,82vw);padding:16px 18px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:14px;line-height:1.45;font-weight:400;color:var(--text);text-align:left;white-space:normal;cursor:default;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .16s cubic-bezier(.2,.7,.2,1),transform .16s cubic-bezier(.2,.7,.2,1),visibility 0s linear .16s;pointer-events:none}
+.availPop{position:absolute;left:-10px;bottom:calc(100% + 10px);z-index:60;width:min(320px,82vw);padding:16px 18px 14px;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:16px;line-height:1.45;font-weight:400;color:var(--text);text-align:left;white-space:normal;cursor:default;opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .16s cubic-bezier(.2,.7,.2,1),transform .16s cubic-bezier(.2,.7,.2,1),visibility 0s linear .16s;pointer-events:none}
 .availPop::before{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
 .availTip:hover .availPop,.availTip:focus .availPop,.availTip:focus-within .availPop{opacity:1;visibility:visible;transform:none;transition-delay:0s;pointer-events:auto}
 .availPop p{margin:0 0 8px;font-weight:600;color:var(--text)}
@@ -1044,8 +1120,14 @@ main[hidden]{display:none!important}
 .qsEmpty p{margin:0;color:var(--text-weaker);font-size:var(--fs-body-sm)}
 /* našeptávač: produkty + kategorie (řádkový výpis) */
 .qsDrop{min-width:min(780px,92vw);padding:var(--space-3);max-height:min(78vh,640px)}
-@media (min-width:820px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:10%;right:10%;top:calc(100% - 12px);min-width:0}}
-@media (min-width:820px) and (max-width:1149px){.SimpleSearchView .qsDrop{left:0;right:0}}
+@media (min-width:1000px){.SimpleSearchView .qsHost{position:static}.SimpleSearchView .qsDrop{left:0;right:0;top:calc(100% - 12px);min-width:0}}
+@media (min-width:1000px) and (max-width:1149px){.SimpleSearchView .qsDrop{left:0;right:0}}
+/* našeptávač na všech šířkách jako megamenu: přes celou šíři okna, hned pod bílou částí hlavičky, bez rádiusů, obsah na ose webu */
+@media all{
+  .SimpleSearchView .qsDrop,.mobileSearch .qsDrop{left:calc((100% - var(--vw,100vw)) / 2);right:auto;width:var(--vw,100vw);min-width:0;max-width:none;padding:var(--space-4) max(var(--gutter),(var(--vw,100vw) - var(--content-max)) / 2);border-width:0 0 1px;border-radius:0;box-shadow:0 18px 30px rgba(0,0,0,.12)}
+  .SimpleSearchView .qsDrop{top:calc(100% - 3px)} /* lehký přesah do bílé hlavičky – žádná škvíra při zaokrouhlení */
+  .mobileSearch .qsDrop{top:calc(100% + var(--space-3) - 3px);max-height:calc(100dvh - var(--qs-top,124px))}
+}
 .qsGrid{display:grid;gap:var(--space-3)}
 .qsT{display:flex;align-items:center;gap:var(--space-2);margin:var(--space-1) var(--space-2) var(--space-2);font-size:var(--fs-body-sm);font-weight:700;color:var(--text)}
 .qsN{font-weight:500;color:var(--text-weaker);font-variant-numeric:tabular-nums}
@@ -1058,8 +1140,11 @@ main[hidden]{display:none!important}
 .qsRow .qsItem:hover .qsTxt b{text-decoration:underline}
 .qsAv{color:var(--primary-d);font-weight:500}
 .qsRow .qsPrice{font-size:var(--fs-body);font-weight:700;white-space:nowrap}
-.qsDrop .qsRow .button.qsBuy,.qsDrop .qsRow .button.qsBuy:hover{color:#fff;background:var(--main);border-color:var(--main);width:auto;height:var(--btn-h-sm);padding:0 12px}
-.qsAll{display:flex;width:fit-content;margin:var(--space-3) auto var(--space-1)}
+.qsDrop .qsRow .button.qsBuy{color:#fff;background:var(--main);border-color:var(--main);width:var(--btn-h-md);height:var(--btn-h-md);padding:0;justify-content:center;transition:background-color .15s,border-color .15s} /* Koupit jako ikonové tlačítko */
+.qsDrop .qsRow .button.qsBuy .icon{width:20px;height:20px}
+.qsDrop .qsRow .button.qsBuy:hover{color:#fff;background:var(--main-d);border-color:var(--main-d)}
+.qsDrop .qsRow .button.qsBuy:focus-visible{outline:2px solid var(--main);outline-offset:2px}
+.qsAll{display:flex;width:fit-content;margin:var(--space-3) 0 var(--space-1)}
 .qsAll .icon{width:16px;height:16px}
 .qsCats{background:var(--bg-soft);border-radius:var(--radius-md);padding:var(--space-2)}
 .qsCats ul{list-style:none;margin:0;padding:0}
@@ -1069,10 +1154,14 @@ main[hidden]{display:none!important}
 .qsCats a b{font-weight:600;color:var(--primary-d)}
 .qsCats a small{font-size:var(--fs-caption);color:var(--text-weaker)}
 .qsCats a .icon{flex:0 0 auto;width:16px;height:16px;color:var(--text-weaker)}
-@media (min-width:820px){.qsGrid.two{grid-template-columns:minmax(0,1fr) 260px;align-items:start}}
+.qsCats .button.qsCatsAll{display:flex;width:fit-content;max-width:100%;justify-content:flex-start;gap:var(--space-2);height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);margin:var(--space-3) 0 var(--space-1)} /* stejné jako „Zobrazit všechny produkty“ */
+.qsDrop .button.qsAll{background:#fff}
+.qsDrop .button.qsAll:hover{background:var(--primary-10)}
+.mobileSearch .qsDrop .button.qsAll{color:var(--primary-d);border-color:var(--primary)} /* .mobileSearch .button (ikona lupy) nesmí přebarvit tlačítka v našeptávači */
+@media (min-width:820px){.qsGrid.two{grid-template-columns:minmax(0,1fr) minmax(340px,34%);align-items:start}}
 #qm::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;flex:none;align-self:center;width:20px;height:20px;margin:0 var(--space-1) 0 var(--space-2);background-color:var(--text-weaker);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z'/%3E%3C/svg%3E") center/20px no-repeat;cursor:pointer}
 #qm::-webkit-search-cancel-button:hover{background-color:var(--text)}
-@media (max-width:819px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsDrop{overflow-x:hidden}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i i" "p b";align-items:center;row-gap:0;padding:var(--space-2) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i;min-width:0;min-height:0}.qsRow .qsPrice{grid-area:p;justify-self:start;padding-left:calc(48px + 2 * var(--space-2))}.qsRow .qsBuy{grid-area:b;justify-self:end}.qsDrop .button.qsAll{width:100%;white-space:normal;height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);text-align:center}}
+@media (max-width:999px){.qsDrop{min-width:0}.qsCats a{min-height:40px;padding-block:6px}.qsCats a small{display:none}.qsDrop{overflow-x:hidden}.qsRow{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"i i" "p b";align-items:center;row-gap:0;padding:var(--space-2) var(--space-3) var(--space-3) 0}.qsRow .qsItem{grid-area:i;min-width:0;min-height:0}.qsRow .qsPrice{grid-area:p;justify-self:start;padding-left:calc(48px + 2 * var(--space-2))}.qsRow .qsBuy{grid-area:b;justify-self:end}.qsDrop .button.qsAll{width:fit-content;max-width:100%;white-space:normal;height:auto;min-height:var(--btn-h-md);padding:var(--space-2) var(--space-4);text-align:left}}
 
 /* ===== quick order (B2B) ===== */
 .QuickOrder{margin-top:var(--section-gap);padding:var(--space-6);border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--bg-soft)}
@@ -1193,13 +1282,13 @@ main[hidden]{display:none!important}
 .copyBtn.copied .icOk{opacity:1;transform:scale(1)}
 .copyBtn.copied{animation:copyPop .35s cubic-bezier(.3,1.6,.5,1)}
 @keyframes copyPop{0%{transform:scale(1)}40%{transform:scale(1.18)}100%{transform:scale(1)}}
-.copyToast{position:absolute;left:0;bottom:calc(100% + 6px);z-index:5;white-space:nowrap;padding:4px 10px;border-radius:999px;background:#1f2a1c;color:#fff;font-size:var(--fs-caption);font-weight:600;line-height:1.4;pointer-events:none;opacity:0;transition:opacity .15s}
+.copyToast{position:absolute;left:0;bottom:calc(100% + 6px);z-index:5;white-space:nowrap;padding:4px 10px;border-radius:6px;background:#1f2a1c;color:#fff;font-size:var(--fs-caption);font-weight:600;line-height:1.4;pointer-events:none;opacity:0;transition:opacity .15s}
 .copyToast:empty{display:none}
 .copyBtn.copied + .copyToast{opacity:1;animation:toastIn .25s cubic-bezier(.2,.7,.2,1)}
 @keyframes toastIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.copyBtn,.copyBtn svg,.copyToast{transition:none;animation:none!important}}
 /* akce pod buy boxem: čitelné písmo a dotyková plocha */
-.PDActionPanel .button{font-size:15px;min-height:44px;color:var(--text);font-weight:500}
+.PDActionPanel .button{font-size:17px;min-height:44px;color:var(--text);font-weight:500}
 .PDActionPanel .button .icon{width:18px;height:18px}
 .PDActionPanel .button:hover{color:var(--primary-d)}
 /* nadpis příslušenství s ikonou plus */
@@ -1224,30 +1313,30 @@ main[hidden]{display:none!important}
 .megaMenu.on{display:block;animation:mmIn .16s ease-out}
 .megaMenu::before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
 @keyframes mmIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-.megaMenu .mmInner{max-width:var(--content-max);margin-inline:auto;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);padding:var(--space-4) var(--space-5) var(--space-5)}
-.mmHead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-3)}
-.mmHead b{font-size:18px;font-weight:700;color:var(--text)}
-.mmHead a{display:inline-flex;align-items:center;gap:6px;color:var(--primary-text);font-size:15px;font-weight:600;text-decoration:none}
+.megaMenu .mmInner{max-width:var(--content-max);margin-inline:auto;box-sizing:border-box;background:#fff;border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:0 18px 40px rgba(24,36,18,.16),0 2px 6px rgba(24,36,18,.06);padding:var(--space-6) var(--space-7) var(--space-7)}
+.mmHead{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-5);padding-bottom:var(--space-4);border-bottom:1px solid var(--line)}
+.mmHead b{font-size:30px;font-weight:700;line-height:1.2;color:var(--text)} /* nadpis kategorie v megamenu 1,5× (20 → 30 px) */
+.mmHead a{display:inline-flex;align-items:center;gap:6px;color:var(--primary-text);font-size:17px;font-weight:600;text-decoration:none}
 .mmHead a:hover{text-decoration:underline;text-underline-offset:3px}
 .mmHead a .icon{width:16px;height:16px;fill:currentColor}
-.mmGrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--space-2)}
+.mmGrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-3) var(--space-4)}
 .mmGrid li{display:block;min-width:0}
-.mmGrid a{display:flex;align-items:center;gap:var(--space-3);height:100%;min-height:64px;box-sizing:border-box;padding:var(--space-2) var(--space-3) var(--space-2) var(--space-2);border:1px solid var(--line);border-radius:var(--radius-md);color:var(--text);font-size:15px;font-weight:500;line-height:1.3;text-decoration:none;transition:border-color .15s,background-color .15s}
+.mmGrid a{display:flex;align-items:center;gap:var(--space-3);height:100%;min-height:76px;box-sizing:border-box;padding:var(--space-3) var(--space-4) var(--space-3) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-md);color:var(--text);font-size:17px;font-weight:500;line-height:1.3;text-decoration:none;transition:border-color .15s,background-color .15s}
 .mmGrid a:hover,.mmGrid a:focus-visible{border-color:var(--primary);background:#f4f9f1;color:var(--text);outline:none}
 .mmGrid a:focus-visible{box-shadow:0 0 0 2px var(--primary)}
 .mmGrid img{flex:0 0 64px;width:64px;height:48px;object-fit:contain;mix-blend-mode:multiply}
 .mmGrid span{min-width:0;overflow-wrap:break-word;hyphens:manual}
 .MenuCategoriesRwdView li.mmOn > .imageNameWrapper{background:rgba(0,0,0,.16)}
-@media (max-width:1149px){.mmGrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:819px){.megaMenu{display:none!important}}
+@media (max-width:1149px){.mmGrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:999px){.megaMenu{display:none!important}}
 @media (prefers-reduced-motion:reduce){.megaMenu.on{animation:none}}
 
 /* ---- Header popupy (komponenty LoginPopup / CartPopup) ---- */
 .popSlot{position:absolute;right:0;top:calc(100% + 8px);z-index:1002;animation:popIn .14s ease-out}
 @keyframes popIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .LoginUserView > .button[aria-expanded="true"],.SimpleBasketView > .button[aria-expanded="true"]{background:var(--primary-10)}
-@media (max-width:819px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
-@media (max-width:819px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
+@media (max-width:999px){.popSlot{position:fixed;left:0;right:0;top:auto;bottom:0;z-index:1200;box-shadow:0 0 0 100vmax rgba(20,28,18,.55);animation:sheetUp .22s ease-out}.popSlot .lp,.popSlot .cp,.popSlot .um{width:100%;max-width:none;border:0;border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0;box-shadow:none;padding-bottom:max(var(--space-5,24px),env(safe-area-inset-bottom,0px))}}
+@media (max-width:999px){.popSlot{border-radius:var(--radius-xl,16px) var(--radius-xl,16px) 0 0}#stickyTop:has(.popSlot) .mobileSearch .dcQuery{z-index:auto}body:has(.popSlot) .fsw{visibility:hidden}}
 @keyframes sheetUp{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
 @media (prefers-reduced-motion:reduce){.popSlot{animation:none}}
 
@@ -1257,12 +1346,12 @@ main[hidden]{display:none!important}
 /* ---- Doprava zdarma – progress v dialogu košíku ---- */
 #BasketResultDialog .notice{align-items:center}
 .frWrap{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
-.frMsg{font-size:15px;line-height:1.4;color:var(--text)}
+.frMsg{font-size:17px;line-height:1.4;color:var(--text)}
 .frMsg b{font-weight:700}
 .frWrap.done .frMsg b{color:var(--primary-text)}
 .frBar{position:relative;display:block;height:8px;border-radius:999px;background:#d3e8c9;overflow:hidden}
 .frBar i{position:absolute;left:0;top:0;bottom:0;border-radius:inherit;background:var(--primary-surface);transition:width .5s cubic-bezier(.2,.7,.2,1)}
-.frScale{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--text-weaker)}
+.frScale{display:flex;justify-content:space-between;gap:12px;font-size:14px;color:var(--text-weaker)}
 /* ---- Sticky prvky pod hlavičkou (výška hlavičky z JS: --header-h) ---- */
 .CompoundFilter,.pdTop > .right{transition:top .2s}
 @media (prefers-reduced-motion:reduce){.frBar i,.CompoundFilter,.pdTop > .right{transition:none}}
@@ -1279,11 +1368,11 @@ main[hidden]{display:none!important}
 
 /* ---- Hamburger menu: drawer zprava (≤ 819 px), XS/XXS přes celý displej ---- */
 .navHead,.navOverlay{display:none}
-@media (max-width:819px){
+@media (max-width:999px){
 .MenuCategoriesRwdView.open{position:fixed;top:0;right:0;bottom:0;left:auto;width:min(420px,88vw);margin:0;border-top:0;z-index:1200;background:#fff;overflow:auto;overscroll-behavior:contain;transform:translateX(100%);transition:transform .4s cubic-bezier(.65,0,.35,1);box-shadow:-16px 0 40px rgba(20,30,15,.2);padding:0 0 env(safe-area-inset-bottom,0px)}
 .MenuCategoriesRwdView.open.drawerIn{transform:none}
 .MenuCategoriesRwdView.open .navHead{display:flex;position:sticky;top:0;z-index:3;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:64px;padding:0 var(--space-2) 0 var(--gutter);background:#fff;border-bottom:1px solid var(--line)}
-.navHead b{font-size:18px;font-weight:700;color:var(--text)}
+.navHead b{font-size:20px;font-weight:700;color:var(--text)}
 .navClose{display:grid;place-items:center;width:44px;height:44px;padding:0;border:0;border-radius:var(--radius-sm);background:transparent;color:var(--text);cursor:pointer}
 .navClose:hover{background:var(--bg-soft)}
 .navClose svg{width:20px;height:20px}
@@ -1294,6 +1383,9 @@ main[hidden]{display:none!important}
 @media (max-width:549px){.MenuCategoriesRwdView.open{width:100vw;box-shadow:none}}
 @media (prefers-reduced-motion:reduce){.MenuCategoriesRwdView.open,.navOverlay{transition:none}}
 
+#qm::-webkit-search-cancel-button{display:none}.qsClear{flex:none;display:grid;place-items:center;width:32px;height:32px;margin:0 2px 0 var(--space-1);padding:0;border:0;border-radius:var(--radius-sm);background:transparent;color:var(--primary);cursor:pointer}.qsClear .icon{width:20px;height:20px}.qsClear:hover{background:var(--primary-10)}.qsClear:focus-visible{outline:2px solid var(--primary);outline-offset:1px}
+@media (max-width:1439px){header .LoginUserView > .button,header .LoginUserView .button.login.isIn,header .SimpleBasketView > .button,header .SimpleBasketView:not(.empty) > .button{border:1px solid var(--line);border-radius:var(--btn-radius,4px)}header .LoginUserView > .button:hover,header .SimpleBasketView > .button:hover,header .LoginUserView > .button[aria-expanded="true"],header .SimpleBasketView > .button[aria-expanded="true"]{border-color:var(--primary)}}
+@media (min-width:1000px) and (max-width:1439px){.HeaderView .SimpleBasketView{margin-left:calc(var(--space-2) - var(--space-6))}}
 </style>
 </head>
 <body>
@@ -1303,7 +1395,7 @@ main[hidden]{display:none!important}
 <style>
 body{margin:0}
 a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
-@media (min-width:820px){.HeaderView{column-gap:var(--space-6)}.SimpleSearchView .dcQuery{flex:0 1 80%;margin-left:auto}}
+@media (min-width:1000px){.HeaderView{column-gap:var(--space-6)}.SimpleSearchView .dcQuery{flex:0 1 80%;margin-left:auto}}
 #iconSprite{position:absolute}
 .usp .uspIc{width:40px;height:40px;flex:none;fill:#1e1e1e}
 .PDTable2 .copyBtn{margin-left:calc(var(--space-1) * -1.5)}
@@ -1317,7 +1409,7 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
 .compare.on .icOk{display:block}.compare.on .icCmp{display:none}
 .cmpGo{display:inline-flex;align-items:center;gap:4px;font-size:var(--fs-body-sm);font-weight:600;color:var(--primary-d);text-decoration:underline;text-underline-offset:3px}
 .cmpGo svg{width:14px;height:14px;fill:currentColor}
-.cmpToast{position:absolute;left:0;bottom:calc(100% + 6px);padding:4px 10px;border-radius:6px;background:#1e1e1e;color:#fff;font-size:13px;white-space:nowrap;opacity:0;translate:0 4px;transition:opacity .15s,translate .15s;pointer-events:none}
+.cmpToast{position:absolute;left:0;bottom:calc(100% + 6px);padding:4px 10px;border-radius:6px;background:#1e1e1e;color:#fff;font-size:15px;white-space:nowrap;opacity:0;translate:0 4px;transition:opacity .15s,translate .15s;pointer-events:none}
 .cmpWrap.flash .cmpToast{opacity:1;translate:0 0}
 @media (prefers-reduced-motion:reduce){.cmpToast{transition:none}}
 
@@ -1325,14 +1417,49 @@ a{color:var(--primary-d)}a:hover{color:var(--primary-d)}
 a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--primary,#3a7a27);outline-offset:2px}
 .MenuCategoriesRwdView .imageNameWrapper:focus-visible{outline:2px solid #fff;outline-offset:-4px}
 .MenuCategoriesRwdView.open .imageNameWrapper:focus-visible{outline-color:var(--primary,#3a7a27)}
+/* ---- Menu varianta B (přepínač v Prezentaci, html[data-menu="B"]): na desktopu zelený pás přes celou šíři okna,
+   položky v kontejneru na šíři webu, místo si dělí podle délky názvu. Tablet (820–1439 px): pás také přes celou šíři,
+   položky se posouvají jako v A, první začíná na ose webu. Mobil má místo pásu vysouvací panel. ---- */
+@media (min-width:1000px){
+  html[data-menu="B"] .MenuCategoriesRwdView.bleed{padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView .menuScroll{width:100%;border-radius:0}
+  html[data-menu="B"] .dc-page .MenuCategoriesRwdView{padding-bottom:0} /* pás přes celou šíři: bez bílého proužku pod ním (i v přilepeném stavu) */
+  html[data-menu="B"] .MenuCategoriesRwdView ul.root{padding-inline:var(--gutter);scroll-padding-inline:var(--gutter)}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu,html[data-menu="B"] .dc-page.stuck .MenuCategoriesRwdView .megaMenu{top:100%;padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu::before{display:none}
+  html[data-menu="B"] .MenuCategoriesRwdView .megaMenu .mmInner{max-width:none;border-width:0 0 1px;border-radius:0;padding-inline:max(var(--gutter),(var(--vw,100vw) - var(--content-max)) / 2)} /* panel přes celou šíři, hned pod pásem, obsah na ose webu */
+}
+@media (min-width:1440px){
+  html[data-menu="B"] .MenuCategoriesRwdView ul.root{width:min(var(--content-max),100% - 2*var(--gutter));margin-inline:auto;padding-inline:0}
+  html[data-menu="B"] .MenuCategoriesRwdView li{flex:1 1 auto;min-width:min-content}
+  html[data-menu="B"] .MenuCategoriesRwdView .name{overflow-wrap:normal;hyphens:manual;text-wrap:balance}
+  html[data-menu="B"] .MenuCategoriesRwdView .imageNameWrapper{padding-inline:var(--space-1)}
+}
 
-.LoginUserView .button.login.isIn{width:auto;gap:var(--space-2);padding:0 var(--space-3) 0 var(--space-1);border:1px solid var(--line);border-radius:var(--radius-pill,999px)}
+.LoginUserView .button.login.isIn{width:auto;gap:var(--space-2);padding:0 var(--space-3) 0 var(--space-1);border:1px solid var(--line);border-radius:var(--btn-radius,4px)}
 .LoginUserView .button.login.isIn:hover,.LoginUserView .button.login.isIn[aria-expanded="true"]{background:var(--primary-10);border-color:var(--primary)}
-.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:50%;background:var(--primary-d);color:#fff;font:700 13px/1 var(--font);letter-spacing:.02em}
-.userName{font:500 15px/1.2 var(--font);color:var(--text);white-space:nowrap}
+.userMono{display:grid;place-items:center;flex:none;width:34px;height:34px;border-radius:max(2px, calc(var(--btn-radius, 4px) - 1px));background:var(--primary-d);color:#fff;font:700 15px/1 var(--font);letter-spacing:.02em}
+.userName{font:500 17px/1.2 var(--font);color:var(--text);white-space:nowrap}
 .userCaret{width:14px;height:14px;color:var(--text-weaker);transition:transform .15s}
 .LoginUserView .button.login[aria-expanded="true"] .userCaret{transform:rotate(180deg)}
-@media (max-width:1439px){.userCaret{display:none}.userName{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.LoginUserView .button.login.isIn{width:var(--btn-h-md);padding:0;justify-content:center;border-color:transparent}}
+@media (max-width:1439px){.userCaret{display:none}.userName{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.LoginUserView .button.login.isIn{width:var(--btn-h-md);padding:0;justify-content:center;border-color:var(--line)}}
+/* mobilní hlavička: přihlášený uživatel jako plné tlačítko s iniciálami, bez obtažení, stejně velké jako ostatní tlačítka */
+@media (max-width:999px){
+  header .LoginUserView .button.login.isIn,header .LoginUserView .button.login.isIn:hover,header .LoginUserView .button.login.isIn[aria-expanded="true"]{border:0;padding:0;background:transparent;width:var(--btn-h-md);height:var(--btn-h-md)}
+  header .LoginUserView .button.login.isIn .userMono{width:100%;height:100%;border-radius:var(--btn-radius,4px);font-size:17px;transition:background-color .15s}
+  header .LoginUserView .button.login.isIn:hover .userMono,header .LoginUserView .button.login.isIn[aria-expanded="true"] .userMono{background:var(--primary)}
+}
+/* galerie (lightbox) celá bílá: hlavička, plocha i pruh náhledů; ovládání v barvách webu */
+.GalleryLoaderView{background:#fff;color:var(--text)}
+.GalleryLoaderView .lbTop{border-bottom:1px solid var(--line)}
+.GalleryLoaderView .lbThumbs{border-top:1px solid var(--line)}
+.GalleryLoaderView .lbCounter{color:var(--text-weaker)}
+.GalleryLoaderView .button.-icon,.GalleryLoaderView .button.-icon.lbPrev,.GalleryLoaderView .button.-icon.lbNext,.GalleryLoaderView .lbPrev,.GalleryLoaderView .lbNext{color:var(--text);background:#fff;border-color:var(--line);box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.GalleryLoaderView .button.-icon:hover,.GalleryLoaderView .button.-icon.lbPrev:hover,.GalleryLoaderView .button.-icon.lbNext:hover{background:var(--primary-10);border-color:var(--primary)}
+.GalleryLoaderView .button.-icon:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.GalleryLoaderView .lbThumbs .item{border-color:var(--line);opacity:.7}
+.GalleryLoaderView .lbThumbs .item:hover{opacity:1}
+.GalleryLoaderView .lbThumbs .item.active{opacity:1;border-color:var(--primary)}
 </style>
 </helmet>
 <div class="dc-page {{ stuckCls }} {{ dnCls }}"><svg width="0" height="0" aria-hidden="true" id="iconSprite"><defs><symbol id="i-arrows-out" viewBox="0 0 256 256"><path d="M216,48V96a8,8,0,0,1-16,0V67.31l-42.34,42.35a8,8,0,0,1-11.32-11.32L188.69,56H160a8,8,0,0,1,0-16h48A8,8,0,0,1,216,48ZM98.34,146.34,56,188.69V160a8,8,0,0,0-16,0v48a8,8,0,0,0,8,8H96a8,8,0,0,0,0-16H67.31l42.35-42.34a8,8,0,0,0-11.32-11.32ZM208,152a8,8,0,0,0-8,8v28.69l-42.34-42.35a8,8,0,0,0-11.32,11.32L188.69,200H160a8,8,0,0,0,0,16h48a8,8,0,0,0,8-8V160A8,8,0,0,0,208,152ZM67.31,56H96a8,8,0,0,0,0-16H48a8,8,0,0,0-8,8V96a8,8,0,0,0,16,0V67.31l42.34,42.35a8,8,0,0,0,11.32-11.32Z"></path></symbol><symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></symbol><symbol id="i-caret-left" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></symbol><symbol id="i-caret-right" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></symbol><symbol id="i-caret-up" viewBox="0 0 256 256"><path d="M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z"></path></symbol><symbol id="i-check-circle" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"></path></symbol><symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"></path></symbol><symbol id="i-download-simple" viewBox="0 0 256 256"><path d="M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z"></path></symbol><symbol id="i-envelope-simple" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"></path></symbol><symbol id="i-facebook-logo-fill" viewBox="0 0 256 256"><path d="M232,128a104.16,104.16,0,0,1-91.55,103.26,4,4,0,0,1-4.45-4V152h24a8,8,0,0,0,8-8.53,8.17,8.17,0,0,0-8.25-7.47H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,8-8.53A8.17,8.17,0,0,0,167.73,80H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0-8,8.53A8.17,8.17,0,0,0,96.27,152H120v75.28a4,4,0,0,1-4.44,4A104.15,104.15,0,0,1,24.07,124.09c2-54,45.74-97.9,99.78-100A104.12,104.12,0,0,1,232,128Z"></path></symbol><symbol id="i-file-pdf" viewBox="0 0 256 256"><path d="M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z"></path></symbol><symbol id="i-image" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V158.75l-26.07-26.06a16,16,0,0,0-22.63,0l-20,20-44-44a16,16,0,0,0-22.62,0L40,149.37V56ZM40,172l52-52,80,80H40Zm176,28H194.63l-36-36,20-20L216,181.38V200ZM144,100a12,12,0,1,1,12,12A12,12,0,0,1,144,100Z"></path></symbol><symbol id="i-info" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"></path></symbol><symbol id="i-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></symbol><symbol id="i-lock" viewBox="0 0 256 256"><path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"></path></symbol><symbol id="i-magnifying-glass-plus" viewBox="0 0 256 256"><path d="M152,112a8,8,0,0,1-8,8H120v24a8,8,0,0,1-16,0V120H80a8,8,0,0,1,0-16h24V80a8,8,0,0,1,16,0v24h24A8,8,0,0,1,152,112Zm77.66,117.66a8,8,0,0,1-11.32,0l-50.06-50.07a88.11,88.11,0,1,1,11.31-11.31l50.07,50.06A8,8,0,0,1,229.66,229.66ZM112,184a72,72,0,1,0-72-72A72.08,72.08,0,0,0,112,184Z"></path></symbol><symbol id="i-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></symbol><symbol id="i-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></symbol><symbol id="i-minus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></symbol><symbol id="i-paper-plane-tilt" viewBox="0 0 256 256"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"></path></symbol><symbol id="i-pause" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"></path></symbol><symbol id="i-phone" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"></path></symbol><symbol id="i-play" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"></path></symbol><symbol id="i-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></symbol><symbol id="i-robot" viewBox="0 0 256 256"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"></path></symbol><symbol id="i-shopping-cart" viewBox="0 0 256 256"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></symbol><symbol id="i-star-fill" viewBox="0 0 256 256"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"></path></symbol><symbol id="i-star-half-fill" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.4,16.4,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65A8,8,0,0,0,128,181.1V32c.24,0,.27.08.35.26L153,91.86a8,8,0,0,0,6.75,4.92l63.91,5.16c.16,0,.25,0,.34.29S224,102.63,223.84,102.73Z"></path></symbol><symbol id="i-star" viewBox="0 0 256 256"><path d="M239.18,97.26A16.38,16.38,0,0,0,224.92,86l-59-4.76L143.14,26.15a16.36,16.36,0,0,0-30.27,0L90.11,81.23,31.08,86a16.46,16.46,0,0,0-9.37,28.86l45,38.83L53,211.75a16.38,16.38,0,0,0,24.5,17.82L128,198.49l50.53,31.08A16.4,16.4,0,0,0,203,211.75l-13.76-58.07,45-38.83A16.43,16.43,0,0,0,239.18,97.26Zm-15.34,5.47-48.7,42a8,8,0,0,0-2.56,7.91l14.88,62.8a.37.37,0,0,1-.17.48c-.18.14-.23.11-.38,0l-54.72-33.65a8,8,0,0,0-8.38,0L69.09,215.94c-.15.09-.19.12-.38,0a.37.37,0,0,1-.17-.48l14.88-62.8a8,8,0,0,0-2.56-7.91l-48.7-42c-.12-.1-.23-.19-.13-.5s.18-.27.33-.29l63.92-5.16A8,8,0,0,0,103,91.86l24.62-59.61c.08-.17.11-.25.35-.25s.27.08.35.25L153,91.86a8,8,0,0,0,6.75,4.92l63.92,5.16c.15,0,.24,0,.33.29S224,102.63,223.84,102.73Z"></path></symbol><symbol id="i-storefront" viewBox="0 0 256 256"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"></path></symbol><symbol id="i-truck" viewBox="0 0 256 256"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></symbol><symbol id="i-user" viewBox="0 0 256 256"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"></path></symbol><symbol id="i-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></symbol><symbol id="i-asistent" viewBox="0 0 24 24"><path d="M15.2,3.5c.3,0,.5.2.5.5,0,2.1,1.7,3.8,3.8,3.8s.5.2.5.5-.2.5-.5.5c-2.1,0-3.8,1.7-3.8,3.8s-.2.5-.5.5-.5-.2-.5-.5c0-2.1-1.7-3.8-3.8-3.8s-.5-.2-.5-.5.2-.5.5-.5c2.1,0,3.8-1.7,3.8-3.8s.2-.5.5-.5ZM20.1,1.3c.1,0,.2.1.2.2,0,.9.8,1.7,1.7,1.7s.2.1.2.2-.1.2-.2.2c-.9,0-1.7.8-1.7,1.7s-.1.2-.2.2-.2-.1-.2-.2c0-.9-.8-1.7-1.7-1.7s-.2-.1-.2-.2.1-.2.2-.2c.9,0,1.7-.8,1.7-1.7s.1-.2.2-.2ZM10.8,10.7c.1,0,.2,0,.2.2,0,.9.7,1.6,1.6,1.6s.2,0,.2.2,0,.2-.2.2c-.9,0-1.6.7-1.6,1.6s0,.2-.2.2-.2,0-.2-.2c0-.9-.7-1.6-1.6-1.6s-.2,0-.2-.2,0-.2.2-.2c.9,0,1.6-.7,1.6-1.6s0-.2.2-.2Z" fill="currentColor" stroke="none"></path><path d="M12.2,4.2h-7.3c-1.8,0-3.3,1.5-3.3,3.3v8.3c0,1.9,1.5,3.4,3.4,3.4h0v3.5l5-3.5h6.1c1.9,0,3.4-1.5,3.4-3.4v-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol><symbol id="i-ai-asistent" viewBox="0 0 24 24"><path d="M13.429 2.71426C13.727 2.71426 13.9709 2.95814 13.9709 3.25621C13.9709 5.35628 15.6736 7.0544 17.7691 7.0544C18.0672 7.0544 18.3111 7.29828 18.3111 7.59636C18.3111 7.89443 18.0672 8.13831 17.7691 8.13831C15.669 8.13831 13.9709 9.84095 13.9709 11.9365C13.9709 12.2346 13.727 12.4785 13.429 12.4785C13.1309 12.4785 12.887 12.2346 12.887 11.9365C12.887 9.83643 11.1844 8.13831 9.08883 8.13831C8.79075 8.13831 8.54688 7.89443 8.54688 7.59636C8.54688 7.29828 8.79075 7.0544 9.08883 7.0544C11.1889 7.0544 12.887 5.35177 12.887 3.25621C12.887 2.95814 13.1309 2.71426 13.429 2.71426ZM18.3156 0.541931C18.4511 0.541931 18.5549 0.650322 18.5549 0.781294C18.5549 1.71616 19.3092 2.47038 20.244 2.47038C20.375 2.47038 20.4834 2.57877 20.4834 2.70974C20.4834 2.84072 20.375 2.94911 20.244 2.94911C19.3092 2.94911 18.5549 3.70333 18.5549 4.6382C18.5549 4.76917 18.4466 4.87756 18.3156 4.87756C18.1846 4.87756 18.0762 4.76917 18.0762 4.6382C18.0762 3.70333 17.322 2.94911 16.3871 2.94911C16.2562 2.94911 16.1478 2.84072 16.1478 2.70974C16.1478 2.57877 16.2562 2.47038 16.3871 2.47038C17.322 2.47038 18.0762 1.71616 18.0762 0.781294C18.0762 0.650322 18.1846 0.541931 18.3156 0.541931ZM8.99975 10C9.12449 10 9.22012 10.0998 9.22012 10.2204C9.22012 11.0811 9.91451 11.7755 10.7752 11.7755C10.8958 11.7755 10.9956 11.8753 10.9956 11.9958C10.9956 12.1164 10.8958 12.2162 10.7752 12.2162C9.91451 12.2162 9.22012 12.9106 9.22012 13.7713C9.22012 13.8919 9.12033 13.9917 8.99975 13.9917C8.87917 13.9917 8.77937 13.8919 8.77937 13.7713C8.77937 12.9106 8.08499 12.2162 7.22428 12.2162C7.1037 12.2162 7.00391 12.1164 7.00391 11.9958C7.00391 11.8753 7.1037 11.7755 7.22428 11.7755C8.08499 11.7755 8.77937 11.0811 8.77937 10.2204C8.77937 10.0998 8.87917 10 8.99975 10Z" fill="currentColor" stroke="none"></path><path d="M14.9836 15.9982L20.9754 21.99M16.9809 11.003C16.9809 14.8641 13.8494 17.9955 9.98835 17.9955C6.12724 17.9955 3 14.8641 3 11.003C3 7.14189 6.12724 4.01465 9.98835 4.01465" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></symbol></defs></svg><div id="Master" class="MasterView CustomMasterView v1a v1 bs-view Master">
@@ -1344,10 +1471,10 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
     <div id="SimpleSearch" class="SimpleSearchView v1a v1 bs-view SimpleSearch">
       <div class="dcQuery qsHost dc-con">
         <label class="sr" for="q">Hledat</label>
-        <input class="query" id="q" type="text" placeholder="Zadejte hledaný výraz..." onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}">
+        <input class="query" id="q" type="text" placeholder="Zadejte hledaný výraz..." onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><sc-if value="{{ qs.hasQ }}" hint-placeholder-val="{{ false }}"><button class="qsClear" type="button" aria-label="Smazat hledaný výraz" onMouseDown="{{ qs.keep }}" onClick="{{ qs.clear }}"><svg viewBox="0 0 256 256" class="icon -sm" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></sc-if>
         <a class="button -icon search" href="#" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></a>
       <sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
-<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -sm qsBuy" type="button" onClick="{{ it.buy }}">Koupit</button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">Zobrazit všechny produkty ({{ qs.total }})<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul></div></sc-if></div>
+<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -icon qsBuy" type="button" aria-label="Koupit {{ it.name }}" title="Koupit" onClick="{{ it.buy }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg></button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">{{ qs.allLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul><sc-if value="{{ qs.catsMore }}" hint-placeholder-val="{{ false }}"><a class="button -secondary qsAll qsCatsAll" href="Kategorie.dc.html">{{ qs.catsAllLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></sc-if></div></sc-if></div>
 <sc-if value="{{ qs.none }}" hint-placeholder-val="{{ false }}"><div class="qsEmpty"><b>Pro „{{ qs.q }}“ jsme nic nenašli.</b><p>Zkuste kód produktu (např. 89), dimenzi (DN 110) nebo část názvu (koleno). Poradí i technik na <a href="tel:+420739162221">+420 739 162 221</a>.</p></div></sc-if>
 </div></sc-if></div>
       
@@ -1362,13 +1489,13 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <sc-if value="{{ loginOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="LoginPopup" on-close="{{ closePop }}" on-login="{{ doLogin }}" hint-size="320px,420px"></dc-import></div></sc-if>
       <sc-if value="{{ userOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="UserMenu" user-name="Andrea Zelená" group="Prodejní" on-close="{{ closePop }}" on-logout="{{ doLogout }}" hint-size="320px,400px"></dc-import></div></sc-if>
       </div>
-    <div id="SimpleBasket" class="SimpleBasketView v1a v1 bs-view  small SimpleBasket {{ cart.emptyCls }}"><a class="button -icon goToBasketOverlay" href="#" onClick="{{ toggleCart }}" aria-label="Košík {{ cart.total }} {{ cart.items }}" aria-expanded="{{ cartExp }}" aria-haspopup="dialog"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span class="count" aria-hidden="true">{{ cart.count }}</span><span class="cartInfo"><span class="ci-price" id="ciPrice">{{ cart.total }}</span><span class="ci-items" id="ciItems">{{ cart.items }}</span></span></a>
-      <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="CartPopup" lines="{{ cartLines }}" on-close="{{ closePop }}" hint-size="360px,440px"></dc-import></div></sc-if>
+    <div id="SimpleBasket" class="SimpleBasketView v1a v1 bs-view  small SimpleBasket {{ cart.emptyCls }}"><a class="button -icon goToBasketOverlay" href="#" onClick="{{ toggleCart }}" aria-label="Košík {{ cart.total }} {{ cart.items }}" aria-expanded="{{ cartExp }}" aria-haspopup="dialog"><svg viewBox="0 0 256 256" class="icon -md" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span class="count" aria-hidden="true">{{ cart.count }}</span><span class="cartInfo"><span class="ci-price" id="ciPrice">{{ cart.total }}</span></span><svg class="cartCaret" viewBox="0 0 256 256" aria-hidden="true" fill="currentColor"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></a>
+      <sc-if value="{{ cartOpen }}" hint-placeholder-val="{{ false }}"><div class="popSlot"><dc-import name="CartPopup" lines="{{ cartLines }}" on-close="{{ closePop }}" on-remove="{{ removeLine }}" hint-size="440px,440px"></dc-import></div></sc-if>
       </div>
     <button class="button -icon hamburger" id="hamburger" type="button" aria-expanded="false" aria-controls="MenuCategories" aria-label="Menu"><svg class="icon -md icClose" aria-hidden="true"><use href="#i-x"></use></svg><svg viewBox="0 0 256 256" class="icon -md icOpen" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path></svg></button>
   </header>
-  <div class="mobileSearch container" role="search"><div class="dcQuery qsHost dc-con"><label class="sr" for="qm">Hledat</label><input id="qm" type="search" placeholder="Zadejte hledaný výraz..." autocomplete="off" onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><button class="button -icon" type="button" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></button><sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
-<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -sm qsBuy" type="button" onClick="{{ it.buy }}">Koupit</button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">Zobrazit všechny produkty ({{ qs.total }})<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul></div></sc-if></div>
+  <div class="mobileSearch container" role="search"><div class="dcQuery qsHost dc-con"><label class="sr" for="qm">Hledat</label><input id="qm" type="search" placeholder="Zadejte hledaný výraz..." autocomplete="off" onChange="{{ qs.change }}" onFocus="{{ qs.focus }}" onBlur="{{ qs.blur }}" onKeyDown="{{ qs.key }}"><sc-if value="{{ qs.hasQ }}" hint-placeholder-val="{{ false }}"><button class="qsClear" type="button" aria-label="Smazat hledaný výraz" onMouseDown="{{ qs.keep }}" onClick="{{ qs.clear }}"><svg viewBox="0 0 256 256" class="icon -sm" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></sc-if><button class="button -icon" type="button" aria-label="Vyhledat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path></svg></button><sc-if value="{{ qs.open }}" hint-placeholder-val="{{ false }}"><div class="qsDrop" aria-live="polite">
+<div class="qsGrid {{ qs.gridCls }}"><sc-if value="{{ qs.has }}" hint-placeholder-val="{{ true }}"><div class="qsProd"><p class="qsT">Produkty <span class="qsN">{{ qs.total }}</span></p><ul class="qsList"><sc-for list="{{ qs.items }}" as="it" hint-placeholder-count="3"><li class="qsRow"><a class="qsItem" href="Detail.dc.html"><img src="{{ it.img }}" alt=""><span class="qsTxt"><b>{{ it.name }}</b><small>Kód {{ it.code }} · <span class="qsAv">{{ it.avail }}</span></small></span></a><b class="qsPrice">{{ it.price }}</b><button class="button -main -icon qsBuy" type="button" aria-label="Koupit {{ it.name }}" title="Koupit" onClick="{{ it.buy }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg></button></li></sc-for></ul><a class="button -secondary qsAll" href="Kategorie.dc.html">{{ qs.allLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></div></sc-if><sc-if value="{{ qs.hasCats }}" hint-placeholder-val="{{ true }}"><div class="qsCats"><p class="qsT">Kategorie</p><ul><sc-for list="{{ qs.cats }}" as="c" hint-placeholder-count="3"><li><a href="Kategorie.dc.html"><span><b>{{ c.name }}</b><small>{{ c.path }}</small></span><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></li></sc-for></ul><sc-if value="{{ qs.catsMore }}" hint-placeholder-val="{{ false }}"><a class="button -secondary qsAll qsCatsAll" href="Kategorie.dc.html">{{ qs.catsAllLabel }}<svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></a></sc-if></div></sc-if></div>
 <sc-if value="{{ qs.none }}" hint-placeholder-val="{{ false }}"><div class="qsEmpty"><b>Pro „{{ qs.q }}“ jsme nic nenašli.</b><p>Zkuste kód produktu (např. 89), dimenzi (DN 110) nebo část názvu (koleno). Poradí i technik na <a href="tel:+420739162221">+420 739 162 221</a>.</p></div></sc-if>
 </div></sc-if></div></div>
 </div>
@@ -1397,10 +1524,11 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         <li><a href="ObchodniPodminky.dc.html"><span>Obchodní podmínky</span><svg class="icon -xs" aria-hidden="true"><use href="#i-caret-right"></use></svg></a></li>
       </ul>
     </div>
-    <a class="button -secondary menuLogin" href="#" id="menuLogin" onClick="{{ menuLoginGo }}"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>{{ auth.menuLabel }}</a>
+    <a class="button -secondary menuLogin {{ auth.btnCls }}" href="#" id="menuLogin" onClick="{{ menuLoginGo }}"><sc-if value="{{ auth.out }}" hint-placeholder-val="{{ true }}"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>Přihlášení / Registrace</sc-if><sc-if value="{{ auth.in }}" hint-placeholder-val="{{ false }}"><span class="userMono" aria-hidden="true">AZ</span><span class="menuUser"><b>Andrea Zelená</b><small>Můj účet</small></span><svg class="icon menuUserGo" aria-hidden="true"><use href="#i-caret-right"></use></svg></sc-if></a>
     <div class="ContactsView v1a v1 bs-view bsPlaceMigrated menuContacts">
       <a href="tel:+420739162221"><svg class="icon" aria-hidden="true"><use href="#i-phone"></use></svg><span><b>+420 739 162 221</b><small data-open-hours="" title="Právě máme zavřeno">Dnes 8:00–15:00</small></span></a>
       <a href="mailto:e-objednavky@midas.cz"><svg class="icon" aria-hidden="true"><use href="#i-envelope-simple"></use></svg><span><b>e-objednavky@midas.cz</b><small>Odpovídáme do 24 hodin</small></span></a>
+      <a href="mailto:poptavky@midas.cz"><svg class="icon" aria-hidden="true"><use href="#i-envelope-simple"></use></svg><span><b>poptavky@midas.cz</b><small>Velkoobchod – poptávky a projekty</small></span></a>
       <a href="Kontakt.dc.html"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg><span><b>Prodejna Semanín 173</b><small>560 02 Česká Třebová</small></span></a>
     </div>
   </div>
@@ -1430,7 +1558,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         <div class="stage">
           <div class="ActionIconsView v1a v1 bs-view big PDActionIcons"><div class="icons"><span class="badge productFlag flag01">Akce</span><span class="badge productFlag flag02">Doporučujeme</span></div></div>
           <div class="favWrap {{ fav.wrapCls }}"><button class="favorite button -icon" type="button" aria-label="{{ fav.label }}" aria-pressed="{{ fav.pressed }}" aria-describedby="{{ fav.descId }}" onClick="{{ fav.toggle }}"><sc-if value="{{ fav.off }}" hint-placeholder-val="{{ true }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M178,32c-20.65,0-38.73,8.88-50,23.89C116.73,40.88,98.65,32,78,32A62.07,62.07,0,0,0,16,94c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,220.66,240,164,240,94A62.07,62.07,0,0,0,178,32ZM128,206.8C109.74,196.16,32,147.69,32,94A46.06,46.06,0,0,1,78,48c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,147.61,146.24,196.15,128,206.8Z"></path></svg></sc-if><sc-if value="{{ fav.on }}" hint-placeholder-val="{{ false }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true" fill="currentColor"><path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z"></path></svg></sc-if></button><sc-if value="{{ fav.needLogin }}" hint-placeholder-val="{{ true }}"><span class="favTip" id="favTip" role="tooltip">Pro přidání do oblíbených se přihlaste.</span></sc-if></div>
-          <div class="mainImage track" id="pdTrack"><button class="slide" type="button" id="pdMainSlide" aria-label="Zvětšit obrázek {{ gal.n }} z {{ gal.count }}" onClick="{{ gal.open }}"><img src="{{ gal.src }}" alt="{{ gal.alt }}" draggable="false"></button></div>
+          <div class="mainImage track" id="pdTrack" onTouchStart="{{ lb.ts }}" onTouchEnd="{{ lb.te }}"><button class="slide" type="button" id="pdMainSlide" aria-label="Zvětšit obrázek {{ gal.n }} z {{ gal.count }}" onClick="{{ gal.open }}"><img class="{{ gal.anim }}" src="{{ gal.src }}" alt="{{ gal.alt }}" draggable="false"></button></div>
           <button class="button -icon previousMainImage" type="button" aria-label="Předchozí obrázek" onClick="{{ gal.prev }}"><svg class="icon " aria-hidden="true"><use href="#i-caret-left"></use></svg></button>
           <button class="button -icon nextMainImage" type="button" aria-label="Další obrázek" onClick="{{ gal.next }}"><svg class="icon " aria-hidden="true"><use href="#i-caret-right"></use></svg></button>
           <span class="zoomHint" aria-hidden="true"><svg class="icon -xs" aria-hidden="true"><use href="#i-magnifying-glass-plus"></use></svg>Zvětšit</span>
@@ -1438,12 +1566,27 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
         </div>
         <div class="dots" id="pdDots" role="tablist" aria-label="Obrázky galerie"><sc-for list="{{ gal.items }}" as="g" hint-placeholder-count="2"><button type="button" role="tab" aria-label="Obrázek {{ g.n }} z {{ gal.count }}" aria-selected="{{ g.sel }}" onClick="{{ g.pick }}"></button></sc-for></div>
         <div class="images" role="tablist" aria-label="Náhledy" id="pdThumbs"><sc-for list="{{ gal.items }}" as="g" hint-placeholder-count="2"><button class="item {{ g.cls }}" type="button" role="tab" aria-label="Obrázek {{ g.n }}" aria-selected="{{ g.sel }}" onClick="{{ g.pick }}"><img src="{{ g.src }}" alt=""></button></sc-for></div>
-<sc-if value="{{ lb.open }}" hint-placeholder-val="{{ false }}"><div class="GalleryLoaderView" role="dialog" aria-modal="true" aria-label="Galerie: {{ lb.title }}" tabindex="-1" ref="{{ lb.ref }}" onKeyDown="{{ lb.key }}"><div class="lbTop"><span class="lbCounter">{{ gal.n }} / {{ gal.count }}</span><p class="lbTitle">{{ lb.title }}</p><button class="button -icon lbClose" type="button" aria-label="Zavřít galerii" onClick="{{ lb.close }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div><div class="lbStage" onTouchStart="{{ lb.ts }}" onTouchEnd="{{ lb.te }}"><div class="lbTrack"><div class="lbSlide"><div class="frame"><img src="{{ gal.src }}" alt="{{ gal.alt }}"></div></div></div><sc-if value="{{ gal.multi }}" hint-placeholder-val="{{ true }}"><button class="button -icon lbPrev" type="button" aria-label="Předchozí obrázek" onClick="{{ gal.prev }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button class="button -icon lbNext" type="button" aria-label="Další obrázek" onClick="{{ gal.next }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></sc-if></div><sc-if value="{{ gal.multi }}" hint-placeholder-val="{{ true }}"><div class="lbThumbs" role="tablist" aria-label="Náhledy v galerii"><sc-for list="{{ gal.items }}" as="g" hint-placeholder-count="2"><button class="item {{ g.cls }}" type="button" role="tab" aria-label="Obrázek {{ g.n }}" aria-selected="{{ g.sel }}" onClick="{{ g.pick }}"><img src="{{ g.src }}" alt=""></button></sc-for></div></sc-if></div></sc-if>
+<sc-if value="{{ lb.open }}" hint-placeholder-val="{{ false }}"><div class="GalleryLoaderView" role="dialog" aria-modal="true" aria-label="Galerie: {{ lb.title }}" tabindex="-1" ref="{{ lb.ref }}" onKeyDown="{{ lb.key }}"><div class="lbTop"><span class="lbCounter">{{ gal.n }} / {{ gal.count }}</span><p class="lbTitle">{{ lb.title }}</p><button class="button -icon lbClose" type="button" aria-label="Zavřít galerii" onClick="{{ lb.close }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div><div class="lbStage" onTouchStart="{{ lb.ts }}" onTouchEnd="{{ lb.te }}"><div class="lbTrack"><div class="lbSlide"><div class="frame"><img class="{{ gal.anim }}" src="{{ gal.src }}" alt="{{ gal.alt }}"></div></div></div><sc-if value="{{ gal.multi }}" hint-placeholder-val="{{ true }}"><button class="button -icon lbPrev" type="button" aria-label="Předchozí obrázek" onClick="{{ gal.prev }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg></button><button class="button -icon lbNext" type="button" aria-label="Další obrázek" onClick="{{ gal.next }}"><svg viewBox="0 0 256 256" aria-hidden="true" fill="currentColor" class="icon"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></sc-if></div><sc-if value="{{ gal.multi }}" hint-placeholder-val="{{ true }}"><div class="lbThumbs" role="tablist" aria-label="Náhledy v galerii"><sc-for list="{{ gal.items }}" as="g" hint-placeholder-count="2"><button class="item {{ g.cls }}" type="button" role="tab" aria-label="Obrázek {{ g.n }}" aria-selected="{{ g.sel }}" onClick="{{ g.pick }}"><img src="{{ g.src }}" alt=""></button></sc-for></div></sc-if></div></sc-if>
       </div>
     </div>
 
     <div class="trust dc-con">
-      <div class="usp pdUsp" aria-label="Výhody nákupu"><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg><div><p class="uspT">Doprava od 99 Kč</p><p>Zdarma od 3&nbsp;000 Kč</p></div></div><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z"></path></svg><div><p class="uspT">Expedice do 24 hodin</p><p>Technik poradí s&nbsp;návrhem i&nbsp;montáží</p></div></div><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M116,176a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h28A8,8,0,0,1,116,176Zm60-8H148a8,8,0,0,0,0,16h28a8,8,0,0,0,0-16Zm64,48a8,8,0,0,1-8,8H24a8,8,0,0,1,0-16h8V88a8,8,0,0,1,12.8-6.4L96,120V88a8,8,0,0,1,12.8-6.4l38.74,29.05L159.1,29.74A16.08,16.08,0,0,1,174.94,16h18.12A16.08,16.08,0,0,1,208.9,29.74l15,105.13s.08.78.08,1.13v72h8A8,8,0,0,1,240,216Zm-77.86-94.4,8.53,6.4h36.11L193.06,32H174.94ZM48,208H208V144H168a8,8,0,0,1-4.8-1.6l-14.4-10.8,0,0L112,104v32a8,8,0,0,1-12.8,6.4L48,104Z"></path></svg><div><p class="uspT">Český výrobce</p><p>Certifikováno dle ČSN EN 1401</p></div></div></div>
+      <div class="usp pdUsp" aria-label="Výhody nákupu"><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M255.42,117l-14-35A15.93,15.93,0,0,0,226.58,72H192V64a8,8,0,0,0-8-8H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H49a32,32,0,0,0,62,0h50a32,32,0,0,0,62,0h17a16,16,0,0,0,16-16V120A7.94,7.94,0,0,0,255.42,117ZM192,88h34.58l9.6,24H192ZM32,72H176v64H32ZM80,208a16,16,0,1,1,16-16A16,16,0,0,1,80,208Zm81-24H111a32,32,0,0,0-62,0H32V152H176v12.31A32.11,32.11,0,0,0,161,184Zm31,24a16,16,0,1,1,16-16A16,16,0,0,1,192,208Zm48-24H223a32.06,32.06,0,0,0-31-24V128h48Z"></path></svg><div><p class="uspT">Doprava</p><p>Vlastní + externí</p><div class="uspLogos"><svg class="uspLogo" role="img" aria-label="DPD" focusable="false" viewBox="0 0 65 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 0.5H61C62.933 0.5 64.5 2.067 64.5 4V36C64.5 37.933 62.933 39.5 61 39.5H4C2.067 39.5 0.5 37.933 0.5 36V4C0.500001 2.067 2.067 0.5 4 0.5Z" fill="white" stroke="white"></path>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M43.5383 20.3741C43.8953 20.231 44.3948 20.1779 44.8235 20.1779C46.1457 20.1779 47.0567 20.9453 47.0567 22.3194C47.0567 23.9405 46.0476 24.6735 44.6983 24.6925V26.5667C44.7338 26.5667 44.7697 26.5679 44.8061 26.5679C47.5745 26.5679 49.2361 25.0154 49.2361 22.2484C49.2361 19.7312 47.4679 18.25 44.8598 18.25C43.5383 18.25 42.2337 18.5536 41.3765 18.9102V29.6043H43.5383V20.3741ZM55.6131 20.3917C55.2733 20.231 54.8266 20.1417 54.2909 20.1417C52.987 20.1417 52.1119 20.9453 52.1119 22.3555C52.1119 23.8732 53.0584 24.7304 54.5769 24.7304C54.8445 24.7304 55.2557 24.712 55.6131 24.6411V20.3917ZM57.7566 26.1937C56.8093 26.4441 55.5768 26.5679 54.5051 26.5679C51.7545 26.5679 49.9318 25.1047 49.9318 22.4265C49.9318 19.8919 51.6293 18.25 54.1126 18.25C54.6662 18.25 55.2557 18.3204 55.6131 18.4996V14.8203H57.7566V26.1937ZM38.024 20.3917C37.6846 20.231 37.2382 20.1417 36.7014 20.1417C35.3984 20.1417 34.5228 20.9453 34.5228 22.3555C34.5228 23.8732 35.4693 24.7304 36.9878 24.7304C37.2558 24.7304 37.6664 24.712 38.024 24.6411V20.3917ZM40.1675 26.1937C39.221 26.4441 37.9883 26.5679 36.9165 26.5679C34.1654 26.5679 32.3438 25.1047 32.3438 22.4265C32.3438 19.8919 34.0405 18.25 36.5238 18.25C37.0774 18.25 37.6664 18.3204 38.024 18.4996V14.8203H40.1675V26.1937Z" fill="#414042"></path>
+<mask id="mask0_15617_128116" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="7" y="10" width="20" height="22">
+<path d="M16.763 10.0783L8.2304 14.775L17.7892 20.3949C17.8777 20.4438 17.9451 20.56 17.9451 20.6647L17.9451 28.8631C17.9451 28.9661 17.8722 29.0844 17.7829 29.1324L17.2685 29.4209C17.2257 29.4439 17.1714 29.4561 17.1145 29.4561H17.1047C17.0429 29.4575 16.9855 29.4452 16.9405 29.4209L16.4245 29.1323C16.3367 29.0852 16.265 28.9664 16.265 28.8631L16.2652 21.5547C16.2606 21.5011 16.2217 21.4358 16.1793 21.4113L7.75781 16.4602V26.1578C7.75771 26.3748 7.9092 26.6424 8.09494 26.7521L16.7683 31.9182C16.861 31.9731 16.9831 32.0003 17.1052 32C17.2274 31.9996 17.3494 31.9738 17.442 31.9183L26.1166 26.7521C26.3016 26.6413 26.4527 26.3751 26.4525 26.1578V16.4603L20.7451 19.8185C20.6571 19.8704 20.5191 19.8663 20.4331 19.8126L19.9273 19.5089C19.8861 19.4832 19.8483 19.4419 19.8197 19.3923C19.8181 19.3895 19.8164 19.3866 19.8147 19.3837C19.7824 19.3305 19.764 19.2743 19.7622 19.2227L19.7493 18.6272C19.7455 18.5268 19.811 18.4045 19.8994 18.3525L25.9799 14.7749L17.4472 10.0783C17.3533 10.0256 17.2294 10.0002 17.1054 10C17.1048 10 17.1042 10 17.1036 10C16.98 10 16.8566 10.0261 16.763 10.0783Z" fill="white"></path>
+</mask>
+<g mask="url(#mask0_15617_128116)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M16.763 10.0783L8.2304 14.775L17.7892 20.3949C17.8777 20.4438 17.9451 20.56 17.9451 20.6647L17.9451 28.8631C17.9451 28.9661 17.8722 29.0844 17.7829 29.1324L17.2685 29.4209C17.2257 29.4439 17.1714 29.4561 17.1145 29.4561H17.1047C17.0429 29.4575 16.9855 29.4452 16.9405 29.4209L16.4245 29.1323C16.3367 29.0852 16.265 28.9664 16.265 28.8631L16.2652 21.5547C16.2606 21.5011 16.2217 21.4358 16.1793 21.4113L7.75781 16.4602V26.1578C7.75771 26.3748 7.9092 26.6424 8.09494 26.7521L16.7683 31.9182C16.861 31.9731 16.9831 32.0003 17.1052 32C17.2274 31.9996 17.3494 31.9738 17.442 31.9183L26.1166 26.7521C26.3016 26.6413 26.4527 26.3751 26.4525 26.1578V16.4603L20.7451 19.8185C20.6571 19.8704 20.5191 19.8663 20.4331 19.8126L19.9273 19.5089C19.8861 19.4832 19.8483 19.4419 19.8197 19.3923C19.8181 19.3895 19.8164 19.3866 19.8147 19.3837C19.7824 19.3305 19.764 19.2743 19.7622 19.2227L19.7493 18.6272C19.7455 18.5268 19.811 18.4045 19.8994 18.3525L25.9799 14.7749L17.4472 10.0783C17.3533 10.0256 17.2294 10.0002 17.1054 10H17.1036C16.98 10 16.8566 10.0261 16.763 10.0783Z" fill="url(#paint0_linear_15617_128116)"></path>
+</g>
+<defs>
+<linearGradient id="paint0_linear_15617_128116" x1="942.491" y1="1110" x2="193.604" y2="1550.27" gradientUnits="userSpaceOnUse">
+<stop stop-color="#DB0031"></stop>
+<stop offset="1" stop-color="#A80034"></stop>
+</linearGradient>
+</defs>
+</svg><svg class="uspLogo" role="img" aria-label="TopTrans" viewBox="0 0 65 40" fill="none" focusable="false"><rect x="0.5" y="0.5" width="64" height="39" rx="6" fill="white"></rect><image x="5" y="14" width="56" height="12.0574" preserveAspectRatio="xMidYMid meet" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVAAAABJCAMAAABcmI4MAAAEDGlDQ1BJQ0MgUHJvZmlsZQAAeJyNlVtoHGUUx3+7M7MrJM5TbDSFdKjahJKGTSuaUFpNsmmSNibL5mITBN3MfpsdM5ldZ2a3F/pUBMUXo75JQby9BQRBab1g64N9qVQo0aYGQelDixeEQl80XZmZ3ew0Tazfy54953/+55z/d3Y/iF/NFItmVIMFy7XTg33a0ekZLb5ClEdooIWGjO4Ue1OpEQAPyz3n9g9EvM8rezaP/+dpyApHh8gDQCHr6AsQOQ7KGb1ouxBvArqPuUXP9nposo9Oz0D8Rc+eC2zXs2cD+zUfM5Huh/gZQNXzmSzEl4CO2ZB/LmQHPfinaVBYwjZ0zdMiZRdyhilC7d4n/D/Pglmq1dsBNDrz40eAdoi8ks0kPbsTIkt6ZmAceAwi18rG1GjVvlN0+9LALojuLM1P9gK7ITqUsw9NBjxRO18aqtnvnMxPPAdsg+g31uzoWDX3qu70zwA7IXonL4Y9fVtB0gx3eCLIlQ7ahfRYUFfKZUVywNMRpNfnC0fSAaf0mVMeH6hxnsz3j1b9l17KHE4BLSD9KszBdFBL+qfopqo9yK2WOToS1JKTwvHn9f1ufmIoqCubrj1RzZUXc8ah4Sr+k7w9lK7a14qmv6MdoETtUnoywCudGXtgMOBUUsKarPIrZaYiGQQFZhHoWKyhkWaQPjSK2BTIYWAyiMBCYCMw1zF7/DyHeWwMyn7MQZDykUFmnW/O57jhY3X6Wz+ihEae37HIh3D95ClhMbcFT9DLzSpPQW6WE/I+OSHvl0fkA3K33IMmPy0/Ix+Uk3JC7pH3r+emQhN5/dxc53mZEsLHTdHHBUxcMpj8gkUBZ3NVFltK7fXIafsFQ7/8xl8hrQxfm7paYUXH7qe5cl25oSwr15UVZbWOUH5SVpVVZeWuWQr3qCxq6myYeXNULyam71tAYPgRJ9R3iOPiqS8frvMsy2efv9J48VTOWmypez0VxKujt0c53VH3Jn5M/JFYTryX+DDxm/S29Kn0lXRO+ly6hCadly5IX0vfSh9LX4TuausdWr97v/Na315kM60FptqnblcfVZPqDvVxdaTOpzarXeqQ2qYm1e3r9xauF1bPYBpzXZ/NawW40AZEHmQeY4tf1SQWBsd8pOPvm8WJDZhqptwqd8nDG7a729v5GiI2EEvGetFiu2M9sa7YYc+uVY21xZKxnlhbbOCu7dS3mFS44rj3ntBfKJ6wjbm8q+1NJJ7SeotFU2jDlt7ZoWVMU/NDjmYLR9hlke3EezeDv/Rbaf89jGy7XPe5z8KBP0H6vu6bKcGSA81P1H3tLfDQu3D2Sb1kl6tvRCTyHTi5fXuDb419oPxcqdzaBfG3YO3NSuXv9yuVtQ9AWoXz5r+gn3xVMv/0lgAAAMBQTFRF/v7+AFql6xoj+enoAFGew9vr5i00AE2cFGSnudPmqsfclbjUMXaw1+XuS4e5aJrDd6TJhKzNJGyqs8zgAE6gWpG9XJLAZJa+QX6y6RMcPoC0oL/X6gsV5DtCUIzA62px8ry+9M7Qn8DY5ktQ41dd7H+D7IKI7Jmd8aamAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtrThtgAAAEB0Uk5T//////////////////////////////////////////////////////8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJmoB3oAAAtHSURBVHja7VyJkuQoDrXHMMY24Cszq6aPOfb+/y9cwAYjIXBW5c4RG1Z3R1elMYd4kh4CsqoueUEU51Vl//nf6WJ8l+hHJ8rV4KRBFfejFnNVyUXPPF/hJp0poTquVL7Zfu29rH1nHu2/8K0xKKaezvzXcVUe/Rq/hNtGdXbR0IZd0Dt80FK0Q9WIWmj3rFsEpxqe2tpK+15Vuq1Z7WV7efsxrrwZZM1MMVWt5s22lqjlwTyNpG7HqlpMSSbkfYiK2bbMH+F6EBW/m4lq3c/tZMqNrIbVDZVire2AGdjcZPXZu2HdzB/TyQU8aqSryT7a/rbCPxrdg62ht3hQsr7ZJptqYK7CWQ3m/5VqedkVaDpaxyL2l41E/Wkm0Qb9b0/ZHcwkq5Hwag2TZHG9yfayqI3SJCrOfQ+U0zsU05e5Fr6+esgpdIlf+hk8urci7ePW+dCaqN107uq0gLAf6ap634pYMNSStAxfRYM6r4+RHlXPYi8z2sHuj29xxRz3VdoRHLjXu2ntvzNedQwVf2OhB1WP52eEurL4p2SOxxLpxsEQT1LN9nlRi2+OifAOl9uHTNpSfMxVu8tjn/gVIYUZS36D81d1cu/KwnfrhlraMDyCvhoTrdSYaGDeOil6Z9TRYwPh3TCY8yVKw6GblvsYYO1XUqGS0lcAkUQKvYVp0XtnpuZwYcGEdwULhGvoT0TQCMSWcyvCgyZWwmaLMcygk008RzDwoBI/YNmERryowx3so28RgFFP5RMKXclRk5WICDBRiIm1x0stOzNnDmFTnZjSw2PMKaXFE96RoxoY8hy27tsxujH0yb3Vp8U337OjZsR4x+pSWZzUWShppFDRgCcqcQ+sT+J4S/pvfQxapn3YdLNVL1sAXuiMWJcDR58MQHotSWBkkV05r+qrTAGMPqMMj2fUleDOS3coREQeIrjiL8R0URRDHe0lscErdFc3i+MCHiubchafakX433muOI9ATwAYqoulCm3QW0tKqlCsO9C2xOYWiiE0RjAkguHuYSjTsgrdMHbg80Bj3CtNTz7blL8yOFf2zR0HgFqwR1CYD6GaiC6gCZEOqkduR9JAiuV+QPuw7sNxIC883pATiM2zfeRNy/bcdVjfiO5pss+E5/BUIujevvmejx5uplQe74BjfkmUZWImZBr6JGjBwHsM5X48nxKPISh9WjPfHcxAdeFu2OyIWF1gX42gcEJ5DjBZhqKoQ9W8JmxzNsxbVwSACby3c6IrgXCd8EUOdAVCm4y8FxgKh0xW1CQBHmvhO6SJUOLmscNKUlQ0PwJVnY4WlDR1D6Y/d8JB+JHfj8AAAbw5mwcrBfmh1Sc0tNJNugLrw/wqkgqIHvhQwch1vAiaIE3LYlBiE5Ok1Yg0UB2j1aikPLq9UPRGhhDKCbsElsHGhDAZxgdZE6ahPFmehbkcIxeiYBH2dkzdcmvJkGQ4s29sZkQvlUlQDGipFuIdJ31QT3gOhdaOTd36WnqyEtF6rI7EoCG4VMID2YzXvxxzpj6h9hsVt3AIcJ6wV6hHHnIlE73iveu+ypuWGY99DiczcDoYzTVausW2BtbV1lSG0Cwk2H4sX/VA4p0n7yTk2sYzDr1sQkNlO6VRadnfPgrLOhXNn0yd8jpPMyQdMSW1GCY9h6Q0Ty1oEqZMAVgVUyMizgbQrGl1gxhvRFTS0fgUoU+TYpqeUyiw6tuUJhZxuEK49X4/xyoz5ketUrMrxB2N0So21ee4qW9qC/Xe3SeY2tuBmfk92GXHKI3WrVTPKJQKJSRAQ/CBoZapPKsc2yyDeSfnqghgFX02EzTQRd+f63Reo0ptS4pIOA3xoqqnFXqkhkrS500EuqNDIYJyEqTniEqyL4X1SsqUKQAfcyA5lVWeknlFk2gqFSm/cL2d4iV0VqGZ/NapaZFhI7Av2JzvB0xtTklIWppCimI8ycFZAPfSp+o1sfKb/GBFfjzVl72lJOHkBsXzmfKTxHLetEBQVJnJofVMsEpecD+ynGNLAOxXc4LcG3Tr8JXodIcq3Xo7pwknxWTWDZZtqWRaMA7DZsNk03omPEcnkt2PqrhKzQHYBqB9AswOWSapvBPors6HhMkv1jsi4QS8cpLiK3j7U9PKJRFUUc8AtrfBEsq6EEIAtWDzSQKjO/gGq5cp1enMPHSg7xVY6zOdtTeLYUgzsxBN8wfVs7EBIVFnQn9DdVFFjKt1u3rPUwsSwH3UarrfqcKCHGELQL+L8yCJmfECOSe3oGiZWLbwQJNQuFfsV6pJUPb7zLUkAEWmjhGnxKDQhRV6RMof+eSdCZu6IiIoPaXic1GpEBs0DV7UF0WzSkMZhZB6HPg5tWDDMwCO5wD6eseGGtKFjbDS0NKAqX16bEFpkjuxoajP7ull50iO1S+sUs+hms85miyAgQ4WTNcHsnvAOfdRS7zgGZW3xUFQoam8oh/z/hZ5xY4cq3iSVVL7rUEeJwD+mlrGkhq8cgItlcFEZrRuwgatI723AVhTqlL56WUnf4KEBiolT7bOPrRz/sTeh0ZwVjAYUHBSYH8W2zPYnF+S00eZXMeHYsPK6rO9j/DGGavELPxkXxIkaHcAw+4M2DUqOoQoYBUyE4zjUDMcWzDUYZhaPb/sRJS1p/c+WipVMLIPMDWQNCLDJgXg7N7H3bF12Z4ta+Ido3S1ruK2dTaPeHt8loSiJum9j/5JVlk8HZd6eQrAtGVsyLUuptuEy5zD44kDiCdNgs/HvMGUxzaXQkl3tvdxQOuMVT6f30rxvsMKrpD/liaZyhnxKHlSPlHmoqvO4a4dPkJCuzx8qb2P9pFhrMOZQu91aSPjfO8jtqUReEa8QzeSJNR7CionJIk5Vs9ihZf5gCguO6N0h/pYOuZs72Nl5b0Px376AHZAElSOhE+tgGwCQF5DsxSZ/NFytvdRjg330t5HnD6CrPL+IRLKntv7gO9wvmw7IAqjpstkhhQrscKj3EiFZ/lsuv7k2N+BlHTvA+zonLDKj1CLNEGriBivxebx1WJOtwz5PP8xJpkGFEEZlSCO+Pijx4v6SCaUIo8SHyHqQgptyGaGxMdIqDghoTqzrWu93ipO9hiCO9EF3MXo8OEydrf7IfVWN2f6hAAlromEoQuYgGnBjk6P6jlJwKLiOIQpdMRArFTK0AKX3xlusHlDat8Ycb9QEDvi67Gy04n37f1RzrOtj7ckO8XGPIa1Ok7sMxET91HgJR8rhUKiuIxmvtFpdkenyDP7KRHhDB2fyZf76HRrT5I3SYU0u2/FR3+RQZ6tpt+ShYWgYlgf31u6bZdjQLbYMNk0b9iU4lE6kVF9+pZ0a7tm0uGDeFEJz8p7arEETikB96DSld3A7IEv94Jwx8627jJ5tu1hz8ybo0tQauotcw+j3e8t2UtSTKLrVoYG4mpKCcOpda1ud682bwxsHtw+2wrsdwgiAiyNF2iWo+DuFZIcp3301dzbYBkCEtIeKtKKscX1Pbrz0zKhT8OsuxKXSCaGqdncyrM33GryLmKPq+mLsbDbysDbhrk7heDiYG9Dey3kuH/SBTm62iFx3W3Cr6hnfD0uSPpLXhtY14fctuqlntam+t+Lve/JVVX96fdXVfNHttdUl1xyySWXXHLJJZdc8peV5pJXBejztx8veVG+A43+89sPl7wgP/3w7ReA0O8/XUp5UaW/xvr89dLnq/r8DgD6y2XxL8q3f4EQ/+OlkVflt1ih/7kA+qrF/x1Y/D8uF/qqQv99sfrfkdWbr578/5LuDxeFrt/D76O85IOCDqrw7CXbS54UkT/JesknhN2rpy4wXvKsQtfSl75d8qLFPy6FvCjwi07UZfEvWzz8GppLIa8KOJX8X6d/sla57RocAAAAAElFTkSuQmCC"></image></svg></div></div></div><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,40a96,96,0,1,0,96,96A96.11,96.11,0,0,0,128,40Zm0,176a80,80,0,1,1,80-80A80.09,80.09,0,0,1,128,216ZM173.66,90.34a8,8,0,0,1,0,11.32l-40,40a8,8,0,0,1-11.32-11.32l40-40A8,8,0,0,1,173.66,90.34ZM96,16a8,8,0,0,1,8-8h48a8,8,0,0,1,0,16H104A8,8,0,0,1,96,16Z"></path></svg><div><p class="uspT">Expedice do 48 hodin</p><p>Technik poradí s&nbsp;návrhem i&nbsp;montáží</p></div></div><div class="item"><svg class="uspIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M116,176a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h28A8,8,0,0,1,116,176Zm60-8H148a8,8,0,0,0,0,16h28a8,8,0,0,0,0-16Zm64,48a8,8,0,0,1-8,8H24a8,8,0,0,1,0-16h8V88a8,8,0,0,1,12.8-6.4L96,120V88a8,8,0,0,1,12.8-6.4l38.74,29.05L159.1,29.74A16.08,16.08,0,0,1,174.94,16h18.12A16.08,16.08,0,0,1,208.9,29.74l15,105.13s.08.78.08,1.13v72h8A8,8,0,0,1,240,216Zm-77.86-94.4,8.53,6.4h36.11L193.06,32H174.94ZM48,208H208V144H168a8,8,0,0,1-4.8-1.6l-14.4-10.8,0,0L112,104v32a8,8,0,0,1-12.8,6.4L48,104Z"></path></svg><div><p class="uspT">Český výrobce</p><p>Certifikováno dle ČSN EN 1401</p></div></div></div>
     </div>
 
     <div class="right dc-con">
@@ -1462,7 +1605,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
       <div class="buyBox dc-con">
         <div class="dcAvailability dc-con">
           <div id="PDTable" class="ProductDetailTableView v1a v1 bs-view PDTable">
-            <span style="align-self: flex-start; font-size: 14px; font-weight: 400; color: #d92d20">Běžná cena s DPH <s style="text-decoration: line-through">350 Kč</s></span><span class="price primary vat"><span class="value">318 <span class="currency">Kč</span></span></span>
+            <span style="align-self: flex-start; font-size: 16px; font-weight: 400; color: #d92d20">Běžná cena s DPH <s style="text-decoration: line-through">350 Kč</s></span><span class="price primary vat"><span class="value">318 <span class="currency">Kč</span></span></span>
             <span class="price secondary novat"><span class="value">263 Kč</span> bez DPH</span>
           </div>
           <div class="availTip" tabindex="0" aria-describedby="avTip0"><div class="AvailabilityView v2a v2 bs-view cs_zelena PDAvailabilityInfo"><span class="storeText">Skladem</span> <span class="storeCount">13 ks</span></div><div class="availPop" id="avTip0" role="tooltip"><p>Produkt je <b class="ok">skladem</b> na našem skladu.</p><p>Zboží lze vyzvednout v naší prodejně: <b class="ok">{{ pickup }}</b></p><p>Přepravní společností doručíme: <b>{{ delivery }}</b></p><hr><a href="Doprava.dc.html">Doprava a osobní odběr</a></div></div>
@@ -1474,8 +1617,8 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
           </div>
         </div>
         <div class="AddToCartView v1b v1 bs-view PDAddToCart" id="PDAddToCart">
-          <div class="stepper -lg"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon " aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" placeholder="1" min="1" aria-label="Množství" id="pdQty"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon " aria-hidden="true"><use href="#i-plus"></use></svg></a></div>
-          <a class="button -main -lg buy xta_addToCart" href="#" id="pdBuy" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Přidat do košíku</span></a>
+          <div class="stepper -lg"><a class="button -neutral -icon decrease disabled" href="#" aria-label="Snížit množství" onClick="{{ step }}"><svg class="icon " aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ pdQtyShown }}</span><input type="number" placeholder="1" min="1" aria-label="Množství v kusech" id="pdQty" value="{{ pdQty }}" onChange="{{ pdQtyCh }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ step }}"><svg class="icon " aria-hidden="true"><use href="#i-plus"></use></svg></a></div>
+          <a class="button -main -lg buy xta_addToCart {{ pdBuyCls }}" href="#" id="pdBuy" aria-label="{{ pdBuyLabel }}" onClick="{{ addCart }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>{{ pdBuyTxt }}</span><sc-if value="{{ pdInOn }}" hint-placeholder-val="{{ false }}"><span class="inCartN" aria-hidden="true">{{ pdIn }}</span></sc-if></a>
         </div><sc-if value="{{ acc.any }}" hint-placeholder-val="{{ false }}"><p class="accBuyNote">{{ acc.note }}</p></sc-if>
         
       </div>
@@ -1490,7 +1633,7 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
 
     </div>
     <div class="dcOtherProducts dc-con">
-      <section id="PDAccessories" class="PDAccessories" aria-labelledby="accTitle"><div class="accHead"><h2 id="accTitle" class="accTitle"><svg class="accTitleIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm40,112H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path></svg>Přikupte rovnou k produktu</h2><p class="accHint"><svg viewBox="0 0 256 256" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z" fill="currentColor"></path></svg><span>Zaškrtněte, co chcete přikoupit. Vybrané položky vložíme do košíku spolu s produktem tlačítkem <b>Přidat do košíku</b>.</span></p></div><div class="accList" role="list"><div role="listitem" class="accRow {{ acc.c0 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG redukce DN 125/110" checked="{{ acc.k0 }}" onChange="{{ acc.t0 }}"></label><img class="accImg" src="_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg" alt=""><a class="accName" href="Detail.dc.html">KG redukce DN 125/110</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>53,2 Kč</b><small>44,0 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec0 }}" class="button -neutral -icon decrease {{ acc.d0 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG redukce DN 125/110" value="{{ acc.q0 }}" onChange="{{ acc.s0 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc0 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c1 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 125 - 45°" checked="{{ acc.k1 }}" onChange="{{ acc.t1 }}"></label><img class="accImg" src="_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 125 - 45°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>79,3 Kč</b><small>65,5 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec1 }}" class="button -neutral -icon decrease {{ acc.d1 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG koleno DN 125 - 45°" value="{{ acc.q1 }}" onChange="{{ acc.s1 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc1 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c2 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 110 - 45°" checked="{{ acc.k2 }}" onChange="{{ acc.t2 }}"></label><img class="accImg" src="_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 110 - 45°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>35,8 Kč</b><small>29,6 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec2 }}" class="button -neutral -icon decrease {{ acc.d2 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG koleno DN 110 - 45°" value="{{ acc.q2 }}" onChange="{{ acc.s2 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc2 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c3 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG přesuvka DN 110" checked="{{ acc.k3 }}" onChange="{{ acc.t3 }}"></label><img class="accImg" src="_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg" alt=""><a class="accName" href="Detail.dc.html">KG přesuvka DN 110</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>41,6 Kč</b><small>34,4 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec3 }}" class="button -neutral -icon decrease {{ acc.d3 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG přesuvka DN 110" value="{{ acc.q3 }}" onChange="{{ acc.s3 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc3 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c4 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG trubka DN 110 × 3,2 mm – 1 m, SN 4" checked="{{ acc.k4 }}" onChange="{{ acc.t4 }}"></label><img class="accImg" src="_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg" alt=""><a class="accName" href="Detail.dc.html">KG trubka DN 110 × 3,2 mm – 1 m, SN 4</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>98,5 Kč</b><small>81,4 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec4 }}" class="button -neutral -icon decrease {{ acc.d4 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG trubka DN 110 × 3,2 mm – 1 m, SN 4" value="{{ acc.q4 }}" onChange="{{ acc.s4 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc4 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c5 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 110 - 87,5°" checked="{{ acc.k5 }}" onChange="{{ acc.t5 }}"></label><img class="accImg" src="_blob/7f6b7e1447d106155eb29db6b23f857b.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 110 - 87,5°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>47,9 Kč</b><small>39,6 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec5 }}" class="button -neutral -icon decrease {{ acc.d5 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><input type="number" min="1" aria-label="Množství: KG koleno DN 110 - 87,5°" value="{{ acc.q5 }}" onChange="{{ acc.s5 }}"><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc5 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div></div><p class="accSum" aria-live="polite">{{ acc.summary }}</p></section>
+      <section id="PDAccessories" class="PDAccessories" aria-labelledby="accTitle"><div class="accHead"><h2 id="accTitle" class="accTitle"><svg class="accTitleIc" viewBox="0 0 256 256" aria-hidden="true"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm40,112H136v32a8,8,0,0,1-16,0V136H88a8,8,0,0,1,0-16h32V88a8,8,0,0,1,16,0v32h32a8,8,0,0,1,0,16Z"></path></svg>Přikupte rovnou k produktu</h2><p class="accHint"><svg viewBox="0 0 256 256" aria-hidden="true" style="width: 22px; height: 22px; flex: none"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z" fill="currentColor"></path></svg><span>Zaškrtněte, co chcete přikoupit. Vybrané položky vložíme do košíku spolu s produktem tlačítkem <b>Přidat do košíku</b>.</span></p></div><div class="accList" role="list"><div role="listitem" class="accRow {{ acc.c0 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG redukce DN 125/110" checked="{{ acc.k0 }}" onChange="{{ acc.t0 }}"></label><img class="accImg" src="_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg" alt=""><a class="accName" href="Detail.dc.html">KG redukce DN 125/110</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>53,2 Kč</b><small>44,0 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec0 }}" class="button -neutral -icon decrease {{ acc.d0 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q0 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG redukce DN 125/110" value="{{ acc.q0 }}" onChange="{{ acc.s0 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc0 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c1 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 125 - 45°" checked="{{ acc.k1 }}" onChange="{{ acc.t1 }}"></label><img class="accImg" src="_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 125 - 45°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>79,3 Kč</b><small>65,5 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec1 }}" class="button -neutral -icon decrease {{ acc.d1 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q1 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG koleno DN 125 - 45°" value="{{ acc.q1 }}" onChange="{{ acc.s1 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc1 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c2 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 110 - 45°" checked="{{ acc.k2 }}" onChange="{{ acc.t2 }}"></label><img class="accImg" src="_blob/2984a94f6eaad2248b2c60dd0d038e6e.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 110 - 45°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>35,8 Kč</b><small>29,6 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec2 }}" class="button -neutral -icon decrease {{ acc.d2 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q2 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG koleno DN 110 - 45°" value="{{ acc.q2 }}" onChange="{{ acc.s2 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc2 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c3 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG přesuvka DN 110" checked="{{ acc.k3 }}" onChange="{{ acc.t3 }}"></label><img class="accImg" src="_blob/4d170d8f24f3be5f139b0e9d7aa2d87c.jpg" alt=""><a class="accName" href="Detail.dc.html">KG přesuvka DN 110</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>41,6 Kč</b><small>34,4 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec3 }}" class="button -neutral -icon decrease {{ acc.d3 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q3 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG přesuvka DN 110" value="{{ acc.q3 }}" onChange="{{ acc.s3 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc3 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c4 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG trubka DN 110 × 3,2 mm – 1 m, SN 4" checked="{{ acc.k4 }}" onChange="{{ acc.t4 }}"></label><img class="accImg" src="_blob/e59e88cb1884af09a0ef32114c8efdc5.jpg" alt=""><a class="accName" href="Detail.dc.html">KG trubka DN 110 × 3,2 mm – 1 m, SN 4</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>98,5 Kč</b><small>81,4 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec4 }}" class="button -neutral -icon decrease {{ acc.d4 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q4 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG trubka DN 110 × 3,2 mm – 1 m, SN 4" value="{{ acc.q4 }}" onChange="{{ acc.s4 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc4 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div><div role="listitem" class="accRow {{ acc.c5 }}"><label class="accCheck"><input type="checkbox" aria-label="Přikoupit KG koleno DN 110 - 87,5°" checked="{{ acc.k5 }}" onChange="{{ acc.t5 }}"></label><img class="accImg" src="_blob/7f6b7e1447d106155eb29db6b23f857b.jpg" alt=""><a class="accName" href="Detail.dc.html">KG koleno DN 110 - 87,5°</a><span class="accAvail AvailabilityView cs_zelena">skladem &gt; 100 ks</span><span class="accPrice"><b>47,9 Kč</b><small>39,6 Kč bez DPH</small></span><div class="stepper accStep"><a href="#" aria-label="Snížit množství" onClick="{{ acc.dec5 }}" class="button -neutral -icon decrease {{ acc.d5 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-minus"></use></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ acc.q5 }}</span><input type="number" min="1" aria-label="Množství v kusech: KG koleno DN 110 - 87,5°" value="{{ acc.q5 }}" onChange="{{ acc.s5 }}"></span><span class="qtyUnit" aria-hidden="true">ks</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ acc.inc5 }}"><svg class="icon -xs" aria-hidden="true"><use href="#i-plus"></use></svg></a></div></div></div><p class="accSum" aria-live="polite">{{ acc.summary }}</p></section>
     </div>
 
     <div class="dcTabs dc-con">
@@ -1603,9 +1746,9 @@ a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2px solid 
   <div class="hd"><span class="t"><svg class="icon -md" aria-hidden="true"><use href="#i-asistent"></use></svg>Nákupní asistent</span><button class="button -icon -sm close" type="button" id="aiClose" aria-label="Zavřít" onClick="{{ toggleAi }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path></svg></button></div>
   <div class="bd"><div class="msg">Dobrý den, jsem váš nákupní asistent. Pomohu s výběrem produktů, odpovím na dotazy a zjistím stav objednávky.</div><div class="msg me">Potřebuji KG koleno 110 pro venkovní kanalizaci.</div><div class="msg">Doporučuji <b>KG koleno DN 110 – 45°</b> (35,8 Kč s DPH, skladem &gt; 100 ks). Chcete ho přidat do košíku?</div></div>
   <div class="in"><input class="input" id="aiInput" type="text" placeholder="Napište dotaz…" aria-label="Dotaz pro asistenta"><button class="button -main -icon" type="button" aria-label="Odeslat"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M227.32,28.68a16,16,0,0,0-15.66-4.08l-.15,0L19.57,82.84a16,16,0,0,0-2.49,29.8L102,154l41.3,84.87A15.86,15.86,0,0,0,157.74,248q.69,0,1.38-.06a15.88,15.88,0,0,0,14-11.51l58.2-191.94c0-.05,0-.1,0-.15A16,16,0,0,0,227.32,28.68ZM157.83,231.85l-.05.14,0-.07-40.06-82.3,48-48a8,8,0,0,0-11.31-11.31l-48,48L24.08,98.25l-.07,0,.14,0L216,40Z"></path></svg></button></div>
-</div></sc-if><canvas class="rb-spark" ref="{{ sparkRef }}" aria-hidden="true"></canvas></div>
+</div></sc-if></div>
 <dc-import name="FontSizeSwitch" hint-size="200px,48px"></dc-import></x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1440, "height": 2757}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview": {"width": 1624, "height": 2757}}'>
 const HERO = [];
 const TABS = ["pDDescription", "pDParameters", "pDMedia", "pDForum", "pDProductReviewSummary"];
 const QS_CATS = [{"name": "KG kolena", "path": "Venkovní kanalizace › KG tvarovky", "kw": "koleno kg 110 125 160 200"}, {"name": "KG odbočky", "path": "Venkovní kanalizace › KG tvarovky", "kw": "odbocka kg"}, {"name": "KG redukce", "path": "Venkovní kanalizace › KG tvarovky", "kw": "redukce kg"}, {"name": "KG trubky SN4", "path": "Venkovní kanalizace", "kw": "trubka kg sn4 110 125 160 200"}, {"name": "KG trubky SN8", "path": "Venkovní kanalizace", "kw": "trubka kg sn8"}, {"name": "Korugované tvarovky PP", "path": "Venkovní kanalizace", "kw": "koleno korugovane plasticor pp"}, {"name": "Korugované trubky PP SN 8-12", "path": "Venkovní kanalizace", "kw": "trubka korugovana plasticor"}, {"name": "HT kolena", "path": "Vnitřní kanalizace › HT tvarovky z PP", "kw": "koleno ht 32 40 50 75 110"}, {"name": "HT tvarovky kloubové z PP", "path": "Vnitřní kanalizace", "kw": "koleno kloubove ht"}, {"name": "HT trubky z PP", "path": "Vnitřní kanalizace", "kw": "trubka ht"}, {"name": "KGB kolena", "path": "Venkovní kanalizace › KG 2000 PP", "kw": "koleno kgb kg2000"}, {"name": "Drenážní flexi hadice", "path": "Drenáže a chráničky", "kw": "drenaz hadice"}, {"name": "Kabelové chráničky", "path": "Drenáže a chráničky", "kw": "chranicka"}, {"name": "Plastové poklopy", "path": "Poklopy", "kw": "poklop"}, {"name": "Poklopy kompozit/litina", "path": "Poklopy", "kw": "poklop litina kompozit"}, {"name": "Zpětné klapky jednoduché", "path": "Zpětné kanalizační klapky", "kw": "klapka zpetna"}, {"name": "Revizní šachty DN 400", "path": "Revizní šachty", "kw": "sachta revizni 400"}, {"name": "Revizní šachty DN 600", "path": "Revizní šachty", "kw": "sachta revizni 600"}, {"name": "Ventilační hlavice", "path": "Ventilační hlavice a klapky", "kw": "hlavice ventilace"}, {"name": "Přivzdušňovací klapky", "path": "Ventilační hlavice a klapky", "kw": "klapka privzdusnovaci"}, {"name": "Střešní lapače – gajgry", "path": "Gajgry, vpusti, žlaby", "kw": "gajgr lapac"}, {"name": "Odvodňovací žlaby", "path": "Gajgry, vpusti, žlaby", "kw": "zlab"}, {"name": "Vodoměrné šachty", "path": "Nádrže, vsaky, potrubí", "kw": "sachta vodomer"}, {"name": "Zatravňovací dlaždice", "path": "Zatravňovací dlaždice", "kw": "dlazdice"}, {"name": "Šroubovací odbočka", "path": "Speciální tvarovky", "kw": "odbocka sroubovaci"}, {"name": "Pružné kanalizační spojky", "path": "Speciální tvarovky", "kw": "spojka"}];
@@ -1642,7 +1785,7 @@ class Component extends DCLogic {
       if (ov) ov.addEventListener('click', () => set(false));
       nav.addEventListener('keydown', e => { if (e.key === 'Escape' && nav.classList.contains('drawerIn')) set(false); });
       nav.addEventListener('click', e => { const x = e.target.closest && e.target.closest('.exp'); if (!x || !nav.contains(x)) return; const li = x.closest('li'); const o = !li.classList.contains('expanded'); li.classList.toggle('expanded', o); x.setAttribute('aria-expanded', String(o)); });
-      const mq = matchMedia('(min-width:820px)'); const onMq = () => { if (mq.matches && nav.classList.contains('open')) { set(false); nav.classList.remove('open'); } }; if (mq.addEventListener) mq.addEventListener('change', onMq);
+      const mq = matchMedia('(min-width:1000px)'); const onMq = () => { if (mq.matches && nav.classList.contains('open')) { set(false); nav.classList.remove('open'); } }; if (mq.addEventListener) mq.addEventListener('change', onMq);
     }, 60);
     this.popDoc = e => { if (this.state.pop && !(e.target && e.target.closest && e.target.closest('#LoginUser,#SimpleBasket'))) this.setState({ pop: '' }); };
     document.addEventListener('mousedown', this.popDoc);
@@ -1650,9 +1793,9 @@ class Component extends DCLogic {
       const nav = document.getElementById('MenuCategories'); if (!nav) return;
       const ul = nav.querySelector('ul.root'); let t, cur = null;
       const pairs = [...nav.querySelectorAll('li[data-mm]')].map(li => ({ li, a: li.querySelector('a'), mm: document.getElementById(li.getAttribute('data-mm')) })).filter(p => p.mm);
-      const place = p => { const inner = p.mm.querySelector('.mmInner'), bar = nav.querySelector('.menuScroll'); if (!inner || !bar) return; const br = bar.getBoundingClientRect(), nr = p.mm.getBoundingClientRect(), pad = parseFloat(getComputedStyle(p.mm).paddingLeft) || 0; inner.style.maxWidth = 'none'; inner.style.width = br.width + 'px'; inner.style.marginLeft = (br.left - nr.left - pad) + 'px'; };
+      const place = p => { const inner = p.mm.querySelector('.mmInner'), bar = nav.querySelector('.menuScroll'); if (!inner || !bar) return; if (document.documentElement.dataset.menu === 'B') { inner.style.maxWidth = inner.style.width = inner.style.marginLeft = ''; return; } const br = bar.getBoundingClientRect(), nr = p.mm.getBoundingClientRect(), pad = parseFloat(getComputedStyle(p.mm).paddingLeft) || 0; inner.style.maxWidth = 'none'; inner.style.width = br.width + 'px'; inner.style.marginLeft = (br.left - nr.left - pad) + 'px'; };
       const set = p => { pairs.forEach(q => { const on = q === p; q.mm.classList.toggle('on', on); q.li.classList.toggle('mmOn', on); q.a.setAttribute('aria-expanded', String(on)); }); cur = p; if (p) place(p); };
-      const open = p => { clearTimeout(t); if (matchMedia('(max-width:819px)').matches || nav.classList.contains('open')) return; t = setTimeout(() => set(p), cur ? 0 : 80); };
+      const open = p => { clearTimeout(t); if (matchMedia('(max-width:999px)').matches || nav.classList.contains('open')) return; t = setTimeout(() => set(p), cur ? 0 : 80); };
       const close = d => { clearTimeout(t); t = setTimeout(() => set(null), d == null ? 180 : d); };
       const inAny = el => !!el && pairs.some(q => q.mm.contains(el) || q.li.contains(el));
       pairs.forEach(p => { p.li.addEventListener('mouseenter', () => open(p)); p.li.addEventListener('mouseleave', () => close()); p.mm.addEventListener('mouseenter', () => clearTimeout(t)); p.mm.addEventListener('mouseleave', () => close()); p.li.addEventListener('focusin', () => open(p)); });
@@ -1663,8 +1806,19 @@ class Component extends DCLogic {
       const top = document.getElementById('stickyTop');
       if (top && typeof ResizeObserver === 'function') { const upd = () => document.documentElement.style.setProperty('--header-h', top.offsetHeight + 'px'); this.hro = new ResizeObserver(upd); this.hro.observe(top); upd(); }
     }, 60);
-    this.menuSync = () => { const nav = document.getElementById('MenuCategories'), ul = nav && nav.querySelector('ul.root'); if (!nav || !ul) return; const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-start', ul.scrollLeft <= 2); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); };
-    this.menuT = setTimeout(() => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.addEventListener('scroll', this.menuSync, { passive: true }); this.menuSync(); }, 50);
+    /* Menu B ≥1440: každé položce nastaví šířku názvu (1 nebo 2 vyvážené řádky) tak, aby zbylé místo dostaly všechny položky stejně
+       → stejné odsazení textu zleva i zprava u krátkých i dvouřádkových názvů. Krátké názvy se nechají na 1 řádku, dokud je místo. */
+    this.menuFit = () => { const nav = document.getElementById('MenuCategories'); if (!nav) return; const names = [...nav.querySelectorAll('ul.root > li.level_0 .name')]; if (!names.length) return;
+      let mB = document.documentElement.dataset.menu === 'B'; try { mB = mB || localStorage.getItem('midasMenuV1') === 'B'; } catch (e) {} if (mB) document.documentElement.dataset.menu = 'B'; if (!(mB && window.innerWidth >= 1440)) { names.forEach(n => n.style.removeProperty('width')); return; }
+      const ul = nav.querySelector('ul.root'), cs = getComputedStyle(names[0]), c = (this.mfCanvas = this.mfCanvas || document.createElement('canvas')).getContext('2d'); c.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = t => c.measureText(t).width;
+      const items = names.map(n => { const w = n.textContent.trim().split(/\s+/), one = m(w.join(' ')); let two = one; for (let k = 1; k < w.length; k++) two = Math.min(two, Math.max(m(w.slice(0, k).join(' ')), m(w.slice(k).join(' ')))); return { n, one, two, cur: two }; });
+      const pad = parseFloat(getComputedStyle(names[0].parentElement).paddingLeft) * 2 + 1, minSide = 12, avail = ul.clientWidth;
+      const spare = () => avail - items.reduce((s, i) => s + i.cur + pad, 0) - items.length * 2 * minSide;
+      items.filter(i => i.one > i.two).sort((x, y) => (x.one - x.two) - (y.one - y.two)).forEach(i => { if (spare() >= i.one - i.two) i.cur = i.one; });
+      items.forEach(i => { i.n.style.width = Math.ceil(i.cur + 1) + 'px'; });
+      requestAnimationFrame(() => { const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); }); };
+    this.menuSync = () => { this.menuFit(); const nav = document.getElementById('MenuCategories'), ul = nav && nav.querySelector('ul.root'); if (!nav || !ul) return; const over = ul.scrollWidth > ul.clientWidth + 2; nav.classList.toggle('has-overflow', over); nav.classList.toggle('at-start', ul.scrollLeft <= 2); nav.classList.toggle('at-end', ul.scrollLeft + ul.clientWidth >= ul.scrollWidth - 2); };
+    this.menuT = setTimeout(() => { const ul = document.querySelector('#MenuCategories ul.root'); if (ul) ul.addEventListener('scroll', this.menuSync, { passive: true }); this.menuSync(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => this.menuSync()); }, 50);
     window.addEventListener('resize', this.menuSync);
     this.reduced = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (HERO.length) this.startHero();
@@ -1703,7 +1857,7 @@ class Component extends DCLogic {
   setRows(rows) { this.setState({ rows }); }
   num(s) { return parseFloat(String(s || '').replace(/[^\d,.-]/g, '').replace(',', '.')) || 0; }
   fmt(n) { return n.toLocaleString('cs-CZ', { maximumFractionDigits: 1 }) + ' Kč'; }
-  spark(x, y) {
+  spark(x, y) { return; /* ClickSpark vypnut – potvrzení přidání řeší tlačítko Koupit */
     const c = this.cv; if (!c || this.reduced) return;
     const r = Math.min(window.devicePixelRatio || 1, 2), w = window.innerWidth, h = window.innerHeight;
     if (c.width !== w * r) { c.width = w * r; c.height = h * r; }
@@ -1720,6 +1874,7 @@ class Component extends DCLogic {
     };
     requestAnimationFrame(frame);
   }
+  goGi(k, dir) { const n = GAL.length, old = Math.min(this.state.gi, n - 1), nw = ((k % n) + n) % n; if (nw === old) return; this.setState({ gi: nw, giDir: dir || (nw > old ? 'R' : 'L'), giTick: (this.state.giTick || 0) + 1 }); }
   renderVals() {
     const s = this.state;
     const hero = { stage: HERO[s.slide] || '', pausedCls: s.paused ? 'paused' : '', pressed: s.paused ? 'true' : 'false',
@@ -1736,9 +1891,11 @@ class Component extends DCLogic {
     const allHits = s.q.trim().length >= 2 ? CATALOG.filter(p => { const hay = this.norm(p.name + ' ' + p.code); return toks.every(t => hay.includes(t) || hay.includes(stem(t))); }) : [];
     const hits = allHits.slice(0, 5).map(p => Object.assign({}, p, { buy: e => { if (e && e.preventDefault) e.preventDefault(); clearTimeout(this.blurT); const pr = this.num(p.price);
       this.setState({ count: s.count + 1, total: s.total + pr, open: true, qsOpen: false, lines: this.mergeLines(s.lines, [{ name: p.name, img: p.img, q: 1, unit: pr }]), last: { name: p.name, img: p.img, price: this.fmt(pr), qty: '1 ks', avail: p.avail } }); } }));
-    const cats = s.q.trim().length >= 2 ? QS_CATS.filter(c => { const hay = this.norm(c.name + ' ' + c.path + ' ' + (c.kw || '')); return toks.every(t => hay.includes(stem(t))); }).slice(0, 6) : [];
+    const allCats = s.q.trim().length >= 2 ? QS_CATS.filter(c => { const hay = this.norm(c.name + ' ' + c.path + ' ' + (c.kw || '')); return toks.every(t => hay.includes(stem(t))); }).slice(0) : [];
+    const cats = allCats.slice(0, 5);
     const qs = { q: s.q.trim(), open: s.qsOpen && s.q.trim().length >= 2, has: hits.length > 0, none: hits.length === 0 && cats.length === 0, items: hits,
-      total: String(allHits.length), cats, hasCats: cats.length > 0, gridCls: hits.length && cats.length ? 'two' : '',
+      total: String(allHits.length), allLabel: 'Zobrazit všechny produkty (' + allHits.length + ')', cats, hasCats: cats.length > 0, catsMore: allCats.length > 5, catsAllLabel: 'Zobrazit všechny kategorie (' + allCats.length + ')', gridCls: hits.length && cats.length ? 'two' : '',
+      hasQ: s.q.length > 0, keep: e => e.preventDefault(), clear: e => { ['q', 'qm'].forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; }); const inp = e.currentTarget.parentNode.querySelector('input'); if (inp) inp.focus(); clearTimeout(this.blurT); this.setState({ q: '', qsOpen: true }); },
       change: e => this.setState({ q: e.target.value, qsOpen: true }),
       focus: () => { clearTimeout(this.blurT); this.setState({ qsOpen: true }); },
       blur: () => { this.blurT = setTimeout(() => this.setState({ qsOpen: false }), 180); },
@@ -1829,27 +1986,30 @@ class Component extends DCLogic {
       toggleLogin: e => { if (e && e.preventDefault) e.preventDefault(); const w = s.auth ? 'user' : 'login'; this.setState({ pop: s.pop === w ? '' : w }); },
       doLogin: () => { try { localStorage.setItem('midasAuthV1', 'in'); } catch (x) {} this.setState({ auth: true }); window.dispatchEvent(new Event('midas-auth')); },
       doLogout: () => { try { localStorage.setItem('midasAuthV1', 'out'); } catch (x) {} this.setState({ auth: false, pop: '' }); window.dispatchEvent(new Event('midas-auth')); },
-      gal: (() => { const n = GAL.length, i = Math.min(s.gi, n - 1), go = k => this.setState({ gi: (k + n) % n }); return { items: GAL.map((g, k) => ({ src: g.src, n: k + 1, cls: k === i ? 'active' : '', sel: String(k === i), pick: () => go(k) })), count: n, n: i + 1, src: GAL[i].src, alt: GAL[i].alt, multi: n > 1, singleCls: n > 1 ? '' : 'single', prev: () => go(i - 1), next: () => go(i + 1), open: () => { this.lbReturn = document.activeElement; this.setState({ lb: true }); } }; })(),
+      gal: (() => { const n = GAL.length, i = Math.min(s.gi, n - 1), go = k => this.goGi(k); return { items: GAL.map((g, k) => ({ src: g.src, n: k + 1, cls: k === i ? 'active' : '', sel: String(k === i), pick: () => go(k) })), count: n, n: i + 1, src: GAL[i].src, anim: s.giTick ? 'gIn' + (s.giDir || 'R') + (s.giTick % 2 ? 'A' : 'B') : '', alt: GAL[i].alt, multi: n > 1, singleCls: n > 1 ? '' : 'single', prev: () => go(i - 1), next: () => go(i + 1), open: () => { this.lbReturn = document.activeElement; this.setState({ lb: true }); } }; })(),
       lb: { open: s.lb, title: PRODUCT_TITLE, ref: el => { if (el && !this.lbFocused) { this.lbFocused = true; document.documentElement.classList.add('lbLock'); el.focus(); } if (!el && this.lbFocused) { this.lbFocused = false; document.documentElement.classList.remove('lbLock'); } },
         close: () => { this.setState({ lb: false }); setTimeout(() => { const b = this.lbReturn || document.getElementById('pdMainSlide'); if (b && b.focus) b.focus(); }, 0); },
-        key: e => { const n = GAL.length; if (e.key === 'Escape') { e.preventDefault(); this.setState({ lb: false }); setTimeout(() => { const b = document.getElementById('pdMainSlide'); if (b) b.focus(); }, 0); } else if (e.key === 'ArrowLeft') this.setState({ gi: (s.gi - 1 + n) % n }); else if (e.key === 'ArrowRight') this.setState({ gi: (s.gi + 1) % n }); },
-        ts: e => { this.tx = e.touches[0].clientX; }, te: e => { const d = e.changedTouches[0].clientX - (this.tx || 0), n = GAL.length; if (Math.abs(d) > 40) this.setState({ gi: (s.gi + (d < 0 ? 1 : -1) + n) % n }); } },
+        key: e => { const n = GAL.length; if (e.key === 'Escape') { e.preventDefault(); this.setState({ lb: false }); setTimeout(() => { const b = document.getElementById('pdMainSlide'); if (b) b.focus(); }, 0); } else if (e.key === 'ArrowLeft') this.goGi(s.gi - 1, 'L'); else if (e.key === 'ArrowRight') this.goGi(s.gi + 1, 'R'); },
+        ts: e => { this.tx = e.touches[0].clientX; }, te: e => { const d = e.changedTouches[0].clientX - (this.tx || 0), n = GAL.length; if (Math.abs(d) > 40) this.goGi(s.gi + (d < 0 ? 1 : -1), d < 0 ? 'R' : 'L'); } },
       fav: { on: !!(s.auth && s.fav), off: !(s.auth && s.fav), pressed: String(!!(s.auth && s.fav)), needLogin: !s.auth, descId: s.auth ? '' : 'favTip', wrapCls: s.favTip ? 'tipOn' : '', label: s.auth && s.fav ? 'Odebrat z oblíbených' : 'Přidat k oblíbeným',
         toggle: () => { if (!s.auth) { clearTimeout(this.favT); this.setState({ favTip: true }); this.favT = setTimeout(() => this.setState({ favTip: false }), 2500); return; } this.setState({ fav: !s.fav }); } },
-      auth: { in: !!s.auth, out: !s.auth, btnCls: s.auth ? 'isIn' : '', btnLabel: s.auth ? undefined : 'Přihlášení', menuLabel: s.auth ? 'Můj účet · Andrea Zelená' : 'Přihlášení / Registrace' },
+      auth: { in: !!s.auth, out: !s.auth, btnCls: s.auth ? 'isIn' : '', btnLabel: s.auth ? undefined : 'Přihlášení' },
       toggleCart: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ pop: s.pop === 'cart' ? '' : 'cart' }); },
       closePop: () => { const w = this.state.pop; this.setState({ pop: '' }); const b = document.querySelector(w === 'cart' ? '#SimpleBasket > a' : '#loginBtn'); if (b) b.focus(); },
-      loginOpen: s.pop === 'login', userOpen: s.pop === 'user', cartOpen: s.pop === 'cart', loginExp: String(s.pop === 'login' || s.pop === 'user'), cartExp: String(s.pop === 'cart'), cartLines: s.lines || [],
+      loginOpen: s.pop === 'login', userOpen: s.pop === 'user', cartOpen: s.pop === 'cart', loginExp: String(s.pop === 'login' || s.pop === 'user'), cartExp: String(s.pop === 'cart'), cartLines: s.lines || [], removeLine: i => { const L = this.state.lines || [], l = L[i]; if (!l) return; this.setState({ lines: L.filter((_, k) => k !== i), count: Math.max(0, this.state.count - l.q), total: Math.max(0, Math.round((this.state.total - l.q * l.unit) * 100) / 100) }); },
       readMore: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ tab: 'pDDescription' }); const el = document.getElementById('pdTabs'); if (!el) return; const hh = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 0; const y = el.getBoundingClientRect().top + window.scrollY - hh - 16; window.scrollTo({ top: Math.max(0, y), behavior: this.reduced ? 'auto' : 'smooth' }); },
       sortSel: e => { const b = e.currentTarget; [...b.parentElement.children].forEach(x => { const on = x === b; x.classList.toggle('selected', on); x.setAttribute('aria-selected', String(on)); }); },
       pkgSet: e => { const b = e.currentTarget, t = b.closest('.ProductView'), inp = t && t.querySelector('.AddToCartView input'); if (!inp) return; inp.value = b.getAttribute('data-qty');
         const dec = t.querySelector('.AddToCartView .decrease'); if (dec) dec.classList.remove('disabled'); inp.classList.remove('flash'); void inp.offsetWidth; inp.classList.add('flash'); },
+      pdQty: s.pdQty || '', pdQtyShown: s.pdQty || '1', pdQtyCh: ev => this.setState({ pdQty: ev.target.value }),
       stock: s.stock.toLocaleString('cs-CZ'),
       countRef: this.countRef, sparkRef: this.sparkRef,
       toggleAi: e => { if (e && e.preventDefault) e.preventDefault(); this.setState({ ai: !s.ai }); },
       step: e => { e.preventDefault(); const a = e.currentTarget, inp = a.parentElement && a.parentElement.querySelector('input'); if (!inp) return;
-        const v = Math.max(1, (parseInt(inp.value || inp.placeholder, 10) || 1) + (a.classList.contains('increase') ? 1 : -1)); inp.value = v;
+        const v = Math.max(1, (parseInt(inp.value || inp.placeholder, 10) || 1) + (a.classList.contains('increase') ? 1 : -1)); if (inp.id === 'pdQty') this.setState({ pdQty: String(v) }); else inp.value = v;
         const dec = a.parentElement.querySelector('.decrease'); if (dec) dec.classList.toggle('disabled', v <= 1); },
+      pdIn: s.pdIn || 0, pdInOn: (s.pdIn || 0) > 0, pdBuyCls: (s.pdIn || 0) > 0 ? '-inCart' : '', pdBuyTxt: (s.pdIn || 0) > 0 ? 'V košíku' : 'Přidat do košíku',
+      pdBuyLabel: (s.pdIn || 0) > 0 ? 'Přidat do košíku – v košíku už ' + s.pdIn + ' ks' : 'Přidat do košíku',
       addCart: e => {
         e.preventDefault(); const a = e.currentTarget;
         const tile = a.closest('.ProductView'), pd = a.closest('.ProductDetailPage');
@@ -1862,12 +2022,12 @@ class Component extends DCLogic {
         this.spark(e.clientX || 0, e.clientY || 0);
         if (pd && !tile && accN) {
           const aq = accSel.reduce((t, x) => t + x.q, 0);
-          this.setState({ count: s.count + q + aq, total: s.total + pr * q + accSum, open: true, lines: this.mergeLines(s.lines, [{ name, img, q, unit: pr }].concat(accSel.map(x => ({ name: x.a.name, img: x.a.img, q: x.q, unit: this.num(x.a.price) })))),
+          this.setState({ pdIn: (s.pdIn || 0) + q, count: s.count + q + aq, total: s.total + pr * q + accSum, open: true, lines: this.mergeLines(s.lines, [{ name, img, q, unit: pr }].concat(accSel.map(x => ({ name: x.a.name, img: x.a.img, q: x.q, unit: this.num(x.a.price) })))),
             last: { name, img, price: this.fmt(pr), qty: q + ' ks', avail, hasAcc: true, accTitle: 'Přikoupené příslušenství (' + accN + ' ' + plural(accN) + ')', accSum: this.fmt(accSum), acc: accSel.map(x => ({ name: x.a.name, img: x.a.img, qty: x.q + ' ks', price: this.fmt(this.num(x.a.price) * x.q) })) },
             acc: s.acc.map(x => ({ on: false, q: 1 })) });
           return;
         }
-        this.setState({ count: s.count + q, total: s.total + pr * q, open: true, lines: this.mergeLines(s.lines, [{ name, img, q, unit: pr }]), last: { name, img, price: this.fmt(pr), qty: q + ' ks', avail } });
+        this.setState({ ...(pd && !tile ? { pdIn: (s.pdIn || 0) + q } : {}), count: s.count + q, total: s.total + pr * q, open: true, lines: this.mergeLines(s.lines, [{ name, img, q, unit: pr }]), last: { name, img, price: this.fmt(pr), qty: q + ' ks', avail } });
       },
       spot: e => { const a = e.target.closest && e.target.closest('li a'); if (!a) return; const r = a.getBoundingClientRect(); a.style.setProperty('--mx', (e.clientX - r.left) + 'px'); a.style.setProperty('--my', (e.clientY - r.top) + 'px'); }
     };

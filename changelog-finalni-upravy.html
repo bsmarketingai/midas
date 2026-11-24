@@ -30,6 +30,51 @@ figcaption{margin-top:var(--space-2);font-size:14px;color:var(--muted)}
 <h1>Changelog finálních úprav</h1>
 <p class="lead">Přehled synchronizací prototypu z Claude Design do repozitáře. Nejnovější nahoře. <a href="index.html">Zpět na přehled stránek</a></p>
 
+<article id="sync-2026-11-24a">
+<h2>Varianty hero, menu a USP, nová hlavička na tabletu a mobilu, úpravy objednávky</h2>
+<time datetime="2026-11-24">24. 11. 2026 · sync-2026-11-24a</time>
+<p>Souhrn úprav od posledního syncu:</p>
+<ul>
+<li><strong>Prezentace:</strong> přepínač je kulaté plovoucí ikonové tlačítko (v objednávce nad spodní lištou). Nové volby: Hero A / B / C, Menu kategorií A / B, USP A / B. Hero C automaticky zapne menu B.</li>
+<li><strong>Hero B a C:</strong> B je jednoduchý karusel (záložky Novinky, Okapový systém, Systém KG 2000, Akční set; na mobilu přes celou šíři, fotka nahoře). C je karusel přes celou šíři okna, napojený bez mezery na menu, fotka vpravo s plynulým přechodem.</li>
+<li><strong>Menu B:</strong> zelený pás přes celou šíři, položky v kontejneru se stejným odsazením textu, rozbalovací panel přes celou šíři hned pod pásem. Na tabletu také přes celou šíři.</li>
+<li><strong>Hlavička:</strong> hamburger menu už pod 1000 px, plynulé rozbalování podkategorií. Telefon i na tabletu a mobilu (pod 420 px skrytý). AZ na mobilu jako plné tlačítko. Obtažení tlačítek na tabletu a mobilu, mezera 8 px mezi účtem a košíkem.</li>
+<li><strong>Vyhledávání:</strong> placeholder „píše“ ukázkové dotazy. Našeptávač je přes celou šíři hned pod bílou hlavičkou, tlačítka „Zobrazit všechny“ jsou sjednocená, Koupit je ikonové s hoverem.</li>
+<li><strong>Úvod:</strong> USP B (přes celou šíři, spodní oddělovač), ikona české vlajky, nadpis H1 doleva s odkazem na O nás, nadpis v megamenu 1,5×.</li>
+<li><strong>Karta produktu a detail:</strong> po přidání „V košíku“ černě s počtem kusů v červeném kolečku, v řádkovém výpisu ikona checkboxu. Popup skladovosti nad sousedními kartami. Galerie na detailu je celá bílá.</li>
+<li><strong>Kategorie:</strong> hlavička výpisu na jemně šedém pásu přes celou šíři.</li>
+<li><strong>Informační stránky a patička:</strong> obsah přes celou šíři, Doprava s logy dopravců a plateb (tooltipy, odrážky), Kontakty s Velkoobchodem, outline ikona certifikátů. Patička: Platební metody, Sledujte nás s ikonou Facebooku, bílé tlačítko „Všechny kontakty“, ikony vedou na Dopravu a platbu.</li>
+<li><strong>Objednávka:</strong> přihlášený uživatel jako v hlavičce webu. Položky košíku pod 1150 px jako řádkový výpis, výraznější „Zboží celkem“. Doprava a platba ve dvou kartách. Poznámka předvyplněná v údajích a v kontrole jako samostatná karta. Oddělovače pod nadpisy karet, tučné dokončené kroky.</li>
+<li><strong>Opravy:</strong> žádný vodorovný scrollbar (šíře bez svislého scrollbaru, skryté tooltipy), overlay účtu na mobilu i nad košíkem.</li>
+</ul>
+<p class="files"><strong>Soubory:</strong> <code>Certifikaty.dc.html</code>, <code>Dekujeme.dc.html</code>, <code>Detail.dc.html</code>, <code>Doprava.dc.html</code>, <code>FontSizeSwitch.dc.html</code>, <code>Footer.dc.html</code>, <code>Gdpr.dc.html</code>, <code>Kariera.dc.html</code>, <code>Kategorie.dc.html</code>, <code>Kontakt.dc.html</code>, <code>Kontrola.dc.html</code>, <code>Kosik.dc.html</code>, <code>Main.dc.html</code>, <code>Navody.dc.html</code>, <code>ObchodniPodminky.dc.html</code>, <code>Onas.dc.html</code>, <code>Porovnani.dc.html</code>, <code>ProductCard.dc.html</code>, <code>Reklamace.dc.html</code>, <code>Udaje.dc.html</code></p>
+<figure>
+<img src="changelog-img/2026-11-24a-hero-c-menu-b-usp-b.png" alt="Úvod s hero C, menu B a USP B, červeně orámované" loading="lazy">
+<figcaption>Úvod: hero C přes celou šíři navazuje na menu B.</figcaption>
+</figure>
+</article>
+
+<article id="sync-2026-11-23a">
+<h2>Doprava a platby, TopTrans, footer, hero na mobilu, rádiusy a další úpravy</h2>
+<time datetime="2026-11-23">23. 11. 2026 · sync-2026-11-23a</time>
+<p>Souhrn úprav od posledního syncu:</p>
+<ul>
+<li><strong>Košík – doprava a platby:</strong> nová doprava TopTrans (cena „Dle PSČ“). Platby jsou podle podkladu: Kartou na prodejně (jen při osobním odběru), Převodním příkazem, Kartou (GP webpay), Apple Pay, Google Pay. Dobírka odebrána. Loga jsou z knihovny ikon dopravců a plateb. Navazující kroky Údaje, Kontrola a Děkujeme jsou upravené (varianta „Kartou online“).</li>
+<li><strong>Logo TopTrans</strong> je v USP „Doprava“ (Úvod, Detail) a ve footeru vedle DPD.</li>
+<li><strong>Footer:</strong> tři barevné úrovně textu (akcent pro nadpisy, bílá pro údaje, tlumená bílá pro popisy). Facebook je jako ikona v dlaždici stejně jako dopravci. Ikona telefonu je větší. Akordeon na mobilu je vystředěný mezi oddělovači a pořadí je Sledujte nás, Doprava. Karta podpory používá container query.</li>
+<li><strong>Rádiusy místo pill prvků</strong> v celém webu (přihlášení, košík, chipy, přepínač výpisu, segmenty v pokladně…). Iniciály uživatele jsou ve čtverci s rádiusem navazujícím na vnější tlačítko.</li>
+<li><strong>Karta produktu:</strong> sjednocená komponenta všude, přepínač Mřížka/Řádky ve výpisu, „1 ks“ regular a vystředěné. Místo jiskřiček po kliknutí na Koupit plynulý přechod do žluté s fajfkou „Přidáno“ a počtem kusů.</li>
+<li><strong>Hero na mobilu:</strong> opraveno přepínání v akordeonu (neaktivní slidy se zamykaly jako na desktopu).</li>
+<li><strong>Hlavička a vyhledávání:</strong> košík jako obrysové tlačítko s počtem kusů, nový košíkový popup (mazání řádků, doprava zdarma). Našeptávač je přes celou šířku, ukazuje 5 kategorií + „Zobrazit všechny“. Pole hledání má zpět křížek pro smazání textu.</li>
+<li><strong>Další:</strong> max. šíře obsahu 1560 px, provzdušnění (mezery, řádkování), 4sloupcové megamenu, oddělovače pod nadpisy popupů, expedice 48 h, výchozí velké písmo, galerie se swipem, pevné mezery za jednopísmennými předložkami v USP.</li>
+</ul>
+<p class="files"><strong>Soubory:</strong> všechny <code>*.dc.html</code>, <code>canvas.json</code></p>
+<figure>
+<img src="changelog-img/2026-11-23a-doprava-platby-toptrans.png" alt="Košík – doprava s TopTrans a nové způsoby platby, červeně orámované" loading="lazy">
+<figcaption>Košík: doprava TopTrans a nové platby.</figcaption>
+</figure>
+</article>
+
 <article id="sync-2026-11-18b">
 <h2>Karta produktu v samostatném náhledu</h2>
 <time datetime="2026-11-18">18. 11. 2026 · sync-2026-11-18b</time>

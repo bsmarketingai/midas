@@ -7,24 +7,24 @@
       "is_interactive": true,
       "title": "Komponenta – Drobečková navigace",
       "w": 800,
-      "x": 4560,
+      "x": 5112,
       "y": 1820
     },
     "CartPopup.dc.html": {
       "h": 440,
       "is_interactive": true,
       "title": "Komponenta – Košík",
-      "w": 360,
-      "x": 4560,
+      "w": 440,
+      "x": 5112,
       "y": 540
     },
     "Certifikaty.dc.html": {
       "expand": "fill",
-      "h": 2140,
+      "h": 2248,
       "is_interactive": true,
       "title": "Info – Certifikáty a prohlášení o shodě",
-      "w": 1440,
-      "x": 7600,
+      "w": 1624,
+      "x": 8520,
       "y": 5400
     },
     "CookieModal.dc.html": {
@@ -32,34 +32,34 @@
       "is_interactive": true,
       "title": "Komponenta – Souhlas s cookies",
       "w": 640,
-      "x": 4560,
+      "x": 5112,
       "y": 2000
     },
     "Dekujeme.dc.html": {
       "expand": "fill",
-      "h": 1262,
+      "h": 1328,
       "is_interactive": true,
       "title": "Objednávka – Děkovná stránka",
-      "w": 1440,
-      "x": 4560,
-      "y": 12000
+      "w": 1624,
+      "x": 5112,
+      "y": 13000
     },
     "Detail.dc.html": {
       "expand": "fill",
-      "h": 2891,
+      "h": 3187,
       "is_interactive": true,
       "title": "Detail produktu",
-      "w": 1440,
-      "x": 3040,
+      "w": 1624,
+      "x": 3408,
       "y": 0
     },
     "Doprava.dc.html": {
       "expand": "fill",
-      "h": 2031,
+      "h": 2231,
       "is_interactive": true,
       "title": "Info – Doprava a platba",
-      "w": 1440,
-      "x": 6080,
+      "w": 1624,
+      "x": 6816,
       "y": 5400
     },
     "FilterChip.dc.html": {
@@ -67,15 +67,15 @@
       "is_interactive": true,
       "title": "Komponenta – Chip filtru",
       "w": 120,
-      "x": 5000,
+      "x": 5605,
       "y": 0
     },
     "Footer.dc.html": {
       "h": 600,
       "is_interactive": true,
       "title": "Komponenta – Patička",
-      "w": 1440,
-      "x": 4560,
+      "w": 1624,
+      "x": 5112,
       "y": 1100
     },
     "FontSizeSwitch.dc.html": {
@@ -83,114 +83,114 @@
       "is_interactive": true,
       "title": "Komponenta – Velikost písma (prezentace)",
       "w": 300,
-      "x": 4560,
+      "x": 5112,
       "y": 2440
     },
     "Gdpr.dc.html": {
       "expand": "fill",
-      "h": 1404,
+      "h": 1481,
       "is_interactive": true,
       "title": "Info – GDPR informace",
-      "w": 1440,
-      "x": 10640,
+      "w": 1624,
+      "x": 11928,
       "y": 5400
     },
     "Kariera.dc.html": {
       "expand": "fill",
-      "h": 1408,
+      "h": 1508,
       "is_interactive": true,
       "title": "Info – Volné pracovní pozice",
-      "w": 1440,
-      "x": 12160,
+      "w": 1624,
+      "x": 13632,
       "y": 5400
     },
     "Kategorie.dc.html": {
       "expand": "fill",
-      "h": 3764,
+      "h": 4086,
       "is_interactive": true,
       "title": "Výpis – Venkovní kanalizace",
-      "w": 1440,
-      "x": 1520,
+      "w": 1624,
+      "x": 1704,
       "y": 0
     },
     "Kontakt.dc.html": {
       "expand": "fill",
-      "h": 2381,
+      "h": 2616,
       "is_interactive": true,
       "title": "Info – Kontakty",
-      "w": 1440,
-      "x": 1520,
+      "w": 1624,
+      "x": 1704,
       "y": 5400
     },
     "Kontrola.dc.html": {
       "expand": "fill",
-      "h": 1418,
+      "h": 1498,
       "is_interactive": true,
       "title": "Objednávka 3 – Kontrola údajů",
-      "w": 1440,
-      "x": 3040,
-      "y": 12000
+      "w": 1624,
+      "x": 3408,
+      "y": 13000
     },
     "Kosik.dc.html": {
       "expand": "fill",
-      "h": 1433,
+      "h": 1503,
       "is_interactive": true,
       "title": "Objednávka 1 – Nákupní košík",
-      "w": 1440,
+      "w": 1624,
       "x": 0,
-      "y": 12000
+      "y": 13000
     },
     "LoginPopup.dc.html": {
       "h": 420,
       "is_interactive": true,
       "title": "Komponenta – Přihlášení",
       "w": 320,
-      "x": 4560,
+      "x": 5112,
       "y": 0
     },
     "Main.dc.html": {
       "expand": "fill",
-      "h": 4431,
+      "h": 4691,
       "is_interactive": true,
       "title": "Homepage",
-      "w": 1440,
+      "w": 1624,
       "x": 0,
       "y": 0
     },
     "Navody.dc.html": {
       "expand": "fill",
-      "h": 2216,
+      "h": 2351,
       "is_interactive": true,
       "title": "Info – Montážní návody",
-      "w": 1440,
-      "x": 9120,
+      "w": 1624,
+      "x": 10224,
       "y": 5400
     },
     "ObchodniPodminky.dc.html": {
       "expand": "fill",
-      "h": 6267,
+      "h": 7248,
       "is_interactive": true,
       "title": "Info – Obchodní podmínky",
-      "w": 1440,
-      "x": 3040,
+      "w": 1624,
+      "x": 3408,
       "y": 5400
     },
     "Onas.dc.html": {
       "expand": "fill",
-      "h": 3341,
+      "h": 3570,
       "is_interactive": true,
       "title": "Info – O nás",
-      "w": 1440,
+      "w": 1624,
       "x": 0,
       "y": 5400
     },
     "Porovnani.dc.html": {
       "expand": "fill",
-      "h": 2676,
+      "h": 2892,
       "is_interactive": true,
       "title": "Porovnání produktů",
-      "w": 1440,
-      "x": 6400,
+      "w": 1624,
+      "x": 7175,
       "y": 0
     },
     "PromoModal.dc.html": {
@@ -198,33 +198,33 @@
       "is_interactive": true,
       "title": "Komponenta – Akční modal",
       "w": 560,
-      "x": 5280,
+      "x": 5919,
       "y": 2000
     },
     "Reklamace.dc.html": {
       "expand": "fill",
-      "h": 3533,
+      "h": 3993,
       "is_interactive": true,
       "title": "Info – Reklamační podmínky",
-      "w": 1440,
-      "x": 4560,
+      "w": 1624,
+      "x": 5112,
       "y": 5400
     },
     "Udaje.dc.html": {
       "expand": "fill",
-      "h": 1671,
+      "h": 1759,
       "is_interactive": true,
       "title": "Objednávka 2 – Kontaktní údaje",
-      "w": 1440,
-      "x": 1520,
-      "y": 12000
+      "w": 1624,
+      "x": 1704,
+      "y": 13000
     },
     "UserMenu.dc.html": {
       "h": 420,
       "is_interactive": true,
       "title": "Komponenta – Uživatelské menu",
       "w": 320,
-      "x": 5000,
+      "x": 5605,
       "y": 120
     },
     "ProductCard.dc.html": {
@@ -232,7 +232,7 @@
       "is_interactive": true,
       "title": "Komponenta – Karta produktu",
       "w": 320,
-      "x": 5400,
+      "x": 6054,
       "y": 0
     }
   },
@@ -253,23 +253,23 @@
   "notes": {
     "checkout": {
       "kind": "title1",
-      "maxW": 6000,
+      "maxW": 6726,
       "text": "Průchod košíkem: Košík → Kontaktní údaje → Kontrola → Děkujeme",
       "w": 240,
       "x": 0,
-      "y": 11700
+      "y": 12700
     },
     "components": {
       "kind": "title1",
-      "maxW": 1440,
+      "maxW": 1614,
       "text": "Komponenty",
       "w": 240,
-      "x": 4560,
+      "x": 5112,
       "y": -300
     },
     "flow": {
       "kind": "title1",
-      "maxW": 4480,
+      "maxW": 5022,
       "text": "Midas.cz – e-shop: Homepage → Výpis → Detail",
       "w": 240,
       "x": 0,
@@ -277,7 +277,7 @@
     },
     "info": {
       "kind": "title1",
-      "maxW": 8000,
+      "maxW": 8968,
       "text": "Informační stránky z patičky",
       "w": 240,
       "x": 0,

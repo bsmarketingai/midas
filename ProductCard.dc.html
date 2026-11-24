@@ -13,14 +13,14 @@
 body{margin:0}
 /* Karta produktu – jediný zdroj vzhledu karty. Tokeny bere ze stránky, samostatně (artboard) má výchozí hodnoty. */
 .ProductView{
-  --pc-line:var(--line,#e1e1e1);--pc-text:var(--text,rgba(30,30,30,.9));--pc-weaker:var(--text-weaker,rgba(30,30,30,.68));--pc-muted:var(--text-muted,#999);
+  --pc-line:var(--line,#e1e1e1);--pc-text:var(--text,rgba(30,30,30,.9));--pc-weaker:var(--text-weaker,rgba(30,30,30,.63));--pc-muted:var(--text-muted,#999);
   --pc-primary:var(--primary,#65bc47);--pc-primary-d:var(--primary-d,#3a7a27);--pc-primary-10:var(--primary-10,#eff8eb);
   --pc-main:var(--main,#cc0000);--pc-main-d:var(--main-d,#a80000);--pc-input:var(--input-border,#d2d7d9);--pc-input-soft:var(--input-bg-soft,#f5f6f6);
   --pc-ok:var(--success-text,#0a7d24);--pc-info:var(--info,#1f6fa8);
   --pc-pad:calc(var(--card-pad,16px) * .75);--pc-radius:var(--card-radius,6px);--pc-btn-radius:var(--btn-radius,4px);--pc-btn-h:var(--btn-h-md,44px);
   --pc-s1:var(--space-1,4px);--pc-s2:var(--space-2,8px);--pc-s3:var(--space-3,12px);--pc-s4:var(--space-4,16px);
   --pc-font:var(--font,"Roboto",system-ui,-apple-system,"Segoe UI",sans-serif);
-  --pc-fs-name:var(--fs-h4,16px);--pc-fs-price:var(--fs-price-md,20px);--pc-fs-sm:var(--fs-body-sm,13px);--pc-fs-cap:var(--fs-caption,12px);
+  --pc-fs-name:var(--fs-h4,18px);--pc-fs-price:var(--fs-price-md,23px);--pc-fs-sm:var(--fs-body-sm,15px);--pc-fs-cap:var(--fs-caption,14px);
   position:relative;box-sizing:border-box;display:flex;flex-direction:column;height:100%;padding:var(--pc-pad);border:1px solid var(--pc-line);border-radius:var(--pc-radius);background:#fff;color:var(--pc-text);font-family:var(--pc-font);transition:box-shadow .15s,transform .15s}
 /* obal, který runtime vkládá kolem komponenty, se v mřížce i karuselu natáhne na výšku řádku */
 :where(.productHolder) > :has(> .ProductView){display:flex;flex-direction:column;width:100%;min-width:0;height:100%}
@@ -36,18 +36,18 @@ body{margin:0}
 .ProductView .ActionIconsView{position:absolute;top:var(--pc-s3);left:var(--pc-s3);right:var(--pc-s3);display:flex;justify-content:space-between;align-items:flex-start;pointer-events:none;z-index:1}
 .ProductView .icons{display:flex;flex-direction:column;gap:var(--pc-s1);align-items:flex-start}
 .ProductView .badge{display:inline-flex;align-items:center;height:22px;padding:0 var(--pc-s2);border-radius:var(--radius-xs,2px);font:600 var(--pc-fs-cap)/1 var(--pc-font);color:#fff;white-space:nowrap}
-.ProductView .badge.discount{background:var(--flag-discount,#ffc107);color:var(--flag-discount-fg,#1e1e1e);font-size:13px;font-weight:700;height:24px}
+.ProductView .badge.discount{background:var(--flag-discount,#ffc107);color:var(--flag-discount-fg,#1e1e1e);font-size:15px;font-weight:700;height:24px}
 .ProductView .badge.flag01{background:var(--flag-akce,#c2410c)}.ProductView .badge.flag00{background:var(--flag-novinka,#0277bd)}.ProductView .badge.flag02{background:var(--flag-doporucujeme,#1f6fa8)}.ProductView .badge.flag03{background:var(--flag-vyprodej,#3867d6)}
 /* fotka + kód produktu při hoveru */
 .ProductView a.image{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;aspect-ratio:220/200;margin-bottom:var(--pc-s3)}
 .ProductView a.image img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
 .ProductView:hover a.image img{transform:scale(1.03)}
-.ProductView .pCode{position:absolute;left:0;bottom:var(--pc-s2);height:24px;display:inline-flex;align-items:center;padding:0 var(--pc-s2);border:1px solid var(--pc-line);border-radius:var(--radius-pill,999px);background:rgba(255,255,255,.94);color:var(--pc-weaker);font:500 var(--pc-fs-cap)/1 var(--pc-font);white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none}
+.ProductView .pCode{position:absolute;left:0;bottom:var(--pc-s2);height:24px;display:inline-flex;align-items:center;padding:0 var(--pc-s2);border:1px solid var(--pc-line);border-radius:var(--radius-sm,4px);background:rgba(255,255,255,.94);color:var(--pc-weaker);font:500 var(--pc-fs-cap)/1 var(--pc-font);white-space:nowrap;opacity:0;transition:opacity .15s;pointer-events:none}
 .ProductView:hover .pCode,.ProductView:focus-within .pCode{opacity:1}
 /* název a parametry – pevné výšky, aby ceny i Koupit seděly ve všech kartách stejně */
 .ProductView h2{margin:0 0 var(--pc-s2);min-height:calc(3 * 1.3em);font-size:var(--pc-fs-name);font-weight:700;line-height:1.3;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .ProductView h2 a{color:var(--pc-text);text-decoration:none}.ProductView h2 a:hover{color:var(--pc-primary-d)}
-.ProductView .PackageInfo{display:grid;grid-template-columns:auto 1fr;align-content:start;gap:4px var(--pc-s3);height:calc(3 * 1.4em + 2 * 4px);overflow:hidden;margin-bottom:var(--pc-s4);font-size:14px;line-height:1.4;color:rgba(30,30,30,.78)}
+.ProductView .PackageInfo{display:grid;grid-template-columns:auto 1fr;align-content:start;gap:4px var(--pc-s3);height:calc(3 * 1.4em + 2 * 4px);overflow:hidden;margin-bottom:var(--pc-s4);font-size:16px;line-height:1.4;color:rgba(30,30,30,.66)}
 .ProductView .PackageInfo .caption{font-weight:600;color:var(--pc-text)}
 .ProductView .pkgSet{all:unset;box-sizing:border-box;cursor:pointer;color:var(--pc-primary-d);font:inherit;line-height:inherit;padding:0;border-radius:2px;justify-self:start}
 .ProductView .pkgSet:hover{text-decoration:underline;text-underline-offset:3px}
@@ -59,45 +59,109 @@ body{margin:0}
 .ProductView .AvailabilityView{display:inline-flex;align-items:center;gap:6px;font-size:var(--pc-fs-sm);font-weight:500}
 .ProductView .AvailabilityView::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
 .ProductView .AvailabilityView.cs_zelena{color:var(--pc-ok)}.ProductView .AvailabilityView.cs_modra{color:var(--pc-info)}
-.ProductView .availPop{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 8px);z-index:60;padding:16px 18px 14px;background:#fff;border:1px solid var(--pc-line);border-radius:var(--radius-lg,8px);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:14px;line-height:1.45;font-weight:400;color:var(--pc-text);text-align:left;white-space:normal;cursor:default}
+.ProductView .availPop{display:none;position:absolute;left:0;right:0;bottom:calc(100% + 8px);z-index:60;padding:16px 18px 14px;background:#fff;border:1px solid var(--pc-line);border-radius:var(--radius-lg,8px);box-shadow:0 14px 34px rgba(0,0,0,.14),0 2px 6px rgba(0,0,0,.06);font-size:16px;line-height:1.45;font-weight:400;color:var(--pc-text);text-align:left;white-space:normal;cursor:default}
 .ProductView .availPop::before{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
 .ProductView .availTip:hover .availPop,.ProductView .availTip:focus .availPop,.ProductView .availTip:focus-within .availPop{display:block;animation:pcAvailIn .16s cubic-bezier(.2,.7,.2,1)}
 @keyframes pcAvailIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 .ProductView .availPop p{margin:0 0 8px;font-weight:600;color:var(--pc-text)}
+/* karta s otevřeným popupem skladovosti nad sousedními kartami (hover karty dělá transform = vlastní vrstva) */
+.ProductView:has(.availTip:hover),.ProductView:has(.availTip:focus-within){z-index:70}
 .ProductView .availPop b{font-weight:700}.ProductView .availPop b.ok{color:var(--pc-ok)}.ProductView .availPop b.info{color:var(--pc-info)}
 .ProductView .availPop hr{border:0;border-top:1px solid var(--pc-line);margin:12px 0 10px}
 .ProductView .availPop a{color:var(--pc-primary-d);font-weight:500;text-underline-offset:3px}
 /* ceny */
-.ProductView .prices{display:flex;flex-direction:column;gap:2px}
+.ProductView .prices{display:flex;flex-direction:column;gap:0}
+.ProductView .prices .price{line-height:1.2}
 .ProductView .price{font-variant-numeric:tabular-nums}
 .ProductView .price.primary{font-size:var(--pc-fs-price);font-weight:700;color:var(--pc-text)}
 .ProductView .price.secondary{font-size:var(--pc-fs-sm);color:var(--pc-weaker)}
 .ProductView .price.retail{font-size:var(--pc-fs-sm);color:var(--pc-main);text-decoration:line-through}
 .ProductView .price.retail[aria-hidden="true"]{text-decoration:none}
 /* tlačítka, kvantifikátor s jednotkou, Koupit */
-.ProductView .button{display:inline-flex;align-items:center;justify-content:center;gap:var(--pc-s2);height:var(--pc-btn-h);padding:0 20px;font:600 15px/1 var(--pc-font);border:1px solid transparent;border-radius:var(--pc-btn-radius);background:transparent;cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
+.ProductView .button{display:inline-flex;align-items:center;justify-content:center;gap:var(--pc-s2);height:var(--pc-btn-h);padding:0 20px;font:600 17px/1 var(--pc-font);border:1px solid transparent;border-radius:var(--pc-btn-radius);background:transparent;cursor:pointer;white-space:nowrap;text-decoration:none;transition:background-color .15s,border-color .15s,color .15s}
 .ProductView .button:focus-visible{outline:none;box-shadow:0 0 0 2px #fff,0 0 0 4px var(--pc-primary)}
 .ProductView .button.-main{background:var(--pc-main);color:#fff;border-color:var(--pc-main)}.ProductView .button.-main:hover{background:var(--pc-main-d);border-color:var(--pc-main-d)}
 .ProductView .button.-icon{width:var(--pc-btn-h);padding:0}
 .ProductView .AddToCartView{display:flex;gap:var(--pc-s2);align-items:center}
 .ProductView .AddToCartView a.buy{flex:1 1 auto}
 .ProductView .stepper{display:inline-flex;height:var(--pc-btn-h)}
-.ProductView .stepper .button{width:36px;border-radius:0;background:#fff;color:var(--pc-text);border-color:var(--pc-input);font-size:18px}
+.ProductView .stepper .button{width:36px;border-radius:0;background:#fff;color:var(--pc-text);border-color:var(--pc-input);font-size:20px}
 .ProductView .stepper .button:hover{background:var(--pc-primary-10);color:var(--pc-primary-d)}
 .ProductView .stepper .button.disabled{opacity:1;color:var(--pc-muted);pointer-events:none}
 .ProductView .stepper .button:first-child{border-radius:var(--pc-btn-radius) 0 0 var(--pc-btn-radius)}
 .ProductView .stepper .button:last-child{border-radius:0 var(--pc-btn-radius) var(--pc-btn-radius) 0}
 .ProductView .stepper .button .icon{pointer-events:none}
-.ProductView .qtyField{display:flex;align-items:center;justify-content:center;gap:4px;height:100%;padding:0 var(--pc-s2);border:1px solid var(--pc-input);border-inline:0;background:#fff;font:600 16px/1 var(--pc-font);color:var(--pc-text);cursor:text}
+.ProductView .qtyField{display:flex;align-items:center;justify-content:center;gap:4px;height:100%;padding:0 var(--pc-s2);border:1px solid var(--pc-input);border-inline:0;background:#fff;font:400 18px/1 var(--pc-font);color:var(--pc-text);cursor:text}
 .ProductView .qtyField:focus-within{box-shadow:inset 0 0 0 2px var(--pc-primary)}
-.ProductView .qtyField input{flex:0 0 auto;width:3ch;min-width:1ch;max-width:5ch;field-sizing:content;height:1.25em;padding:0;margin:0;border:0;border-radius:0;background:transparent;font:inherit;line-height:1.25;color:inherit;text-align:center;outline:none;color-scheme:light;appearance:textfield;-moz-appearance:textfield}
-@supports (field-sizing:content){.ProductView .qtyField input{width:auto}}
+/* číslo + jednotka jako jeden celek uprostřed: šířku pole určuje skrytá kopie hodnoty (funguje ve všech prohlížečích) */
+.ProductView .qtyNum{display:inline-grid;min-width:1ch}
+.ProductView .qtyNum>*{grid-area:1/1;min-width:0}
+.ProductView .qtyMirror{visibility:hidden;white-space:pre;font:inherit;line-height:1.25}
+.ProductView .qtyField input{width:0;min-width:100%;height:1.25em;padding:0;margin:0;border:0;border-radius:0;background:transparent;font:inherit;line-height:1.25;color:inherit;text-align:center;outline:none;color-scheme:light;appearance:textfield;-moz-appearance:textfield}
 .ProductView .qtyField input::-webkit-outer-spin-button,.ProductView .qtyField input::-webkit-inner-spin-button{-webkit-appearance:none}
 .ProductView .qtyField input.flashA{animation:pcFlashA .6s cubic-bezier(.2,.7,.2,1)}
 .ProductView .qtyField input.flashB{animation:pcFlashB .6s cubic-bezier(.2,.7,.2,1)}
 @keyframes pcFlashA{0%{background:var(--pc-primary-10)}100%{background:transparent}}
 @keyframes pcFlashB{0%{background:var(--pc-primary-10)}100%{background:transparent}}
 .ProductView .qtyUnit{font:inherit;line-height:1.25;color:inherit}
+/* Koupit po přidání do košíku: černá, text „V košíku“ + počet kusů tohoto produktu v košíku */
+.ProductView .button.buy{position:relative}
+.ProductView .button.-main.-inCart{background:#1e1e1e;border-color:#1e1e1e;color:#fff} /* v košíku = černá (barva textu webu), počet kusů v červeném kolečku */
+.ProductView .button.-main.-inCart:hover{background:#000;border-color:#000}
+.ProductView .inCartN{position:absolute;top:-9px;right:-9px;min-width:24px;height:24px;padding:0 6px;border-radius:var(--radius-pill,999px);background:var(--main,#cc0000);color:#fff;font:700 13px/24px var(--pc-font);text-align:center;box-shadow:0 0 0 2px #fff;animation:pcPop .25s cubic-bezier(.2,.8,.2,1)}
+@keyframes pcPop{from{transform:scale(.4)}to{transform:none}}
+/* potvrzení přidání: plynulý přechod do černé, ikona košíku → fajfka, „Koupit“ → „Přidáno“, jemný puls */
+.ProductView .button.buy{transition:background-color .3s ease,border-color .3s ease,color .3s ease}
+.ProductView .button.buy .bIc{display:inline-grid;flex:none}
+.ProductView .button.buy .bIc>.icon{grid-area:1/1;transition:opacity .2s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
+.ProductView .button.buy .icDone{opacity:0;transform:scale(.6)}
+.ProductView .button.buy.-added .icCart{opacity:0;transform:scale(.6)}
+.ProductView .button.buy.-added .icDone{opacity:1;transform:none}
+/* ikonové tlačítko (řádkový výpis): když je produkt v košíku, místo košíku ikona zaškrtnutého checkboxu */
+.ProductView .button.buy .icIn{opacity:0;transform:scale(.6)}
+.ProductView .button.-icon.buy.-inCart:not(.-added) .icCart{opacity:0;transform:scale(.6)}
+.ProductView .button.-icon.buy.-inCart:not(.-added) .icIn{opacity:1;transform:none}
+.ProductView .button.buy .bLbl{display:inline-grid}
+.ProductView .button.buy .bLbl>span{grid-area:1/1;transition:opacity .2s ease,transform .25s ease}
+.ProductView .button.buy .bLbl .l2{opacity:0;transform:translateY(6px)}
+.ProductView .button.buy.-added .bLbl .l1{opacity:0;transform:translateY(-6px)}
+.ProductView .button.buy.-added .bLbl .l2{opacity:1;transform:none}
+.ProductView .button.buy.-added{animation:pcAdded .6s ease-out}
+@keyframes pcAdded{0%{box-shadow:0 0 0 0 rgba(30,30,30,.4)}100%{box-shadow:0 0 0 10px rgba(30,30,30,0)}}
+@media (prefers-reduced-motion:reduce){.ProductView .button.buy,.ProductView .button.buy .bIc>.icon,.ProductView .button.buy .bLbl>span{transition:none}.ProductView .button.buy.-added{animation:none}}
+/* ---- řádkový výpis (view="rows") ---- */
+.ProductView.-row{container:pcrow / inline-size;padding:var(--pc-s3) var(--pc-s4)}
+.ProductView.-row:hover{transform:none}
+.ProductView.-row .rGrid{display:grid;grid-template-columns:96px minmax(0,1fr) auto;grid-template-areas:"img info buy";align-items:center;column-gap:var(--pc-s4);row-gap:var(--pc-s3)}
+.ProductView.-row .rImg{grid-area:img;display:grid;place-items:center;width:96px;height:96px}
+.ProductView.-row .rImg img{max-width:100%;max-height:100%;object-fit:contain}
+.ProductView.-row .rInfo{grid-area:info;position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-width:0}
+.ProductView.-row h2{min-height:0;margin:0;-webkit-line-clamp:2}
+.ProductView.-row .rCode{margin:0;font-size:var(--pc-fs-sm);color:var(--pc-weaker)}
+.ProductView.-row .rParams{display:flex;flex-wrap:wrap;gap:2px var(--pc-s4);font-size:var(--pc-fs-sm);color:rgba(30,30,30,.66)}
+.ProductView.-row .rPar{display:inline-flex;align-items:baseline;gap:4px}
+.ProductView.-row .rPar b{font-weight:600;color:var(--pc-text)}
+.ProductView.-row .rFlags{display:flex;flex-wrap:wrap;gap:4px;margin-top:2px}
+.ProductView.-row .availTip{position:relative}
+.ProductView.-row .availPop{left:-10px;right:auto;width:min(320px,80vw)}
+.ProductView.-row .rBuy{grid-area:buy;display:flex;align-items:center;gap:var(--pc-s4)}
+.ProductView.-row .prices{align-items:flex-end;text-align:right;min-width:96px}
+.ProductView.-row .price.retail[aria-hidden="true"]{display:none}
+.ProductView.-row .AddToCartView{flex-wrap:nowrap}
+.ProductView.-row .AddToCartView a.buy{flex:0 0 auto;width:var(--pc-btn-h);padding:0}
+.ProductView.-row .qtyField{min-width:64px}
+@container pcrow (max-width:620px){
+  .ProductView.-row .rGrid{grid-template-columns:72px minmax(0,1fr);grid-template-areas:"img info" "buy buy";align-items:start}
+  .ProductView.-row .rImg{width:72px;height:72px}
+  .ProductView.-row .rBuy{justify-content:space-between;padding-top:var(--pc-s3);border-top:1px solid var(--pc-line)}
+  .ProductView.-row .prices{align-items:flex-start;text-align:left;min-width:0}
+}
+@container pcrow (max-width:340px){
+  .ProductView.-row .rBuy{flex-wrap:wrap}
+  .ProductView.-row .AddToCartView{flex:1 1 100%}
+  .ProductView.-row .AddToCartView .stepper{flex:1 1 auto}
+  .ProductView.-row .AddToCartView .qtyField{flex:1 1 auto}
+}
 /* úzká karta (vnitřek ≤ 262 px, tj. karta ≤ 300 px): kvantifikátor a Koupit pod sebe – řídí se šířkou karty, ne stránky */
 @container pcbottom (max-width:262px){
   .ProductView .AddToCartView{flex-wrap:wrap}
@@ -108,6 +172,7 @@ body{margin:0}
 @media (prefers-reduced-motion:reduce){.ProductView,.ProductView a.image img,.ProductView .pCode{transition:none}.ProductView:hover{transform:none}.ProductView:hover a.image img{transform:none}.ProductView .availPop,.ProductView .qtyField input{animation:none!important}}
 </style>
 </helmet>
+<sc-if value="{{ isGrid }}" hint-placeholder-val="{{ true }}">
 <div class="ProductView v1c v1 canBuy bs-view HomeProduct">
 <div class="ActionIconsView v1a v1 bs-view big ActionIcons"><div class="icons"><sc-for list="{{ flags }}" as="f" hint-placeholder-count="1"><span class="badge productFlag {{ f.cls }}">{{ f.t }}</span></sc-for></div></div>
 <a class="image" href="{{ href }}"><img class="thumbnail" src="{{ img }}" alt="{{ name }}"><sc-if value="{{ hasCode }}" hint-placeholder-val="{{ true }}"><span class="pCode">{{ codeLabel }}</span></sc-if></a>
@@ -116,44 +181,70 @@ body{margin:0}
 <div class="bottom">
 <div class="availTip" tabindex="0" aria-describedby="{{ tipId }}"><div class="AvailabilityView v1a v1 bs-view {{ avCls }} AvailabilityInfo"><span class="label">{{ av }}</span></div><div class="availPop" id="{{ tipId }}" role="tooltip"><sc-if value="{{ order }}" hint-placeholder-val="{{ false }}"><p>Produkt je <b class="info">na objednávku</b>, naskladníme ho do 5 pracovních dnů.</p><p>Jakmile dorazí, pošleme e-mail a zboží odešleme nebo připravíme k vyzvednutí.</p></sc-if><sc-if value="{{ inStock }}" hint-placeholder-val="{{ true }}"><p>Produkt je <b class="ok">skladem</b> na našem skladu.</p><p>Zboží lze vyzvednout v naší prodejně: <b class="ok">{{ pickup }}</b></p><p>Přepravní společností doručíme: <b>{{ delivery }}</b></p></sc-if><hr><a href="Doprava.dc.html">Doprava a osobní odběr</a></div></div>
 <div class="prices"><span class="price retail" aria-hidden="{{ oldHidden }}"><sc-if value="{{ hasOld }}" hint-placeholder-val="{{ false }}"><span class="sr">{{ oldSr }}</span></sc-if>{{ oldTxt }}</span><span class="price primary vat">{{ price }}</span><span class="price secondary novat">{{ nov }} <small>bez DPH</small></span></div>
-<div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease {{ decCls }}" href="#" aria-label="Snížit množství" onClick="{{ dec }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></svg></a><label class="qtyField"><input class="{{ flashCls }}" type="number" placeholder="1" min="1" aria-label="{{ qLabel }}" value="{{ qty }}" onChange="{{ qch }}"><span class="qtyUnit" aria-hidden="true">{{ unit }}</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ inc }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg></a></div><a class="button -main buy" href="#" aria-label="Koupit {{ name }}" onClick="{{ add }}"><svg viewBox="0 0 256 256" class="icon" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><span>Koupit</span></a></div>
+<div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease {{ decCls }}" href="#" aria-label="Snížit množství" onClick="{{ dec }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ qtyShown }}</span><input class="{{ flashCls }}" type="number" placeholder="1" min="1" aria-label="{{ qLabel }}" value="{{ qty }}" onChange="{{ qch }}"></span><span class="qtyUnit" aria-hidden="true">{{ unit }}</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ inc }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg></a></div><a class="button -main buy {{ inCartCls }}" href="#" aria-label="{{ buyLabel }}" onClick="{{ add }}"><span class="bIc"><svg viewBox="0 0 256 256" class="icon icCart" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><svg viewBox="0 0 256 256" class="icon icDone" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg></span><span class="bLbl"><span class="l1">{{ buyTxt }}</span><span class="l2" aria-hidden="true">Přidáno</span></span><sc-if value="{{ inCartOn }}" hint-placeholder-val="{{ false }}"><span class="inCartN" aria-hidden="true">{{ inCart }}</span></sc-if></a></div>
 </div>
 </div>
+</sc-if>
+<sc-if value="{{ isRow }}" hint-placeholder-val="{{ false }}">
+<div class="ProductView v1c v1 canBuy bs-view -row">
+<div class="rGrid">
+<a class="rImg" href="{{ href }}" tabindex="-1" aria-hidden="true"><img class="thumbnail" src="{{ img }}" alt=""></a>
+<div class="rInfo">
+<h2><a href="{{ href }}">{{ name }}</a></h2>
+<div class="availTip" tabindex="0" aria-describedby="{{ tipId }}"><div class="AvailabilityView v1a v1 bs-view {{ avCls }} AvailabilityInfo"><span class="label">{{ av }}</span></div><div class="availPop" id="{{ tipId }}" role="tooltip"><sc-if value="{{ order }}" hint-placeholder-val="{{ false }}"><p>Produkt je <b class="info">na objednávku</b>, naskladníme ho do 5 pracovních dnů.</p><p>Jakmile dorazí, pošleme e-mail a zboží odešleme nebo připravíme k vyzvednutí.</p></sc-if><sc-if value="{{ inStock }}" hint-placeholder-val="{{ true }}"><p>Produkt je <b class="ok">skladem</b> na našem skladu.</p><p>Zboží lze vyzvednout v naší prodejně: <b class="ok">{{ pickup }}</b></p><p>Přepravní společností doručíme: <b>{{ delivery }}</b></p></sc-if><hr><a href="Doprava.dc.html">Doprava a osobní odběr</a></div></div>
+<sc-if value="{{ hasCode }}" hint-placeholder-val="{{ true }}"><p class="rCode">{{ rCodeLabel }}</p></sc-if>
+<sc-if value="{{ hasPkg }}" hint-placeholder-val="{{ true }}"><div class="rParams"><sc-for list="{{ pkg }}" as="r" hint-placeholder-count="3"><span class="rPar"><b>{{ r.kc }}</b><sc-if value="{{ r.btn }}" hint-placeholder-val="{{ false }}"><button type="button" class="pkgSet" aria-label="{{ r.aria }}" onClick="{{ r.set }}">{{ r.v }}</button></sc-if><sc-if value="{{ r.txt }}" hint-placeholder-val="{{ true }}"><span>{{ r.v }}</span></sc-if></span></sc-for></div></sc-if>
+<sc-if value="{{ hasFlags }}" hint-placeholder-val="{{ true }}"><div class="rFlags"><sc-for list="{{ flags }}" as="f" hint-placeholder-count="1"><span class="badge productFlag {{ f.cls }}">{{ f.t }}</span></sc-for></div></sc-if>
+</div>
+<div class="rBuy">
+<div class="prices"><span class="price retail" aria-hidden="{{ oldHidden }}"><sc-if value="{{ hasOld }}" hint-placeholder-val="{{ false }}"><span class="sr">{{ oldSr }}</span></sc-if>{{ oldTxt }}</span><span class="price primary vat">{{ price }}</span><span class="price secondary novat">{{ nov }} <small>bez DPH</small></span></div>
+<div class="AddToCartView v3a v3 bs-view AddToCart"><div class="stepper"><a class="button -neutral -icon decrease {{ decCls }}" href="#" aria-label="Snížit množství" onClick="{{ dec }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"></path></svg></a><label class="qtyField"><span class="qtyNum"><span class="qtyMirror" aria-hidden="true">{{ qtyShown }}</span><input class="{{ flashCls }}" type="number" placeholder="1" min="1" aria-label="{{ qLabel }}" value="{{ qty }}" onChange="{{ qch }}"></span><span class="qtyUnit" aria-hidden="true">{{ unit }}</span></label><a class="button -neutral -icon increase" href="#" aria-label="Zvýšit množství" onClick="{{ inc }}"><svg viewBox="0 0 256 256" class="icon -xs" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path></svg></a></div><a class="button -main -icon buy {{ inCartCls }}" href="#" aria-label="{{ buyLabel }}" onClick="{{ add }}"><span class="bIc"><svg viewBox="0 0 256 256" class="icon icCart" aria-hidden="true"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"></path></svg><svg viewBox="0 0 256 256" class="icon icDone" aria-hidden="true"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"></path></svg><svg viewBox="0 0 256 256" class="icon icIn" aria-hidden="true"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM224,48V208a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM208,208V48H48V208H208Z"></path></svg></span><sc-if value="{{ inCartOn }}" hint-placeholder-val="{{ false }}"><span class="inCartN" aria-hidden="true">{{ inCart }}</span></sc-if></a></div>
+</div>
+</div>
+</div>
+</sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"p":{"editor":null},"pickup":{"editor":null},"delivery":{"editor":null},"onAdd":{"editor":null},"$preview":{"width":320,"height":700}}'>
+<script type="text/x-dc" data-dc-script data-props='{"p":{"editor":null},"pickup":{"editor":null},"delivery":{"editor":null},"onAdd":{"editor":null},"view":{"editor":"enum","options":["grid","rows"],"default":"grid"},"$preview":{"width":320,"height":700}}'>
 let PC_SEQ = 0;
-const PC_DEMO = { name: 'KG koleno DN 110 - 45°', img: '_blob/7689de5d4afd4ef373fef0fb94b96b10.jpg', code: 'KB97477', unit: 'ks', flags: [{ cls: 'discount', t: '-29%' }],
+const PC_DEMO = { name: 'KG koleno DN 110 - 45°', img: '_blob/7689de5d4afd4ef373fef0fb94b96b10.jpg', code: 'KB97477', flags: [{ cls: 'discount', t: '-29%' }],
   weight: '0,32 kg', pack: 30, pallet: 240, av: 'skladem > 100 ks', old: '50,6 Kč', price: '35,8 Kč', nov: '29,6 Kč' };
 class Component extends DCLogic {
-  constructor(props) { super(props); this.tipId = 'avTip-pc' + (++PC_SEQ); this.state = { qty: '', flash: 0 }; }
+  constructor(props) { super(props); this.tipId = 'avTip-pc' + (++PC_SEQ); this.state = { qty: '', flash: 0, inCart: 0, added: false }; }
+  componentWillUnmount() { clearTimeout(this.aT); }
   setQty(v, flash) { const n = Math.max(1, parseInt(v, 10) || 1); this.setState({ qty: String(n), flash: flash ? this.state.flash + 1 : this.state.flash }); }
   renderVals() {
     const p = this.props.p || PC_DEMO, s = this.state;
-    const unit = p.unit || 'ks', q = parseInt(s.qty, 10) || 1;
+    const unit = 'ks', q = parseInt(s.qty, 10) || 1; /* vše se prodává po kusech */
     const pk = [];
     if (p.weight) pk.push({ k: 'Hmotnost/ks', v: p.weight });
     if (p.pack) pk.push({ k: 'Balení', n: Number(p.pack), what: 'balení' });
     if (p.pallet) pk.push({ k: 'Paleta', n: Number(p.pallet), what: 'paleta' });
     const pkg = pk.map(r => {
-      if (r.v) return { k: r.k, v: r.v, txt: true, btn: false };
+      const kc = r.k + ':';
+      if (r.v) return { k: r.k, kc, v: r.v, txt: true, btn: false };
       const v = r.n + ' ks';
-      if (r.n <= 1) return { k: r.k, v, txt: true, btn: false };
-      return { k: r.k, v, txt: false, btn: true, aria: 'Nastavit množství: ' + r.what + ' ' + v, set: () => this.setQty(r.n, true) };
+      if (r.n <= 1) return { k: r.k, kc, v, txt: true, btn: false };
+      return { k: r.k, kc, v, txt: false, btn: true, aria: 'Nastavit množství: ' + r.what + ' ' + v, set: () => this.setQty(r.n, true) };
     });
     const order = !!p.order;
     return {
+      isRow: this.props.view === 'rows', isGrid: this.props.view !== 'rows',
+      inCart: s.inCart, inCartOn: s.inCart > 0, inCartCls: (s.inCart > 0 ? '-inCart' : '') + (s.added ? ' -added' : ''),
+      buyTxt: s.inCart > 0 ? 'V košíku' : 'Koupit',
+      buyLabel: 'Koupit ' + p.name + (s.inCart > 0 ? ' – v košíku ' + s.inCart + ' ks' : ''),
+      rCodeLabel: 'Kód: ' + (p.code || ''), hasFlags: !!(p.flags && p.flags.length),
       name: p.name, img: p.img, href: p.href || 'Detail.dc.html', codeLabel: 'Kód ' + (p.code || ''), hasCode: !!p.code,
       flags: p.flags || [], pkg, hasPkg: pkg.length > 0,
       tipId: this.tipId, av: p.av || 'skladem', avCls: p.blue ? 'cs_modra' : 'cs_zelena', order, inStock: !order,
       pickup: this.props.pickup || 'zítra', delivery: this.props.delivery || 'pozítří',
       hasOld: !!p.old, oldHidden: p.old ? undefined : 'true', oldTxt: p.old || '\u00a0', oldSr: 'Původní cena ', price: p.price, nov: p.nov,
-      unit, qLabel: unit === 'm' ? 'Množství v metrech' : 'Množství v kusech', qty: s.qty,
+      unit, qLabel: 'Množství v kusech', qty: s.qty, qtyShown: s.qty || '1',
       flashCls: s.flash ? (s.flash % 2 ? 'flashA' : 'flashB') : '',
       decCls: q <= 1 ? 'disabled' : '',
       dec: e => { e.preventDefault(); this.setQty(q - 1); },
       inc: e => { e.preventDefault(); this.setQty(q + 1); },
       qch: e => this.setState({ qty: e.target.value }),
-      add: e => { e.preventDefault(); if (this.props.onAdd) this.props.onAdd(e); }
+      add: e => { e.preventDefault(); const n = parseInt(this.state.qty, 10) || 1; clearTimeout(this.aT); this.setState({ inCart: this.state.inCart + n, added: true }); this.aT = setTimeout(() => this.setState({ added: false }), 1500); if (this.props.onAdd) this.props.onAdd(e); }
     };
   }
 }
