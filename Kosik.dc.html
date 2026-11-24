@@ -677,7 +677,7 @@ const CK = (() => {
 
 
 const { ITEMS, FREE, DEL, PAY, PLACES, fmt } = CK;
-const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') !== 'out'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) {
     super(props);

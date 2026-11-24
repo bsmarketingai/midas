@@ -498,7 +498,7 @@ const ADDR = [
 const ACC = { v: { first: 'Andrea', last: 'Zelená', email: 'andrea.zelena@stavebniny-zelena.cz', phonePre: '+420', phone: '731 482 615', street: 'Husova 1260', city: 'Svitavy', zip: '568 02', ico: '27384915', company: 'Stavebniny Zelená s.r.o.', dic: 'CZ27384915', note: 'Prosím zavolejte 30 minut před doručením, vjezd je ze zadní strany domu.' } };
 const LABEL = { first: 'Jméno', last: 'Příjmení', email: 'E-mail', phone: 'Telefon', street: 'Ulice a číslo popisné', city: 'Město', zip: 'PSČ',
   ico: 'IČ', company: 'Společnost', pw1: 'Heslo', pw2: 'Heslo znovu', dName: 'Jméno a příjmení (dodací adresa)', dStreet: 'Ulice (dodací adresa)', dCity: 'Město (dodací adresa)', dZip: 'PSČ (dodací adresa)' };
-const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') !== 'out'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) {
     super(props);

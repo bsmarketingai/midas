@@ -482,7 +482,7 @@ const VAR = {
   card: { s2: 'Připravujeme k odeslání', s2s: 'Platba přijata, předáme dopravci do 48 hodin' },
   shop: { s2: 'Připravujeme na prodejně', s2s: 'Do 48 hodin' }
 };
-const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') !== 'out'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) { super(props); const st = CK.load() || {}; this.state = { pv: ['gate', 'apple', 'google'].includes(st.pay) ? 'card' : (st.pay === 'shop' ? 'shop' : 'advance'), toast: '', pw: '', accErr: false, accLoad: false, accDone: false }; this.qrCache = {}; }
   componentDidMount() { this.onAuth = e => { if (e && e.type === 'storage' && e.key !== 'midasAuthV1') return; this.authChanged(AUTH_IN()); }; window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth); this.authChanged(AUTH_IN(), true); }

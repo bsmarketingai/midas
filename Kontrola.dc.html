@@ -491,7 +491,7 @@ const CK = (() => {
 })();
 
 
-const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') === 'in'; } catch (e) { return false; } };
+const AUTH_IN = () => { try { return window.localStorage.getItem('midasAuthV1') !== 'out'; } catch (e) { return false; } };
 class Component extends DCLogic {
   constructor(props) { super(props); this.state = { vop: false, tried: false, sending: false, errOpen: false }; }
   componentDidMount() { this.onAuth = e => { if (e && e.type === 'storage' && e.key !== 'midasAuthV1') return; this.authChanged(AUTH_IN()); }; window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth); this.authChanged(AUTH_IN(), true); }

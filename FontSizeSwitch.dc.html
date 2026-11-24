@@ -103,18 +103,18 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     let auth = false;
-    try { auth = localStorage.getItem(AUTH) === 'in'; } catch (e) {}
+    try { auth = localStorage.getItem(AUTH) !== 'out'; } catch (e) {}
     let hero = 'A';
-    try { const r = localStorage.getItem(HERO); hero = r === 'B' || r === 'C' ? r : 'A'; } catch (e) {}
+    try { const r = localStorage.getItem(HERO); hero = r === 'A' || r === 'B' ? r : 'C'; } catch (e) {}
     let menu = 'A';
-    try { menu = localStorage.getItem(MENU) === 'B' ? 'B' : 'A'; } catch (e) {}
+    try { menu = localStorage.getItem(MENU) === 'A' ? 'A' : 'B'; } catch (e) {}
     applyMenu(menu);
     if (menu === 'B') setTimeout(() => window.dispatchEvent(new Event('resize')), 0); /* stránka po načtení přepočte menu B */
     let usp = 'A';
-    try { usp = localStorage.getItem(USP) === 'B' ? 'B' : 'A'; } catch (e) {}
+    try { usp = localStorage.getItem(USP) === 'A' ? 'A' : 'B'; } catch (e) {}
     applyUsp(usp);
     this.state = { open: false, auth, hero, menu, usp };
-    this.onAuth = () => { let v = false, h = 'A', m = 'A', u = 'A'; try { v = localStorage.getItem(AUTH) === 'in'; const r = localStorage.getItem(HERO); h = r === 'B' || r === 'C' ? r : 'A'; m = localStorage.getItem(MENU) === 'B' ? 'B' : 'A'; u = localStorage.getItem(USP) === 'B' ? 'B' : 'A'; } catch (e) {} if (u !== this.state.usp) { applyUsp(u); this.setState({ usp: u }); } if (m !== this.state.menu) { applyMenu(m); window.dispatchEvent(new Event('resize')); } if (v !== this.state.auth || h !== this.state.hero || m !== this.state.menu) this.setState({ auth: v, hero: h, menu: m }); };
+    this.onAuth = () => { let v = false, h = 'A', m = 'A', u = 'A'; try { v = localStorage.getItem(AUTH) !== 'out'; const r = localStorage.getItem(HERO); h = r === 'A' || r === 'B' ? r : 'C'; m = localStorage.getItem(MENU) === 'A' ? 'A' : 'B'; u = localStorage.getItem(USP) === 'A' ? 'A' : 'B'; } catch (e) {} if (u !== this.state.usp) { applyUsp(u); this.setState({ usp: u }); } if (m !== this.state.menu) { applyMenu(m); window.dispatchEvent(new Event('resize')); } if (v !== this.state.auth || h !== this.state.hero || m !== this.state.menu) this.setState({ auth: v, hero: h, menu: m }); };
     this.rootRef = el => { this.rootEl = el; };
     this.onDoc = e => { if (this.state.open && this.rootEl && !this.rootEl.contains(e.target)) this.setState({ open: false }); };
   }

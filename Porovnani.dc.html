@@ -1650,7 +1650,7 @@ const PC_recent = [{"i": "", "hcls": "", "p": {"name": "KG koleno DN 160 - 30°"
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { auth: (() => { try { return localStorage.getItem('midasAuthV1') === 'in'; } catch (x) { return false; } })(), slide: 0, paused: false, count: 0, total: 0, last: null, open: false, ai: false, tab: 'pDDescription', stock: 30000, foot: {}, stuck: false, dn: '', q: '', qsOpen: false,
+    this.state = { auth: (() => { try { return localStorage.getItem('midasAuthV1') !== 'out'; } catch (x) { return false; } })(), slide: 0, paused: false, count: 0, total: 0, last: null, open: false, ai: false, tab: 'pDDescription', stock: 30000, foot: {}, stuck: false, dn: '', q: '', qsOpen: false,
       rows: [{ code: '', qty: '1' }, { code: '', qty: '1' }, { code: '', qty: '1' }], paste: false, pasteText: '', pasteMsg: '', acc: ACC.map(() => ({ on: false, q: 1 })), lines: [], pop: '' };
     this.when = this.computeDates();
     this.countRef = el => { this.countEl = el; };
@@ -1662,7 +1662,7 @@ class Component extends DCLogic {
   setFilter(on) { this.setState({ fOpen: on }); document.body.classList.toggle('filterOpen', on); if (on) setTimeout(() => { const b = document.querySelector('#CompoundFilter .filterClose'); if (b) b.focus(); }, 80); else { const box = document.getElementById('CompoundFilter'), b = document.querySelector('.showCompoundFilter'); if (b && box && box.contains(document.activeElement)) b.focus(); } }
   mergeLines(base, add) { const out = (base || []).map(l => Object.assign({}, l)); add.forEach(a => { if (!a || !a.name) return; const f = out.find(l => l.name === a.name); if (f) f.q += a.q; else out.push(Object.assign({}, a)); }); return out; }
   componentDidMount() {
-    this.onAuth = () => { let v = false; try { v = localStorage.getItem('midasAuthV1') === 'in'; } catch (x) {} if (v !== this.state.auth) this.setState({ auth: v, pop: !v && this.state.pop === 'user' ? '' : this.state.pop }); };
+    this.onAuth = () => { let v = false; try { v = localStorage.getItem('midasAuthV1') !== 'out'; } catch (x) {} if (v !== this.state.auth) this.setState({ auth: v, pop: !v && this.state.pop === 'user' ? '' : this.state.pop }); };
     window.addEventListener('midas-auth', this.onAuth); window.addEventListener('storage', this.onAuth);
     this.chipT = setTimeout(() => this.syncChips(), 80);
     this.navT = setTimeout(() => {
@@ -1700,7 +1700,7 @@ class Component extends DCLogic {
     /* Menu B ≥1440: každé položce nastaví šířku názvu (1 nebo 2 vyvážené řádky) tak, aby zbylé místo dostaly všechny položky stejně
        → stejné odsazení textu zleva i zprava u krátkých i dvouřádkových názvů. Krátké názvy se nechají na 1 řádku, dokud je místo. */
     this.menuFit = () => { const nav = document.getElementById('MenuCategories'); if (!nav) return; const names = [...nav.querySelectorAll('ul.root > li.level_0 .name')]; if (!names.length) return;
-      let mB = document.documentElement.dataset.menu === 'B'; try { mB = mB || localStorage.getItem('midasMenuV1') === 'B'; } catch (e) {} if (mB) document.documentElement.dataset.menu = 'B'; if (!(mB && window.innerWidth >= 1440)) { names.forEach(n => n.style.removeProperty('width')); return; }
+      let mB = document.documentElement.dataset.menu === 'B'; try { mB = mB || localStorage.getItem('midasMenuV1') !== 'A'; } catch (e) {} if (mB) document.documentElement.dataset.menu = 'B'; if (!(mB && window.innerWidth >= 1440)) { names.forEach(n => n.style.removeProperty('width')); return; }
       const ul = nav.querySelector('ul.root'), cs = getComputedStyle(names[0]), c = (this.mfCanvas = this.mfCanvas || document.createElement('canvas')).getContext('2d'); c.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily; const m = t => c.measureText(t).width;
       const items = names.map(n => { const w = n.textContent.trim().split(/\s+/), one = m(w.join(' ')); let two = one; for (let k = 1; k < w.length; k++) two = Math.min(two, Math.max(m(w.slice(0, k).join(' ')), m(w.slice(k).join(' ')))); return { n, one, two, cur: two }; });
       const pad = parseFloat(getComputedStyle(names[0].parentElement).paddingLeft) * 2 + 1, minSide = 12, avail = ul.clientWidth;
