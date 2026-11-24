@@ -284,7 +284,8 @@ h1,h2,h3,h4{margin:0;text-wrap:balance;line-height:1.2}
 }
 @media (max-width:549px){
   .usp{grid-template-columns:1fr 1fr}
-  .ProductsView .items{grid-auto-columns:calc(100% - 24px)}
+  .ProductsView .items{grid-auto-columns:min(78%,320px)} /* užší karta – vykoukne víc další karty */
+  .ProductsView .items .ProductView a.image{aspect-ratio:auto;height:170px} /* nižší fotka – celá karta se vejde na výšku displeje */
   .FooterView .uc-footer{grid-template-columns:1fr}
 
 }
